@@ -1,0 +1,70 @@
+# ROADMAP — ctxcheck
+
+No dates. Milestones have **exit criteria**; units (see LEARNING.md) are sized by understanding. If studies or grades need the time, pause; the roadmap is a sequence, not a schedule.
+
+## Pace rules
+- Cap weekly hours explicitly (decide yours; write it in `docs/notebook/`). If grades slip, the project pauses, not the grades.
+- A milestone is "done" only when exit criteria hold **and** its gates are passed.
+- Prefer a thin vertical slice that works end to end over a deep layer that cannot be seen.
+
+## Milestones
+
+### M0 — Spine
+Repo, docs in place, `make check`, CI skeleton, secrets scan, working-name decision (ADR-009), PRIOR_ART verification tasks done and recorded.
+Exit: a fresh clone passes `make check` offline; PRIOR_ART open tasks answered; first ledger entry exists.
+Units: U0 (token ledger can come right after).
+
+### M1 — First light (vertical slice, public)
+Trace schema v0, token ledger on a **synthetic but real-tokenized** fixture session, flight recorder web view (strata view only), step permalinks, deployed static site.
+Exit: a public URL; a stranger opens a run, scrubs steps, copies a permalink to one step. No API key anywhere.
+Post 1 (tag `built`): the recorder and what surprised you about where tokens go. Ask only genuine questions.
+
+### M2 — Harness and replay
+Own harness loop, tools, provider adapters, cassettes, budget guard, deterministic replay. The recorder now renders a **real** run.
+Exit: one scripted scenario runs live under a cap, is recorded, and replays offline byte-for-byte in a test. Gates G1, G2.
+
+### M3 — Policies
+`recency_truncate`, `head_tail`, `llm_summary`, `observation_mask`, with property tests for the five invariants. The recorder shows policy effects; deterministic policies can be re-applied to a recorded run in the browser (label: **simulated**).
+Exit: all invariants pass under property tests; the UI clearly separates recorded from simulated. Gate G3.
+
+### M4 — Canaries and first measurement
+`constraint` and `identifier` packs with two-sided grader fixtures, runner with resume, stats module, EXP-001 preregistered and run, survival heatmap page.
+Exit: a measured result with intervals reproducible from cassettes with one command, replicate or honest null. Gates G4, G5.
+Post 2 (tag `measured` or `broke`): the replication and what it did or did not show.
+
+### M5 — Rigor and write-up
+EXP-002 and EXP-003, optional EXP-004, `check_claims.py` in CI, threats-to-validity section, counterfactual-fork view, README and lab notebook polished, v0.1 tag.
+Exit: README alone lets a stranger reproduce the headline result and add a policy file.
+Post 3 (tag `measured`): the policy comparison and dose-response curve with intervals.
+
+### M6 — Productize
+CLI plugin loading (`ctxcheck run --policy ./mine.py --pack constraint`), example GitHub Action, packaging, docs for contributors.
+Exit: `pip install` works and a user's own policy file runs against a pack and gates CI.
+
+## Scope fence (v0.1 = M0 to M5; M6 optional but intended)
+Anything not in PROJECT.md "In" goes to Later below with a trigger. Do not build Later items "while you're there".
+
+## Later (with triggers, not promises)
+| Item | Trigger to start |
+|---|---|
+| Pinning, offload, reset+handoff policies | v0.1 shipped and EXP-002 done |
+| Canary packs: failed_approach, decision_rationale, preference, execution_state, superseded_fact | After EXP-001 outcome is understood; pick by what real harnesses seem to forget |
+| Import real session logs (Claude Code/Codex JSONL) to trace v0 | A concrete user or post comment asks for it, and the trace schema is stable |
+| MCP wrapper (`run_canaries`, `explain_loss`) | M6 shipped |
+| Compaction-targeted injection pack | EXP-001 done and a threat model is written |
+| Slipstream-style async validation as a policy | After TRACE/ARC/Slipstream are read in full and you can state what is novel to add |
+| Adapter for a real harness's compaction hook (Pydantic AI, Strands) | M6 shipped, and you have read that harness's compaction code |
+| Integration with your other two projects (tool-surface lab, telemetry probes) via the shared trace schema | Each project stands alone first; integrate only when both have a stable v0.1 |
+| Upstream contribution (e.g. canary cases as an eval in a harness repo) | A maintainer agrees on scope in an issue first; no unsolicited PRs |
+
+## Pivot protocol
+Direction changes (from results, new papers, or learning) follow: write ADR in DECISIONS.md → update affected docs → notebook entry → then code. A killed idea is documented, not deleted. Pivot triggers worth watching:
+- PRIOR_ART verification shows an existing practitioner tool equivalent to ours: re-scope the tool/playground layers.
+- EXP-001 is a clean null: investigate scenario realism, then decide whether to extend or reframe the project around the null.
+- Costs exceed the cap: reduce models/trials, not rigor.
+
+## Evolution hooks already in place
+Stable seams (trace schema, four interfaces) · plugin-by-file · versioned results · cassettes. These are what allow the project to grow without rewriting.
+
+## Posting cadence and honesty
+Three posts (M1, M4, M5). Each: one idea, one diagram or screenshot, epistemic tag, a permalink to the exact step shown, and the limits stated up front. Draft posts in `docs/notebook/`.

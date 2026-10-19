@@ -1,0 +1,47 @@
+# PRIOR ART — what exists, and how much of it has actually been read
+
+Status legend: **[read]** the text was read in full or in the relevant part; **[abstract]** only the abstract/snippet was seen; **[second-hand]** a secondary source reported it; **[unverified]** recalled or inferred, must be checked before relying on it.
+
+Dates of searches: October 2026. This landscape moves fast; re-check before any public claim.
+
+## Core compaction research
+
+| Work | What it does | Status |
+|---|---|---|
+| **Governance Decay / ConstraintRot** (Chen, arXiv 2606.22528) | Benchmark of 9 scenarios (5 soft org policies, 4 hard safety norms), deterministic grading on the emitted tool call. Conditions: floor, control, compaction, attacks, pinning defense. 7 models. Reports violation rising from 0% (control) to **37% pooled** (abstract says "up to 59%", possibly a per-condition peak) after one compaction; soft policies +50 pts vs hard norms +6 pts; recency-truncate worst (38%), hierarchical (36%), LLM summarize (26%), head_tail 0%; Constraint Pinning 0% under every strategy; n=27 per cell, 9 tasks × 3 reps = 1,323 episodes. **Note:** the prior version of this doc said "30% pooled" — that figure has not been traced to a primary-source passage; the HTML v2 body reads 37%. Verify from the full PDF before reporting either number. **No public code/scenario/grader release found as of Oct 2026** (GitHub search: nothing). Scenarios and grader must be reimplemented from paper text; compaction prompts are in the supplementary material, not yet accessed. | **[read-html-v2]** (arXiv HTML v2 body; PDF abstract partially seen; supplementary material not accessed) |
+| **Slipstream** (Chen et al., Princeton, arXiv 2605.08580) | Asynchronous compaction: the agent keeps running on the uncompacted context while a compactor runs in parallel, then a judge validates the summary against the agent's next-k steps. | **[abstract]** |
+| **TRACE** (Min, Wu, Darbari et al., arXiv 2608.06503, Aug 2026) "Toward Reliable Context Compression for Long-Horizon Agents: An Empirical Study of Execution Instability" | Studies **execution-state mislocalization**: after compression the agent loses track of which steps are done, causing re-execution of completed steps or skipping pending ones. Proposes a mitigation for "frozen agents". This directly motivates the `execution_state` canary type in EVAL_DESIGN (currently in Later). | **[abstract + title read]** full paper not accessed; relevant to Later canary type; no change to v0.1 scope |
+| **ARC: Addressable Recall Compaction** (Dang et al., arXiv 2607.25066) "Addressable Recall Compaction for Long Context-Window Control in AI Agents" | **Strictly lossless** compaction via archival storage + addressable recall: content is archived with an id; later turns that need it retrieve it by id rather than relying on the summary. Fundamentally different paradigm from what ctxcheck tests — ARC is an algorithm to prevent loss, not a testing tool for lossy policies. Our `observation_mask` policy (replace observation with a reference tag) is conceptually adjacent but much simpler and has no retrieval. **`addressable recall` canary type requires more thought**: a canary that tests whether a harness's recall mechanism works is a valid v1 idea, but irrelevant to v0.1 which studies lossy policies. No change to scope. | **[abstract + title read]** full paper not accessed; no change to v0.1 scope or canary list |
+| **ACON** (Kang et al., arXiv 2510.00615) | Optimizing context compression for long-horizon agents. | **[unverified]** (title only, cited by ConstraintRot) |
+| **Ghost in the Context** (Santos-Grueiro, arXiv 2605.12535) | "Policy-carriage failures" in decision-time context assembly; proposes SafeContext (pins control state). | **[second-hand]** (described in ConstraintRot related work) |
+| **Lost in Compaction** / "What does context compression cost an agent" | Compaction can fail via attention rather than deletion: keyword search recovers facts the model cannot recall from the compacted zone. | **[abstract]** (snippet from one paper's related-work section) |
+| **Factory.ai compression evaluation** (factory.com/news/evaluating-compression, Dec 16 2025) | Evaluates three compaction approaches (Factory Dragonfly, Anthropic Claude summarisation, OpenAI summarisation) using a probe-based LLM judge scoring 0–5. Scores: Factory 3.70, Anthropic 3.44, OpenAI 3.35 out of 5.0; artefact trail sub-task scored lowest (≈2.45/5.0). **The "37% multi-session retention" figure in the original PRIOR_ART entry is NOT in this primary source** — it appeared in morphllm.com's summary table (label "Multi-Session Retention: 37%") and appears to be that site's own reframing. Drop the 37% figure from all docs; report quality scores instead. | **[read]** primary source at factory.com; morphllm.com figure removed |
+
+## Harness engineering context
+| Work | Why it matters here | Status |
+|---|---|---|
+| **Marmelab, "The State of AI Harness Engineering 2026"** | 246 repos, 57 publications. 60% of 97 harnesses had neither test nor eval; only one of 26 with eval cases published a before/after. Notes the "remove 80% of tools" claim is unreproduced. Quotes Anthropic: context resets built for one model became dead weight on a newer one. | **[read]** |
+| **Anthropic engineering posts** (5 posts, Sep 2025 – Apr 2026): "Effective context engineering" (Sep 29 2025); "Effective harnesses for long-running agents" (Nov 2025); "Demystifying evals for AI agents" (Jan 2026); "Harness design for long-running application development" (Mar 2026); "Scaling Managed Agents" (Apr 2026). | Core vocabulary and key behaviours: **compaction** = summarising a near-full conversation and starting a fresh window; preserves decisions, bugs, implementation details; discards redundant tool outputs. "Art of compaction lies in selection." **Tool result clearing** = lighter form — replaces tool outputs only, not history. **Resets** also mentioned as a pattern. "Start by maximising recall … then iterate to improve precision by eliminating superfluous content." The cache hierarchy (tools → system → messages) means compaction always invalidates the message-level cache. | **[read]** all five posts confirmed; URLs verified |
+| **Atlan Frontier essays (Argus, Relay, content engine)** and the Context & Chaos context-layer article | Atlan's framing: working/episodic memory near the harness; traces promoted to durable context; context governance. Argus: judge variance, instrument validity. | **[read]** |
+| **MemGPT** (Packer et al., 2023, arXiv 2310.08560) | The "context window as RAM / LLM as OS" lineage. | **[unverified]** (cited by ConstraintRot) |
+| **Lost in the Middle** (Liu et al., TACL 2024); **Context Rot** (Chroma, 2025) | Why long contexts degrade independent of compaction. Needed for the length-matched control. | **[unverified]** (cited by ConstraintRot) |
+
+## Crowding assessment (my judgment, as of October 2026)
+- The *constraint* canary is already well covered by ConstraintRot. Our version is a **replication on our own harness**, not a discovery.
+- Candidate gaps for extension (**all [unverified] as gaps**): non-constraint canary types (exact identifiers, failed approaches, superseded facts, execution state); behavioural grading across *policies including masking/offload/reset*; and, most importantly, a **practitioner-facing playground and CI tool**. Slipstream/TRACE are systems and studies, not testing tools, as far as I could tell.
+- Honest consequence: if any open verification task below finds an existing equivalent tool, the *tool and playground layers* must differentiate on UX, scope or rigor, and the pivot protocol applies.
+
+## Open verification tasks (do these in the first session, report back)
+1. Find ConstraintRot's released code/scenarios/grader. Confirm the licence. Can scenarios be vendored with attribution, or should we reimplement from the paper?
+2. Read the supplementary material or appendix if available, in particular the compaction prompts and the "summary budget" definition.
+3. Search for existing session viewers for coding-agent contexts (for example claude-devtools or similar) and any CI-style compaction testing tool. Write a short comparison: what they show, what they do not.
+4. Read Anthropic's primary posts on context engineering and long-running harnesses. Note the exact compaction/reset behaviours described.
+5. Read the TRACE and ARC papers beyond the abstract. Decide whether "execution_state" and "addressable recall" change our policy or canary list.
+6. Check name availability for the working name on PyPI and GitHub; record the outcome in ADR-009.
+7. Read the Factory.ai primary source for the retention figure, or drop the figure from all docs.
+8. Verify provider facts you will rely on (how prompt caching treats edited prefixes; how tool-use/tool-result pairing is enforced) from provider docs, not memory. Record sources in `docs/notebook/`.
+
+## How prior art is used in this project
+- ConstraintRot supplies the *experimental skeleton* (floor / control / compaction conditions, deterministic tool-call grading, soft vs hard policies, budget sweep, compactor×agent crossing). We credit it prominently and replicate before extending.
+- Marmelab/Atlan supply the *epistemic stance* (measure, publish uncertainty, test both sides).
+- Everything else is reading material and a source of canary ideas, flagged by status above.

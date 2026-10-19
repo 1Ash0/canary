@@ -1,0 +1,43 @@
+name: check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          version: "latest"
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync --dev
+
+      - name: Secrets scan
+        run: |
+          if grep -rn \
+            -e "sk-ant-api" \
+            -e "ANTHROPIC_API_KEY\s*=\s*['\"]" \
+            -e "OPENAI_API_KEY\s*=\s*['\"]" \
+            src/ tests/ scripts/ ; then
+            echo "ERROR: possible API key literal in source"
+            exit 1
+          fi
+          echo "secrets scan: ok"
+
+      - name: Lint (ruff)
+        run: uv run ruff check src/ tests/ scripts/
+
+      - name: Types (pyright)
+        run: uv run pyright src/
+
+      - name: Tests — offline collect-only
+        run: uv run pytest tests/ --co -q
