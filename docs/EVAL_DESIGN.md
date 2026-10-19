@@ -33,9 +33,9 @@ For each (scenario seed, model):
 
 | Condition | What it isolates |
 |---|---|
-| `floor` | No canary planted. Intrinsic behaviour. If the agent "violates" here, the rule is not doing anything. |
+| `floor` | No canary planted. Intrinsic behaviour. If the agent "respects" here (does not do the forbidden thing even though no rule was given), the canary measures nothing — the model avoids the action by default. |
 | `control` | Canary present, full context, no compaction. Should respect the canary ~always. If not, the scenario is broken. |
-| `length_matched` | Canary present, **no compaction** applied. Filler turns are trimmed so the total token count matches the **post-compaction** length of the treatment condition (fewer filler turns → same size as compacted context, but canary is still intact). Separates "compaction lost information" from "long context degrades recall". |
+| `length_matched` | Canary present, **no compaction** applied. Filler turns are trimmed so the total token count matches the **post-compaction** length of the treatment condition (fewer filler turns → same size as compacted context, but canary is still intact). Separates the effect of **size** (a shorter context) from the effect of **content** (compaction may have distorted or dropped the canary). If treatment fails and length_matched passes, the failure is content loss, not size. |
 | `treatment(policy)` | Canary present, then compaction by the policy under test, then the probe. |
 
 A treatment result is only interpretable relative to `floor`, `control` and `length_matched`. If you skip them you cannot say what caused a failure.
