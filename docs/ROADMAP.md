@@ -17,6 +17,13 @@ Units: U0 (token ledger can come right after).
 ### M1 — First light (vertical slice, public)
 Trace schema v0, token ledger on a **synthetic but real-tokenized** fixture session, flight recorder web view (strata view only), step permalinks, deployed static site.
 Exit: a public URL; a stranger opens a run, scrubs steps, copies a permalink to one step. No API key anywhere.
+
+**Product exits (all required before M1 is done):**
+1. **Name confirmed.** Run `pip index versions ctxcheck` (or `pip install ctxcheck --dry-run`). If taken, pick a new name and update all refs before publishing anything. A name change after a public URL exists is painful.
+2. **README hero.** First screen of README states the problem with a number: the 37% finding from ConstraintRot (tagged `[reproduced by third party]`), what ctxcheck measures, and one playground screenshot. No install required to understand what the tool does.
+3. **Playground ships with a complete mock experiment.** At minimum: two conditions (control vs recency_truncate), 10 mock trials, violation rate with Wilson interval, strata view showing one dropped canary highlighted in red. A visitor sees a real result before touching the CLI.
+4. **Positioning copy.** One paragraph above the fold: who this is for, what it reveals, why the confidence intervals matter. Not a feature list.
+
 Post 1 (tag `built`): the recorder and what surprised you about where tokens go. Ask only genuine questions.
 
 ### M2 — Harness and replay
