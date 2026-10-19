@@ -387,129 +387,139 @@ const BAYER8 = [
   [63,31,55,23,61,29,53,21]
 ].map(r => r.map(v => v / 64));
 
-// Draw a recognizable canary bird — the dither subject.
-// Bright yellow/gold body against pure black: high contrast
-// so the Bayer dither produces a clear bird silhouette.
-function drawBirdSource(ctx, W, H) {
+// Creation of Adam — two hands reaching toward each other across a gap.
+// Warm cream skin on pure black; blue-purple cool shadows.
+// High contrast (1.58×) pushes bright skin to near-white pixel clusters;
+// shadow areas produce sparse blue-tinted dots — matches the reference.
+function drawHandsSource(ctx, W, H) {
   ctx.fillStyle = '#000';
   ctx.fillRect(0, 0, W, H);
 
-  const cx = W * 0.52, cy = H * 0.46, S = Math.min(W, H) * 0.31;
+  const HILIT = '#f8f0e0';
+  const SKIN  = '#ddc898';
+  const SHADE = '#8a6840';
+  const COOL  = 'rgba(42,68,165,.52)';
 
-  // Warm ambient glow
-  const amb = ctx.createRadialGradient(cx, cy, 0, cx, cy, S * 2.2);
-  amb.addColorStop(0,   'rgba(90,58,0,.65)');
-  amb.addColorStop(.45, 'rgba(40,22,0,.3)');
-  amb.addColorStop(1,   'transparent');
-  ctx.fillStyle = amb; ctx.fillRect(0, 0, W, H);
-
-  // ─── tail feathers ───────────────────────────────
-  ctx.beginPath();
-  ctx.moveTo(cx - S*.18, cy + S*.08);
-  ctx.bezierCurveTo(cx - S*.52, cy - S*.08, cx - S*.72, cy + S*.28, cx - S*.66, cy + S*.52);
-  ctx.bezierCurveTo(cx - S*.6,  cy + S*.62, cx - S*.36, cy + S*.52, cx - S*.18, cy + S*.08);
-  const tg = ctx.createLinearGradient(cx - S*.72, cy, cx - S*.18, cy + S*.3);
-  tg.addColorStop(0, '#6a4800'); tg.addColorStop(1, '#c48010');
-  ctx.fillStyle = tg; ctx.fill();
-
-  // tail highlight feathers (separate strands)
-  [-.58, -.64, -.68].forEach((ox, i) => {
+  function finger(ctx, x0, y0, x1, y1, w, hilit, skin, shade) {
+    const dx = x1 - x0, dy = y1 - y0, len = Math.hypot(dx, dy);
+    const nx = -dy/len, ny = dx/len;
     ctx.beginPath();
-    ctx.moveTo(cx + ox*S*.5, cy + S*.35);
-    ctx.lineTo(cx - S*(0.62 + i*.04), cy + S*.5);
-    ctx.strokeStyle = `rgba(200,140,10,${.4 - i*.1})`;
-    ctx.lineWidth = 1.5;
-    ctx.stroke();
-  });
-
-  // ─── wing (main) ─────────────────────────────────
-  ctx.beginPath();
-  ctx.moveTo(cx - S*.14, cy - S*.08);
-  ctx.bezierCurveTo(cx - S*.32, cy - S*.54, cx + S*.18, cy - S*.62, cx + S*.36, cy - S*.38);
-  ctx.bezierCurveTo(cx + S*.42, cy - S*.22, cx + S*.22, cy - S*.06, cx - S*.14, cy - S*.08);
-  const wg = ctx.createLinearGradient(cx - S*.32, cy - S*.54, cx + S*.36, cy - S*.08);
-  wg.addColorStop(0,   '#f5c518');
-  wg.addColorStop(.45, '#d4a017');
-  wg.addColorStop(1,   '#a87a0a');
-  ctx.fillStyle = wg; ctx.fill();
-
-  // wing feather texture lines
-  for (let i = 0; i < 5; i++) {
-    const t = i / 5;
-    const wx = cx - S*.3 + t * S*.6;
-    const wy = cy - S*.5 + t * S*.15;
-    ctx.beginPath();
-    ctx.moveTo(wx, wy);
-    ctx.lineTo(wx + S*.1, wy + S*.18);
-    ctx.strokeStyle = `rgba(255,200,30,${.3 - t*.05})`;
-    ctx.lineWidth = 1;
-    ctx.stroke();
+    ctx.moveTo(x0 + nx*w, y0 + ny*w);
+    ctx.bezierCurveTo(x0+nx*w+dx*.35, y0+ny*w+dy*.35, x1+nx*w-dx*.18, y1+ny*w, x1+nx*w*.4, y1+ny*w*.4);
+    ctx.bezierCurveTo(x1-nx*w*.4, y1-ny*w*.4, x1-nx*w-dx*.18, y1-ny*w, x0-nx*w+dx*.35, y0-ny*w+dy*.35);
+    ctx.closePath();
+    const grad = ctx.createLinearGradient(x0+nx*w, y0+ny*w, x0-nx*w, y0-ny*w);
+    grad.addColorStop(0, hilit); grad.addColorStop(.45, skin); grad.addColorStop(1, shade);
+    ctx.fillStyle = grad; ctx.fill();
+    // knuckle highlights
+    [.28,.56,.80].forEach(t => {
+      ctx.beginPath();
+      ctx.arc(x0+dx*t + nx*w*.12, y0+dy*t + ny*w*.12, w*.28, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(255,252,242,.48)'; ctx.fill();
+    });
   }
 
-  // ─── body ────────────────────────────────────────
-  ctx.beginPath();
-  ctx.ellipse(cx + S*.04, cy + S*.12, S*.28, S*.22, .22, 0, Math.PI*2);
-  const bg = ctx.createRadialGradient(cx + S*.1, cy, S*.04, cx + S*.04, cy + S*.12, S*.3);
-  bg.addColorStop(0, '#fff580'); bg.addColorStop(.4,'#f5c518'); bg.addColorStop(1,'#c48b0e');
-  ctx.fillStyle = bg; ctx.fill();
+  // ── LEFT HAND (Adam) — from left, index points right ────────────
+  const LY = H * .57, LS = H * .30;
 
-  // breast highlight
+  // forearm
   ctx.beginPath();
-  ctx.ellipse(cx + S*.2, cy + S*.18, S*.1, S*.14, .15, 0, Math.PI*2);
-  ctx.fillStyle = 'rgba(255,248,160,.48)'; ctx.fill();
+  ctx.moveTo(0, LY - LS*.20);
+  ctx.bezierCurveTo(W*.12, LY - LS*.22, W*.26, LY - LS*.22, W*.32, LY - LS*.18);
+  ctx.lineTo(W*.32, LY + LS*.16);
+  ctx.bezierCurveTo(W*.26, LY + LS*.18, W*.12, LY + LS*.18, 0, LY + LS*.16);
+  ctx.closePath();
+  {const g=ctx.createLinearGradient(0,LY-LS*.2,0,LY+LS*.16);
+   g.addColorStop(0,HILIT);g.addColorStop(.4,SKIN);g.addColorStop(1,SHADE);
+   ctx.fillStyle=g;ctx.fill();}
+  ctx.save();ctx.clip();
+  ctx.fillStyle=COOL;ctx.fillRect(0,LY+LS*.04,W*.34,LS*.15);
+  ctx.restore();
 
-  // ─── neck ────────────────────────────────────────
+  // palm
   ctx.beginPath();
-  ctx.moveTo(cx + S*.18, cy - S*.02);
-  ctx.bezierCurveTo(cx + S*.22, cy - S*.1, cx + S*.28, cy - S*.16, cx + S*.3, cy - S*.2);
-  ctx.bezierCurveTo(cx + S*.32, cy - S*.24, cx + S*.34, cy - S*.24, cx + S*.3, cy - S*.2);
-  ctx.strokeStyle = '#f5c518'; ctx.lineWidth = S*.08; ctx.lineCap = 'round'; ctx.stroke();
+  ctx.moveTo(W*.30, LY - LS*.24);
+  ctx.bezierCurveTo(W*.38, LY - LS*.26, W*.46, LY - LS*.20, W*.45, LY - LS*.02);
+  ctx.bezierCurveTo(W*.44, LY + LS*.14, W*.38, LY + LS*.22, W*.28, LY + LS*.22);
+  ctx.bezierCurveTo(W*.20, LY + LS*.22, W*.28, LY + LS*.18, W*.30, LY - LS*.24);
+  ctx.closePath();
+  {const g=ctx.createRadialGradient(W*.37,LY-LS*.05,LS*.02,W*.37,LY,LS*.26);
+   g.addColorStop(0,HILIT);g.addColorStop(.5,SKIN);g.addColorStop(1,SHADE);
+   ctx.fillStyle=g;ctx.fill();}
 
-  // ─── head ────────────────────────────────────────
-  ctx.beginPath();
-  ctx.arc(cx + S*.3, cy - S*.17, S*.16, 0, Math.PI*2);
-  const hg = ctx.createRadialGradient(cx + S*.33, cy - S*.22, S*.02, cx + S*.3, cy - S*.17, S*.17);
-  hg.addColorStop(0,'#fff890'); hg.addColorStop(.35,'#f5c518'); hg.addColorStop(1,'#c08810');
-  ctx.fillStyle = hg; ctx.fill();
-
-  // crown tuft
-  ctx.beginPath();
-  ctx.moveTo(cx + S*.28, cy - S*.33);
-  ctx.bezierCurveTo(cx + S*.3, cy - S*.44, cx + S*.38, cy - S*.42, cx + S*.36, cy - S*.33);
-  ctx.strokeStyle = '#f5c518'; ctx.lineWidth = 2; ctx.stroke();
-  ctx.beginPath();
-  ctx.moveTo(cx + S*.32, cy - S*.33);
-  ctx.bezierCurveTo(cx + S*.36, cy - S*.46, ctx.canvas ? cx + S*.44 : cx + S*.44, cy - S*.42, cx + S*.42, cy - S*.32);
-  ctx.strokeStyle = '#d4a017'; ctx.lineWidth = 1.5; ctx.stroke();
-
-  // ─── beak ────────────────────────────────────────
-  ctx.beginPath();
-  ctx.moveTo(cx + S*.46, cy - S*.18);
-  ctx.lineTo(cx + S*.64, cy - S*.12);
-  ctx.lineTo(cx + S*.46, cy - S*.1);
-  ctx.fillStyle = '#c8720a'; ctx.fill();
-  ctx.beginPath();
-  ctx.moveTo(cx + S*.46, cy - S*.1);
-  ctx.lineTo(cx + S*.62, cy - S*.07);
-  ctx.lineTo(cx + S*.46, cy - S*.05);
-  ctx.fillStyle = '#a05808'; ctx.fill();
-
-  // ─── eye ─────────────────────────────────────────
-  ctx.beginPath(); ctx.arc(cx + S*.37, cy - S*.22, S*.043, 0, Math.PI*2);
-  ctx.fillStyle = '#100e00'; ctx.fill();
-  ctx.beginPath(); ctx.arc(cx + S*.375, cy - S*.225, S*.014, 0, Math.PI*2);
-  ctx.fillStyle = '#fffff0'; ctx.fill();
-
-  // ─── feet / perch ────────────────────────────────
-  const footColor = '#9a7000';
-  ctx.strokeStyle = footColor; ctx.lineWidth = Math.max(1.2, S*.022); ctx.lineCap = 'round';
-  [[S*.04, S*.12], [S*.16, S*.12]].forEach(([ox, ow]) => {
-    const fx = cx + ox, fy = cy + S*.32, ty = cy + S*.48;
-    ctx.beginPath(); ctx.moveTo(fx, fy); ctx.lineTo(fx - ow*.2, ty); ctx.stroke();
-    [-.14,0,.12,.22].forEach(dx => {
-      ctx.beginPath(); ctx.moveTo(fx - ow*.2, ty); ctx.lineTo(fx + dx*S, ty + S*.06); ctx.stroke();
-    });
+  // fingers (index longest, pointing right)
+  const lBase = {x: W*.45, y: LY - LS*.04};
+  [
+    {ox:0,   oy:-LS*.21, ex:W*.48, ey:LY-LS*.22, w:LS*.090},  // index
+    {ox:0,   oy:-LS*.10, ex:W*.46, ey:LY-LS*.13, w:LS*.082},  // middle
+    {ox:0,   oy: LS*.02, ex:W*.44, ey:LY-LS*.03, w:LS*.076},  // ring
+    {ox:0,   oy: LS*.14, ex:W*.41, ey:LY+LS*.10, w:LS*.064},  // pinky
+  ].forEach(f => {
+    finger(ctx,
+      lBase.x, lBase.y + f.oy,
+      f.ex, f.ey,
+      f.w, HILIT, SKIN, SHADE);
   });
+
+  // thumb
+  ctx.beginPath();
+  ctx.moveTo(W*.34, LY + LS*.18);
+  ctx.bezierCurveTo(W*.38,LY+LS*.24, W*.44,LY+LS*.24, W*.46,LY+LS*.18);
+  ctx.bezierCurveTo(W*.47,LY+LS*.12, W*.43,LY+LS*.06, W*.37,LY+LS*.08);
+  ctx.bezierCurveTo(W*.33,LY+LS*.10, W*.33,LY+LS*.14, W*.34,LY+LS*.18);
+  {const g=ctx.createLinearGradient(W*.34,LY+LS*.06,W*.34,LY+LS*.24);
+   g.addColorStop(0,HILIT);g.addColorStop(1,SHADE);ctx.fillStyle=g;ctx.fill();}
+
+  // ── RIGHT HAND (God) — from right, index points left ────────────
+  const RY = H * .42, RS = H * .28;
+
+  // forearm
+  ctx.beginPath();
+  ctx.moveTo(W, RY - RS*.18);
+  ctx.bezierCurveTo(W*.88, RY - RS*.20, W*.72, RY - RS*.20, W*.68, RY - RS*.16);
+  ctx.lineTo(W*.68, RY + RS*.14);
+  ctx.bezierCurveTo(W*.72, RY + RS*.16, W*.88, RY + RS*.16, W, RY + RS*.14);
+  ctx.closePath();
+  {const g=ctx.createLinearGradient(0,RY-RS*.18,0,RY+RS*.14);
+   g.addColorStop(0,HILIT);g.addColorStop(.4,SKIN);g.addColorStop(1,SHADE);
+   ctx.fillStyle=g;ctx.fill();}
+  ctx.save();ctx.clip();
+  ctx.fillStyle=COOL;ctx.fillRect(W*.66,RY+RS*.03,W*.36,RS*.14);
+  ctx.restore();
+
+  // palm
+  ctx.beginPath();
+  ctx.moveTo(W*.70, RY - RS*.22);
+  ctx.bezierCurveTo(W*.62, RY - RS*.24, W*.54, RY - RS*.18, W*.55, RY - RS*.01);
+  ctx.bezierCurveTo(W*.56, RY + RS*.13, W*.62, RY + RS*.20, W*.72, RY + RS*.20);
+  ctx.bezierCurveTo(W*.80, RY + RS*.20, W*.72, RY + RS*.16, W*.70, RY - RS*.22);
+  ctx.closePath();
+  {const g=ctx.createRadialGradient(W*.62,RY-RS*.04,RS*.02,W*.62,RY,RS*.24);
+   g.addColorStop(0,HILIT);g.addColorStop(.5,SKIN);g.addColorStop(1,SHADE);
+   ctx.fillStyle=g;ctx.fill();}
+
+  // fingers (pointing left)
+  const rBase = {x: W*.55, y: RY - RS*.03};
+  [
+    {oy:-RS*.20, ex:W*.52, ey:RY-RS*.20, w:RS*.088},
+    {oy:-RS*.10, ex:W*.54, ey:RY-RS*.12, w:RS*.080},
+    {oy: RS*.02, ex:W*.56, ey:RY-RS*.02, w:RS*.074},
+    {oy: RS*.13, ex:W*.59, ey:RY+RS*.09, w:RS*.062},
+  ].forEach(f => {
+    finger(ctx,
+      rBase.x, rBase.y + f.oy,
+      f.ex, f.ey,
+      f.w, HILIT, SKIN, SHADE);
+  });
+
+  // thumb
+  ctx.beginPath();
+  ctx.moveTo(W*.66, RY + RS*.16);
+  ctx.bezierCurveTo(W*.62,RY+RS*.22, W*.56,RY+RS*.22, W*.54,RY+RS*.16);
+  ctx.bezierCurveTo(W*.53,RY+RS*.10, W*.57,RY+RS*.05, W*.63,RY+RS*.07);
+  ctx.bezierCurveTo(W*.67,RY+RS*.09, W*.67,RY+RS*.12, W*.66,RY+RS*.16);
+  {const g=ctx.createLinearGradient(W*.54,RY+RS*.05,W*.54,RY+RS*.22);
+   g.addColorStop(0,HILIT);g.addColorStop(1,SHADE);ctx.fillStyle=g;ctx.fill();}
 }
 
 class HeroDither {
@@ -530,7 +540,7 @@ class HeroDither {
     this.W = w; this.H = h;
     this.src.width = w; this.src.height = h;
   }
-  _buildSrc() { drawBirdSource(this.sCtx, this.W, this.H); }
+  _buildSrc() { drawHandsSource(this.sCtx, this.W, this.H); }
   start() {
     const loop = t => { this._draw(t); this.raf = requestAnimationFrame(loop); };
     this.raf = requestAnimationFrame(loop);
@@ -556,8 +566,8 @@ class HeroDither {
         let lum  = (0.299*r + 0.587*g + 0.114*b) / 255;
         // contrast
         lum = Math.max(0, Math.min(1, (lum-.5)*CON+.5));
-        // pulse — ripple outward from center of bird (slightly right of center)
-        const dc   = Math.hypot(col/cols - .52, row/rows - .46);
+        // pulse — ripple outward from the gap between fingertips (canvas center)
+        const dc   = Math.hypot(col/cols - .50, row/rows - .50);
         const wave = Math.sin(dc*10 - T*2.4) * .5 + .5;
         const slow = Math.sin(T*.7 + col*.12 + row*.1) * .5 + .5;
         lum = lum + (wave*slow - .28)*AI*.22;
