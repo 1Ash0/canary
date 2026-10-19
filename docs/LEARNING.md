@@ -49,8 +49,8 @@ One sentence each. You will understand all of these by the end.
 | ID | Concept | One sentence |
 |---|---|---|
 | C01 | Tokens | LLMs don't count characters or words — they count "tokens", which are roughly 3-4 characters of common text |
-| C02 | Context window | The maximum number of tokens a model can read at once in one request |
-| C03 | Local vs provider count | Your tokenizer's estimate and the provider's billed count differ slightly — both matter |
+| C02 | Context window | The maximum tokens a model can hold per request — exact size is per-model config, not a project constant |
+| C03 | Local vs provider count | tiktoken gives a local *estimate*; the provider reports the authoritative count split across three usage fields |
 | C04 | Prompt caching | The provider can skip re-processing a prefix it already computed, if the prefix hasn't changed |
 | C05 | JSONL trace | Every event in a run (message sent, tool called, canary planted, compaction applied) written one-per-line as JSON |
 | C06 | Event sourcing | The JSONL file is the source of truth; every view (token chart, survival table) is computed from it |
@@ -84,7 +84,7 @@ Paste this:
 > I'm building a Python testing tool for AI agent context compaction. I need to understand tokens from first principles. Please explain:
 > 1. What is a token in the context of a language model? How does it differ from a character or a word?
 > 2. Why do models have a context window measured in tokens instead of characters?
-> 3. I'll be using `tiktoken` (OpenAI's tokenizer) to count tokens locally before making API calls. Why might my local count differ slightly from what the Anthropic API bills me?
+> 3. I'll be using `tiktoken` as a proxy tokenizer to count tokens locally before making API calls. tiktoken is OpenAI's tokenizer, not Anthropic's — why might my local estimate differ from what the Anthropic API actually bills me? (There's also a `count_tokens` endpoint — when would I use that instead?)
 > 4. What does it mean when people say "4k tokens" or "200k tokens"? Give me a concrete sense of scale.
 > Keep your explanation simple — I'm a second-year CS student who knows Python but is new to LLM APIs.
 
@@ -98,6 +98,8 @@ We verified from Anthropic's caching docs that the prompt cache is keyed on a pr
 
 > Explain prompt caching in the Anthropic API. A "cache breakpoint" marks the end of the cached prefix. What happens to the cache when the conversation changes? Why does this mean every compaction event starts a fresh cache?
 
+Note verified in Chat (Oct 2026): `usage` has three input fields — `input_tokens`, `cache_read_input_tokens`, `cache_creation_input_tokens`. Cache hits depend on TTL (5 min default, 1 h costs extra). These fields are **recorded, not simulated** — cassettes store what the API actually returned; test replays cannot fake cache behaviour.
+
 ---
 
 **Step 3 — Build `learn/tokens.py`.**
@@ -108,6 +110,10 @@ I will write this with you. It will:
 - Print a "token ledger" for a short conversation: each message with its role, text, and token count, plus a running total and a "remaining budget" line
 
 This is the first file we build together. It's small, runnable, and you'll use it as a mental model for everything that follows.
+
+The ledger will have two count columns: `local_estimate` (tiktoken) and `provider_reported` (empty until a live run; equals `input_tokens + cache_read_input_tokens + cache_creation_input_tokens` from the usage object). The gap between them is what we'll eventually measure with `count_tokens`.
+
+Cache-hit fields (`cache_read_input_tokens`) are timing-dependent — they only appear in a real API response, not in a replay. In cassettes, they are recorded as observed; they are never simulated. The ledger must label this clearly.
 
 **Gate G0 — before we build U1, explain back to me:**
 1. In your own words, what is a token, and roughly how many tokens is a typical sentence?

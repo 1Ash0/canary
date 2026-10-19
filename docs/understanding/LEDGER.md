@@ -7,3 +7,4 @@ A milestone row (M0, M1 …) records that the structural work is in place, not a
 | Gate | What | Date | One sentence in your words |
 |---|---|---|---|
 | M0 | Spine bootstrapped | 2026-10-19 | Repo layout, tooling, CI skeleton, and all M0 docs are in place; a fresh clone will pass `make check` offline once uv is installed and `uv sync --dev` has been run. |
+| G0 | Tokens + context window | 2026-10-19 | A token is a BPE chunk ~3-4 chars of common text; the harness counts locally to decide when to compact before calling the API, to build length_matched, and to show dry-run cost estimates; doubling the system prompt eats directly into the remaining message budget because every call re-sends it from scratch. |
