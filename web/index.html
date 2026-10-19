@@ -4,386 +4,194 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Canary — Lives in context. Dies in silence.</title>
-  <meta name="description" content="Measure what LLM context compaction actually destroys. Plant a canary instruction. Watch it survive — or not.">
+  <meta name="description" content="Measure what LLM context compaction destroys. Plant a canary instruction. Watch it survive — or not.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#07060a;--bg2:#0c0b11;--bg3:#131221;
+  --border:#1b1a27;--border2:#26243a;
+  --canary:#f5c518;--cy-lo:rgba(245,197,24,.1);--cy-md:rgba(245,197,24,.3);
+  --teal:#1fbfb8;--tl-lo:rgba(31,191,184,.1);
+  --verm:#cc3811;--vm-lo:rgba(204,56,17,.1);
+  --text:#ede8e0;--t2:#8a8398;--t3:#3a3850;
+  --mono:'JetBrains Mono','Fira Code',monospace;
+  --sans:'Inter',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-    :root {
-      --bg:        #07060a;
-      --bg2:       #0d0c12;
-      --bg3:       #12111a;
-      --border:    #1c1b26;
-      --border2:   #27253a;
-      --canary:    #f5c518;
-      --canary-lo: rgba(245,197,24,.12);
-      --canary-md: rgba(245,197,24,.35);
-      --teal:      #1fbfb8;
-      --teal-lo:   rgba(31,191,184,.12);
-      --verm:      #cc3811;
-      --verm-lo:   rgba(204,56,17,.12);
-      --text:      #ede8e0;
-      --text2:     #888298;
-      --text3:     #3e3c50;
-      --mono:      'JetBrains Mono', 'Fira Code', monospace;
-      --sans:      'Inter', system-ui, sans-serif;
-    }
+/* ── cursor glow ── */
+#glow{position:fixed;pointer-events:none;z-index:9999;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(245,197,24,.055) 0%,transparent 70%);transform:translate(-50%,-50%);transition:opacity .4s;opacity:0}
 
-    html { scroll-behavior: smooth; }
+/* ── nav ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.85rem 2rem;background:rgba(7,6,10,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(245,197,24,.07)}
+.nav-logo{font-family:var(--mono);font-size:.78rem;font-weight:700;letter-spacing:.3em;color:var(--canary);text-decoration:none}
+.nav-logo::before{content:'◆ ';opacity:.5}
+.nav-links{display:flex;gap:1.75rem;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;color:var(--t2);text-decoration:none;transition:color .18s}
+.nav-links a:hover{color:var(--canary)}
+.nav-pill{font-family:var(--mono);font-size:.58rem;padding:.2rem .55rem;background:var(--cy-lo);border:1px solid var(--cy-md);color:var(--canary);letter-spacing:.1em}
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
-      font-size: 16px;
-      line-height: 1.6;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
+/* ── hero ── */
+.hero{position:relative;width:100%;height:100vh;min-height:640px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+#hero-canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero-body{position:relative;z-index:2;text-align:center;padding:2rem;max-width:720px}
+.hero-eyebrow{font-family:var(--mono);font-size:.62rem;letter-spacing:.42em;color:var(--canary);text-transform:uppercase;margin-bottom:1.5rem;opacity:.7}
+.hero-title{font-family:var(--mono);font-size:clamp(4.5rem,14vw,9rem);font-weight:700;letter-spacing:-.03em;line-height:.86;color:var(--text);margin-bottom:1.6rem}
+.hero-title .hi{color:var(--canary)}
+.hero-tag{font-size:1.15rem;font-weight:300;color:var(--t2);margin-bottom:.5rem;letter-spacing:.025em}
+.hero-sub{font-family:var(--mono);font-size:.72rem;color:var(--t3);letter-spacing:.06em;margin-bottom:2.8rem;min-height:1.2em}
+.hero-sub .cursor{display:inline-block;width:2px;height:.85em;background:var(--canary);vertical-align:middle;animation:blink .9s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.cta-row{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
 
-    /* ── Nav ───────────────────────────────────── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: .9rem 2rem;
-      background: rgba(7,6,10,.85);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(245,197,24,.07);
-    }
-    .nav-logo {
-      font-family: var(--mono); font-size: .8rem; font-weight: 700;
-      letter-spacing: .32em; color: var(--canary); text-decoration: none;
-    }
-    .nav-logo::before { content: '◆ '; opacity: .55; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      font-family: var(--mono); font-size: .7rem; letter-spacing: .1em;
-      color: var(--text2); text-decoration: none; transition: color .18s;
-    }
-    .nav-links a:hover { color: var(--canary); }
-    .nav-pill {
-      font-family: var(--mono); font-size: .6rem; padding: .2rem .55rem;
-      background: var(--canary-lo); border: 1px solid var(--canary-md);
-      color: var(--canary); letter-spacing: .1em;
-    }
+/* magnetic buttons */
+.btn-primary{display:inline-flex;align-items:center;gap:.55rem;padding:.75rem 1.8rem;background:var(--canary);color:var(--bg);font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-decoration:none;text-transform:uppercase;clip-path:polygon(7px 0,100% 0,calc(100% - 7px) 100%,0 100%);transition:background .18s,transform .18s;will-change:transform}
+.btn-primary:hover{background:#fff;transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;border:1px solid var(--border2);color:var(--t2);font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-decoration:none;text-transform:uppercase;transition:all .18s;will-change:transform}
+.btn-ghost:hover{border-color:var(--cy-md);color:var(--canary);transform:translateY(-2px)}
 
-    /* ── Hero ──────────────────────────────────── */
-    .hero {
-      position: relative; width: 100%; height: 100vh; min-height: 600px;
-      overflow: hidden; display: flex; align-items: center; justify-content: center;
-    }
-    #hero-canvas {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-    }
-    .hero-body {
-      position: relative; z-index: 2; text-align: center; padding: 2rem;
-      max-width: 700px;
-    }
-    .hero-eyebrow {
-      font-family: var(--mono); font-size: .65rem; letter-spacing: .4em;
-      color: var(--canary); text-transform: uppercase; margin-bottom: 1.5rem;
-      opacity: .75;
-    }
-    .hero-title {
-      font-family: var(--mono);
-      font-size: clamp(4rem, 13vw, 8.5rem);
-      font-weight: 700; letter-spacing: -.03em; line-height: .88;
-      color: var(--text); margin-bottom: 1.75rem;
-    }
-    .hero-title .hi { color: var(--canary); }
-    .hero-tagline {
-      font-size: 1.2rem; font-weight: 300; color: var(--text2);
-      margin-bottom: .6rem; letter-spacing: .025em;
-    }
-    .hero-sub {
-      font-family: var(--mono); font-size: .75rem; color: var(--text3);
-      letter-spacing: .06em; margin-bottom: 2.75rem;
-    }
-    .cta-row { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
-    .cta-primary {
-      display: inline-flex; align-items: center; gap: .6rem;
-      padding: .7rem 1.6rem;
-      background: var(--canary); color: var(--bg);
-      font-family: var(--mono); font-size: .75rem; font-weight: 700;
-      letter-spacing: .12em; text-decoration: none; text-transform: uppercase;
-      clip-path: polygon(6px 0,100% 0,calc(100% - 6px) 100%,0 100%);
-      transition: all .18s;
-    }
-    .cta-primary:hover { background: #fff; transform: translateY(-1px); }
-    .cta-ghost {
-      display: inline-flex; align-items: center; gap: .5rem;
-      padding: .7rem 1.4rem;
-      border: 1px solid var(--border2); color: var(--text2);
-      font-family: var(--mono); font-size: .75rem; letter-spacing: .1em;
-      text-decoration: none; text-transform: uppercase; transition: all .18s;
-    }
-    .cta-ghost:hover { border-color: var(--canary-md); color: var(--canary); }
-    .scroll-hint {
-      position: absolute; bottom: 1.75rem; left: 50%; transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: .35rem;
-      color: var(--text3); font-family: var(--mono); font-size: .6rem;
-      letter-spacing: .2em; text-transform: uppercase;
-      animation: bob 2.5s ease-in-out infinite;
-    }
-    @keyframes bob {
-      0%,100% { transform: translateX(-50%) translateY(0); }
-      50%      { transform: translateX(-50%) translateY(5px); }
-    }
+.scroll-hint{position:absolute;bottom:1.75rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.3rem;color:var(--t3);font-family:var(--mono);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;animation:bob 2.5s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
-    /* ── Stat strip ────────────────────────────── */
-    .stat-strip {
-      display: grid; grid-template-columns: repeat(4,1fr);
-      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-    }
-    .stat-cell {
-      padding: 2.25rem 1.5rem; border-right: 1px solid var(--border);
-      text-align: center;
-    }
-    .stat-cell:last-child { border-right: none; }
-    .stat-num {
-      font-family: var(--mono); font-size: 2.4rem; font-weight: 700;
-      line-height: 1; margin-bottom: .4rem;
-    }
-    .stat-num.dead   { color: var(--verm); }
-    .stat-num.alive  { color: var(--teal); }
-    .stat-num.canary { color: var(--canary); }
-    .stat-lbl { font-size: .78rem; color: var(--text2); }
-    .stat-src {
-      font-family: var(--mono); font-size: .6rem; color: var(--text3);
-      margin-top: .2rem;
-    }
+/* ── stat strip ── */
+.stat-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stat-cell{padding:2.25rem 1.5rem;border-right:1px solid var(--border);text-align:center}
+.stat-cell:last-child{border-right:none}
+.stat-num{font-family:var(--mono);font-size:2.4rem;font-weight:700;line-height:1;margin-bottom:.4rem;transition:color .3s}
+.dead{color:var(--verm)}.alive{color:var(--teal)}.canary{color:var(--canary)}
+.stat-lbl{font-size:.78rem;color:var(--t2)}
+.stat-src{font-family:var(--mono);font-size:.58rem;color:var(--t3);margin-top:.2rem}
 
-    /* ── Section shell ─────────────────────────── */
-    .section { padding: 5.5rem 2rem; max-width: 1200px; margin: 0 auto; }
-    .section-head { margin-bottom: 3.5rem; }
-    .eyebrow {
-      font-family: var(--mono); font-size: .65rem; letter-spacing: .38em;
-      color: var(--canary); text-transform: uppercase; margin-bottom: .9rem;
-    }
-    .section-title {
-      font-family: var(--mono);
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
-      font-weight: 700; letter-spacing: -.025em; line-height: 1.2;
-    }
-    .section-desc {
-      margin-top: .85rem; font-size: .95rem; color: var(--text2);
-      max-width: 560px; line-height: 1.75;
-    }
+/* ── sections ── */
+.section{padding:5.5rem 2rem;max-width:1200px;margin:0 auto}
+.section-head{margin-bottom:3.5rem}
+.eyebrow{font-family:var(--mono);font-size:.62rem;letter-spacing:.4em;color:var(--canary);text-transform:uppercase;margin-bottom:.85rem}
+.section-title{font-family:var(--mono);font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;letter-spacing:-.025em;line-height:1.2}
+.section-desc{margin-top:.8rem;font-size:.93rem;color:var(--t2);max-width:550px;line-height:1.75}
 
-    /* ── Conditions grid ───────────────────────── */
-    .cond-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-      gap: 1px; background: var(--border); border: 1px solid var(--border);
-    }
-    .cond-card {
-      background: var(--bg2); padding: 1.75rem;
-      transition: background .18s; cursor: default;
-    }
-    .cond-card:hover { background: var(--bg3); }
-    .cond-id {
-      font-family: var(--mono); font-size: .6rem; letter-spacing: .2em;
-      color: var(--text3); margin-bottom: .9rem;
-    }
-    .cond-name {
-      font-family: var(--mono); font-size: .95rem; font-weight: 700;
-      color: var(--text); margin-bottom: .45rem;
-    }
-    .cond-desc {
-      font-size: .82rem; color: var(--text2); line-height: 1.65;
-      margin-bottom: 1.35rem;
-    }
-    .mini-bars { height: 36px; display: flex; align-items: flex-end; gap: 2px; }
-    .mini-bar  { flex: 1; border-radius: 1px 1px 0 0; transition: height .3s; }
-    .cond-ci {
-      font-family: var(--mono); font-size: .6rem; color: var(--text3);
-      margin-top: .45rem;
-    }
-    .badge {
-      display: inline-flex; align-items: center; gap: .35rem;
-      font-family: var(--mono); font-size: .65rem; letter-spacing: .08em;
-      margin-top: .9rem; padding: .25rem .55rem; border-radius: 2px;
-    }
-    .badge-alive  { background: var(--teal-lo); color: var(--teal);  border: 1px solid rgba(31,191,184,.25); }
-    .badge-dead   { background: var(--verm-lo); color: var(--verm);  border: 1px solid rgba(204,56,17,.25); }
-    .badge-canary { background: var(--canary-lo); color: var(--canary); border: 1px solid var(--canary-md); }
-    .badge-neutral{ background: var(--bg3); color: var(--text2); border: 1px solid var(--border2); }
+/* ── terminal demo ── */
+.terminal{background:#0a0910;border:1px solid var(--border2);overflow:hidden;font-family:var(--mono)}
+.term-bar{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;background:#0f0e16;border-bottom:1px solid var(--border)}
+.tdot{width:11px;height:11px;border-radius:50%}
+.tdot.r{background:#cc3535}.tdot.y{background:#d4a017}.tdot.g{background:#3cb43c}
+.term-title{margin-left:.5rem;font-size:.62rem;color:var(--t3);letter-spacing:.08em}
+.term-body{padding:1.25rem 1.5rem;min-height:280px;position:relative}
+.term-line{font-size:.72rem;line-height:1.8;white-space:pre;overflow:hidden}
+.term-line.cmd{color:var(--text)}
+.term-line.info{color:var(--t2)}
+.term-line.warn{color:var(--canary)}
+.term-line.err{color:var(--verm)}
+.term-line.ok{color:var(--teal)}
+.term-line.result{color:var(--text);font-weight:700}
+.term-cursor{display:inline-block;width:7px;height:1em;background:var(--canary);vertical-align:text-bottom;animation:blink .8s step-end infinite}
 
-    /* ── Playground ────────────────────────────── */
-    .playground { background: var(--bg2); border: 1px solid var(--border); overflow: hidden; }
-    .pg-header {
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: .75rem;
-      padding: .9rem 1.4rem; border-bottom: 1px solid var(--border);
-      background: var(--bg3);
-    }
-    .pg-title { font-family: var(--mono); font-size: .7rem; letter-spacing: .14em; color: var(--text2); }
-    .tab-group { display: flex; border: 1px solid var(--border2); overflow: hidden; }
-    .tab {
-      padding: .35rem .85rem; font-family: var(--mono); font-size: .6rem;
-      letter-spacing: .1em; text-transform: uppercase;
-      background: transparent; border: none; border-right: 1px solid var(--border2);
-      color: var(--text3); cursor: pointer; transition: all .14s; white-space: nowrap;
-    }
-    .tab:last-child { border-right: none; }
-    .tab:hover { background: var(--bg); color: var(--text2); }
-    .tab.on { background: var(--canary); color: var(--bg); font-weight: 700; }
-    .pg-body { padding: 1.4rem; }
+/* ── conditions grid ── */
+.cond-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--border);border:1px solid var(--border)}
+.cond-card{background:var(--bg2);padding:1.75rem;transition:background .2s;cursor:default;will-change:transform;transform-style:preserve-3d}
+.cond-card:hover{background:var(--bg3)}
+.cond-id{font-family:var(--mono);font-size:.58rem;letter-spacing:.22em;color:var(--t3);margin-bottom:.85rem}
+.cond-name{font-family:var(--mono);font-size:.93rem;font-weight:700;color:var(--text);margin-bottom:.42rem}
+.cond-desc{font-size:.8rem;color:var(--t2);line-height:1.65;margin-bottom:1.25rem}
+.mini-bars{height:34px;display:flex;align-items:flex-end;gap:2px}
+.mini-bar{flex:1;border-radius:1px 1px 0 0;transition:height .4s ease}
+.cond-ci{font-family:var(--mono);font-size:.58rem;color:var(--t3);margin-top:.4rem}
+.badge{display:inline-flex;align-items:center;gap:.32rem;font-family:var(--mono);font-size:.62rem;letter-spacing:.07em;margin-top:.85rem;padding:.24rem .52rem;border-radius:2px}
+.b-alive{background:var(--tl-lo);color:var(--teal);border:1px solid rgba(31,191,184,.22)}
+.b-dead{background:var(--vm-lo);color:var(--verm);border:1px solid rgba(204,56,17,.22)}
+.b-canary{background:var(--cy-lo);color:var(--canary);border:1px solid var(--cy-md)}
+.b-neutral{background:var(--bg3);color:var(--t2);border:1px solid var(--border2)}
 
-    /* Strata view */
-    .strata-wrap { overflow-x: auto; padding-bottom: .5rem; }
-    .strata { display: flex; flex-direction: column; gap: 2px; }
-    .strata-row { display: flex; align-items: center; gap: 2px; }
-    .strata-lbl {
-      width: 56px; flex-shrink: 0;
-      font-family: var(--mono); font-size: .58rem; color: var(--text3);
-    }
-    .cell {
-      width: 17px; height: 17px; border-radius: 1px; flex-shrink: 0;
-      cursor: pointer; transition: transform .1s;
-    }
-    .cell:hover { transform: scale(1.5); z-index: 10; }
-    .c-sys    { background: #1e1c2e; }
-    .c-msg    { background: #1c1c2a; }
-    .c-canary { background: var(--canary); }
-    .c-tool   { background: #2a1f4a; }
-    .c-drop   { background: var(--verm); opacity: .38; }
-    .grade-dot {
-      margin-left: .65rem; width: 14px; height: 14px;
-      border-radius: 50%; flex-shrink: 0;
-    }
-    .g-ok  { background: var(--teal); box-shadow: 0 0 5px var(--teal); }
-    .g-bad { background: var(--verm); box-shadow: 0 0 5px var(--verm); }
-    .g-na  { background: var(--border2); }
-    .legend {
-      display: flex; gap: 1.25rem; flex-wrap: wrap; margin-top: .9rem;
-    }
-    .leg-item {
-      display: flex; align-items: center; gap: .35rem;
-      font-family: var(--mono); font-size: .6rem; color: var(--text3);
-    }
-    .leg-swatch { width: 10px; height: 10px; border-radius: 1px; flex-shrink: 0; }
+/* ── playground ── */
+.playground{background:var(--bg2);border:1px solid var(--border);overflow:hidden}
+.pg-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;padding:.88rem 1.4rem;border-bottom:1px solid var(--border);background:var(--bg3)}
+.pg-title{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;color:var(--t2)}
+.pg-controls{display:flex;align-items:center;gap:.75rem}
+.tab-group{display:flex;border:1px solid var(--border2);overflow:hidden}
+.tab{padding:.32rem .8rem;font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;background:transparent;border:none;border-right:1px solid var(--border2);color:var(--t3);cursor:pointer;transition:all .14s;white-space:nowrap}
+.tab:last-child{border-right:none}
+.tab:hover{background:var(--bg);color:var(--t2)}
+.tab.on{background:var(--canary);color:var(--bg);font-weight:700}
+.play-btn{display:flex;align-items:center;gap:.4rem;padding:.3rem .75rem;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;background:var(--cy-lo);border:1px solid var(--cy-md);color:var(--canary);cursor:pointer;transition:all .15s;white-space:nowrap}
+.play-btn:hover{background:var(--cy-md);color:var(--bg)}
+.pg-body{padding:1.4rem}
 
-    /* CI chart */
-    .ci-block { margin-top: 1.75rem; padding-top: 1.4rem; border-top: 1px solid var(--border); }
-    .ci-heading {
-      font-family: var(--mono); font-size: .65rem; letter-spacing: .16em;
-      text-transform: uppercase; color: var(--text2); margin-bottom: 1.25rem;
-    }
-    .ci-rows { display: flex; flex-direction: column; gap: 1.1rem; }
-    .ci-row { display: flex; align-items: center; gap: .9rem; }
-    .ci-lbl { width: 115px; flex-shrink: 0; font-family: var(--mono); font-size: .67rem; color: var(--text2); }
-    .ci-track {
-      flex: 1; height: 5px; background: var(--bg3); position: relative;
-      border-radius: 1px;
-    }
-    .ci-fill { position: absolute; height: 100%; border-radius: 1px; opacity: .38; }
-    .ci-tick {
-      position: absolute; width: 2px; height: 13px; top: -4px; border-radius: 1px;
-    }
-    .ci-val {
-      width: 88px; flex-shrink: 0;
-      font-family: var(--mono); font-size: .6rem; color: var(--text3); text-align: right;
-    }
-    .sim-tag {
-      font-family: var(--mono); font-size: .58rem; color: var(--text3);
-      margin-top: .7rem; padding: .4rem .7rem;
-      border-left: 2px solid var(--border2);
-    }
+/* strata */
+.strata-wrap{overflow-x:auto;padding-bottom:.5rem}
+.strata{display:flex;flex-direction:column;gap:3px;min-width:max-content}
+.strata-row{display:flex;align-items:center;gap:2px}
+.s-lbl{width:56px;flex-shrink:0;font-family:var(--mono);font-size:.58rem;color:var(--t3)}
+.cell{width:19px;height:19px;border-radius:1px;flex-shrink:0;cursor:pointer;transition:transform .1s,opacity .3s}
+.cell:hover{transform:scale(1.5);z-index:10}
+.c-sys{background:#1e1c2e}.c-msg{background:#1b1a28}.c-canary{background:var(--canary)}.c-tool{background:#281f4a}.c-drop{background:var(--verm);opacity:.35}
+.cut-line{width:2px;height:19px;background:var(--verm);opacity:.5;flex-shrink:0;border-radius:1px;position:relative}
+.cut-line::after{content:'▶ COMPACT';position:absolute;top:-20px;left:4px;font-family:var(--mono);font-size:.52rem;color:var(--verm);white-space:nowrap;letter-spacing:.05em}
+.grade-dot{margin-left:.7rem;width:13px;height:13px;border-radius:50%;flex-shrink:0;transition:transform .3s,box-shadow .3s}
+.g-ok{background:var(--teal);box-shadow:0 0 5px var(--teal)}.g-bad{background:var(--verm);box-shadow:0 0 5px var(--verm)}.g-na{background:var(--border2)}
+.legend{display:flex;gap:1.25rem;flex-wrap:wrap;margin-top:.9rem}
+.leg-item{display:flex;align-items:center;gap:.32rem;font-family:var(--mono);font-size:.58rem;color:var(--t3)}
+.leg-sw{width:10px;height:10px;border-radius:1px;flex-shrink:0}
 
-    /* ── Steps ─────────────────────────────────── */
-    .steps-grid {
-      display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-      gap: 1.5rem; margin-top: 2.75rem;
-    }
-    .step-card {
-      background: var(--bg2); border: 1px solid var(--border); padding: 1.75rem;
-    }
-    .step-num {
-      font-family: var(--mono); font-size: 2.8rem; font-weight: 700;
-      color: var(--canary); opacity: .14; line-height: 1; margin-bottom: .9rem;
-    }
-    .step-name {
-      font-family: var(--mono); font-size: .88rem; font-weight: 700;
-      color: var(--text); margin-bottom: .6rem;
-    }
-    .step-body { font-size: .83rem; color: var(--text2); line-height: 1.72; }
-    .code-snip {
-      margin-top: .9rem; padding: .7rem; background: var(--bg3);
-      border: 1px solid var(--border);
-      font-family: var(--mono); font-size: .67rem; color: var(--canary);
-      white-space: pre; overflow-x: auto;
-    }
+/* CI chart */
+.ci-block{margin-top:1.6rem;padding-top:1.35rem;border-top:1px solid var(--border)}
+.ci-heading{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--t2);margin-bottom:1.2rem}
+.ci-rows{display:flex;flex-direction:column;gap:1rem}
+.ci-row{display:flex;align-items:center;gap:.85rem}
+.ci-lbl{width:114px;flex-shrink:0;font-family:var(--mono);font-size:.65rem;color:var(--t2)}
+.ci-track{flex:1;height:5px;background:var(--bg3);position:relative;border-radius:1px}
+.ci-fill{position:absolute;height:100%;border-radius:1px;opacity:.36;transition:width .5s ease}
+.ci-tick{position:absolute;width:2px;height:13px;top:-4px;border-radius:1px;transition:left .5s ease}
+.ci-val{width:90px;flex-shrink:0;font-family:var(--mono);font-size:.6rem;color:var(--t3);text-align:right}
+.sim-tag{font-family:var(--mono);font-size:.57rem;color:var(--t3);margin-top:.7rem;padding:.38rem .65rem;border-left:2px solid var(--border2)}
 
-    /* ── Footer ────────────────────────────────── */
-    .site-footer {
-      border-top: 1px solid var(--border);
-      padding: 2.5rem 2rem;
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
-      max-width: 1200px; margin: 0 auto;
-    }
-    .footer-brand { font-family: var(--mono); }
-    .footer-name { font-size: .82rem; font-weight: 700; color: var(--canary); letter-spacing: .2em; }
-    .footer-sub  { font-size: .63rem; color: var(--text3); margin-top: .2rem; }
-    .footer-links { display: flex; gap: 1.5rem; list-style: none; }
-    .footer-links a {
-      font-family: var(--mono); font-size: .65rem; color: var(--text3);
-      text-decoration: none; letter-spacing: .08em; transition: color .18s;
-    }
-    .footer-links a:hover { color: var(--canary); }
+/* ── steps ── */
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2.5rem}
+.step-card{background:var(--bg2);border:1px solid var(--border);padding:1.75rem;transition:border-color .2s,background .2s}
+.step-card:hover{border-color:var(--cy-md);background:var(--bg3)}
+.step-num{font-family:var(--mono);font-size:2.7rem;font-weight:700;color:var(--canary);opacity:.13;line-height:1;margin-bottom:.85rem}
+.step-name{font-family:var(--mono);font-size:.87rem;font-weight:700;color:var(--text);margin-bottom:.55rem}
+.step-body{font-size:.82rem;color:var(--t2);line-height:1.72}
+.code-snip{margin-top:.85rem;padding:.65rem;background:var(--bg3);border:1px solid var(--border);font-family:var(--mono);font-size:.65rem;color:var(--canary);white-space:pre;overflow-x:auto;line-height:1.7}
 
-    /* ── Tooltip ───────────────────────────────── */
-    #tip {
-      position: fixed; z-index: 1000; display: none;
-      background: var(--bg3); border: 1px solid var(--border2);
-      padding: .5rem .7rem; pointer-events: none;
-      font-family: var(--mono); font-size: .62rem; color: var(--text2);
-      max-width: 240px; line-height: 1.5;
-      box-shadow: 0 4px 18px rgba(0,0,0,.6);
-    }
-    #tip .tip-role { color: var(--canary); font-weight: 700; margin-bottom: .2rem; }
+/* ── footer ── */
+.site-footer{border-top:1px solid var(--border);padding:2.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;max-width:1200px;margin:0 auto}
+.footer-brand{font-family:var(--mono)}
+.footer-name{font-size:.8rem;font-weight:700;color:var(--canary);letter-spacing:.2em}
+.footer-sub{font-size:.6rem;color:var(--t3);margin-top:.18rem}
+.footer-links{display:flex;gap:1.5rem;list-style:none}
+.footer-links a{font-family:var(--mono);font-size:.62rem;color:var(--t3);text-decoration:none;letter-spacing:.08em;transition:color .18s}
+.footer-links a:hover{color:var(--canary)}
 
-    /* ── Scroll reveal ─────────────────────────── */
-    .rev { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
-    .rev.in { opacity: 1; transform: translateY(0); }
-    .rev.d1 { transition-delay: .1s; }
-    .rev.d2 { transition-delay: .2s; }
-    .rev.d3 { transition-delay: .3s; }
+/* ── tooltip ── */
+#tip{position:fixed;z-index:1000;display:none;background:var(--bg3);border:1px solid var(--border2);padding:.48rem .68rem;pointer-events:none;font-family:var(--mono);font-size:.6rem;color:var(--t2);max-width:230px;line-height:1.5;box-shadow:0 4px 20px rgba(0,0,0,.6)}
+#tip .tip-role{color:var(--canary);font-weight:700;margin-bottom:.18rem}
 
-    /* ── Pulse badge ───────────────────────────── */
-    .pulse-dot {
-      display: inline-block; width: 6px; height: 6px; border-radius: 50%;
-      background: var(--teal); animation: ring 2s ease-in-out infinite;
-      vertical-align: middle; margin-right: .3rem;
-    }
-    @keyframes ring {
-      0%   { box-shadow: 0 0 0 0 rgba(31,191,184,.5); }
-      70%  { box-shadow: 0 0 0 7px rgba(31,191,184,0); }
-      100% { box-shadow: 0 0 0 0 rgba(31,191,184,0); }
-    }
+/* ── reveal ── */
+.rev{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+.rev.in{opacity:1;transform:translateY(0)}
+.rev.d1{transition-delay:.1s}.rev.d2{transition-delay:.2s}.rev.d3{transition-delay:.3s}
 
-    /* ── Responsive ────────────────────────────── */
-    @media (max-width: 768px) {
-      nav { padding: .75rem 1rem; }
-      .nav-links { display: none; }
-      .stat-strip { grid-template-columns: repeat(2,1fr); }
-      .stat-cell:nth-child(2) { border-right: none; }
-      .section { padding: 3.5rem 1rem; }
-      .site-footer { flex-direction: column; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
-    }
-  </style>
+/* ── pulse dot ── */
+.pdot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--teal);animation:ring 2s ease-in-out infinite;vertical-align:middle;margin-right:.3rem}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(31,191,184,.5)}70%{box-shadow:0 0 0 7px rgba(31,191,184,0)}100%{box-shadow:0 0 0 0 rgba(31,191,184,0)}}
+
+/* ── responsive ── */
+@media(max-width:768px){nav{padding:.7rem 1rem}.nav-links{display:none}.stat-strip{grid-template-columns:repeat(2,1fr)}.stat-cell:nth-child(2){border-right:none}.section{padding:3.5rem 1rem}.site-footer{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}}
+</style>
 </head>
 <body>
 
-<!-- ── Nav ──────────────────────────────────────────── -->
+<div id="glow"></div>
+
+<!-- nav -->
 <nav>
   <a href="/" class="nav-logo">CANARY</a>
   <ul class="nav-links">
+    <li><a href="#demo">Demo</a></li>
     <li><a href="#conditions">Conditions</a></li>
     <li><a href="#playground">Playground</a></li>
     <li><a href="#protocol">Protocol</a></li>
@@ -392,118 +200,119 @@
   <span class="nav-pill">MOCK DATA</span>
 </nav>
 
-<!-- ── Hero ─────────────────────────────────────────── -->
+<!-- hero -->
 <section class="hero">
   <canvas id="hero-canvas"></canvas>
   <div class="hero-body">
     <div class="hero-eyebrow">context compaction measurement</div>
     <h1 class="hero-title">CA<span class="hi">NA</span>RY</h1>
-    <p class="hero-tagline">Lives in context. Dies in silence.</p>
-    <p class="hero-sub">// measure what your agent forgets when context compacts</p>
+    <p class="hero-tag">Lives in context. Dies in silence.</p>
+    <p class="hero-sub" id="hero-sub"><span class="cursor"></span></p>
     <div class="cta-row">
-      <a href="#playground" class="cta-primary">→ explore playground</a>
-      <a href="#protocol" class="cta-ghost">how it works</a>
+      <a href="#demo" class="btn-primary">→ watch it happen</a>
+      <a href="#playground" class="btn-ghost">open playground</a>
     </div>
   </div>
   <div class="scroll-hint"><span>↓</span><span>scroll</span></div>
 </section>
 
-<!-- ── Stat strip ────────────────────────────────────── -->
+<!-- stat strip -->
 <div class="stat-strip">
   <div class="stat-cell">
-    <div class="stat-num dead">37<span style="font-size:1.1rem">%</span></div>
-    <div class="stat-lbl">violation rate in treatment</div>
+    <div class="stat-num dead" data-target="37" data-suffix="%">0%</div>
+    <div class="stat-lbl">canaries die in treatment</div>
     <div class="stat-src">[reproduced by third party]</div>
   </div>
   <div class="stat-cell">
-    <div class="stat-num canary">4</div>
+    <div class="stat-num canary" data-target="4">0</div>
     <div class="stat-lbl">experimental conditions</div>
-    <div class="stat-src">floor · control · length-matched · treatment</div>
+    <div class="stat-src">floor · control · matched · treatment</div>
   </div>
   <div class="stat-cell">
-    <div class="stat-num alive">95%</div>
-    <div class="stat-lbl">Wilson score CIs</div>
+    <div class="stat-num alive" data-target="95" data-suffix="%">0%</div>
+    <div class="stat-lbl">Wilson score intervals</div>
     <div class="stat-src">honest near 0 and 1 [simulated, n=10]</div>
   </div>
   <div class="stat-cell">
-    <div class="stat-num canary">0</div>
+    <div class="stat-num canary" style="color:var(--t2)">0</div>
     <div class="stat-lbl">errors thrown at failure</div>
     <div class="stat-src">compaction drops context silently</div>
   </div>
 </div>
 
-<!-- ── Conditions ────────────────────────────────────── -->
+<!-- terminal demo -->
+<div class="section" id="demo">
+  <div class="section-head rev">
+    <div class="eyebrow">live simulation</div>
+    <h2 class="section-title">Watch a canary die.</h2>
+    <p class="section-desc">A simulated <code style="font-family:var(--mono);font-size:.85em;color:var(--canary)">ctxcheck run</code> — planting a constraint canary, applying recency_truncate, probing the agent, grading the result. [simulated]</p>
+  </div>
+  <div class="terminal rev">
+    <div class="term-bar">
+      <div class="tdot r"></div><div class="tdot y"></div><div class="tdot g"></div>
+      <div class="term-title">ctxcheck — bash</div>
+    </div>
+    <div class="term-body" id="term-lines"></div>
+  </div>
+</div>
+
+<!-- conditions -->
 <div class="section" id="conditions">
   <div class="section-head rev">
     <div class="eyebrow">experimental design</div>
     <h2 class="section-title">Four conditions. One clean answer.</h2>
-    <p class="section-desc">
-      Each condition isolates one variable — size, content, or policy.
-      Together they tell you whether failure is from <em>compaction</em>
-      or just a long context.
-    </p>
+    <p class="section-desc">Each condition isolates one variable. Together they separate <em>compaction killed the canary</em> from <em>the context was just long</em>.</p>
   </div>
   <div class="cond-grid rev" id="cond-grid"></div>
 </div>
 
-<!-- ── Playground ────────────────────────────────────── -->
+<!-- playground -->
 <div class="section" id="playground" style="padding-top:0">
   <div class="section-head rev">
     <div class="eyebrow">interactive playground</div>
     <h2 class="section-title">Watch canaries live and die.</h2>
-    <p class="section-desc">
-      10 mock trials × 4 conditions. Each row is one seed — same conversation,
-      different compaction policy.
-      <span style="font-family:var(--mono);font-size:.75rem;color:var(--teal)">
-        <span class="pulse-dot"></span>mock data
-      </span>
-    </p>
+    <p class="section-desc">10 mock trials × 4 conditions. Each row is one seed. Same conversation, different compaction policy. <span style="font-family:var(--mono);font-size:.72rem;color:var(--teal)"><span class="pdot"></span>mock data</span></p>
   </div>
-
   <div class="playground rev">
     <div class="pg-header">
       <span class="pg-title">EXP-001-MOCK // strata view [simulated]</span>
-      <div class="tab-group" id="tabs">
-        <button class="tab" data-c="floor">Floor</button>
-        <button class="tab" data-c="control">Control</button>
-        <button class="tab" data-c="length_matched">Length-matched</button>
-        <button class="tab on" data-c="treatment">Treatment</button>
+      <div class="pg-controls">
+        <button class="play-btn" id="play-btn">▶ animate</button>
+        <div class="tab-group" id="tabs">
+          <button class="tab" data-c="floor">Floor</button>
+          <button class="tab" data-c="control">Control</button>
+          <button class="tab" data-c="length_matched">Matched</button>
+          <button class="tab on" data-c="treatment">Treatment</button>
+        </div>
       </div>
     </div>
     <div class="pg-body">
       <div class="strata-wrap"><div class="strata" id="strata"></div></div>
       <div class="legend">
-        <div class="leg-item"><div class="leg-swatch c-sys"></div>system</div>
-        <div class="leg-item"><div class="leg-swatch c-msg"></div>message</div>
-        <div class="leg-item"><div class="leg-swatch c-canary"></div>canary</div>
-        <div class="leg-item"><div class="leg-swatch c-tool"></div>tool</div>
-        <div class="leg-item"><div class="leg-swatch c-drop"></div>dropped</div>
+        <div class="leg-item"><div class="leg-sw c-sys"></div>system</div>
+        <div class="leg-item"><div class="leg-sw c-msg"></div>message</div>
+        <div class="leg-item"><div class="leg-sw c-canary"></div>canary</div>
+        <div class="leg-item"><div class="leg-sw c-tool"></div>tool</div>
+        <div class="leg-item"><div class="leg-sw c-drop"></div>dropped</div>
       </div>
       <div class="ci-block" id="ci"></div>
     </div>
   </div>
-
-  <div class="sim-tag rev">
-    37% finding from ConstraintRot (Karpinska &amp; Iyyer, 2022) — tagged [reproduced by third party].
-    Playground uses fully synthetic data; no model was called.
-  </div>
+  <div class="sim-tag rev">37% finding from ConstraintRot (Karpinska &amp; Iyyer, 2022) [reproduced by third party]. Playground uses fully synthetic data; no model was called.</div>
 </div>
 
-<!-- ── Protocol ──────────────────────────────────────── -->
+<!-- protocol -->
 <div class="section" id="protocol">
   <div class="section-head rev">
     <div class="eyebrow">the protocol</div>
     <h2 class="section-title">Three steps. One answer.</h2>
-    <p class="section-desc">
-      Does your compaction policy destroy the instructions your agent was given?
-      Canary answers with a number and an honest confidence interval.
-    </p>
+    <p class="section-desc">Does your compaction policy destroy the instructions your agent was given? Canary answers with a number and an honest confidence interval.</p>
   </div>
   <div class="steps-grid">
     <div class="step-card rev d1">
       <div class="step-num">01</div>
       <h3 class="step-name">PLANT</h3>
-      <p class="step-body">Inject a constraint or identifier early in the conversation — something the agent must act on when probed later. This is the canary.</p>
+      <p class="step-body">Inject a constraint or identifier early in the conversation — something the agent must act on when probed later.</p>
       <pre class="code-snip">canary = ConstraintCanary(
   tool="send_message",
   arg="channel",
@@ -513,17 +322,17 @@
     <div class="step-card rev d2">
       <div class="step-num">02</div>
       <h3 class="step-name">COMPACT</h3>
-      <p class="step-body">Run the conversation through a compaction policy — recency truncation, summarization, or LLM compression. The canary may not survive.</p>
+      <p class="step-body">Run your compaction policy — recency truncation, summarization, or LLM compression. The canary may not survive.</p>
       <pre class="code-snip">result = recency_truncate(
   messages=session,
-  budget=8_192  # tokens
+  budget=8_192
 )
 # canary dropped? unknown until probe</pre>
     </div>
     <div class="step-card rev d3">
       <div class="step-num">03</div>
       <h3 class="step-name">PROBE</h3>
-      <p class="step-body">Ask the agent to act on the canary. Grade the emitted tool call: respected, violated, or not applicable. Aggregate with Wilson confidence intervals.</p>
+      <p class="step-body">Ask the agent to act on the canary. Grade the emitted tool call. Aggregate 10+ trials into a Wilson confidence interval.</p>
       <pre class="code-snip">grade = grader.grade(
   tool_call=response,
   spec=canary
@@ -533,7 +342,7 @@
   </div>
 </div>
 
-<!-- ── Footer ────────────────────────────────────────── -->
+<!-- footer -->
 <footer class="site-footer">
   <div class="footer-brand">
     <div class="footer-name">◆ CANARY</div>
@@ -550,10 +359,21 @@
 
 <script>
 // ════════════════════════════════════════════════════════
+//  CURSOR GLOW
+// ════════════════════════════════════════════════════════
+const glow = document.getElementById('glow');
+document.addEventListener('mousemove', e => {
+  glow.style.left = e.clientX + 'px';
+  glow.style.top  = e.clientY + 'px';
+  glow.style.opacity = '1';
+});
+document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+
+// ════════════════════════════════════════════════════════
 //  DITHER CANVAS ENGINE
-//  Pipeline from 21st.dev "Creation of Adam" spec:
-//  bgMode=blur bgBlur=60 renderMode=dither cellSize=9
-//  contrast=158 animStyle=pulse animIntensity=60
+//  Source: Canvas2D-drawn canary bird (not a photo, but a
+//  recognizable subject — same principle as Creation of Adam)
+//  Pipeline: bgMode=blur, cellSize=9, contrast=158, pulse anim
 // ════════════════════════════════════════════════════════
 
 const BAYER8 = [
@@ -567,397 +387,516 @@ const BAYER8 = [
   [63,31,55,23,61,29,53,21]
 ].map(r => r.map(v => v / 64));
 
+// Draw a recognizable canary bird — the dither subject.
+// Bright yellow/gold body against pure black: high contrast
+// so the Bayer dither produces a clear bird silhouette.
+function drawBirdSource(ctx, W, H) {
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, W, H);
+
+  const cx = W * 0.52, cy = H * 0.46, S = Math.min(W, H) * 0.31;
+
+  // Warm ambient glow
+  const amb = ctx.createRadialGradient(cx, cy, 0, cx, cy, S * 2.2);
+  amb.addColorStop(0,   'rgba(90,58,0,.65)');
+  amb.addColorStop(.45, 'rgba(40,22,0,.3)');
+  amb.addColorStop(1,   'transparent');
+  ctx.fillStyle = amb; ctx.fillRect(0, 0, W, H);
+
+  // ─── tail feathers ───────────────────────────────
+  ctx.beginPath();
+  ctx.moveTo(cx - S*.18, cy + S*.08);
+  ctx.bezierCurveTo(cx - S*.52, cy - S*.08, cx - S*.72, cy + S*.28, cx - S*.66, cy + S*.52);
+  ctx.bezierCurveTo(cx - S*.6,  cy + S*.62, cx - S*.36, cy + S*.52, cx - S*.18, cy + S*.08);
+  const tg = ctx.createLinearGradient(cx - S*.72, cy, cx - S*.18, cy + S*.3);
+  tg.addColorStop(0, '#6a4800'); tg.addColorStop(1, '#c48010');
+  ctx.fillStyle = tg; ctx.fill();
+
+  // tail highlight feathers (separate strands)
+  [-.58, -.64, -.68].forEach((ox, i) => {
+    ctx.beginPath();
+    ctx.moveTo(cx + ox*S*.5, cy + S*.35);
+    ctx.lineTo(cx - S*(0.62 + i*.04), cy + S*.5);
+    ctx.strokeStyle = `rgba(200,140,10,${.4 - i*.1})`;
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+  });
+
+  // ─── wing (main) ─────────────────────────────────
+  ctx.beginPath();
+  ctx.moveTo(cx - S*.14, cy - S*.08);
+  ctx.bezierCurveTo(cx - S*.32, cy - S*.54, cx + S*.18, cy - S*.62, cx + S*.36, cy - S*.38);
+  ctx.bezierCurveTo(cx + S*.42, cy - S*.22, cx + S*.22, cy - S*.06, cx - S*.14, cy - S*.08);
+  const wg = ctx.createLinearGradient(cx - S*.32, cy - S*.54, cx + S*.36, cy - S*.08);
+  wg.addColorStop(0,   '#f5c518');
+  wg.addColorStop(.45, '#d4a017');
+  wg.addColorStop(1,   '#a87a0a');
+  ctx.fillStyle = wg; ctx.fill();
+
+  // wing feather texture lines
+  for (let i = 0; i < 5; i++) {
+    const t = i / 5;
+    const wx = cx - S*.3 + t * S*.6;
+    const wy = cy - S*.5 + t * S*.15;
+    ctx.beginPath();
+    ctx.moveTo(wx, wy);
+    ctx.lineTo(wx + S*.1, wy + S*.18);
+    ctx.strokeStyle = `rgba(255,200,30,${.3 - t*.05})`;
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  // ─── body ────────────────────────────────────────
+  ctx.beginPath();
+  ctx.ellipse(cx + S*.04, cy + S*.12, S*.28, S*.22, .22, 0, Math.PI*2);
+  const bg = ctx.createRadialGradient(cx + S*.1, cy, S*.04, cx + S*.04, cy + S*.12, S*.3);
+  bg.addColorStop(0, '#fff580'); bg.addColorStop(.4,'#f5c518'); bg.addColorStop(1,'#c48b0e');
+  ctx.fillStyle = bg; ctx.fill();
+
+  // breast highlight
+  ctx.beginPath();
+  ctx.ellipse(cx + S*.2, cy + S*.18, S*.1, S*.14, .15, 0, Math.PI*2);
+  ctx.fillStyle = 'rgba(255,248,160,.48)'; ctx.fill();
+
+  // ─── neck ────────────────────────────────────────
+  ctx.beginPath();
+  ctx.moveTo(cx + S*.18, cy - S*.02);
+  ctx.bezierCurveTo(cx + S*.22, cy - S*.1, cx + S*.28, cy - S*.16, cx + S*.3, cy - S*.2);
+  ctx.bezierCurveTo(cx + S*.32, cy - S*.24, cx + S*.34, cy - S*.24, cx + S*.3, cy - S*.2);
+  ctx.strokeStyle = '#f5c518'; ctx.lineWidth = S*.08; ctx.lineCap = 'round'; ctx.stroke();
+
+  // ─── head ────────────────────────────────────────
+  ctx.beginPath();
+  ctx.arc(cx + S*.3, cy - S*.17, S*.16, 0, Math.PI*2);
+  const hg = ctx.createRadialGradient(cx + S*.33, cy - S*.22, S*.02, cx + S*.3, cy - S*.17, S*.17);
+  hg.addColorStop(0,'#fff890'); hg.addColorStop(.35,'#f5c518'); hg.addColorStop(1,'#c08810');
+  ctx.fillStyle = hg; ctx.fill();
+
+  // crown tuft
+  ctx.beginPath();
+  ctx.moveTo(cx + S*.28, cy - S*.33);
+  ctx.bezierCurveTo(cx + S*.3, cy - S*.44, cx + S*.38, cy - S*.42, cx + S*.36, cy - S*.33);
+  ctx.strokeStyle = '#f5c518'; ctx.lineWidth = 2; ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(cx + S*.32, cy - S*.33);
+  ctx.bezierCurveTo(cx + S*.36, cy - S*.46, ctx.canvas ? cx + S*.44 : cx + S*.44, cy - S*.42, cx + S*.42, cy - S*.32);
+  ctx.strokeStyle = '#d4a017'; ctx.lineWidth = 1.5; ctx.stroke();
+
+  // ─── beak ────────────────────────────────────────
+  ctx.beginPath();
+  ctx.moveTo(cx + S*.46, cy - S*.18);
+  ctx.lineTo(cx + S*.64, cy - S*.12);
+  ctx.lineTo(cx + S*.46, cy - S*.1);
+  ctx.fillStyle = '#c8720a'; ctx.fill();
+  ctx.beginPath();
+  ctx.moveTo(cx + S*.46, cy - S*.1);
+  ctx.lineTo(cx + S*.62, cy - S*.07);
+  ctx.lineTo(cx + S*.46, cy - S*.05);
+  ctx.fillStyle = '#a05808'; ctx.fill();
+
+  // ─── eye ─────────────────────────────────────────
+  ctx.beginPath(); ctx.arc(cx + S*.37, cy - S*.22, S*.043, 0, Math.PI*2);
+  ctx.fillStyle = '#100e00'; ctx.fill();
+  ctx.beginPath(); ctx.arc(cx + S*.375, cy - S*.225, S*.014, 0, Math.PI*2);
+  ctx.fillStyle = '#fffff0'; ctx.fill();
+
+  // ─── feet / perch ────────────────────────────────
+  const footColor = '#9a7000';
+  ctx.strokeStyle = footColor; ctx.lineWidth = Math.max(1.2, S*.022); ctx.lineCap = 'round';
+  [[S*.04, S*.12], [S*.16, S*.12]].forEach(([ox, ow]) => {
+    const fx = cx + ox, fy = cy + S*.32, ty = cy + S*.48;
+    ctx.beginPath(); ctx.moveTo(fx, fy); ctx.lineTo(fx - ow*.2, ty); ctx.stroke();
+    [-.14,0,.12,.22].forEach(dx => {
+      ctx.beginPath(); ctx.moveTo(fx - ow*.2, ty); ctx.lineTo(fx + dx*S, ty + S*.06); ctx.stroke();
+    });
+  });
+}
+
 class HeroDither {
   constructor(el) {
     this.el  = el;
     this.ctx = el.getContext('2d');
-    this.src = Object.assign(document.createElement('canvas'), {});
+    this.src = document.createElement('canvas');
     this.sCtx = this.src.getContext('2d');
     this.raf  = null;
-    this._resize();
-    this._paint();
-    window.addEventListener('resize', () => { this._resize(); this._paint(); });
+    this._resize(); this._buildSrc();
+    window.addEventListener('resize', () => { this._resize(); this._buildSrc(); });
   }
-
   _resize() {
     const dpr = window.devicePixelRatio || 1;
     const w = this.el.offsetWidth, h = this.el.offsetHeight;
-    this.el.width  = w * dpr; this.el.height = h * dpr;
+    this.el.width = w*dpr; this.el.height = h*dpr;
     this.ctx.scale(dpr, dpr);
     this.W = w; this.H = h;
     this.src.width = w; this.src.height = h;
   }
-
-  // Source "photo": two luminous poles separated by a compaction void.
-  // Left = canary instruction planted; Right = probe asked later.
-  // The gap is the context that gets erased.
-  _paint() {
-    const c = this.sCtx, w = this.W, h = this.H;
-    c.clearRect(0, 0, w, h);
-    c.fillStyle = '#000'; c.fillRect(0, 0, w, h);
-
-    // Canary pole — warm gold, left third
-    const lg = c.createRadialGradient(w*.2, h*.5, 0, w*.2, h*.5, w*.42);
-    lg.addColorStop(0,   'rgba(245,197,24,.98)');
-    lg.addColorStop(.22, 'rgba(245,197,24,.55)');
-    lg.addColorStop(.55, 'rgba(180,100,10,.14)');
-    lg.addColorStop(1,   'transparent');
-    c.fillStyle = lg; c.fillRect(0, 0, w, h);
-
-    // Probe pole — cool violet, right third
-    const rg = c.createRadialGradient(w*.8, h*.5, 0, w*.8, h*.5, w*.38);
-    rg.addColorStop(0,   'rgba(160,130,255,.9)');
-    rg.addColorStop(.28, 'rgba(110,80,240,.38)');
-    rg.addColorStop(.65, 'rgba(50,20,160,.1)');
-    rg.addColorStop(1,   'transparent');
-    c.fillStyle = rg; c.fillRect(0, 0, w, h);
-
-    // The void — compaction gap darkens the middle
-    const gp = c.createLinearGradient(w*.35, 0, w*.65, 0);
-    gp.addColorStop(0,   'transparent');
-    gp.addColorStop(.5,  'rgba(0,0,0,.78)');
-    gp.addColorStop(1,   'transparent');
-    c.fillStyle = gp; c.fillRect(0, 0, w, h);
-
-    // Horizontal context thread connecting both poles
-    const th = c.createLinearGradient(0, h*.5, w, h*.5);
-    th.addColorStop(0,   'transparent');
-    th.addColorStop(.12, 'rgba(245,197,24,.55)');
-    th.addColorStop(.38, 'rgba(245,197,24,.07)');
-    th.addColorStop(.62, 'rgba(160,130,255,.07)');
-    th.addColorStop(.88, 'rgba(160,130,255,.55)');
-    th.addColorStop(1,   'transparent');
-    c.fillStyle = th; c.fillRect(0, h*.5-1, w, 3);
-  }
-
+  _buildSrc() { drawBirdSource(this.sCtx, this.W, this.H); }
   start() {
     const loop = t => { this._draw(t); this.raf = requestAnimationFrame(loop); };
     this.raf = requestAnimationFrame(loop);
   }
   stop() { if (this.raf) cancelAnimationFrame(this.raf); }
-
   _draw(t) {
-    const T = t / 1000;
-    const ctx = this.ctx;
-    const { W, H } = this;
-    const CELL  = 9;
-    const CON   = 1.58;   // contrast from spec
-    const AI    = 0.6;    // animIntensity
-
+    const T = t/1000, ctx = this.ctx, {W, H} = this;
+    const CELL = 9, CON = 1.58, AI = 0.58;
     const img = this.sCtx.getImageData(0, 0, W, H);
-    const cols = Math.ceil(W / CELL);
-    const rows = Math.ceil(H / CELL);
+    const cols = Math.ceil(W/CELL), rows = Math.ceil(H/CELL);
 
-    // Background layer: blurred source (bgMode=blur, bgBlur=60)
+    // bgMode=blur behind the dither cells
     ctx.clearRect(0, 0, W, H);
-    ctx.save();
-    ctx.filter = 'blur(42px)';
-    ctx.globalAlpha = .48;
+    ctx.save(); ctx.filter = 'blur(44px)'; ctx.globalAlpha = .46;
     ctx.drawImage(this.src, 0, 0, W, H);
     ctx.restore();
 
     for (let row = 0; row < rows; row++) {
       for (let col = 0; col < cols; col++) {
-        const px = Math.min(col * CELL + 4, W - 1);
-        const py = Math.min(row * CELL + 4, H - 1);
-        const i  = (py * W + px) * 4;
-
-        const r = img.data[i], g = img.data[i+1], b = img.data[i+2];
-        let lum = (0.299*r + 0.587*g + 0.114*b) / 255;
-
-        // Contrast boost
-        lum = Math.max(0, Math.min(1, (lum - .5) * CON + .5));
-
-        // Pulse animation: ripple outward from center
-        const dc = Math.hypot(col/cols - .5, row/rows - .5);
-        const wave  = Math.sin(dc * 11 - T * 2.2) * .5 + .5;
-        const pulse = Math.sin(T * .9 + col * .14 + row * .14) * .5 + .5;
-        lum = lum + (wave * pulse - .28) * AI * .22;
+        const px = Math.min(col*CELL+4, W-1), py = Math.min(row*CELL+4, H-1);
+        const i  = (py*W+px)*4;
+        const r  = img.data[i], g = img.data[i+1], b = img.data[i+2];
+        let lum  = (0.299*r + 0.587*g + 0.114*b) / 255;
+        // contrast
+        lum = Math.max(0, Math.min(1, (lum-.5)*CON+.5));
+        // pulse — ripple outward from center of bird (slightly right of center)
+        const dc   = Math.hypot(col/cols - .52, row/rows - .46);
+        const wave = Math.sin(dc*10 - T*2.4) * .5 + .5;
+        const slow = Math.sin(T*.7 + col*.12 + row*.1) * .5 + .5;
+        lum = lum + (wave*slow - .28)*AI*.22;
         lum = Math.max(0, Math.min(1, lum));
-
-        // Ordered Bayer dither: skip cells below threshold
-        if (lum < BAYER8[row % 8][col % 8]) continue;
-
-        const br = .38 + lum * .62;
+        if (lum < BAYER8[row%8][col%8]) continue;
+        const br = .38 + lum*.62;
         ctx.fillStyle = `rgb(${Math.round(r*br)},${Math.round(g*br)},${Math.round(b*br)})`;
-        const sz = CELL * .72 * Math.max(.18, lum);
-        ctx.fillRect(col*CELL + (CELL-sz)/2, row*CELL + (CELL-sz)/2, sz, sz);
+        const sz = CELL*.72 * Math.max(.18, lum);
+        ctx.fillRect(col*CELL+(CELL-sz)/2, row*CELL+(CELL-sz)/2, sz, sz);
       }
     }
   }
 }
 
 // ════════════════════════════════════════════════════════
-//  WILSON SCORE INTERVAL
+//  HERO TYPEWRITER
 // ════════════════════════════════════════════════════════
+const LINES = [
+  '// measure what your agent forgets',
+  '// when context compacts',
+  '// plant a canary. watch it survive.',
+];
+let lineIdx = 0, charIdx = 0;
+const heroSub = document.getElementById('hero-sub');
 
-function wilson(k, n, z = 1.96) {
-  if (n === 0) return [0, 1];
-  const p = k / n, z2 = z * z, d = 1 + z2/n;
-  const c = (p + z2/(2*n)) / d;
-  const m = (z/d) * Math.sqrt(p*(1-p)/n + z2/(4*n*n));
-  return [Math.max(0, c-m), Math.min(1, c+m)];
+function typeNext() {
+  const line = LINES[lineIdx];
+  if (charIdx <= line.length) {
+    heroSub.innerHTML = line.slice(0, charIdx) + '<span class="cursor"></span>';
+    charIdx++;
+    setTimeout(typeNext, charIdx > line.length ? 2200 : 45);
+  } else {
+    // erase
+    setTimeout(() => {
+      if (charIdx > 0) { charIdx--; typeNext(); }
+      else { lineIdx = (lineIdx+1) % LINES.length; setTimeout(typeNext, 300); }
+    }, charIdx === 0 ? 0 : 28);
+  }
 }
+setTimeout(typeNext, 800);
 
 // ════════════════════════════════════════════════════════
-//  DETERMINISTIC MOCK DATA
-//  LCG PRNG — reproducible without a library
+//  COUNT-UP NUMBERS
 // ════════════════════════════════════════════════════════
-
-function lcg(seed) {
-  let s = seed | 0;
-  return () => {
-    s = s + 0x6D2B79F5 | 0;
-    let t = Math.imul(s ^ (s>>>15), 1|s);
-    t = t + Math.imul(t ^ (t>>>7), 61|t) ^ t;
-    return ((t ^ (t>>>14)) >>> 0) / 4294967296;
+function countUp(el, target, suffix='', dur=1400) {
+  const start = performance.now();
+  const tick = now => {
+    const p = Math.min((now-start)/dur, 1);
+    const e = 1 - Math.pow(1-p, 3);
+    el.textContent = Math.round(e*target) + suffix;
+    if (p < 1) requestAnimationFrame(tick);
   };
+  requestAnimationFrame(tick);
 }
+const countObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const t = parseInt(el.dataset.target||'0');
+    const s = el.dataset.suffix||'';
+    countUp(el, t, s);
+    countObserver.unobserve(el);
+  });
+}, {threshold:.5});
+document.querySelectorAll('[data-target]').forEach(el => countObserver.observe(el));
 
-const CONDS = [
-  { id:'floor',          label:'Floor',          violations:0,  color:null,              desc:'No canary planted. Baseline: does the agent call the tool unprompted?' },
-  { id:'control',        label:'Control',         violations:0,  color:'var(--teal)',      desc:'Canary planted, no compaction. Proves the scenario actually works.' },
-  { id:'length_matched', label:'Length-matched',  violations:1,  color:'var(--canary)',    desc:'Same context size as treatment, but the canary is protected from dropping.' },
-  { id:'treatment',      label:'Treatment',       violations:4,  color:'var(--verm)',      desc:'recency_truncate policy applied. Oldest messages dropped first — canary is at risk.' },
+// ════════════════════════════════════════════════════════
+//  TERMINAL DEMO
+//  Simulated ctxcheck run — plays when section enters view
+// ════════════════════════════════════════════════════════
+const TERM_SCRIPT = [
+  {cls:'cmd',  text:'$ ctxcheck run --pack constraint --policy recency_truncate --trials 10',  d:0},
+  {cls:'info', text:'',                                                                          d:300},
+  {cls:'info', text:'  loading pack:    constraint (channel=#ops-7)',                           d:500},
+  {cls:'info', text:'  policy:          recency_truncate (budget: 8 192 tokens)',               d:700},
+  {cls:'info', text:'  seeds:           001 → 010',                                             d:900},
+  {cls:'info', text:'',                                                                          d:1100},
+  {cls:'cmd',  text:'  ── trial 001/010 ───────────────────────────────────',                   d:1200},
+  {cls:'info', text:'  → seeding conversation  (14 messages, 1 620 tokens)',                    d:1500},
+  {cls:'warn', text:'  → planting canary at seq 2  [channel=#ops-7]',                           d:1800},
+  {cls:'info', text:'  → applying recency_truncate …',                                          d:2200},
+  {cls:'err',  text:'  ⚠  canary dropped  (seq 2 truncated, 8 msgs remain)',                   d:2600},
+  {cls:'info', text:'  → probe: "send the weekly status update"',                               d:3100},
+  {cls:'err',  text:'  ✗  VIOLATED  (channel=#general, expected #ops-7)',                       d:3500},
+  {cls:'info', text:'',                                                                          d:4000},
+  {cls:'cmd',  text:'  ── trial 005/010 ───────────────────────────────────',                   d:4200},
+  {cls:'info', text:'  → seeding conversation  (12 messages, 1 410 tokens)',                    d:4400},
+  {cls:'warn', text:'  → planting canary at seq 1  [channel=#ops-7]',                           d:4600},
+  {cls:'info', text:'  → applying recency_truncate …',                                          d:4900},
+  {cls:'ok',   text:'  ✓  canary intact  (seq 1 survived, 8 msgs remain)',                     d:5300},
+  {cls:'info', text:'  → probe: "send the weekly status update"',                               d:5600},
+  {cls:'ok',   text:'  ✓  RESPECTED  (channel=#ops-7)',                                         d:6000},
+  {cls:'info', text:'',                                                                          d:6400},
+  {cls:'cmd',  text:'  ── run complete ─────────────────────────────────────',                  d:6600},
+  {cls:'info', text:'',                                                                          d:6700},
+  {cls:'result',text:'  TREATMENT      4/10 violated   [16.8%, 68.7%]  [simulated]',            d:7000},
+  {cls:'ok',   text:'  CONTROL        0/10 violated    [0.0%, 27.8%]  [simulated]',             d:7200},
+  {cls:'warn', text:'  LENGTH-MATCHED 1/10 violated    [1.8%, 40.3%]  [simulated]',             d:7400},
+  {cls:'info', text:'',                                                                          d:7600},
+  {cls:'cmd',  text:'  [simulated] — no model was called',                                      d:7800},
 ];
 
-const N = 10;
-
-// Build trials for each condition
-const TRIALS = {};
-CONDS.forEach(cond => {
-  const rng = lcg(cond.id.split('').reduce((a,c) => a + c.charCodeAt(0), 0));
-  TRIALS[cond.id] = Array.from({length: N}, (_, ti) => {
-    const r2 = lcg(ti * 991 + cond.id.charCodeAt(0) * 17);
-    const nMsg = 11 + Math.floor(r2() * 4);        // 11-14 messages total
-    const canaryAt = 1 + Math.floor(r2() * 2);     // index 1 or 2
-
-    const msgs = [{type:'sys', content:'You are a helpful assistant.', drop:false}];
-    for (let i = 1; i < nMsg; i++) {
-      if (i === canaryAt) {
-        msgs.push({type:'canary', content:'IMPORTANT: always send status updates to channel #ops-7.', drop:false});
-      } else {
-        const k = r2();
-        const type = k < .2 ? 'tool' : (i%2===0 ? 'asst' : 'user');
-        msgs.push({type, content:`Turn ${i} content.`, drop:false});
-      }
-    }
-
-    // Mark dropped messages per condition
-    if (cond.id === 'treatment') {
-      const keep = 8;
-      let dropped = 0;
-      for (let i = 1; i < msgs.length && dropped < msgs.length - 1 - keep; i++) {
-        msgs[i].drop = true; dropped++;
-      }
-    } else if (cond.id === 'length_matched') {
-      // Same budget but protect the canary
-      let dropped = 0;
-      for (let i = 1; i < msgs.length && dropped < 3; i++) {
-        if (msgs[i].type !== 'canary') { msgs[i].drop = true; dropped++; }
-      }
-    }
-
-    const canaryMsg = msgs.find(m => m.type === 'canary');
-    let grade = cond.id === 'floor' ? 'na' : (canaryMsg && !canaryMsg.drop ? 'ok' : 'bad');
-
-    return {msgs, grade};
+let termPlayed = false;
+function playTerminal() {
+  if (termPlayed) return;
+  termPlayed = true;
+  const body = document.getElementById('term-lines');
+  TERM_SCRIPT.forEach(({cls, text, d}) => {
+    setTimeout(() => {
+      const div = document.createElement('div');
+      div.className = 'term-line ' + cls;
+      div.textContent = text;
+      body.appendChild(div);
+      body.scrollTop = body.scrollHeight;
+    }, d);
   });
+}
+const termObserver = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting) { playTerminal(); termObserver.disconnect(); }
+}, {threshold:.3});
+const termEl = document.getElementById('term-lines')?.closest('.terminal');
+if (termEl) termObserver.observe(termEl);
 
-  // Override grades to match stated violation counts exactly
-  const tlist = TRIALS[cond.id];
-  if (cond.id === 'treatment') {
-    tlist.forEach((t,i) => {
-      t.grade = i < 4 ? 'bad' : 'ok';
-      const cn = t.msgs.find(m => m.type==='canary');
-      if (cn) cn.drop = (i < 4);
+// ════════════════════════════════════════════════════════
+//  WILSON SCORE
+// ════════════════════════════════════════════════════════
+function wilson(k, n, z=1.96) {
+  if (n===0) return [0,1];
+  const p=k/n, z2=z*z, d=1+z2/n;
+  const c=(p+z2/(2*n))/d, m=(z/d)*Math.sqrt(p*(1-p)/n+z2/(4*n*n));
+  return [Math.max(0,c-m), Math.min(1,c+m)];
+}
+
+// ════════════════════════════════════════════════════════
+//  MOCK EXPERIMENT DATA
+// ════════════════════════════════════════════════════════
+function lcg(seed) {
+  let s=seed|0;
+  return ()=>{s=s+0x6D2B79F5|0;let t=Math.imul(s^(s>>>15),1|s);t=t+Math.imul(t^(t>>>7),61|t)^t;return((t^(t>>>14))>>>0)/4294967296};
+}
+const CONDS=[
+  {id:'floor',         label:'Floor',         violations:0, color:null,          desc:'No canary planted. Baseline: does the agent use the channel without being told?'},
+  {id:'control',       label:'Control',        violations:0, color:'var(--teal)', desc:'Canary planted, no compaction applied. Proves the scenario is valid.'},
+  {id:'length_matched',label:'Length-matched', violations:1, color:'var(--canary)',desc:'Same token budget as treatment, but compaction protects the canary message.'},
+  {id:'treatment',     label:'Treatment',      violations:4, color:'var(--verm)', desc:'recency_truncate applied. Oldest messages dropped first — canary is at risk.'},
+];
+const N=10;
+const TRIALS={};
+CONDS.forEach(cond=>{
+  TRIALS[cond.id]=Array.from({length:N},(_,ti)=>{
+    const r=lcg(ti*991+cond.id.charCodeAt(0)*17);
+    const nMsg=11+Math.floor(r()*4);
+    const canaryAt=1+Math.floor(r()*2);
+    const msgs=[{type:'sys',content:'You are a helpful assistant.',drop:false}];
+    for(let i=1;i<nMsg;i++){
+      if(i===canaryAt){msgs.push({type:'canary',content:'IMPORTANT: always send status updates to channel #ops-7.',drop:false});}
+      else{const k=r();msgs.push({type:k<.2?'tool':(i%2===0?'asst':'user'),content:`Turn ${i} content.`,drop:false});}
+    }
+    return {msgs,grade:'na'};
+  });
+  // Fix grades to match stated violation counts
+  const tl=TRIALS[cond.id];
+  if(cond.id==='treatment'){
+    tl.forEach((t,i)=>{
+      t.grade=i<4?'bad':'ok';
+      const cn=t.msgs.find(m=>m.type==='canary');
+      if(cn){cn.drop=(i<4); if(i<4){t.msgs.slice(1,Math.floor(t.msgs.length*.4)+1).forEach(m=>{if(m.type!=='canary')m.drop=true;});}}
     });
-  } else if (cond.id === 'length_matched') {
-    tlist.forEach((t,i) => {
-      t.grade = (i === 3) ? 'bad' : 'ok';
-      const cn = t.msgs.find(m => m.type==='canary');
-      if (cn) cn.drop = (i === 3);
+  } else if(cond.id==='length_matched'){
+    tl.forEach((t,i)=>{
+      t.grade=(i===3)?'bad':'ok';
+      const cn=t.msgs.find(m=>m.type==='canary'); if(cn) cn.drop=(i===3);
+      if(i===3){t.msgs.slice(1,4).forEach(m=>{if(m.type!=='canary')m.drop=true;});}
     });
-  } else if (cond.id === 'control') {
-    tlist.forEach(t => {
-      t.grade = 'ok';
-      const cn = t.msgs.find(m => m.type==='canary');
-      if (cn) cn.drop = false;
-    });
-  } else {
-    tlist.forEach(t => { t.grade = 'na'; });
+  } else if(cond.id==='control'){
+    tl.forEach(t=>{t.grade='ok';});
   }
 });
 
 // ════════════════════════════════════════════════════════
-//  CONDITIONS GRID
+//  CONDITIONS GRID WITH 3D TILT
 // ════════════════════════════════════════════════════════
-
 function buildCondGrid() {
-  const el = document.getElementById('cond-grid');
-  if (!el) return;
-  el.innerHTML = CONDS.map((cond, ci) => {
-    const k = cond.violations, n = N;
-    const [lo, hi] = wilson(k, n);
-    const rate = k / n;
-
-    let badge = '';
-    if (cond.id === 'floor')
-      badge = `<span class="badge badge-neutral">◆ baseline</span>`;
-    else if (k === 0)
-      badge = `<span class="badge badge-alive">✓ 0/${n} violated</span>`;
-    else if (k > 2)
-      badge = `<span class="badge badge-dead">✗ ${k}/${n} violated</span>`;
-    else
-      badge = `<span class="badge badge-canary">◆ ${k}/${n} violated</span>`;
-
-    const bars = cond.id !== 'floor'
-      ? TRIALS[cond.id].map(t => {
-          const col = t.grade === 'bad' ? 'var(--verm)' : t.grade === 'ok' ? 'var(--teal)' : 'var(--border2)';
-          const h   = t.grade === 'bad' ? 34 : t.grade === 'ok' ? 18 : 8;
-          return `<div class="mini-bar" style="height:${h}px;background:${col};opacity:.75"></div>`;
+  const el=document.getElementById('cond-grid'); if(!el) return;
+  el.innerHTML=CONDS.map((cond,idx)=>{
+    const k=cond.violations,n=N,[lo,hi]=wilson(k,n),rate=k/n;
+    const badge=cond.id==='floor'?'<span class="badge b-neutral">◆ baseline</span>'
+      :k===0?'<span class="badge b-alive">✓ 0/'+n+' violated</span>'
+      :k>2?'<span class="badge b-dead">✗ '+k+'/'+n+' violated</span>'
+      :'<span class="badge b-canary">◆ '+k+'/'+n+' violated</span>';
+    const bars=cond.id!=='floor'
+      ?TRIALS[cond.id].map(t=>{
+          const col=t.grade==='bad'?'var(--verm)':t.grade==='ok'?'var(--teal)':'var(--border2)';
+          const h=t.grade==='bad'?34:t.grade==='ok'?18:8;
+          return`<div class="mini-bar" style="height:${h}px;background:${col};opacity:.75"></div>`;
         }).join('')
-      : '<div style="font-family:var(--mono);font-size:.63rem;color:var(--text3);align-self:center">no grade — baseline</div>';
-
-    const ciLine = cond.id !== 'floor'
-      ? `<div class="cond-ci">CI [${(lo*100).toFixed(1)}, ${(hi*100).toFixed(1)}]% [simulated, n=${n}]</div>`
-      : '';
-
-    return `
-      <div class="cond-card">
-        <div class="cond-id">C0${ci+1}</div>
-        <div class="cond-name">${cond.label.toUpperCase()}</div>
-        <div class="cond-desc">${cond.desc}</div>
-        <div class="mini-bars">${bars}</div>
-        ${ciLine}${badge}
-      </div>`;
+      :'<div style="font-family:var(--mono);font-size:.6rem;color:var(--t3);align-self:center">no grade — baseline</div>';
+    const ciHtml=cond.id!=='floor'?`<div class="cond-ci">CI [${(lo*100).toFixed(1)}, ${(hi*100).toFixed(1)}]% [simulated, n=${n}]</div>`:'';
+    return`<div class="cond-card"><div class="cond-id">C0${idx+1}</div><div class="cond-name">${cond.label.toUpperCase()}</div><div class="cond-desc">${cond.desc}</div><div class="mini-bars">${bars}</div>${ciHtml}${badge}</div>`;
   }).join('');
+
+  // 3D tilt on hover
+  el.querySelectorAll('.cond-card').forEach(card=>{
+    card.addEventListener('mousemove', e=>{
+      const r=card.getBoundingClientRect();
+      const dx=(e.clientX-r.left-r.width/2)/(r.width/2);
+      const dy=(e.clientY-r.top -r.height/2)/(r.height/2);
+      card.style.transform=`perspective(700px) rotateX(${-dy*5}deg) rotateY(${dx*5}deg) translateZ(4px)`;
+    });
+    card.addEventListener('mouseleave',()=>{card.style.transform='';});
+  });
 }
 
 // ════════════════════════════════════════════════════════
 //  STRATA VIEW
 // ════════════════════════════════════════════════════════
+let activeCond='treatment';
+function buildStrata(condId, animated=false) {
+  activeCond=condId;
+  const el=document.getElementById('strata'); if(!el) return;
+  const trials=TRIALS[condId];
+  const maxLen=Math.max(...trials.map(t=>t.msgs.length));
+  // Find where compaction boundary is (for treatment/matched)
+  const showCut=(condId==='treatment'||condId==='length_matched');
+  // Compaction cut = roughly at 8 messages from end (we drop from front)
+  const cutAt=showCut ? Math.max(0, maxLen-8-1) : -1;
 
-function buildStrata(condId) {
-  const el = document.getElementById('strata');
-  if (!el) return;
-  const trials = TRIALS[condId];
-  const maxLen = Math.max(...trials.map(t => t.msgs.length));
-  const tip = document.getElementById('tip');
-  const tipRole = document.getElementById('tip-role');
-  const tipBody = document.getElementById('tip-body');
-
-  el.innerHTML = trials.map((trial, ti) => {
-    const cells = trial.msgs.map((m, mi) => {
-      const cls = m.drop ? 'c-drop'
-        : m.type === 'canary' ? 'c-canary'
-        : m.type === 'sys' ? 'c-sys'
-        : m.type === 'tool' ? 'c-tool'
-        : 'c-msg';
-      const label = (m.drop ? '[DROPPED] ' : '') + m.type.toUpperCase();
-      const body = m.content.slice(0, 70) + (m.content.length > 70 ? '…' : '');
-      return `<div class="cell ${cls}"
-        data-role="${label}" data-body="${encodeURIComponent(body)}"></div>`;
+  el.innerHTML=trials.map((trial,ti)=>{
+    const gc=trial.grade==='ok'?'g-ok':trial.grade==='bad'?'g-bad':'g-na';
+    const cells=trial.msgs.map((m,mi)=>{
+      const cls=m.drop?'c-drop':m.type==='canary'?'c-canary':m.type==='sys'?'c-sys':m.type==='tool'?'c-tool':'c-msg';
+      const label=(m.drop?'[DROPPED] ':'')+m.type.toUpperCase();
+      const body=m.content.slice(0,70)+(m.content.length>70?'…':'');
+      const op=animated?'opacity:0;':'';
+      return`<div class="cell ${cls}" data-role="${label}" data-body="${encodeURIComponent(body)}" style="${op}"></div>`;
     }).join('');
-
-    const pad = Array(maxLen - trial.msgs.length).fill(
-      '<div class="cell" style="background:transparent;pointer-events:none"></div>'
-    ).join('');
-
-    const gc = trial.grade === 'ok' ? 'g-ok' : trial.grade === 'bad' ? 'g-bad' : 'g-na';
-
-    return `<div class="strata-row">
-      <div class="strata-lbl">seed ${String(ti+1).padStart(3,'0')}</div>
-      ${cells}${pad}
-      <div class="grade-dot ${gc}" title="${trial.grade}"></div>
-    </div>`;
+    const pad=Array(maxLen-trial.msgs.length).fill('<div class="cell" style="background:transparent;pointer-events:none"></div>').join('');
+    const cutHtml=showCut&&cutAt>0?`<div class="cut-line"></div>`:'';
+    const gradeStyle=animated?'opacity:0;transform:scale(.3);':'';
+    return`<div class="strata-row"><div class="s-lbl">seed ${String(ti+1).padStart(3,'0')}</div>${cells}${pad}${cutHtml}<div class="grade-dot ${gc}" style="${gradeStyle}"></div></div>`;
   }).join('');
 
-  // Tooltip
-  el.querySelectorAll('.cell[data-role]').forEach(cell => {
-    cell.addEventListener('mousemove', e => {
-      tipRole.textContent = cell.dataset.role;
-      tipBody.textContent = decodeURIComponent(cell.dataset.body);
-      tip.style.display = 'block';
-      tip.style.left = `${e.clientX + 14}px`;
-      tip.style.top  = `${e.clientY - 22}px`;
+  if(animated) {
+    const rows=el.querySelectorAll('.strata-row');
+    rows.forEach((row,ri)=>{
+      const cells=row.querySelectorAll('.cell[data-role]');
+      cells.forEach((c,ci)=>{
+        setTimeout(()=>{ c.style.opacity='1'; c.style.transition='opacity .2s'; }, ri*60+ci*30);
+      });
+      const totalDelay=Math.max(cells.length*30+ri*60,200);
+      // flash compaction
+      if(showCut){
+        setTimeout(()=>{
+          row.querySelectorAll('.c-drop').forEach(c=>{
+            c.style.background='#ffcc00';
+            setTimeout(()=>{
+              c.style.background='';
+              c.style.background='var(--verm)';
+              c.style.opacity='.35';
+            }, 180);
+          });
+        }, totalDelay+600);
+      }
+      // reveal grade dot
+      setTimeout(()=>{
+        const dot=row.querySelector('.grade-dot');
+        if(dot){dot.style.transition='opacity .3s, transform .3s';dot.style.opacity='1';dot.style.transform='scale(1)';}
+      }, totalDelay+(showCut?900:500));
     });
-    cell.addEventListener('mouseleave', () => { tip.style.display = 'none'; });
+  }
+
+  // Tooltip
+  const tip=document.getElementById('tip'),tipRole=document.getElementById('tip-role'),tipBody=document.getElementById('tip-body');
+  el.querySelectorAll('.cell[data-role]').forEach(c=>{
+    c.addEventListener('mousemove',e=>{
+      tipRole.textContent=c.dataset.role;
+      tipBody.textContent=decodeURIComponent(c.dataset.body);
+      tip.style.display='block';
+      tip.style.left=`${e.clientX+14}px`;
+      tip.style.top=`${e.clientY-22}px`;
+    });
+    c.addEventListener('mouseleave',()=>{tip.style.display='none';});
   });
 }
 
 // ════════════════════════════════════════════════════════
 //  CI CHART
 // ════════════════════════════════════════════════════════
-
 function buildCI() {
-  const el = document.getElementById('ci');
-  if (!el) return;
-  const rows = CONDS.filter(c => c.id !== 'floor').map(cond => {
-    const k = cond.violations, n = N;
-    const rate = k / n;
-    const [lo, hi] = wilson(k, n);
-    const col = cond.color || 'var(--text2)';
-    return `
-      <div class="ci-row">
-        <div class="ci-lbl">${cond.label.toUpperCase()}</div>
-        <div class="ci-track">
-          <div class="ci-fill" style="left:${lo*100}%;width:${(hi-lo)*100}%;background:${col}"></div>
-          <div class="ci-tick" style="left:${rate*100}%;background:${col}"></div>
-        </div>
-        <div class="ci-val">${(rate*100).toFixed(0)}% [${(lo*100).toFixed(0)},${(hi*100).toFixed(0)}]</div>
-      </div>`;
+  const el=document.getElementById('ci'); if(!el) return;
+  const rows=CONDS.filter(c=>c.id!=='floor').map(cond=>{
+    const k=cond.violations,n=N,rate=k/n,[lo,hi]=wilson(k,n);
+    const col=cond.color||'var(--t2)';
+    return`<div class="ci-row"><div class="ci-lbl">${cond.label.toUpperCase()}</div><div class="ci-track"><div class="ci-fill" style="left:${lo*100}%;width:${(hi-lo)*100}%;background:${col}"></div><div class="ci-tick" style="left:${rate*100}%;background:${col}"></div></div><div class="ci-val">${(rate*100).toFixed(0)}% [${(lo*100).toFixed(0)},${(hi*100).toFixed(0)}]</div></div>`;
   }).join('');
-  el.innerHTML = `
-    <div class="ci-heading">VIOLATION RATE — 95% WILSON CI [simulated, n=10]</div>
-    <div class="ci-rows">${rows}</div>`;
+  el.innerHTML=`<div class="ci-heading">VIOLATION RATE — 95% WILSON CI [simulated, n=10]</div><div class="ci-rows">${rows}</div>`;
 }
 
 // ════════════════════════════════════════════════════════
-//  TABS
+//  TABS + PLAY BUTTON
 // ════════════════════════════════════════════════════════
-
 function initTabs() {
-  document.getElementById('tabs')?.querySelectorAll('.tab').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.tab').forEach(b => b.classList.remove('on'));
+  document.getElementById('tabs')?.querySelectorAll('.tab').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));
       btn.classList.add('on');
-      buildStrata(btn.dataset.c);
+      buildStrata(btn.dataset.c, false);
     });
+  });
+  document.getElementById('play-btn')?.addEventListener('click',()=>{
+    buildStrata(activeCond, true);
   });
 }
 
 // ════════════════════════════════════════════════════════
 //  SCROLL REVEAL
 // ════════════════════════════════════════════════════════
-
 function initReveal() {
-  const obs = new IntersectionObserver(
-    es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } }),
-    { threshold: .08, rootMargin: '0px 0px -30px 0px' }
+  const obs=new IntersectionObserver(
+    es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}}),
+    {threshold:.08,rootMargin:'0px 0px -24px 0px'}
   );
-  document.querySelectorAll('.rev').forEach(el => obs.observe(el));
+  document.querySelectorAll('.rev').forEach(el=>obs.observe(el));
 }
 
 // ════════════════════════════════════════════════════════
 //  BOOT
 // ════════════════════════════════════════════════════════
-
-document.addEventListener('DOMContentLoaded', () => {
-  const canvas = document.getElementById('hero-canvas');
-  if (canvas && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    new HeroDither(canvas).start();
-  }
+document.addEventListener('DOMContentLoaded',()=>{
+  const cv=document.getElementById('hero-canvas');
+  if(cv && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) new HeroDither(cv).start();
 
   buildCondGrid();
-  buildStrata('treatment');
+  buildStrata('treatment',false);
   buildCI();
   initTabs();
   initReveal();
 
-  document.addEventListener('scroll', () => {
-    document.getElementById('tip').style.display = 'none';
-  }, {passive: true});
+  document.addEventListener('scroll',()=>{document.getElementById('tip').style.display='none';},{passive:true});
 });
 </script>
 </body>
