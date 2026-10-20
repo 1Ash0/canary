@@ -393,6 +393,47 @@ A function `wilson_interval(k, n, z=1.96)` that returns `(lower, upper)`. Includ
 
 ---
 
+### U8 — Provider adapters (M2)
+
+**What you'll understand:** What a provider adapter is, how a model's raw HTTP reply is turned into the loop's one `ModelResponse`, how the usage numbers (including the cache fields) are read, and why the adapter is tested with no network.
+
+**Why now:** The loop only knows the `Provider` interface. Adapters are the only code that touches a real API, so every cost, every token count and every tool call in a real run passes through them.
+
+**Hard rule for this unit:** no live call. ADR-012 says no live model call without a `--max-usd` cap and a dry-run estimate, and the budget guard is U9. U8 builds and tests the adapters against **fake HTTP responses shaped like the real ones** (httpx's `MockTransport`). The first live call comes after U9.
+
+**A gap found while planning:** the loop's assistant message stores a *text rendering* of a tool call (`[tool_call read_file {...}]`) for token counting. An adapter must send the provider a real structured tool-call block on the next request, which needs the call's name and arguments. So `Message` needs an optional `tool_call` field (decision 5).
+
+**Decisions** (Claude Code recommends; you decide):
+1. **HTTP layer:** use `httpx` directly (already a dependency) rather than the vendors' SDKs. Fewer dependencies, we control retries and timeouts, and the cassette layer sits cleanly above it.
+2. **Several tool calls in one reply:** take the first, record how many were dropped in `extra`, and ask the provider for one tool at a time where the API allows it. This keeps the "one terminal action" grading rule.
+3. **Usage mapping:** keep the three Anthropic input fields (`input_tokens`, `cache_read_input_tokens`, `cache_creation_input_tokens`) and map the OpenAI-style `prompt_tokens` / `completion_tokens` onto `input_tokens` / `output_tokens`. Cache fields stay `None` where the provider doesn't report them. They are recorded, never simulated.
+4. **Secrets:** keys come only from environment variables, are sent as headers, and never appear in a trace, a cassette or a log line. Headers are excluded from the cassette key (ARCHITECTURE).
+5. **Structured tool calls:** add an optional `tool_call` to `Message` (set on the assistant message that makes a call); the trace keeps the readable text.
+
+**Step 1 — Go to Claude Chat.** Paste this:
+
+> I'm writing two small HTTP client adapters in Python (using httpx, no vendor SDK): one for Anthropic's Messages API and one for an OpenAI-compatible chat completions API. Each turns a list of messages plus tool definitions into a request, and turns the JSON reply into one normalised object: some text, at most one tool call (name, arguments, id), and token usage. Please explain, with small examples:
+> 1. What does a request to each API look like (endpoint, headers, body fields for model, messages, tools, max tokens)? Where does the system prompt go in each?
+> 2. How does each API represent a model asking for a tool, and how do I send the tool's result back on the next request? What is different between Anthropic's content blocks and OpenAI-style `tool_calls`?
+> 3. How does each API report token usage? For Anthropic, what are `input_tokens`, `cache_read_input_tokens` and `cache_creation_input_tokens`, and how do they add up to what I was billed for?
+> 4. What can go wrong over HTTP that an adapter must handle: rate limits (429), server errors, overloaded responses, timeouts? Which should be retried, and how (backoff)? Which should never be retried?
+> 5. How do I test an HTTP client with no network, using httpx's MockTransport? What should the fake responses contain so the test is realistic?
+> 6. API keys: how should a library read them, and what are the ways one accidentally leaks into logs, error messages or saved test fixtures?
+> I'm a second-year CS student who knows Python, tokens, and the idea of an agent loop with tool calls, and is new to calling LLM APIs directly.
+
+**Step 2 — Build `providers/anthropic.py` and `providers/openai_compat.py` together.**
+- Request building and response parsing as small pure functions, so they are testable without HTTP.
+- A thin `complete()` that posts through an injectable `httpx.Client`.
+- Retry with backoff for 429 and 5xx only; never for 4xx client errors; a hard cap on attempts.
+- Two-sided tests with `MockTransport` (offline): a text reply; a one-tool-call reply; a reply with two tool calls (first taken, count recorded); usage fields mapped including cache fields present and absent; a 429 then a 200 succeeds; a 400 fails at once without retry; the API key is in the request header and **not** in the parsed response, the exception text, or `repr`.
+
+**Gate G8 — before U9:**
+1. What does an adapter do, and why does the loop only ever see a `ModelResponse`?
+2. Which HTTP failures are retried and which are not, and why?
+3. Where do the three Anthropic input-token fields come from, and why are the cache ones recorded rather than simulated?
+
+---
+
 ## When to go to Chat vs stay here
 
 | Situation | Go to |
@@ -451,4 +492,5 @@ This lives in `docs/understanding/LEDGER.md`. Update it after each gate.
 | G3 | Cassettes + trial_index | | |
 | G4 | Compaction policies + tool-pairing invariant | | |
 | G5 | Wilson interval + paired design | | |
-| G7 | Agent loop and tool dispatch (M2) | | |
+| G7 | Agent loop and tool dispatch (M2) | 2026-10-20 | waived by owner, not passed (see LEDGER) |
+| G8 | Provider adapters (M2) | | |
