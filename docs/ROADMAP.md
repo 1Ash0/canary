@@ -13,7 +13,7 @@ No dates. Milestones have **exit criteria**; units (see LEARNING.md) are sized b
 | M0 Spine | **done** | `make check` passes offline; 8/8 PRIOR_ART tasks answered (notebook 2026-10-19); ledger M0 row |
 | Learning units U0–U5 | **done** (ahead of the milestones that list their gates) | `learn/*.py` demos; G0–G5 in LEDGER |
 | M1 First light | **in progress** (updated 2026-10-20) | DONE: trace schema v0 (9 event types, 23 tests); token ledger; real-tokenized synthetic fixture (160 events); canary fates; Wilson in `src/`; labelled mock experiment (control vs recency_truncate, 10 trials); export pipeline; site with hero, mock experiment and recorder with step permalinks (11 behaviours verified). README hero and positioning paragraph (product exits 2 and 4, 2026-10-20). TODO: the owner's decision on deploying and the `ctxcheck` PyPI recheck before any public URL; the owner's acceptance of the Teach-First gates for what was built (see LEDGER) |
-| M2 Harness and replay | not started in `src/` | only the `learn/cassette.py` demo |
+| M2 Harness and replay | **in progress** (2026-10-20) | DONE, all offline: agent loop with budget check and policy hook, tool dispatcher, scripted provider, Anthropic and OpenAI-compatible adapters (formats read from the docs), retrying HTTP layer with secret scrubbing; suite passes with sockets blocked. TODO: budget guard and dry-run (U9), cassettes in `src/` (U10), the first live call (needs both), and the M2 exit test (record live under a cap, replay byte-for-byte) |
 | M3 Policies | not started in `src/` | only the `learn/policy_recency.py` demo |
 | M4 Canaries + first measurement | not started in `src/` | `learn/grader.py`, `learn/wilson.py` demos; no preregistration in `docs/experiments/` |
 | M5, M6 | not started | — |

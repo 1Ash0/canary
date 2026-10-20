@@ -401,6 +401,8 @@ A function `wilson_interval(k, n, z=1.96)` that returns `(lower, upper)`. Includ
 
 **Hard rule for this unit:** no live call. ADR-012 says no live model call without a `--max-usd` cap and a dry-run estimate, and the budget guard is U9. U8 builds and tests the adapters against **fake HTTP responses shaped like the real ones** (httpx's `MockTransport`). The first live call comes after U9.
 
+**Built (2026-10-20), offline:** `providers/_http.py`, `anthropic.py`, `openai_compat.py`; `Message` gained `tool_call`, `lead_in`, `is_error` (decision 5). Things learned while building: newer Claude models reject `temperature`; OpenAI tool-call `arguments` are a JSON *string*; a provider can echo a credential back in an error, so header values are scrubbed from error text; undecodable tool arguments must be reported to the model as such. Sources: `docs/notebook/2026-10-20-provider-formats.md`.
+
 **A gap found while planning:** the loop's assistant message stores a *text rendering* of a tool call (`[tool_call read_file {...}]`) for token counting. An adapter must send the provider a real structured tool-call block on the next request, which needs the call's name and arguments. So `Message` needs an optional `tool_call` field (decision 5).
 
 **Decisions** (Claude Code recommends; you decide):
