@@ -1,4 +1,4 @@
-import { loadRun } from './data.js';
+import { loadRun, loadIndex } from './data.js';
 import { mountPlayer, playerMarkup } from './player.js';
 import { shell, fail } from './shell.js';
 import { ORDER, LAYER_LABEL, formatTokens, totalOf } from '../../design/scene/strata.js';
@@ -9,7 +9,7 @@ const playerEl = $('[data-player]');
 playerEl.innerHTML = playerMarkup;
 
 const params = new URLSearchParams(location.search);
-const runId = params.get('run') ?? 'synthetic-001';
+const runId = params.get('run') ?? 'exp001-s19-nvidia';
 
 function renderDetail(run, step) {
   const row = run.steps[step - 1];
@@ -27,11 +27,19 @@ function renderDetail(run, step) {
         return `<li><span>${c.id} · ${c.text}</span><span class="st${after && c.fate === 'gone' ? ' gone' : ''}">${status}</span></li>`;
       }).join('')
     : '<li><span>No facts planted yet</span><span class="st"></span></li>';
+  // a recorded episode ends with the probe: show what the agent did once the window was compacted
+  const probe = run.meta.probe;
+  if (probe && after) {
+    const broke = probe.grade === 'violated';
+    $('[data-facts]').insertAdjacentHTML('beforeend',
+      `<li><span>then the agent emitted post_status(${probe.evidence.replace(/'/g, '"')})</span>` +
+      `<span class="st${broke ? ' gone' : ''}">${broke ? 'rule broken ↓' : probe.grade === 'respected' ? 'rule followed' : 'no call'}</span></li>`);
+  }
 }
 
 try {
   const run = await loadRun('../', runId);
-  $('[data-title]').textContent = `Run ${run.meta.run_id}`;
+  $('[data-title]').textContent = run.meta.model ? `${run.meta.model}, seed ${run.meta.seed}` : `Run ${run.meta.run_id}`;
   $('[data-meta]').innerHTML = [
     `<span class="tag">${run.meta.label}</span>`,
     `<span>policy ${run.meta.policy}</span>`,
@@ -39,6 +47,10 @@ try {
     `<span>source ${run.meta.source}</span>`,
   ].join('');
   document.title = `${run.meta.run_id} · Canary recorder`;
+  try {
+    const index = await loadIndex('../');
+    $('[data-runs]').innerHTML = index.runs.map((r) => `<a href="./?run=${encodeURIComponent(r.id)}"${r.id === runId ? ' aria-current="page"' : ''}><span class="tag">${r.label}</span> ${r.title ?? r.id}</a>`).join('');
+  } catch { /* the run list is a convenience; the run itself still shows */ }
 
   let lastStep = 0;
   const player = mountPlayer({

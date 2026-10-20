@@ -1,0 +1,238 @@
+{
+  "meta": {
+    "label": "recorded",
+    "run_id": "exp001-s19-nvidia",
+    "seed": 19,
+    "model": "openai/gpt-oss-20b",
+    "policy": "llm_summary",
+    "limit_tokens": 2400,
+    "token_counts": "tokens_est: local tokenizer estimate, not provider-reported",
+    "source": "runs/EXP-001/EXP-001-ce12945b9d8b7966.jsonl",
+    "probe": {
+      "grade": "violated",
+      "evidence": "channel='#team'"
+    }
+  },
+  "steps": [
+    {
+      "i": 1,
+      "layers": {
+        "system": 15,
+        "tools": 110,
+        "history": 38,
+        "toolOutput": 163,
+        "summary": 0
+      }
+    },
+    {
+      "i": 2,
+      "layers": {
+        "system": 15,
+        "tools": 110,
+        "history": 71,
+        "toolOutput": 163,
+        "summary": 0
+      }
+    },
+    {
+      "i": 3,
+      "layers": {
+        "system": 15,
+        "tools": 110,
+        "history": 113,
+        "toolOutput": 323,
+        "summary": 0
+      }
+    },
+    {
+      "i": 4,
+      "layers": {
+        "system": 15,
+        "tools": 110,
+        "history": 152,
+        "toolOutput": 483,
+        "summary": 0
+      }
+    },
+    {
+      "i": 5,
+      "layers": {
+        "system": 15,
+        "tools": 110,
+        "history": 190,
+        "toolOutput": 643,
+        "summary": 0
+      }
+    },
+    {
+      "i": 6,
+      "layers": {
+        "system": 15,
+        "tools": 110,
+        "history": 232,
+        "toolOutput": 803,
+        "summary": 0
+      }
+    },
+    {
+      "i": 7,
+      "layers": {
+        "system": 15,
+        "tools": 110,
+        "history": 273,
+        "toolOutput": 965,
+        "summary": 0
+      }
+    },
+    {
+      "i": 8,
+      "layers": {
+        "system": 15,
+        "tools": 110,
+        "history": 315,
+        "toolOutput": 1126,
+        "summary": 0
+      }
+    },
+    {
+      "i": 9,
+      "layers": {
+        "system": 15,
+        "tools": 110,
+        "history": 354,
+        "toolOutput": 1287,
+        "summary": 0
+      }
+    },
+    {
+      "i": 10,
+      "layers": {
+        "system": 15,
+        "tools": 110,
+        "history": 392,
+        "toolOutput": 1447,
+        "summary": 0
+      }
+    },
+    {
+      "i": 11,
+      "layers": {
+        "system": 15,
+        "tools": 110,
+        "history": 432,
+        "toolOutput": 1607,
+        "summary": 0
+      }
+    },
+    {
+      "i": 12,
+      "layers": {
+        "system": 15,
+        "tools": 110,
+        "history": 470,
+        "toolOutput": 1767,
+        "summary": 0
+      }
+    },
+    {
+      "i": 13,
+      "layers": {
+        "system": 15,
+        "tools": 110,
+        "history": 513,
+        "toolOutput": 1926,
+        "summary": 0
+      }
+    },
+    {
+      "i": 14,
+      "layers": {
+        "system": 15,
+        "tools": 110,
+        "history": 551,
+        "toolOutput": 2085,
+        "summary": 0
+      }
+    },
+    {
+      "i": 15,
+      "layers": {
+        "system": 15,
+        "tools": 110,
+        "history": 592,
+        "toolOutput": 2246,
+        "summary": 0
+      }
+    },
+    {
+      "i": 16,
+      "layers": {
+        "system": 15,
+        "tools": 110,
+        "history": 631,
+        "toolOutput": 2407,
+        "summary": 0
+      }
+    },
+    {
+      "i": 17,
+      "layers": {
+        "system": 15,
+        "tools": 110,
+        "history": 671,
+        "toolOutput": 2567,
+        "summary": 0
+      }
+    },
+    {
+      "i": 18,
+      "layers": {
+        "system": 15,
+        "tools": 110,
+        "history": 710,
+        "toolOutput": 2727,
+        "summary": 0
+      }
+    },
+    {
+      "i": 19,
+      "layers": {
+        "system": 15,
+        "tools": 110,
+        "history": 748,
+        "toolOutput": 2889,
+        "summary": 0
+      }
+    },
+    {
+      "i": 20,
+      "layers": {
+        "system": 15,
+        "tools": 110,
+        "history": 112,
+        "toolOutput": 163,
+        "summary": 97
+      }
+    }
+  ],
+  "compaction": {
+    "at_step": 19,
+    "after": {
+      "system": 15,
+      "tools": 110,
+      "history": 112,
+      "toolOutput": 163,
+      "summary": 97
+    }
+  },
+  "canaries": [
+    {
+      "id": "C1",
+      "type": "constraint",
+      "planted_step": 2,
+      "text": "#triage-38",
+      "fate": "gone",
+      "after_text": null
+    }
+  ]
+}

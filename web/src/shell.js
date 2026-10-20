@@ -6,7 +6,7 @@ export function shell(base, current) {
   document.querySelector('[data-header]').innerHTML = `
     <a class="wordmark" href="${base}" translate="no">canary</a>
     <nav aria-label="Primary">
-      ${link(`${base}run/?run=synthetic-001`, 'Recorder', 'run')}
+      ${link(`${base}run/?run=exp001-s19-nvidia`, 'Recorder', 'run')}
       ${link(`${base}survival/`, 'Survival', 'survival')}
       ${link(`${base}about/`, 'About', 'about')}
     </nav>`;

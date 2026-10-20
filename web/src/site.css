@@ -144,6 +144,74 @@ h2 { font-size: var(--type-h1-size); font-weight: var(--type-h1-weight); line-he
   .surv-grid thead th:first-child { width: 22%; }
 }
 
+/* hero: the claim's lines rise out of SplitText masks */
+.split-line { will-change: transform; }
+
+/* "Same history. Two summaries." pinned, scroll-scrubbed comparison */
+.compare { padding-block: var(--space-3xl); }
+.compare-head { display: grid; grid-template-columns: repeat(var(--columns), minmax(0, 1fr)); column-gap: var(--gutter); align-items: end; margin-bottom: var(--space-xl); }
+.compare-head h2 { grid-column: 1 / span 5; margin: 0; }
+.compare-head .lede { grid-column: 7 / -1; margin: 0; }
+.compare-stage { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gutter); }
+.compare-panel { margin: 0; padding-top: var(--space-sm); border-top: var(--line-hair) solid var(--hairline); }
+.panel-head, .cons-head { display: flex; align-items: baseline; gap: var(--space-sm); margin-bottom: var(--space-sm); }
+.panel-host { font-weight: 600; }
+.panel-head .mono, .cons-head .mono, .res-name .mono, .res-other .mono { color: var(--ink-2); }
+.panel-stage { width: 100%; }
+.panel-readout { display: flex; gap: var(--space-xl); margin: var(--space-sm) 0 0; padding-top: var(--space-xs); border-top: var(--line-hair) solid var(--hairline); }
+.panel-readout dt { font-family: var(--type-label-family); font-size: var(--type-label-size); color: var(--ink-2); }
+.panel-readout dd { margin: 0; font-family: var(--type-data-family); font-size: var(--type-data-size); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.panel-readout dd.is-gone { color: var(--loss); }
+.compare-notes { list-style: none; margin: var(--space-xl) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gutter); }
+.compare-notes li { display: grid; grid-template-columns: auto 1fr; gap: var(--space-sm); padding-top: var(--space-sm); border-top: var(--line-hair) solid var(--hairline); color: var(--ink-2); font-size: var(--type-small-size); opacity: 0.4; transition: opacity var(--duration-base) var(--ease-out); }
+.compare-notes li.is-current, .compare.is-still .compare-notes li { opacity: 1; color: var(--ink); }
+.compare-notes li.is-current { border-top-color: var(--ink); }
+.note-n { font-family: var(--type-label-family); font-size: var(--type-label-size); color: var(--ink-2); }
+
+/* "What the agent did next" */
+.cons-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gutter); margin: 0 0 var(--space-lg); }
+.cons-col { padding-top: var(--space-sm); border-top: var(--line-hair) solid var(--hairline); display: flex; flex-direction: column; }
+.cons-label { font-family: var(--type-label-family); font-size: var(--type-label-size); color: var(--ink-2); margin: var(--space-md) 0 var(--space-xs); }
+.cons-quote { margin: 0; font-size: var(--type-small-size); line-height: var(--type-small-leading); color: var(--ink-2); max-width: var(--measure); }
+.cons-quote mark { background: none; color: var(--ink); font-weight: 600; border-bottom: var(--line-mark) solid var(--accent); }
+.cons-check { margin: var(--space-xs) 0 0; font-family: var(--type-label-family); font-size: var(--type-label-size); color: var(--ink); }
+.cons-col.is-lost .cons-check { color: var(--loss); }
+.cons-call { margin: 0; padding: var(--space-md); background: var(--surface); border-radius: var(--radius-none); font-family: var(--type-data-family); font-size: var(--type-data-size); line-height: var(--type-data-leading); overflow-x: auto; white-space: pre; }
+.cons-line { display: block; }
+.cons-call .is-loss { color: var(--loss); }
+.cons-call .is-ok { color: var(--ink); }
+.cons-verdict { margin: var(--space-md) 0 0; font-family: var(--type-label-family); font-size: var(--type-data-size); color: var(--ink); }
+.cons-verdict.is-loss { color: var(--loss); }
+.cons-verdict .dim { color: var(--ink-2); margin-left: var(--space-xs); }
+
+/* "What the experiment found" */
+.res-claim { font-size: var(--type-h2-size); line-height: var(--type-h2-leading); letter-spacing: var(--type-h2-tracking); max-width: 30ch; margin: 0 0 var(--space-2xl); color: var(--ink-2); text-wrap: balance; }
+.res-big { color: var(--ink); font-variant-numeric: tabular-nums; }
+.res-model { margin: 0 0 var(--space-2xl); }
+.res-name { font-size: var(--type-body-size); font-weight: 400; margin: 0 0 var(--space-xs); max-width: none; letter-spacing: 0; }
+.res-model .cells { margin: 0 0 var(--space-sm); }
+.res-note { max-width: var(--measure); color: var(--ink-2); font-size: var(--type-small-size); margin: 0; }
+.whisk-range { transform-box: view-box; }
+.res-other { list-style: none; margin: 0 0 var(--space-lg); padding: 0; font-size: var(--type-small-size); }
+.res-other li { padding-block: var(--space-xs); border-top: var(--line-hair) solid var(--hairline); }
+.res-other .dim { color: var(--ink-2); margin-left: var(--space-xs); }
+.axis-row { border-top: 0; padding-block: var(--space-xs) 0; }
+
+/* compact survival grid */
+.table-scroll { overflow-x: auto; }
+.table-scroll:focus-visible { outline-offset: calc(-1 * var(--line-mark)); }
+.surv-grid.mini { margin: var(--space-lg) 0 var(--space-md); }
+.surv-grid.mini td { background: none; }
+.surv-grid.mini td:not(.empty):not(.is-gone) { position: relative; }
+.mini-fill { position: absolute; inset-inline: 0; bottom: 0; height: calc(var(--rate, 0) * 100%); background: color-mix(in srgb, var(--ink) 22%, transparent); transform-origin: 50% 100%; }
+.surv-grid.mini td .v, .surv-grid.mini td .g { position: relative; }
+.surv-grid.mini td.is-gone .mini-fill { display: none; }
+
+/* recorder: run list */
+.rec-runs { display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-lg); margin: calc(-1 * var(--space-md)) 0 var(--space-xl); font-size: var(--type-small-size); }
+.rec-runs a { color: var(--ink-2); text-decoration: none; padding-block: var(--space-xxs); border-bottom: var(--line-hair) solid transparent; }
+.rec-runs a:hover, .rec-runs a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--ink-3); }
+
 /* = layout.breakpoints.lg */
 @media (max-width: 1099px) {
   .intro { grid-column: 1 / -1; }
@@ -168,4 +236,8 @@ h2 { font-size: var(--type-h1-size); font-weight: var(--type-h1-weight); line-he
   .paired { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .layers, .facts { grid-column: 1 / -1; }
   .facts { margin-top: var(--space-lg); }
+  .compare-head h2, .compare-head .lede { grid-column: 1 / -1; }
+  .compare-head .lede { margin-top: var(--space-md); }
+  .compare-stage, .compare-notes, .cons-grid { grid-template-columns: minmax(0, 1fr); }
+  .panel-readout { gap: var(--space-md); }
 }

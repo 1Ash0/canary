@@ -26,19 +26,23 @@ export function layout(run, { width, height, compact = width < 560 }) {
   const AT = run.compaction.at_step;
   const labelW = compact ? 0 : Math.min(260, Math.round(width * 0.38));
   const left = compact ? 28 : 34, top = 22, bottom = 64 + (compact ? 0 : extraBottom(run)), gap = 18;
-  const limitX = width - labelW - (compact ? 12 : 28);
+  // Recorded runs replay scripted history and compact once, at the probe, so the window can pass the
+  // limit before the seam. Scale to whichever is larger; the limit rule then sits inside the frame.
+  const span = Math.max(run.meta.limit_tokens, ...run.steps.map(totalOf));
+  const maxX = width - labelW - (compact ? 12 : 28);
   const pitch = (height - top - bottom - gap) / N;
   const bar = Math.max(2, Math.round(pitch * 0.68));
-  const scale = (limitX - left) / run.meta.limit_tokens;
+  const scale = (maxX - left) / span;
+  const limitX = left + run.meta.limit_tokens * scale;
   const rowY = (i) => top + (i - 1) * pitch + (i > AT ? gap : 0);
   const seamY = rowY(AT) + bar + gap / 2;
   const axisY = rowY(N) + bar + 12;
-  return { N, AT, compact, labelW, left, top, bottom, gap, limitX, labelX: limitX + 20, pitch, bar, scale, rowY, seamY, axisY, width, height };
+  return { N, AT, compact, labelW, left, top, bottom, gap, span, maxX, limitX, labelX: maxX + 20, pitch, bar, scale, rowY, seamY, axisY, width, height };
 }
 
 export function renderStrata(run, opts) {
   const L = layout(run, opts);
-  const { AT, left, limitX, labelX, bar, scale, rowY, seamY, axisY, compact, width, height } = L;
+  const { AT, left, limitX, maxX, span, labelX, bar, scale, rowY, seamY, axisY, compact, width, height } = L;
   const base = [], seam = [], leads = [], marks = [], texts = [];
   const text = (x, y, s, cls, anchor = 'start') => `<text x="${f1(x)}" y="${f1(y)}" class="${cls}" text-anchor="${anchor}">${esc(s)}</text>`;
 
@@ -66,9 +70,10 @@ export function renderStrata(run, opts) {
   }
 
   // token axis
-  const tick = compact ? 20000 : 10000;
-  base.push(`<line class="sx-axis" x1="${left}" y1="${axisY}" x2="${limitX}" y2="${axisY}"/>`);
-  for (let v = 0; v <= run.meta.limit_tokens; v += tick) {
+  // about five ticks whatever the scale: 10k for the synthetic run, 1k for a 2.4k-token window
+  const tick = [500, 1000, 2000, 5000, 10000, 20000, 50000].find((t) => span / t <= (compact ? 4 : 8)) ?? 50000;
+  base.push(`<line class="sx-axis" x1="${left}" y1="${axisY}" x2="${maxX}" y2="${axisY}"/>`);
+  for (let v = 0; v <= span; v += tick) {
     const x = left + v * scale;
     base.push(`<line class="sx-tick" x1="${f1(x)}" y1="${axisY}" x2="${f1(x)}" y2="${axisY + 4}"/>`);
     base.push(text(x, axisY + 16, v === 0 ? '0' : `${v / 1000}k`, 'sx-label', 'middle'));
@@ -113,7 +118,7 @@ export function renderStrata(run, opts) {
       const row = k.fate === 'kept' ? AT + 1 : Math.min(L.N, AT + 1 + rowsApart);
       fx = sumCenter; fy = rowY(row) + bar / 2;
       if (compact) extra = text(fx + r + 5, fy + 4, `${k.id} ${k.fate}`, 'sx-label sx-strong');
-      callout(`${k.id}-fate`, fx + r, fy, `${k.id} · ${k.fate}`, k.fate === 'changed' ? `→ ${k.after_text}` : 'verbatim in summary', '', k.fate === 'changed' ? 'sx-lead sx-dashed' : 'sx-lead');
+      callout(`${k.id}-fate`, fx + r, fy, `${k.id} · ${k.fate}`, k.fate === 'changed' ? `→ ${k.after_text}` : 'named in the summary', '', k.fate === 'changed' ? 'sx-lead sx-dashed' : 'sx-lead');
     }
     // dx/dy: offset from the fate position back to the plant position; the marker travels it at compaction
     marks.push(`<g data-fate="${k.id}" data-kind="${k.fate}" data-dx="${f1(px - fx)}" data-dy="${f1(py - fy)}">${dot(fx, fy, k.fate)}${extra}</g>`);

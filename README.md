@@ -22,8 +22,8 @@ If you build or tune an agent harness and have to decide how its context gets co
 | Agent loop with a budget check, two provider adapters (Anthropic, OpenAI-compatible), record/replay cassettes, a budget guard that refuses anything not provably free, live runs on free Groq, Gemini, Mistral and NVIDIA models | A result that holds across models, or a prompt that keeps the rule |
 | Four policies: `recency_truncate`, `head_tail`, `observation_mask`, `llm_summary` (versioned prompt), with property tests for the five invariants | Progressive compaction (history is scripted and compacted once, at the probe) |
 | Two canary packs (`constraint`, `identifier`), a tool-call grader tested on both sides, four conditions per seed, a resumable runner, exact McNemar, paired bootstrap, Benjamini-Hochberg, a summary-validity flag | EXP-002 (policy comparison) and EXP-003 (dose-response): drafts only |
-| A **deterministic** survival grid: what each policy keeps (real policy code on seeded histories, no model) | A public URL |
-| A static site: landing page, run recorder with step permalinks, survival page, about | The site still shows only synthetic and deterministic data, not the EXP-001 results |
+| A **deterministic** survival grid: what each policy keeps (real policy code on seeded histories, no model) | A fair test of reasoning models (their reasoning eats the summary token cap) |
+| A static site whose landing page shows the recorded EXP-001 runs and results (the same seed under two summarizers, scroll-scrubbed), a run recorder with step permalinks and recorded runs, a survival page, about | A public URL (deploy is the owner's decision) |
 
 ### What the survival grid shows
 

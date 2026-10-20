@@ -14,7 +14,7 @@ Handoff: `docs/design/HANDOFF.md`.
 | D5 Renderer | not started; **unblocked** (needs no data) | |
 | D6 Video keyframes | not started; **unblocked** (recorded runs exist) | |
 | D7 Full video | not started; **unblocked** after D5 and D6 | |
-| D8 Site build | **partly built** (survival page, copy fixed); rest unblocked | |
+| D8 Site build | **core built 2026-10-21** (landing on recorded data, recorder on recorded runs); polish and deploy left | 2026-10-21 |
 
 **Why D4b exists.** The owner asked that the landing page and the rest of the site be dynamic and moving, not just look right in stills. The handoff defers all site motion to D8, so the owner would only see motion at the very end. D4b builds the hero alone (claim reveal + strata player playthrough + seam + fates) after the static look is approved, renders it as a frame strip and a short screen recording, and gets the motion feel approved before D5–D8 build on it. Motion rules: `SITE_RULES.md` §4.
 
@@ -75,6 +75,18 @@ The reason for the pause is gone: M1 to M4 are built and EXP-001 has recorded da
 4. **D6 keyframes, D7 video:** render a recorded run (the same seed kept versus dropped is the natural story), after D5.
 5. **Proposed ADRs 016 and 017** (video as headless scene render; theme = ground + ramp + device) still need the owner's acceptance. D0 schema additions: step index, `limit_tokens`, `tools_tokens_est` and derived fate are done in schema 0.3; `pair_id` is still deferred.
 **Copy debt:** the home page sentence is rewritten (2026-10-21) to say the first experiment tried to reproduce published work and came out split; the sharpened "not a framework" wording is in. Re-check it when EXP-002 or EXP-003 produce results.
+
+## D8 core, built 2026-10-21
+- **Landing (`/`)**, all from exported recorded data (`experiments/exp001.json`, `exp001_pair.json`, `runs/exp001-s19-*.json`):
+  1. Hero: the claim rises line by line (SplitText masks, the one split heading allowed); the strata player plays a **recorded** run (NVIDIA gpt-oss-20b, seed 19: the rule is planted, the window passes the limit, the seam drops, the rule falls out as `gone ↓`), starting as the claim's first line lands; lede and action follow on the `ui` spring.
+  2. "Same history. Two summaries.": the pinned, scroll-scrubbed section of SITE_RULES 4.3, reworked to scrub **two** recorded runs of the same seed in sync (Mistral kept the rule, NVIDIA dropped it). One moving picture; notes enter after the state they describe (driven by scene state, not scroll fraction). Pinned only at >= 1024 x 680 with motion allowed; otherwise static final state with every note visible.
+  3. "What the agent did next": both summaries (channel marked where named), the tool call each agent emitted typing in line by line, and `behaviour changed ↓` dropping in once on the seam spring.
+  4. "What the experiment found": per-model control and treatment rows with Wilson whiskers drawing out from their centre; the audit statement ("42 of 42 summaries read by hand") and every caveat (no cross-model replication; NVIDIA truncation; excluded models) come from the exported JSON.
+  5. "Without a model": a compact deterministic survival grid; cells fill one by one.
+- **Recorder (`/run/`)**: opens the recorded NVIDIA run by default, lists all runs with their epistemic tags, and shows the probe outcome after the compaction step.
+- **Scene fixes found on the way**: the strata layout scales to the window when a recorded run passes the limit before its single compaction; the timeline now lasts until the fates settle when compaction is at the last step; a kept fact reads "named in the summary" (the owner's audit showed most are reworded, not verbatim).
+- **QA**: `scripts/check-landing.mjs` (reduced-motion final states at 1440/768/390, pin and scrub with notes advancing in order, every entry animation settling fully visible); `check-site.mjs` now includes the recorded run page; `check-hero.mjs` and `check-recorder.mjs` pass. Initial JS on `/` about 59 kB gzip of the 60 kB budget, so there is little headroom.
+- **Left for D8 polish**: the `?` shortcut overlay, a GitHub link once a remote exists, the full guidelines audit, OG images, then deploy (owner).
 
 ## Exact next step
 D4b approved 2026-10-20. Design is unblocked (2026-10-21): next is D8 core above (real results on `/`, recorded run in `/run/`). D5 is the deterministic renderer: its page calls `scene/timeline.js` `frameAt` through `window.seek(t)`; exit test: SHA-256 of frame t=11.37 identical across random-order renders.

@@ -1,0 +1,233 @@
+{
+  "label": "recorded",
+  "exp_id": "EXP-001",
+  "dates": [
+    "2026-10-20"
+  ],
+  "models": [
+    {
+      "model": "ministral-14b-latest",
+      "host": "Mistral",
+      "short": "ministral-14b-latest",
+      "usable": true,
+      "note": "27 seeds. Its summaries almost always carried the rule through.",
+      "floor": {
+        "k": 26,
+        "n": 27,
+        "rate": 0.9629629629629629,
+        "lo": 0.8171614606584348,
+        "hi": 0.9934320234669025,
+        "na": 0,
+        "invalid": null,
+        "checked": null,
+        "kept": null,
+        "kept_n": null
+      },
+      "control": {
+        "k": 0,
+        "n": 27,
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.12455903714463581,
+        "na": 0,
+        "invalid": null,
+        "checked": null,
+        "kept": null,
+        "kept_n": null
+      },
+      "treatment": {
+        "k": 2,
+        "n": 27,
+        "rate": 0.07407407407407407,
+        "lo": 0.020554221697383523,
+        "hi": 0.2336997729073062,
+        "na": 0,
+        "invalid": 0,
+        "checked": 27,
+        "kept": 25,
+        "kept_n": 27
+      },
+      "pairs": {
+        "n": 27,
+        "only_treatment": 2,
+        "only_control": 0,
+        "p": 0.5,
+        "rd": 0.07407407407407407,
+        "rd_lo": 0.0,
+        "rd_hi": 0.18518518518518517
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "host": "NVIDIA",
+      "short": "gpt-oss-20b",
+      "usable": true,
+      "note": "27 seeds, optional third model. Many summaries were cut off by the token cap, which its reasoning eats into; cut-off summaries lost the rule more often.",
+      "floor": {
+        "k": 25,
+        "n": 27,
+        "rate": 0.9259259259259259,
+        "lo": 0.7663002270926937,
+        "hi": 0.9794457783026165,
+        "na": 0,
+        "invalid": null,
+        "checked": null,
+        "kept": null,
+        "kept_n": null
+      },
+      "control": {
+        "k": 1,
+        "n": 27,
+        "rate": 0.037037037037037035,
+        "lo": 0.006567976533097597,
+        "hi": 0.1828385393415652,
+        "na": 0,
+        "invalid": null,
+        "checked": null,
+        "kept": null,
+        "kept_n": null
+      },
+      "treatment": {
+        "k": 11,
+        "n": 24,
+        "rate": 0.4583333333333333,
+        "lo": 0.27891058351681425,
+        "hi": 0.6492544644689338,
+        "na": 3,
+        "invalid": 0,
+        "checked": 24,
+        "kept": 13,
+        "kept_n": 24
+      },
+      "pairs": {
+        "n": 24,
+        "only_treatment": 11,
+        "only_control": 0,
+        "p": 0.0009765625,
+        "rd": 0.4583333333333333,
+        "rd_lo": 0.25,
+        "rd_hi": 0.6666666666666666
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "host": "Groq",
+      "short": "gpt-oss-120b",
+      "usable": false,
+      "note": "Re-run stopped at 4 of 27 seeds. Too few to read.",
+      "floor": {
+        "k": 4,
+        "n": 4,
+        "rate": 1.0,
+        "lo": 0.5100999795960008,
+        "hi": 1.0,
+        "na": 0,
+        "invalid": null,
+        "checked": null,
+        "kept": null,
+        "kept_n": null
+      },
+      "control": {
+        "k": 0,
+        "n": 4,
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.48990002040399916,
+        "na": 0,
+        "invalid": null,
+        "checked": null,
+        "kept": null,
+        "kept_n": null
+      },
+      "treatment": {
+        "k": 3,
+        "n": 3,
+        "rate": 1.0,
+        "lo": 0.43849391955098227,
+        "hi": 1.0,
+        "na": 1,
+        "invalid": 0,
+        "checked": 3,
+        "kept": 0,
+        "kept_n": 3
+      },
+      "pairs": {
+        "n": 3,
+        "only_treatment": 3,
+        "only_control": 0,
+        "p": 0.25,
+        "rd": 1.0,
+        "rd_lo": 1.0,
+        "rd_hi": 1.0
+      }
+    },
+    {
+      "model": "gemini-3.1-flash-lite",
+      "host": "Gemini",
+      "short": "gemini-3.1-flash-lite",
+      "usable": false,
+      "note": "Excluded: its summaries were copied transcript lines, not summaries.",
+      "floor": {
+        "k": 10,
+        "n": 10,
+        "rate": 1.0,
+        "lo": 0.7224598312333834,
+        "hi": 1.0,
+        "na": 0,
+        "invalid": null,
+        "checked": null,
+        "kept": null,
+        "kept_n": null
+      },
+      "control": {
+        "k": 0,
+        "n": 10,
+        "rate": 0.0,
+        "lo": 0.0,
+        "hi": 0.2775401687666166,
+        "na": 0,
+        "invalid": null,
+        "checked": null,
+        "kept": null,
+        "kept_n": null
+      },
+      "treatment": {
+        "k": 10,
+        "n": 10,
+        "rate": 1.0,
+        "lo": 0.7224598312333834,
+        "hi": 1.0,
+        "na": 0,
+        "invalid": 9,
+        "checked": 10,
+        "kept": 0,
+        "kept_n": 10
+      },
+      "pairs": {
+        "n": 10,
+        "only_treatment": 10,
+        "only_control": 0,
+        "p": 0.001953125,
+        "rd": 1.0,
+        "rd_lo": 1.0,
+        "rd_hi": 1.0
+      }
+    }
+  ],
+  "audit": {
+    "judged": 42,
+    "followed": 42
+  },
+  "truncation": {
+    "truncated": 9,
+    "truncated_present": 3,
+    "complete": 15,
+    "complete_present": 10
+  },
+  "source": [
+    "results/EXP-001/summary.json",
+    "results/EXP-001-pilot10-reanalysed/audit_tally.json",
+    "results/EXP-001/audit_tally_nvidia.json",
+    "docs/experiments/EXP-001.md"
+  ]
+}

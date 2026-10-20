@@ -69,6 +69,8 @@ def to_scene_input(events: Iterable[TraceEvent], source: str) -> dict[str, Any]:
             "limit_tokens": ledger.limit_tokens,
             "token_counts": "tokens_est: local tokenizer estimate, not provider-reported",
             "source": source,
+            # a recorded episode's outcome: what the agent did when the probe arrived
+            "probe": {"grade": probe.grade, "evidence": probe.evidence} if probe else None,
         },
         "steps": rows,
         "compaction": compaction,

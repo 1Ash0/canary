@@ -3,7 +3,20 @@
     {
       "id": "synthetic-001",
       "label": "synthetic fixture",
-      "path": "runs/synthetic-001.json"
+      "path": "runs/synthetic-001.json",
+      "title": "Synthetic fixture, 40 steps, three facts"
+    },
+    {
+      "id": "exp001-s19-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s19-mistral.json",
+      "title": "EXP-001 seed 19, Mistral ministral-14b-latest"
+    },
+    {
+      "id": "exp001-s19-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s19-nvidia.json",
+      "title": "EXP-001 seed 19, NVIDIA openai/gpt-oss-20b"
     }
   ],
   "experiments": [
@@ -11,6 +24,16 @@
       "id": "mock_exp_001",
       "label": "mock data",
       "path": "experiments/mock_exp_001.json"
+    },
+    {
+      "id": "exp001",
+      "label": "recorded",
+      "path": "experiments/exp001.json"
+    },
+    {
+      "id": "exp001_pair",
+      "label": "recorded",
+      "path": "experiments/exp001_pair.json"
     }
   ],
   "survival": [

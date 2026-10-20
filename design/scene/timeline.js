@@ -23,7 +23,8 @@ export function buildSchedule(run, motion, { start = 0 } = {}) {
   const fatesDone = Math.max(...Object.values(fates)) + 1.0;
   for (let i = AT + 2; i <= N; i++) arrive[i] = fatesDone + 0.13 * (i - AT - 2);
   const plants = Object.fromEntries(run.canaries.map((k) => [k.id, arrive[k.planted_step] + 0.12]));
-  return { run, motion, N, AT, arrive, seam, fates, fatesDone, plants, duration: arrive[N] + 0.8 };
+  // recorded runs compact at the last step, so the fates can outlast the last arrival
+  return { run, motion, N, AT, arrive, seam, fates, fatesDone, plants, duration: Math.max(arrive[N] + 0.8, fatesDone + 0.3) };
 }
 
 // The time at which step i is fully shown (used by the scrubber and ?step= deep links).
