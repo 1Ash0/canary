@@ -43,6 +43,7 @@ Handoff: `docs/design/HANDOFF.md`.
 - Scripts: `build-tokens`, `contrast`, `check-fonts`, `d2-pages`, `shoot`, `trial-measure`.
 
 ## Open items
+- **Copy debt, fix when M5 is reached (owner, 2026-10-20):** the sentence "It makes no new claims: the first experiment replicates published work..." on `/` and `/about/` becomes untrue once EXP-002/003 produce extension results. Replace with: "The first experiment replicates published work on our own harness. Later experiments extend it with other policies and fact types, and every result is reported with its interval, nulls included." Also sharpen "Not a framework for building agents" to add "The harness exists only to run test scenarios."
 - ADR-016 (video = headless render of the scene) and ADR-017 (theme = ground + ramp + device): still Proposed.
 - D0 schema additions (step index, limit_tokens, tools_tokens_est, canary_fate, pair_id) await the owner (Teach-First lane).
 - Committed as of 2026-10-20 (see `git log`); nothing is pushed (no remote).
