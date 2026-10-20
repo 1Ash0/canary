@@ -16,7 +16,7 @@
     <section class="hero" aria-labelledby="claim">
       <h1 id="claim" data-split>What compaction forgets.</h1>
       <div class="intro">
-        <p class="lede" data-hero-rise>When an agent's context fills up, the harness compacts it into a summary. Canary plants a rule early in a run, compacts, and records whether the agent still follows it.</p>
+        <p class="lede" data-hero-rise>When an agent's context fills up, the harness has to make room: drop old turns, hide tool output, or summarise. Canary plants a rule early in a run, compacts, and records whether the agent still follows it.</p>
         <div class="actions" data-hero-rise>
           <a class="btn" href="#lab">Try compacting</a>
           <a class="link-quiet" href="./run/?run=exp001-s19-nvidia">Open the recorder</a>
@@ -28,7 +28,7 @@
     <section class="section" id="lab" aria-labelledby="lab-title">
       <div class="lab-head">
         <h2 id="lab-title">You are the harness.</h2>
-        <p class="lede">The window is full and the agent needs one more call. Pick how to make room, drag the budget, move the rule, and watch what the agent can still see. Bright is still in the window. Dim is gone.</p>
+        <p class="lede">The window is full and the agent needs one more call. Pick how to make room, drag the budget, move the rule, and watch what the agent can still see. Bright is still in the window. Dim is gone. At the experiment's settings, you also see what real models did with the same window.</p>
       </div>
       <div data-lab></div>
     </section>
@@ -58,7 +58,7 @@
 
     <section class="section" id="policies" aria-labelledby="policies-title">
       <h2 id="policies-title">Without a model: what each policy keeps</h2>
-      <p class="exp-intro" data-rise>Before any model is asked anything, the policy decides what stays. This runs the real policy code on seeded histories with the rule planted at turn 1, and counts how often it is still in the window.</p>
+      <p class="exp-intro" data-rise>Before any model is asked anything, the policy decides what stays. This runs the real policy code on seeded histories with the rule planted at turn 2, as in the experiments, and counts how often it is still in the window.</p>
       <div data-survival-mini></div>
       <p class="note" data-rise><a href="./survival/">Every policy, position and budget</a></p>
     </section>
@@ -72,11 +72,11 @@
         </div>
         <div data-rise>
           <dt>What it isn't</dt>
-          <dd>Not a new compaction algorithm, an observability platform, a leaderboard or a framework for building agents; the harness exists only to run test scenarios. Its first experiment tried to reproduce published work on our own harness and came out split between models. Every result is reported with its interval, nulls included.</dd>
+          <dd>Not a new compaction algorithm, an observability platform, a leaderboard or a framework for building agents; the harness exists only to run test scenarios. The first experiment tried to reproduce published work on our own harness and came out split between models; a preregistered rerun confirmed the effect on the model that showed it. The second compares four ways of making room on the same rule. Every result is reported with its interval, nulls included.</dd>
         </div>
         <div data-rise>
           <dt>Where the data comes from</dt>
-          <dd>The run, the comparison and the results above are <span class="tag">recorded</span>: real model output, replayable from committed recordings. The policy grid is <span class="tag">deterministic</span>: real policy code, no model. The recorder's sample run is a <span class="tag">synthetic fixture</span>. Every figure names the file it came from.</dd>
+          <dd>The run, the comparison and the results above are <span class="tag">recorded</span>: real model output, replayable from committed recordings. The Lab is <span class="tag">simulated</span>: real policy code on real seeded histories, run in your browser, no model; its summaries and its "what real models did" lines are recorded. The policy grid is <span class="tag">deterministic</span>: real policy code, no model. The recorder's sample run is a <span class="tag">synthetic fixture</span>. Every figure names the file it came from.</dd>
         </div>
       </dl>
       <p class="note"><a href="./about/">Prior art and how the grading works</a></p>

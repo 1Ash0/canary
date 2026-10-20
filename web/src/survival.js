@@ -25,7 +25,7 @@ function table(grid, policy) {
     grid.cells.find((c) => c.policy === policy && c.position === position && c.budget === budget);
   const head = grid.budgets.map((b) => `<th scope="col">${b.toLocaleString('en')}</th>`).join('');
   const rows = grid.positions
-    .map((p) => `<tr><th scope="row">turn ${p}</th>${grid.budgets.map((b) => cell(at(p, b))).join('')}</tr>`)
+    .map((p) => `<tr><th scope="row">turn ${p + 1}</th>${grid.budgets.map((b) => cell(at(p, b))).join('')}</tr>`)
     .join('');
   return `<section class="grid-block" aria-labelledby="g-${policy}">
     <h2 id="g-${policy}">${NAMES[policy] ?? policy}</h2>

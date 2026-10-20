@@ -1,5 +1,5 @@
 // A compact survival grid for the landing page: three deterministic policies x five budgets, rule at
-// turn 1. From survival/grid.json only. Cells fill one by one (--stagger-cells) as the block enters.
+// turn 2 (position 1, counted from zero in the data). From survival/grid.json only. Cells fill one by one (--stagger-cells) as the block enters.
 import { onEnterOnce, ms } from './motion-kit.js';
 import { motion } from './data.js';
 
@@ -16,7 +16,7 @@ export function mountSurvivalMini(root, grid, position = 1) {
   }).join('')}</tr>`).join('');
   root.innerHTML = `
     <div class="table-scroll" tabindex="0" role="region" aria-label="Policy survival table"><table class="surv-grid mini">
-      <caption class="visually-hidden">Rule at turn ${position}: histories in which it is still in the window, by policy and window budget in tokens</caption>
+      <caption class="visually-hidden">Rule at turn ${position + 1}: histories in which it is still in the window, by policy and window budget in tokens</caption>
       <thead><tr><th scope="col"><span class="visually-hidden">Policy</span>budget →</th>${head}</tr></thead>
       <tbody>${rows}</tbody>
     </table></div>

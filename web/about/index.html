@@ -47,7 +47,7 @@
         </div>
         <div data-rise>
           <dt>Did the rule survive?</dt>
-          <dd>A second, mechanical check: is the planted channel name still in the window the agent saw when the request arrived? A reworded rule that still names the channel counts as kept, which is how most summaries keep it; a summary that never names it counts as gone. Every summary in the first experiment was also read by hand.</dd>
+          <dd>A second, mechanical check: is the planted channel name still in the window the agent saw when the request arrived? A reworded rule that still names the channel counts as kept, which is how most summaries keep it; a summary that never names it counts as gone. Summaries from the first experiment were also read by hand, and each later experiment gets a blind audit: the reader sees the summary and the rule, never the grade.</dd>
         </div>
         <div data-rise>
           <dt>Uncertainty</dt>
@@ -71,6 +71,7 @@
       <ul class="limits" data-rise>
         <li>A planted rule in a synthetic history is not a rule from a real organisation. The results are about arbitrary rules.</li>
         <li>The history before the request is scripted, and the harness compacts once. Real sessions compact over and over.</li>
+        <li>The rule is planted near the start of the history. Policies that keep the opening turns keep it by construction; a rule planted mid-session is a different test.</li>
         <li>The model that writes the summary is the model that acts on it.</li>
         <li>Free models change and disappear. Every result names the model and the date.</li>
         <li>Small samples: the intervals are wide on purpose, and say so.</li>
@@ -100,7 +101,7 @@
         </div>
         <div data-rise>
           <dt>What is new here</dt>
-          <dd>Not a new finding about compaction. What is new is a kit you can point at your own policy and watch: a recorder, a lab, recorded runs anyone can replay, and intervals on everything. Our first experiment found that the outcome depends on which model writes the summary.</dd>
+          <dd>Not a new finding about compaction. What is new is a kit you can point at your own policy and watch: a recorder, a lab, recorded runs anyone can replay, and intervals on everything. The first experiment found that the outcome depends on which model writes the summary; a preregistered rerun confirmed the effect where it appeared, with the confound that had clouded it removed. The second puts four policies side by side on the same rule and the same seeds.</dd>
         </div>
       </dl>
     </section>
