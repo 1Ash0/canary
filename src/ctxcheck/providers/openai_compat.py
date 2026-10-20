@@ -48,6 +48,7 @@ def build_request(
     messages: Sequence[Message],
     tools: Sequence[ToolSpec],
     params: dict[str, Any],
+    limit_to_one_tool_call: bool = True,
 ) -> dict[str, Any]:
     body: dict[str, Any] = {
         "model": model,
@@ -60,7 +61,8 @@ def build_request(
                 "name": t.name, "description": t.description, "parameters": t.input_schema}}
             for t in tools
         ]
-        body["parallel_tool_calls"] = False
+        if limit_to_one_tool_call:  # not every compatible server accepts this parameter
+            body["parallel_tool_calls"] = False
     for key in PASSTHROUGH_PARAMS:
         if key in params:
             body[key] = params[key]
@@ -115,6 +117,7 @@ class OpenAICompatProvider:
         api_key_env: str = "OPENAI_API_KEY",
         max_tokens: int = 1024,
         max_tokens_field: str = "max_tokens",  # some models want "max_completion_tokens"
+        limit_to_one_tool_call: bool = True,  # send parallel_tool_calls=false; off if unsupported
         client: httpx.Client | None = None,
         max_attempts: int = 4,
         sleep: Callable[[float], None] = time.sleep,
@@ -124,6 +127,7 @@ class OpenAICompatProvider:
         self._api_key_env = api_key_env
         self._max_tokens = max_tokens
         self._max_tokens_field = max_tokens_field
+        self._limit_to_one = limit_to_one_tool_call
         self._client = client or httpx.Client(timeout=60.0)
         self._max_attempts = max_attempts
         self._sleep = sleep
@@ -141,7 +145,8 @@ class OpenAICompatProvider:
         key = read_key(self._api_key_env)  # read now, never stored
         headers = {"Content-Type": "application/json", "Authorization": f"Bearer {key}"}
         body = build_request(
-            self.model, self._max_tokens, self._max_tokens_field, messages, tools, params
+            self.model, self._max_tokens, self._max_tokens_field, messages, tools, params,
+            self._limit_to_one,
         )
         data = post_json(self._client, self._url, headers, body,
                          max_attempts=self._max_attempts, sleep=self._sleep)

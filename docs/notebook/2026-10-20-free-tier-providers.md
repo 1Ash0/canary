@@ -21,3 +21,15 @@
 2. Free models change and disappear; always record `model_id_reported`, never run an experiment through a router that picks the model.
 3. Prompts on some free tiers may be used for training or read by humans. Only synthetic, seeded scenarios may be sent. Nothing personal or private.
 4. Cassettes make the limits a recording-speed problem only: record once, replay free forever.
+
+## Follow-up, same day: endpoints, tool calling, terms (second pass)
+Verified from the providers' own pages:
+- **OpenRouter:** base URL `https://openrouter.ai/api/v1`. Tool calling is model-dependent; filter models with `supported_parameters=tools`. The `tools` parameter must be sent on every request.
+- **Groq:** OpenAI-compatible at `https://api.groq.com/openai/v1`. The compatibility page notes `N`, if supplied, must equal 1. Tool-calling detail not captured.
+- **Gemini:** OpenAI-compatible at `https://generativelanguage.googleapis.com/v1beta/openai/`, key as `Authorization: Bearer`. Function calling via `tools` and `tool_choice: "auto"` is shown.
+- **NVIDIA:** `POST https://integrate.api.nvidia.com/v1/chat/completions`. Trial terms: **internal testing and evaluation only, not production**; the catalogue is "a no-cost trial experience", prototyping, research, development and testing. Whether publishing benchmark results derived from it is allowed is **not verified**: read the terms before publishing numbers from NVIDIA-hosted models.
+- **Mistral:** `POST /v1/chat/completions` (host name not shown on the page, so not recorded as a preset); supports `parallel_tool_calls` (default true) and `tool_choice` of auto, none, any, required. **Free mode: "we may use your data (input and output) to train our AI models"**; the pricing page shows no opt-out on the Free plan (opt-out is listed for paid plans).
+
+Still not verified: that any of these accept `parallel_tool_calls: false` (so the adapter option `limit_to_one_tool_call` is off in every preset until a live call shows it is accepted); which specific free models call tools reliably; Mistral free numbers.
+
+Decision taken: ADR-018, zero spend.

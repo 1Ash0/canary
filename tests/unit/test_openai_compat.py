@@ -200,3 +200,24 @@ def test_the_key_is_not_stored_shown_or_leaked_through_an_echoing_error(monkeypa
     with pytest.raises(ProviderError) as exc:
         p.complete([msg("user", "hi")], [], {}, 0)
     assert KEY not in str(exc.value) and KEY not in repr(p) and KEY not in str(vars(p))
+
+
+def test_the_parallel_flag_can_be_turned_off_for_servers_that_reject_it() -> None:
+    tools = [READ]
+    on = build_request("m", 1, "max_tokens", [msg("user", "hi")], tools, {})
+    off = build_request("m", 1, "max_tokens", [msg("user", "hi")], tools, {}, False)
+    assert on["parallel_tool_calls"] is False and "parallel_tool_calls" not in off
+
+
+def test_the_provider_passes_the_option_through(monkeypatch) -> None:
+    seen: list[dict] = []
+    monkeypatch.setenv("OPENAI_API_KEY", KEY)
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        seen.append(json.loads(request.content))
+        return httpx.Response(200, json=reply({"content": "ok"}))
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    OpenAICompatProvider("m", client=client, limit_to_one_tool_call=False).complete(
+        [msg("user", "hi")], [READ], {}, 0)
+    assert "parallel_tool_calls" not in seen[0]
