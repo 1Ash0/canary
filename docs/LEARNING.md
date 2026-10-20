@@ -162,7 +162,7 @@ We'll write a mini version of the trace: a function that appends events to a JSO
 
 **Why now:** M1 needs a real trace. The recorder, the token ledger, the site and the video all read events, so this file is the seam everything else depends on (ARCHITECTURE: "small stable seams"). U1 taught the idea with `learn/trace.py`; this unit makes it the real, typed thing.
 
-**Decisions to make first** (Claude Code recommends; you decide):
+**Decisions** (Claude Code recommended; **all five accepted by Asmit, 2026-10-20**):
 1. **Step:** store an explicit `step` (turn number) on events that belong to a turn, rather than deriving it from the nth model call. A synthetic fixture session has no model calls.
 2. **Window limit:** `limit_tokens` on `run_start` (a run parameter).
 3. **Tools layer:** `tools_tokens_est` on `run_start` (tool specs are fixed for a run).

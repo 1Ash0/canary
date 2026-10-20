@@ -57,14 +57,16 @@ Common fields: `schema_version`, `run_id`, `seq` (monotonic int), `ts`, `type`.
 
 | type | key fields |
 |---|---|
-| `run_start` | scenario_id, seed, policy, provider, model, params, harness_git_sha |
-| `message` | message_id, role, content blocks, `tokens_est` (local tokenizer), origin (`user`, `assistant`, `tool`, `summary`, `canary`) |
+| `run_start` | scenario_id, seed, policy, provider, model, params, harness_git_sha, `limit_tokens` (window budget), `tools_tokens_est` (tool specs, fixed per run) |
+| `message` | message_id, `step` (turn number), role, content blocks, `tokens_est` (local tokenizer), origin (`user`, `assistant`, `tool`, `summary`, `canary`) |
 | `model_call` | request_hash, trial_index, model_id_reported, usage (input/output, cached if reported), cassette_hit, cost_usd |
 | `tool_call` / `tool_result` | call_id, name, args / result, is_error |
 | `compaction` | policy, trigger, tokens_before, tokens_after, kept_ids, dropped_ids, added_ids, cost_usd, summary_message_id |
 | `canary_planted` | canary_id, type, message_id, span, value (the planted fact) |
 | `canary_probe` | canary_id, probe_message_id, grade (violated/respected), evidence |
 | `run_end` | status, totals |
+
+Additions decided in LEARNING U1b (2026-10-20): `step`, `limit_tokens`, `tools_tokens_est` as above. **Canary fate (kept / changed / gone) is a derived view**, computed by replaying `canary_planted` + `compaction` + the summary text (verbatim check). It becomes an event only if a judge model is added. Pairing ids for control vs treatment are deferred to M4 (additive).
 
 Rules:
 - **Event sourcing.** The log is the source of truth. Any view (token ledger, strata, loss diff) is *derived* by replaying events. (This is the DDIA log-as-truth idea; learn it in unit U2.)
