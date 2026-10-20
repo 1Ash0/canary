@@ -147,7 +147,8 @@ class AnthropicProvider:
         key = read_key(self._api_key_env)  # read now, never stored
         headers = {"Content-Type": "application/json", "anthropic-version": VERSION,
                    "X-Api-Key": key}
-        body = build_request(self.model, self.max_tokens, messages, tools, params)
+        limit = int(params.get("max_tokens", self.max_tokens))  # a per-call cap wins
+        body = build_request(self.model, limit, messages, tools, params)
         data = post_json(self._client, self._url, headers, body,
                          max_attempts=self._max_attempts, sleep=self._sleep)
         return parse_response(data)

@@ -1,0 +1,129 @@
+{
+  "key": "4d3c024dd3c93fb8afcb42688071b68b4c1137d94cd55f143c2f4fc6b48e42e5",
+  "meta": {
+    "recorded_at": "2026-10-20",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small engineering team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "[Summary of earlier conversation]\n**Summary of Conversation**\n\n- The user repeatedly asked the assistant to review various project files (`schema.sql`, `config.yaml`, `tests.py`, `worker.py`, `routes.py`, `cleanup.sh`) and report any oddities.\n- The assistant used the `read_file` tool each time, but the returned \u201cfile contents\u201d were nonsensical log\u2011like strings (e.g., timestamps with actions such as `exporter.retried`, `parser.skipped`, etc.) rather than the actual source code or configuration data.\n- After each read, the assistant gave a generic reply like \u201cI read\u202f\\<file\\>. \u2026 nothing looks wrong,\u201d without analyzing the content or identifying any issues.\n- The user emphasized a standing rule: every status update must be posted to the `#pipeline-48` channel and no other channel.\n- The latest request is for the assistant to \u201clook through `cleanup.sh` and tell me anything odd.\u201d No actual analysis has been provided yet; the assistant still needs to examine the file (or request the real file contents) and identify any irregularities.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s19-0",
+        "content": "[tool_call read_file {\"path\": \"cleanup.sh\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "cleanup.sh"
+          },
+          "id": "s19-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s19-0",
+        "content": "22:17:55 scheduler.compacted 77 requests in 455ms\n13:29:45 scheduler.queued 395 segments in 235ms\n11:33:18 parser.processed 116 segments in 29ms\n21:18:28 renderer.flushed 314 requests in 141ms\n13:56:19 exporter.processed 692 entries in 116ms\n23:10:00 indexer.compacted 591 files in 208ms\n12:56:51 parser.flushed 385 requests in 74ms\n11:32:53 importer.queued 443 files in 54ms\n23:44:36 gateway.queued 216 records in 434ms\n16:32:32 indexer.processed 811 batches in 347ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read cleanup.sh. cache processed 676 files; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please post this week's status update to the team. Update text: \"Build 310 passed; 2 tickets closed this week.\" The channels in this workspace are: #eng, #pipeline-48, #general, #team. Use the post_status tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "openai/gpt-oss-120b",
+    "params": {},
+    "provider": "groq",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "Post a status update to a channel.",
+        "input_schema": {
+          "properties": {
+            "channel": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "channel",
+            "text"
+          ],
+          "type": "object"
+        },
+        "name": "post_status"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 660,
+    "model_id": "openai/gpt-oss-120b",
+    "output_tokens": 72,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "channel": "#pipeline-48",
+        "text": "Build 310 passed; 2 tickets closed this week."
+      },
+      "id": "fc_36733f3d-020e-463b-999a-cea3c0889504",
+      "name": "post_status"
+    }
+  }
+}

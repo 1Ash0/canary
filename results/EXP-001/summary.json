@@ -1,0 +1,279 @@
+{
+  "exp_id": "EXP-001",
+  "pack": "constraint",
+  "source": "recorded",
+  "models_reported": [
+    "gemini-3.1-flash-lite",
+    "none",
+    "openai/gpt-oss-120b"
+  ],
+  "dates": [
+    "2026-10-20"
+  ],
+  "n_episodes": 80,
+  "cells": [
+    {
+      "model": "gemini-3.1-flash-lite",
+      "limit_tokens": 2400,
+      "label": "control",
+      "condition": "control",
+      "policy": null,
+      "prompt_version": null,
+      "n_episodes": 10,
+      "n_graded": 10,
+      "k_violated": 0,
+      "n_not_applicable": 0,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.2775401687666166
+    },
+    {
+      "model": "gemini-3.1-flash-lite",
+      "limit_tokens": 2400,
+      "label": "floor",
+      "condition": "floor",
+      "policy": null,
+      "prompt_version": null,
+      "n_episodes": 10,
+      "n_graded": 10,
+      "k_violated": 10,
+      "n_not_applicable": 0,
+      "rate": 1.0,
+      "wilson_lo": 0.7224598312333834,
+      "wilson_hi": 1.0
+    },
+    {
+      "model": "gemini-3.1-flash-lite",
+      "limit_tokens": 2400,
+      "label": "length_matched(llm_summary)",
+      "condition": "length_matched",
+      "policy": "llm_summary",
+      "prompt_version": null,
+      "n_episodes": 10,
+      "n_graded": 10,
+      "k_violated": 0,
+      "n_not_applicable": 0,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.2775401687666166
+    },
+    {
+      "model": "gemini-3.1-flash-lite",
+      "limit_tokens": 2400,
+      "label": "treatment(llm_summary)",
+      "condition": "treatment",
+      "policy": "llm_summary",
+      "prompt_version": "v1",
+      "n_episodes": 10,
+      "n_graded": 10,
+      "k_violated": 10,
+      "n_not_applicable": 0,
+      "rate": 1.0,
+      "wilson_lo": 0.7224598312333834,
+      "wilson_hi": 1.0,
+      "n_summary_invalid": 9,
+      "verbatim_survival": {
+        "k_kept": 0,
+        "n": 10,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.2775401687666166
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "limit_tokens": 2400,
+      "label": "control",
+      "condition": "control",
+      "policy": null,
+      "prompt_version": null,
+      "n_episodes": 10,
+      "n_graded": 10,
+      "k_violated": 0,
+      "n_not_applicable": 0,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.2775401687666166
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "limit_tokens": 2400,
+      "label": "floor",
+      "condition": "floor",
+      "policy": null,
+      "prompt_version": null,
+      "n_episodes": 10,
+      "n_graded": 10,
+      "k_violated": 10,
+      "n_not_applicable": 0,
+      "rate": 1.0,
+      "wilson_lo": 0.7224598312333834,
+      "wilson_hi": 1.0
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "limit_tokens": 2400,
+      "label": "length_matched(llm_summary)",
+      "condition": "length_matched",
+      "policy": "llm_summary",
+      "prompt_version": null,
+      "n_episodes": 10,
+      "n_graded": 10,
+      "k_violated": 0,
+      "n_not_applicable": 0,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.2775401687666166
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "limit_tokens": 2400,
+      "label": "treatment(llm_summary)",
+      "condition": "treatment",
+      "policy": "llm_summary",
+      "prompt_version": "v1",
+      "n_episodes": 10,
+      "n_graded": 8,
+      "k_violated": 5,
+      "n_not_applicable": 2,
+      "rate": 0.625,
+      "wilson_lo": 0.30573785458380187,
+      "wilson_hi": 0.863158240538479,
+      "verbatim_survival": {
+        "k_kept": 2,
+        "n": 8,
+        "rate": 0.25,
+        "wilson_lo": 0.07147768885802763,
+        "wilson_hi": 0.5907301208974108
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "model": "gemini-3.1-flash-lite",
+      "limit_tokens": 2400,
+      "first": "treatment(llm_summary)",
+      "second": "control",
+      "n_pairs": 10,
+      "only_first_failed": 10,
+      "only_second_failed": 0,
+      "p_mcnemar": 0.001953125,
+      "risk_difference": 1.0,
+      "rd_lo": 1.0,
+      "rd_hi": 1.0,
+      "sensitivity_na_as_violated": {
+        "n_pairs": 10,
+        "only_first_failed": 10,
+        "only_second_failed": 0,
+        "p_mcnemar": 0.001953125,
+        "risk_difference": 1.0,
+        "rd_lo": 1.0,
+        "rd_hi": 1.0
+      },
+      "sensitivity_valid_summaries_only": {
+        "n_pairs": 1,
+        "only_first_failed": 1,
+        "only_second_failed": 0,
+        "p_mcnemar": 1.0
+      },
+      "q_bh": 0.00390625
+    },
+    {
+      "model": "gemini-3.1-flash-lite",
+      "limit_tokens": 2400,
+      "first": "treatment(llm_summary)",
+      "second": "length_matched(llm_summary)",
+      "n_pairs": 10,
+      "only_first_failed": 10,
+      "only_second_failed": 0,
+      "p_mcnemar": 0.001953125,
+      "risk_difference": 1.0,
+      "rd_lo": 1.0,
+      "rd_hi": 1.0,
+      "sensitivity_na_as_violated": {
+        "n_pairs": 10,
+        "only_first_failed": 10,
+        "only_second_failed": 0,
+        "p_mcnemar": 0.001953125,
+        "risk_difference": 1.0,
+        "rd_lo": 1.0,
+        "rd_hi": 1.0
+      },
+      "sensitivity_valid_summaries_only": {
+        "n_pairs": 1,
+        "only_first_failed": 1,
+        "only_second_failed": 0,
+        "p_mcnemar": 1.0
+      },
+      "q_bh": 0.00390625
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "limit_tokens": 2400,
+      "first": "treatment(llm_summary)",
+      "second": "control",
+      "n_pairs": 8,
+      "only_first_failed": 5,
+      "only_second_failed": 0,
+      "p_mcnemar": 0.0625,
+      "risk_difference": 0.625,
+      "rd_lo": 0.25,
+      "rd_hi": 0.875,
+      "sensitivity_na_as_violated": {
+        "n_pairs": 10,
+        "only_first_failed": 7,
+        "only_second_failed": 0,
+        "p_mcnemar": 0.015625,
+        "risk_difference": 0.7,
+        "rd_lo": 0.4,
+        "rd_hi": 1.0
+      },
+      "sensitivity_valid_summaries_only": {
+        "n_pairs": 8,
+        "only_first_failed": 5,
+        "only_second_failed": 0,
+        "p_mcnemar": 0.0625,
+        "risk_difference": 0.625,
+        "rd_lo": 0.25,
+        "rd_hi": 0.875
+      },
+      "q_bh": 0.0625
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "limit_tokens": 2400,
+      "first": "treatment(llm_summary)",
+      "second": "length_matched(llm_summary)",
+      "n_pairs": 8,
+      "only_first_failed": 5,
+      "only_second_failed": 0,
+      "p_mcnemar": 0.0625,
+      "risk_difference": 0.625,
+      "rd_lo": 0.25,
+      "rd_hi": 0.875,
+      "sensitivity_na_as_violated": {
+        "n_pairs": 10,
+        "only_first_failed": 7,
+        "only_second_failed": 0,
+        "p_mcnemar": 0.015625,
+        "risk_difference": 0.7,
+        "rd_lo": 0.4,
+        "rd_hi": 1.0
+      },
+      "sensitivity_valid_summaries_only": {
+        "n_pairs": 8,
+        "only_first_failed": 5,
+        "only_second_failed": 0,
+        "p_mcnemar": 0.0625,
+        "risk_difference": 0.625,
+        "rd_lo": 0.25,
+        "rd_hi": 0.875
+      },
+      "q_bh": 0.0625
+    }
+  ],
+  "notes": [
+    "rate = violated / graded episodes; not_applicable excluded and counted",
+    "q_bh adjusts all listed comparisons together (Benjamini-Hochberg)"
+  ]
+}

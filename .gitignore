@@ -62,3 +62,7 @@ Thumbs.db
 # editors
 .vscode/settings.json
 .idea/
+
+# run logs and quota counters
+run_exp*.log
+runs/.usage.json

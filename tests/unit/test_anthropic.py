@@ -217,3 +217,16 @@ def test_the_key_never_reaches_the_response_the_loop_sees(monkeypatch) -> None:
     out = provider(lambda r: httpx.Response(200, json=echo), monkeypatch).complete(
         [msg("user", "hi")], [], {}, 0)
     assert KEY not in repr(out)
+
+
+def test_a_per_call_max_tokens_overrides_the_constructor_default(monkeypatch) -> None:
+    sent: list[int] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        sent.append(json.loads(request.content)["max_tokens"])
+        return httpx.Response(200, json=REPLY)
+
+    p = provider(handler, monkeypatch)
+    p.complete([msg("user", "hi")], [], {"max_tokens": 400}, 0)
+    p.complete([msg("user", "hi")], [], {}, 0)
+    assert sent == [400, 1024]  # the cap is honoured when given, the default otherwise

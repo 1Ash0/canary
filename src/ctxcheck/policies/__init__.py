@@ -14,7 +14,7 @@ from ctxcheck.policies.base import (
 from ctxcheck.policies.head_tail import HeadTail
 from ctxcheck.policies.mask import ObservationMask
 from ctxcheck.policies.recency import RecencyTruncate
-from ctxcheck.policies.summarize import PROMPTS, LLMSummary
+from ctxcheck.policies.summarize import PROMPTS, LLMSummary, summary_looks_valid
 
 REGISTRY: dict[str, type] = {
     "recency_truncate": RecencyTruncate,
@@ -34,5 +34,5 @@ def make_policy(name: str, **options: Any) -> Policy:
 __all__ = [
     "DETERMINISTIC", "PROMPTS", "REGISTRY", "HeadTail", "IrreducibleBudget", "LLMSummary",
     "ObservationMask", "Policy", "PolicyContext", "PolicyError", "RecencyTruncate",
-    "SummaryFailed", "make_policy",
+    "SummaryFailed", "make_policy", "summary_looks_valid",
 ]

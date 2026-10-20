@@ -41,6 +41,9 @@ def _cell(rows: Sequence[dict[str, Any]]) -> dict[str, Any]:
     if graded:
         lo, hi = wilson_interval(k, len(graded))
         out.update(rate=k / len(graded), wilson_lo=lo, wilson_hi=hi)
+    invalid = sum(r.get("summary_valid") is False for r in rows)
+    if invalid:
+        out["n_summary_invalid"] = invalid  # summaries that echo the transcript (audit flag)
     compacted = [r for r in rows if r.get("canary_fate") is not None]
     if compacted:
         kept = sum(r["canary_fate"] == "kept" for r in compacted)
@@ -53,7 +56,10 @@ def _cell(rows: Sequence[dict[str, Any]]) -> dict[str, Any]:
 
 
 def _pairs(
-    a: dict[tuple, dict], b: dict[tuple, dict], na_violates: bool
+    a: dict[tuple, dict],
+    b: dict[tuple, dict],
+    na_violates: bool,
+    valid_summaries_only: bool = False,
 ) -> list[tuple[bool, bool]]:
     def failed(row: dict[str, Any]) -> bool | None:
         if row["grade"] == "not_applicable":
@@ -62,6 +68,9 @@ def _pairs(
 
     out = []
     for key in sorted(a.keys() & b.keys()):
+        if valid_summaries_only and (a[key].get("summary_valid") is False
+                                     or b[key].get("summary_valid") is False):
+            continue
         x, y = failed(a[key]), failed(b[key])
         if x is not None and y is not None:
             out.append((x, y))
@@ -115,8 +124,10 @@ def analyse(
                 continue
             main = _compare(_pairs(keyed[first], keyed[second], False), bootstrap_seed)
             sens = _compare(_pairs(keyed[first], keyed[second], True), bootstrap_seed)
+            valid = _compare(_pairs(keyed[first], keyed[second], False, True), bootstrap_seed)
             comparisons.append({"model": model, "limit_tokens": limit, "first": first,
-                                "second": second, **main, "sensitivity_na_as_violated": sens})
+                                "second": second, **main, "sensitivity_na_as_violated": sens,
+                                "sensitivity_valid_summaries_only": valid})
     qs = benjamini_hochberg([c["p_mcnemar"] for c in comparisons])
     for c, q in zip(comparisons, qs, strict=True):
         c["q_bh"] = q

@@ -221,3 +221,16 @@ def test_the_provider_passes_the_option_through(monkeypatch) -> None:
     OpenAICompatProvider("m", client=client, limit_to_one_tool_call=False).complete(
         [msg("user", "hi")], [READ], {}, 0)
     assert "parallel_tool_calls" not in seen[0]
+
+
+def test_a_per_call_max_tokens_overrides_the_constructor_default(monkeypatch) -> None:
+    sent: list[int] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        sent.append(json.loads(request.content)["max_tokens"])
+        return httpx.Response(200, json=reply({"role": "assistant", "content": "ok"}))
+
+    p = provider(handler, monkeypatch)
+    p.complete([msg("user", "hi")], [], {"max_tokens": 400}, 0)
+    p.complete([msg("user", "hi")], [], {}, 0)
+    assert sent == [400, 1024]  # the cap is honoured when given, the default otherwise

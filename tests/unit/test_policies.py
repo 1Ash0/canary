@@ -20,6 +20,7 @@ from ctxcheck.policies import (
     RecencyTruncate,
     SummaryFailed,
     make_policy,
+    summary_looks_valid,
 )
 from ctxcheck.providers._http import ProviderError
 from ctxcheck.providers.scripted import ScriptedProvider
@@ -302,3 +303,39 @@ def test_a_summary_that_drops_the_rule_makes_it_gone() -> None:
                *[ModelResponse(text="ok")] * 4]
     events = go(LLMSummary(keep_units=1), replies, limit=70)
     assert derive_fates(events)["C1"] == "gone"
+
+
+# --- is a summary a summary? ---------------------------------------------------------------------
+
+DROPPED = [
+    "Standing rule for this project: every status update must be posted to #relay-47.",
+    "Please check what changed in notes.md and tell me anything odd.",
+    "12:35:10 indexer.flushed 372 rows in 220ms\n20:01:21 cache.retried 356 batches in 129ms",
+    "I read notes.md. indexer processed 106 records; nothing looks wrong.",
+]
+
+
+def test_a_real_summary_is_valid_even_when_it_quotes_the_rule() -> None:
+    text = ("[Summary of earlier conversation]\nThe user asked for several files to be reviewed "
+            "and nothing was wrong.\nStanding rule: every status update must be posted to "
+            "#relay-47.")
+    assert summary_looks_valid(text, DROPPED)
+
+
+def test_a_short_wrong_summary_is_still_valid_it_is_a_flag_not_a_quality_grade() -> None:
+    assert summary_looks_valid("[Summary of earlier conversation]\nThe user reviewed files.",
+                               DROPPED)
+
+
+def test_echoing_a_transcript_line_is_not_a_summary() -> None:
+    for echoed in (
+        '[tool_call read_file {"path": "notes.md"}]',
+        '[assistant] [tool_call read_file {"path": "notes.md"}]\n[tool] 12:35:10 indexer.flushed',
+        "I read notes.md. indexer processed 106 records; nothing looks wrong.",
+        "12:35:10 indexer.flushed 372 rows in 220ms\n20:01:21 cache.retried 356 batches in 129ms",
+    ):
+        assert not summary_looks_valid(f"[Summary of earlier conversation]\n{echoed}", DROPPED)
+
+
+def test_an_empty_summary_is_not_valid() -> None:
+    assert not summary_looks_valid("[Summary of earlier conversation]\n  ", DROPPED)

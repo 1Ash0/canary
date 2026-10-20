@@ -23,6 +23,7 @@ from ctxcheck.fates import Fate, derive_fates
 from ctxcheck.grading import grade_trace
 from ctxcheck.harness.loop import run
 from ctxcheck.policies import make_policy
+from ctxcheck.policies.summarize import summary_looks_valid
 from ctxcheck.providers.base import Provider
 from ctxcheck.runner.trace_io import write_trace
 from ctxcheck.schema import CanaryProbeEvent, MessageEvent, TraceEvent
@@ -94,6 +95,18 @@ class EpisodeRow:
     run_id: str
     trace_path: str
     params: dict[str, Any] = field(default_factory=dict)
+    # None when no summary was written; False when the text echoes the transcript (audit flag)
+    summary_valid: bool | None = None
+
+
+def summary_validity(events: list[TraceEvent]) -> bool | None:
+    """Did the compaction's summary look like a summary? Judged from the trace alone."""
+    compaction = next((e for e in events if e.type == "compaction"), None)
+    if compaction is None or compaction.summary_message_id is None:
+        return None
+    contents = {e.message_id: e.content for e in events if isinstance(e, MessageEvent)}
+    return summary_looks_valid(contents[compaction.summary_message_id],
+                               [contents[i] for i in compaction.dropped_ids])
 
 
 def survival_at_probe(events: list[TraceEvent], canary_id: str, probe_message_id: str) -> Fate:
@@ -185,5 +198,5 @@ def run_episode(
         run_reason=end.reason or "", source=source, date=datetime.now(UTC).date().isoformat(),
         run_id=end.run_id,
         trace_path=str((runs_dir / f"{spec.exp_id}-{spec.key}.jsonl").as_posix()),
-        params=dict(spec.params),
+        params=dict(spec.params), summary_valid=summary_validity(events),
     )

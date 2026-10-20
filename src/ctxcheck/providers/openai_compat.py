@@ -145,7 +145,8 @@ class OpenAICompatProvider:
         key = read_key(self._api_key_env)  # read now, never stored
         headers = {"Content-Type": "application/json", "Authorization": f"Bearer {key}"}
         body = build_request(
-            self.model, self._max_tokens, self._max_tokens_field, messages, tools, params,
+            self.model, int(params.get("max_tokens", self._max_tokens)), self._max_tokens_field,
+            messages, tools, params,
             self._limit_to_one,
         )
         data = post_json(self._client, self._url, headers, body,

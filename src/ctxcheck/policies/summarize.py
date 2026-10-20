@@ -34,6 +34,28 @@ PROMPTS: dict[str, str] = {
 }
 
 
+SUMMARY_PREFIX = "[Summary of earlier conversation]\n"
+# the transcript handed to the summarizer labels each line like this; a "summary" that starts with
+# one of these is the model continuing the transcript, not summarising it
+_TRANSCRIPT_MARKERS = ("[tool_call", "[assistant]", "[tool]", "[user]", "[system]")
+
+
+def summary_looks_valid(summary: str, dropped: Sequence[str]) -> bool:
+    """Is this text plausibly a summary, rather than the model echoing the transcript back?
+
+    Invalid if it is empty, starts with a transcript label, or at least half of its lines are
+    copied verbatim from the messages it replaced. A flag for the audit and a sensitivity
+    analysis, not a judgement of quality: a short, wrong summary is still valid here.
+    """
+    body = summary.removeprefix(SUMMARY_PREFIX).strip()
+    lines = [ln.strip() for ln in body.splitlines() if ln.strip()]
+    if not lines or lines[0].startswith(_TRANSCRIPT_MARKERS):
+        return False
+    source = "\n".join(dropped)
+    copied = sum(len(ln) >= 15 and ln in source for ln in lines)
+    return copied / len(lines) < 0.5
+
+
 def _transcript(units: Sequence[list[Message]]) -> str:
     return "\n".join(f"[{m.role}] {m.content}" for u in units for m in u)
 
@@ -89,6 +111,6 @@ class LLMSummary:
         if not text:
             raise SummaryFailed("the summarizer returned no text")
 
-        content = f"[Summary of earlier conversation]\n{text}"
+        content = f"{SUMMARY_PREFIX}{text}"
         summary = Message(ctx.new_id(), "user", content, "summary", ctx.count(content), ctx.step)
         return [*parts.system, summary, *(m for u in recent for m in u), *parts.tail]
