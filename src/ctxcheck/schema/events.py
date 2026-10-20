@@ -4,6 +4,7 @@ The JSONL trace is the source of truth for every run (docs/ARCHITECTURE.md). Eve
 shows is derived by replaying these events, including canary fate (kept / changed / gone), which is
 computed from `canary_planted` + `compaction` + the summary text and is deliberately not an event.
 Bump schema_version when fields change: additive = minor, breaking = major plus a migration.
+0.2: added optional run_end.reason (additive; 0.1 traces still parse).
 """
 
 from __future__ import annotations
@@ -20,7 +21,7 @@ class _Base(BaseModel):
     # forbid: a misspelled field is an error, not silently dropped
     model_config = ConfigDict(extra="forbid")
 
-    schema_version: str = "0.1"
+    schema_version: str = "0.2"
     run_id: str
     seq: int = Field(ge=0)  # monotonic logical clock; orders events even when timestamps tie
     ts: str  # ISO-8601
@@ -108,6 +109,7 @@ class CanaryProbeEvent(_Base):
 class RunEndEvent(_Base):
     type: Literal["run_end"]
     status: Literal["ok", "error", "aborted"]
+    reason: str | None = None  # added in 0.2: why the run stopped (end_turn, terminal_tool, ...)
     totals: dict[str, float] = Field(default_factory=dict)
 
 

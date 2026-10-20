@@ -116,3 +116,18 @@ def test_json_schema_lists_every_event_type() -> None:
     schema = json.dumps(event_json_schema())
     for type_ in VALID:
         assert f'"{type_}"' in schema
+
+
+def test_schema_0_1_traces_without_reason_still_parse() -> None:
+    event = parse_event(line("run_end"))  # no `reason`: a 0.1-era line
+    assert event.type == "run_end" and event.reason is None  # type: ignore[union-attr]
+
+
+def test_run_end_accepts_an_optional_reason() -> None:
+    event = parse_event(line("run_end", reason="terminal_tool"))
+    assert event.reason == "terminal_tool"  # type: ignore[union-attr]
+
+
+def test_new_events_are_written_as_schema_0_2() -> None:
+    event = RunEndEvent(type="run_end", run_id="r", seq=0, ts="t", status="ok")
+    assert event.schema_version == "0.2"

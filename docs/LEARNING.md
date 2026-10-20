@@ -360,7 +360,7 @@ A function `wilson_interval(k, n, z=1.96)` that returns `(lower, upper)`. Includ
 
 **Why a fake model first:** U7 builds the loop against a **scripted provider**, a stand-in that returns pre-written replies. That keeps the loop testable offline, free and deterministic. Real provider adapters are U8.
 
-**Decisions to make first** (Claude Code recommends; you decide):
+**Decisions** (Claude Code recommended; taken as accepted when Asmit said "proceed, chat done" without objecting, 2026-10-20; change any of them and the code follows):
 1. **Where compaction hooks in:** check the token budget *before each model call*, and compact then if the window would go over. Alternative: after each call. Recommendation: before, because the next call is what fails if the window is too big.
 2. **Stop conditions:** the model replies without a tool call (`end_turn`), or a `max_steps` safety cap is reached, or a terminal tool is called. Recommendation: all three, each recorded in `run_end`.
 3. **Tools for v0.1:** a small fixed set: one or two filler tools (read a file, run a command) that return seeded text, and one **terminal tool** (for example `post_status(channel, text)`) whose arguments the grader reads. Recommendation: exactly that.
