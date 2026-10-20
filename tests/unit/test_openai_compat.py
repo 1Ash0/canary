@@ -234,3 +234,10 @@ def test_a_per_call_max_tokens_overrides_the_constructor_default(monkeypatch) ->
     p.complete([msg("user", "hi")], [], {"max_tokens": 400}, 0)
     p.complete([msg("user", "hi")], [], {}, 0)
     assert sent == [400, 1024]  # the cap is honoured when given, the default otherwise
+
+
+def test_reasoning_effort_is_forwarded_only_when_set() -> None:
+    hi = [msg("user", "hi")]
+    body = build_request("m", 100, "max_tokens", hi, [], {"reasoning_effort": "low"})
+    assert body["reasoning_effort"] == "low"
+    assert "reasoning_effort" not in build_request("m", 100, "max_tokens", [msg("user", "hi")], [], {})

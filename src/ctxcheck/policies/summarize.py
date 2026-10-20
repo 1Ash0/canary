@@ -68,12 +68,16 @@ class LLMSummary:
         prompt_version: str = "v1",
         keep_units: int = 2,
         max_summary_tokens: int = 400,
+        reasoning_effort: str | None = None,
     ) -> None:
         if prompt_version not in PROMPTS:
             raise ValueError(f"unknown prompt version {prompt_version!r}; known: {sorted(PROMPTS)}")
         self.prompt_version = prompt_version
         self.keep_units = keep_units
         self.max_summary_tokens = max_summary_tokens
+        # reasoning models spend the token cap on reasoning first (EXP-001 audit); this applies to
+        # the summary call only, so the agent's own behaviour is untouched
+        self.reasoning_effort = reasoning_effort
 
     def apply(
         self, window: Sequence[Message], budget_tokens: int, ctx: PolicyContext
@@ -96,6 +100,8 @@ class LLMSummary:
                     ctx.count(_transcript(old)), ctx.step),
         ]
         params = {**ctx.params, "max_tokens": self.max_summary_tokens}
+        if self.reasoning_effort is not None:
+            params["reasoning_effort"] = self.reasoning_effort
         try:
             response = ctx.provider.complete(request, [], params, ctx.trial_index)
         except ProviderError as e:

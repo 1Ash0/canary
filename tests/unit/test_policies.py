@@ -362,3 +362,14 @@ def test_a_summary_cut_off_by_the_cap_is_flagged_and_a_complete_one_is_not(tmp_p
         call = [e for e in events if e.type == "model_call"][4]
         assert call.finish_reason == reason
     assert summary_truncation(go(RecencyTruncate(), [ModelResponse(text="ok")] * 6)) is None
+
+
+def test_reasoning_effort_goes_to_the_summary_call_only() -> None:
+    provider = ScriptedProvider([reply()])
+    LLMSummary(keep_units=2, max_summary_tokens=1200, reasoning_effort="low").apply(
+        window(), 80, ctx(provider))
+    sent = provider.requests[0]["params"]
+    assert sent == {"max_tokens": 1200, "reasoning_effort": "low"}
+    plain = ScriptedProvider([reply()])
+    LLMSummary(keep_units=2).apply(window(), 80, ctx(plain))
+    assert "reasoning_effort" not in plain.requests[0]["params"]

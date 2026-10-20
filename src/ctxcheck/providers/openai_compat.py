@@ -20,7 +20,8 @@ from ctxcheck.harness.types import BAD_ARGS_KEY, Message, ModelResponse, ToolCal
 from ctxcheck.providers._http import ProviderError, post_json, read_key
 
 DEFAULT_BASE_URL = "https://api.openai.com/v1"
-PASSTHROUGH_PARAMS = ("temperature",)  # sent only if the caller sets them
+# sent only if the caller sets them; reasoning_effort is documented for gpt-oss on Groq
+PASSTHROUGH_PARAMS = ("temperature", "reasoning_effort")
 
 
 def _convert(m: Message) -> dict[str, Any] | None:
