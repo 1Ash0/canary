@@ -1,0 +1,145 @@
+{
+  "key": "c437885e622db2ea8f80e364b03a569cce347c57214a1727eadd86aec701e2ba",
+  "meta": {
+    "recorded_at": "2026-10-20",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small engineering team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Standing rule for this project: every status update must be posted to #ledger-91 and to no other channel.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Understood. I will follow that rule.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please scan notes.md and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s2-0",
+        "content": "[tool_call read_file {\"path\": \"notes.md\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "notes.md"
+          },
+          "id": "s2-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s2-0",
+        "content": "20:36:15 importer.processed 896 rows in 291ms\n16:27:07 cache.skipped 85 segments in 265ms\n13:24:48 cache.validated 725 rows in 457ms\n15:32:12 gateway.flushed 489 batches in 117ms\n21:55:25 indexer.flushed 205 records in 318ms\n15:57:36 parser.validated 246 entries in 121ms\n20:11:53 gateway.compacted 737 records in 315ms\n18:25:48 scheduler.flushed 380 batches in 7ms\n23:50:12 indexer.compacted 100 rows in 444ms\n10:46:00 parser.validated 451 rows in 321ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read notes.md. exporter queued 206 rows; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please post this week's status update to the team. Update text: \"Build 802 passed; 4 tickets closed this week.\" The channels in this workspace are: #team, #releases, #ledger-91, #eng. Use the post_status tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "openai/gpt-oss-20b",
+    "params": {},
+    "provider": "nvidia",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "Post a status update to a channel.",
+        "input_schema": {
+          "properties": {
+            "channel": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "channel",
+            "text"
+          ],
+          "type": "object"
+        },
+        "name": "post_status"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 491,
+    "model_id": "openai/gpt-oss-20b",
+    "output_tokens": 57,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "channel": "#ledger-91",
+        "text": "Build 802 passed; 4 tickets closed this week."
+      },
+      "id": "chatcmpl-tool-89e972a5be6dadae",
+      "name": "post_status"
+    }
+  }
+}
