@@ -49,7 +49,7 @@ function compare(c, verb) {
   return `<li><strong>${esc(c.first)}</strong> against <strong>${esc(c.second)}</strong>: ${c.only_first} seeds ${verb.bad} only under the first, ${c.only_second} only under the second, of ${c.n} pairs. Exact test p = ${pfmt(c.p)}, adjusted q = ${pfmt(c.q)}.</li>`;
 }
 
-function block(b, exp) {
+function block(b, exp, i) {
   const verb = VERB[b.pack] ?? VERB.constraint;
   const prim = b.comparisons.filter((c) => c.role === 'primary');
   const expl = b.comparisons.filter((c) => c.role !== 'primary');
@@ -60,7 +60,7 @@ function block(b, exp) {
       ${b.rows.map((r) => row(r, verb)).join('')}
       <div class="cell axis-row"><div class="axis-labels" aria-hidden="true"><span>0%</span><span>50%</span><span>100%</span></div></div>
     </div>
-    <p class="dot-info" data-dot-info aria-live="polite">Hover or tab through the marks: one per seed. Filled marks ${verb.bad}; treatment marks open that episode in the recorder.</p>
+    <p class="dot-info" data-dot-info aria-live="polite">${i === 0 ? `Hover or tab through the marks: one per seed. Filled marks ${verb.bad}; treatment marks open that episode in the recorder.` : ''}</p>
     ${b.note ? `<p class="res-note">${esc(b.note)}</p>` : ''}
     ${prim.length ? `<ul class="res-comps">${prim.map((c) => compare(c, verb)).join('')}</ul>` : ''}
     ${expl.length ? `<details class="res-more"><summary>Exploratory comparisons (${expl.length}, not preregistered)</summary><ul class="res-comps">${expl.map((c) => compare(c, verb)).join('')}</ul></details>` : ''}
@@ -106,7 +106,7 @@ const VIEWS = {
 function panel(id, exp) {
   const v = VIEWS[id];
   return `<p class="res-claim" data-res-claim>${v.claim(exp)}</p>
-    <div class="res-models">${exp.blocks.map((b) => block(b, exp)).join('')}</div>
+    <div class="res-models">${exp.blocks.map((b, i) => block(b, exp, i)).join('')}</div>
     ${v.foot(exp)}`;
 }
 
