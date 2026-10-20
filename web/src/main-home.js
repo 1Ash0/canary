@@ -1,7 +1,7 @@
 import { loadRun, loadExperiment, loadJson } from './data.js';
 import { mountPlayer, playerMarkup } from './player.js';
 import { shell, fail } from './shell.js';
-import { splitHeading, riseOnEnter, gsap, MOTION, REDUCE, springEase, ms } from './motion-kit.js';
+import { splitHeading, riseOnEnter, gsap, ScrollTrigger, MOTION, REDUCE, springEase, ms } from './motion-kit.js';
 
 shell('./', 'home');
 const $ = (sel) => document.querySelector(sel);
@@ -59,8 +59,24 @@ const sections = [
     mountSurvivalMini(el, grid);
   }],
 ];
-for (const [sel, mount] of sections) {
-  try { await mount($(sel)); } catch (e) { fail($(sel), e); }
-}
+// A section's code and data are fetched when it comes within half a screen of the viewport, not at
+// load, so the first view ships only the hero. <html data-mounted> counts mounted sections for QA.
+const root = document.documentElement;
+root.dataset.sections = String(sections.length);
+root.dataset.mounted = '0';
+const pending = new Map(sections.map(([sel, mount]) => [$(sel), mount]));
+const io = new IntersectionObserver((entries) => {
+  for (const entry of entries) {
+    if (!entry.isIntersecting || !pending.has(entry.target)) continue;
+    const mount = pending.get(entry.target);
+    pending.delete(entry.target);
+    io.unobserve(entry.target);
+    mount(entry.target).catch((e) => fail(entry.target, e)).finally(() => {
+      root.dataset.mounted = String(+root.dataset.mounted + 1);
+      ScrollTrigger.refresh();  // a mounted section changes the page height under every trigger
+    });
+  }
+}, { rootMargin: '50% 0px' });
+pending.forEach((_, el) => io.observe(el));
 riseOnEnter(document.querySelectorAll('[data-rise]'));
-document.documentElement.dataset.ready = 'true';
+root.dataset.ready = 'true';

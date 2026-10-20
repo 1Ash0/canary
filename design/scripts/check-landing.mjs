@@ -5,6 +5,7 @@
 import { mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { chromium } from 'playwright';
+import { mountAll } from './lib/mount.mjs';
 import { DESIGN } from './lib/palettes.mjs';
 
 const BASE = process.argv[2] ?? 'http://localhost:3000';
@@ -22,7 +23,26 @@ async function open(width, height, reducedMotion) {
   await page.goto(BASE + '/', { waitUntil: 'networkidle' });
   await page.waitForFunction(() => document.documentElement.dataset.ready === 'true', null, { timeout: 8000 });
   await page.evaluate(() => document.fonts.ready);
+  await mountAll(page);
   return { page, errors };
+}
+
+// 0. lazy sections: none of their code is fetched before scrolling, all of it after
+{
+  const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
+  const scripts = [];
+  page.on('request', (r) => { if (r.resourceType() === 'script') scripts.push(r.url()); });
+  await page.goto(BASE + '/', { waitUntil: 'networkidle' });
+  await page.waitForFunction(() => document.documentElement.dataset.ready === 'true');
+  await page.waitForTimeout(800);
+  // the Lab sits right under the hero, so it may load at once; nothing further down may
+  const lazy = /\/(compare|consequence|results|survival-mini)[.-]/;
+  check(!scripts.some((u) => lazy.test(u)), 'first view: no module below the Lab fetched before scrolling');
+  await mountAll(page);
+  const names = ['lab', 'compare', 'consequence', 'results', 'survival-mini'];
+  const missing = names.filter((n) => !scripts.some((u) => new RegExp(`/${n}[.-]`).test(u)));
+  check(missing.length === 0, `after scrolling: every section module fetched (${missing.join(', ') || 'all'})`);
+  await page.close();
 }
 
 // 1. reduced motion: every section in its final state, nothing pinned

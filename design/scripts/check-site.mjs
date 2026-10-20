@@ -1,6 +1,7 @@
 // Site QA against a running server (default http://localhost:3000): for every page and width it checks
 // console errors, horizontal overflow, headline length and (home, 1280x720) the first-view rule, then
 // writes screenshots to web-qa/. node scripts/check-site.mjs [baseUrl]
+import { mountAll } from './lib/mount.mjs';
 import { mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { chromium } from 'playwright';
@@ -24,6 +25,7 @@ for (const [name, path] of pages) {
     await page.goto(base + path, { waitUntil: 'networkidle' });
     await page.waitForFunction(() => document.documentElement.dataset.ready === 'true');
     await page.evaluate(() => document.fonts.ready);
+    await mountAll(page);
     if (name === 'home') await page.evaluate(() => window.__seek(window.__duration)); // settled final state
     await page.waitForTimeout(200);
     const m = await page.evaluate(() => {

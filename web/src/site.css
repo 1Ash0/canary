@@ -192,6 +192,14 @@ h2 { font-size: var(--type-h1-size); font-weight: var(--type-h1-weight); line-he
 .res-model .cells { margin: 0 0 var(--space-sm); }
 .res-note { max-width: var(--measure); color: var(--ink-2); font-size: var(--type-small-size); margin: 0; }
 .whisk-range { transform-box: view-box; }
+/* lazy sections hold roughly their mounted height while empty: no jump on mount, and the observer
+   does not see several sections as "near" at once */
+[data-lab]:empty { min-height: 44rem; }
+[data-consequence]:empty { min-height: 36rem; }
+[data-results]:empty { min-height: 60rem; }
+[data-survival-mini]:empty { min-height: 16rem; }
+.compare-panel:empty { min-height: 22rem; }
+
 /* results: one tab per experiment */
 .res-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-md); margin: 0 0 var(--space-2xl); border-top: var(--line-hair) solid var(--hairline); }
 .res-tabs [role="tab"] { all: unset; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: column; gap: var(--space-xxs); padding: var(--space-md) var(--space-md) var(--space-md) 0; border-top: var(--line-mark) solid transparent; margin-top: calc(-1 * var(--line-hair)); transition: border-color var(--duration-micro) var(--ease-out), color var(--duration-micro) var(--ease-out); }
