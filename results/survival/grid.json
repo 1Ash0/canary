@@ -1,0 +1,1080 @@
+{
+  "epistemic": "deterministic",
+  "description": "Real policy code on seeded synthetic histories. No model was called.",
+  "pack": "constraint",
+  "n_filler_turns": 18,
+  "seeds_per_cell": 20,
+  "positions": [
+    0,
+    3,
+    6,
+    9,
+    12,
+    15,
+    17
+  ],
+  "budgets": [
+    1200,
+    1800,
+    2400,
+    3000,
+    3600
+  ],
+  "policies": [
+    "recency_truncate",
+    "head_tail",
+    "observation_mask"
+  ],
+  "cells": [
+    {
+      "policy": "recency_truncate",
+      "position": 0,
+      "budget": 1200,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 0,
+      "budget": 1800,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 0,
+      "budget": 2400,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 0,
+      "budget": 3000,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 0,
+      "budget": 3600,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 3,
+      "budget": 1200,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 3,
+      "budget": 1800,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 3,
+      "budget": 2400,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 3,
+      "budget": 3000,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 3,
+      "budget": 3600,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 6,
+      "budget": 1200,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 6,
+      "budget": 1800,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 6,
+      "budget": 2400,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 6,
+      "budget": 3000,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 6,
+      "budget": 3600,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 9,
+      "budget": 1200,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 9,
+      "budget": 1800,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 9,
+      "budget": 2400,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 9,
+      "budget": 3000,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 9,
+      "budget": 3600,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 12,
+      "budget": 1200,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 12,
+      "budget": 1800,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 12,
+      "budget": 2400,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 12,
+      "budget": 3000,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 12,
+      "budget": 3600,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 15,
+      "budget": 1200,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 15,
+      "budget": 1800,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 15,
+      "budget": 2400,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 15,
+      "budget": 3000,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 15,
+      "budget": 3600,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 17,
+      "budget": 1200,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 17,
+      "budget": 1800,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 17,
+      "budget": 2400,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 17,
+      "budget": 3000,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "recency_truncate",
+      "position": 17,
+      "budget": 3600,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "head_tail",
+      "position": 0,
+      "budget": 1200,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "head_tail",
+      "position": 0,
+      "budget": 1800,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "head_tail",
+      "position": 0,
+      "budget": 2400,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "head_tail",
+      "position": 0,
+      "budget": 3000,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "head_tail",
+      "position": 0,
+      "budget": 3600,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "head_tail",
+      "position": 3,
+      "budget": 1200,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "head_tail",
+      "position": 3,
+      "budget": 1800,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "head_tail",
+      "position": 3,
+      "budget": 2400,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "head_tail",
+      "position": 3,
+      "budget": 3000,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "head_tail",
+      "position": 3,
+      "budget": 3600,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "head_tail",
+      "position": 6,
+      "budget": 1200,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "head_tail",
+      "position": 6,
+      "budget": 1800,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "head_tail",
+      "position": 6,
+      "budget": 2400,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "head_tail",
+      "position": 6,
+      "budget": 3000,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "head_tail",
+      "position": 6,
+      "budget": 3600,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "head_tail",
+      "position": 9,
+      "budget": 1200,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "head_tail",
+      "position": 9,
+      "budget": 1800,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "head_tail",
+      "position": 9,
+      "budget": 2400,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "head_tail",
+      "position": 9,
+      "budget": 3000,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "head_tail",
+      "position": 9,
+      "budget": 3600,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "head_tail",
+      "position": 12,
+      "budget": 1200,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "head_tail",
+      "position": 12,
+      "budget": 1800,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "head_tail",
+      "position": 12,
+      "budget": 2400,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "head_tail",
+      "position": 12,
+      "budget": 3000,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "head_tail",
+      "position": 12,
+      "budget": 3600,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "head_tail",
+      "position": 15,
+      "budget": 1200,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "head_tail",
+      "position": 15,
+      "budget": 1800,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "head_tail",
+      "position": 15,
+      "budget": 2400,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "head_tail",
+      "position": 15,
+      "budget": 3000,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "head_tail",
+      "position": 15,
+      "budget": 3600,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "head_tail",
+      "position": 17,
+      "budget": 1200,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "head_tail",
+      "position": 17,
+      "budget": 1800,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "head_tail",
+      "position": 17,
+      "budget": 2400,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "head_tail",
+      "position": 17,
+      "budget": 3000,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "head_tail",
+      "position": 17,
+      "budget": 3600,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 0,
+      "budget": 1200,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "observation_mask",
+      "position": 0,
+      "budget": 1800,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "observation_mask",
+      "position": 0,
+      "budget": 2400,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 0,
+      "budget": 3000,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 0,
+      "budget": 3600,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 3,
+      "budget": 1200,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "observation_mask",
+      "position": 3,
+      "budget": 1800,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "observation_mask",
+      "position": 3,
+      "budget": 2400,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 3,
+      "budget": 3000,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 3,
+      "budget": 3600,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 6,
+      "budget": 1200,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "observation_mask",
+      "position": 6,
+      "budget": 1800,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 6,
+      "budget": 2400,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 6,
+      "budget": 3000,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 6,
+      "budget": 3600,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 9,
+      "budget": 1200,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "observation_mask",
+      "position": 9,
+      "budget": 1800,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 9,
+      "budget": 2400,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 9,
+      "budget": 3000,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 9,
+      "budget": 3600,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 12,
+      "budget": 1200,
+      "k_kept": 0,
+      "n": 20,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.16113012549493322
+    },
+    {
+      "policy": "observation_mask",
+      "position": 12,
+      "budget": 1800,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 12,
+      "budget": 2400,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 12,
+      "budget": 3000,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 12,
+      "budget": 3600,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 15,
+      "budget": 1200,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 15,
+      "budget": 1800,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 15,
+      "budget": 2400,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 15,
+      "budget": 3000,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 15,
+      "budget": 3600,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 17,
+      "budget": 1200,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 17,
+      "budget": 1800,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 17,
+      "budget": 2400,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 17,
+      "budget": 3000,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    },
+    {
+      "policy": "observation_mask",
+      "position": 17,
+      "budget": 3600,
+      "k_kept": 20,
+      "n": 20,
+      "rate": 1.0,
+      "wilson_lo": 0.8388698745050667,
+      "wilson_hi": 1.0
+    }
+  ]
+}

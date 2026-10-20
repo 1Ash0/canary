@@ -38,6 +38,7 @@ from ctxcheck.providers.presets import PRESETS, from_preset
 from ctxcheck.providers.simulated import MODEL_ID, SimulatedAgent
 from ctxcheck.runner.analysis import analyse
 from ctxcheck.runner.experiment import ExperimentPlan, read_rows, run_experiment
+from ctxcheck.runner.survival import survival_grid
 
 app = typer.Typer(
     name="ctxcheck",
@@ -310,6 +311,19 @@ def report(
                        f"[{c['rd_lo']:+.0%}, {c['rd_hi']:+.0%}]  McNemar p={c['p_mcnemar']:.3g} "
                        f"q={c['q_bh']:.3g}  ({c['only_first_failed']} vs "
                        f"{c['only_second_failed']} discordant)")
+
+
+@app.command()
+def survival(
+    pack: str = typer.Option("constraint", help=f"Canary pack: {', '.join(sorted(PACKS))}"),
+    seeds: int = typer.Option(20, min=1, help="Seeded histories per cell"),
+    out: Path = typer.Option(Path("results/survival/grid.json")),
+) -> None:
+    """Does the planted fact survive each deterministic policy? No model is called."""
+    grid = survival_grid(pack=pack, seeds=seeds)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(grid, indent=2) + "\n", encoding="utf-8", newline="\n")
+    typer.echo(f"wrote {out}: {len(grid['cells'])} cells x {seeds} seeds (deterministic; no model)")
 
 
 if __name__ == "__main__":

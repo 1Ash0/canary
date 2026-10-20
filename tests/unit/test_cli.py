@@ -172,3 +172,11 @@ def test_a_request_cap_stops_cleanly_and_a_rerun_resumes(tmp_path, files, monkey
     assert resumed.exit_code == 0 and "skipped" in resumed.output
     episodes = tmp_path / "res" / "EXP-T" / "episodes.jsonl"
     assert len(episodes.read_text(encoding="utf-8").splitlines()) == 8  # cassettes: free resume
+
+
+def test_survival_command_writes_a_labelled_grid_without_any_key(tmp_path) -> None:
+    out = tmp_path / "grid.json"
+    r = runner.invoke(cli.app, ["survival", "--seeds", "2", "--out", str(out)])
+    assert r.exit_code == 0 and "no model" in r.output
+    grid = json.loads(out.read_text(encoding="utf-8"))
+    assert grid["epistemic"] == "deterministic" and grid["seeds_per_cell"] == 2
