@@ -39,5 +39,5 @@ jobs:
       - name: Types (pyright)
         run: uv run pyright src/
 
-      - name: Tests — offline collect-only
-        run: uv run pytest tests/ --co -q
+      - name: Tests (offline)
+        run: uv run pytest tests/ -q
