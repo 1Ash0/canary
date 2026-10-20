@@ -64,9 +64,11 @@ Common fields: `schema_version`, `run_id`, `seq` (monotonic int), `ts`, `type`.
 | `compaction` | policy, trigger, tokens_before, tokens_after, kept_ids, dropped_ids, added_ids, cost_usd, summary_message_id |
 | `canary_planted` | canary_id, type, message_id, span, value (the planted fact) |
 | `canary_probe` | canary_id, probe_message_id, grade (violated/respected), evidence |
-| `run_end` | status, totals |
+| `run_end` | status, `reason` (why it stopped: `end_turn`, `terminal_tool`, `max_calls`, `budget_exceeded`; added in 0.2), totals |
 
 Additions decided in LEARNING U1b (2026-10-20): `step`, `limit_tokens`, `tools_tokens_est` as above. **Canary fate is a derived view** (`src/ctxcheck/fates.py`), computed by replaying the trace. v0 rule, decided 2026-10-20: a planted fact is `kept` if its text appears verbatim in a message still in the window at the end, otherwise `gone`. Case and punctuation matter, so a paraphrase counts as gone (this undercounts survival; state it wherever the number is shown). `changed` is reserved for a labelled judge model and becomes an event only then (ADR-002). Pairing ids for control vs treatment are deferred to M4 (additive).
+
+**Compaction ordering convention** (loop, generator and ledger all follow it): a `compaction` event is written *after* the message that triggered it and *before* the summary message it adds, so it happens inside the open step. A step's ledger row is the window at the end of that step; `after_step` is the last step closed before the compaction.
 
 Rules:
 - **Event sourcing.** The log is the source of truth. Any view (token ledger, strata, loss diff) is *derived* by replaying events. (This is the DDIA log-as-truth idea; learn it in unit U2.)

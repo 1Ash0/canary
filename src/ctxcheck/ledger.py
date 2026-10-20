@@ -1,7 +1,11 @@
 """Token ledger: a view derived by replaying trace events (never stored).
+
 The question it answers: what was in the context window at the end of each step, split by layer?
-One row per step. A compaction event is applied when it is replayed, so it changes the *next*
-step's row.
+
+Convention (shared by the loop and the synthetic generator): a compaction event is written after the
+message that triggered it and before the summary it adds, so it happens *inside* the open step. A
+step's row is the window at the end of that step, so a step that compacted shows its post-compaction
+window; the peak is the previous row. `after_step` is the last step closed before the compaction.
 """
 
 from __future__ import annotations
@@ -90,13 +94,12 @@ def replay(events: Iterable[TraceEvent]) -> Ledger:
                 current_step = event.step
             live[event.message_id] = event
         elif isinstance(event, CompactionEvent):
-            close_step()
             for message_id in event.dropped_ids:
                 if message_id not in live:
                     raise ValueError(f"compaction drops unknown message {message_id!r}")
                 del live[message_id]
             ledger.compactions.append(
-                CompactionRecord(current_step, event.tokens_before, event.tokens_after)
+                CompactionRecord(last_row_step, event.tokens_before, event.tokens_after)
             )
     close_step()
     return ledger

@@ -53,18 +53,18 @@ def test_window_stays_under_the_limit_and_compaction_shrinks_it() -> None:
 
 def test_compaction_event_matches_the_ledger() -> None:
     events = trace()
-    ledger = replay(events)
     compaction = next(e for e in events if isinstance(e, CompactionEvent))
-    assert compaction.tokens_before == ledger.rows[30].total
-    assert compaction.tokens_after == ledger.rows[31].total - _step32_new_messages(events)
+    before_rows = replay([e for e in events if e.seq < compaction.seq])
+    # window before compaction = last closed row (step 31) + the step-32 message that triggered it
+    trigger = next(e for e in events if isinstance(e, MessageEvent) and e.step == 32)
+    assert compaction.tokens_before == before_rows.rows[30].total + trigger.tokens_est
+    # window just after the summary is added
+    after_rows = replay([e for e in events if e.seq <= _summary_seq(events)])
+    assert compaction.tokens_after == after_rows.rows[-1].total
 
 
-def _step32_new_messages(events) -> int:
-    summary_id = next(e for e in events if isinstance(e, CompactionEvent)).summary_message_id
-    return sum(
-        e.tokens_est for e in events
-        if isinstance(e, MessageEvent) and e.step == 32 and e.message_id != summary_id
-    )
+def _summary_seq(events) -> int:
+    return next(e.seq for e in events if isinstance(e, MessageEvent) and e.origin == "summary")
 
 
 def test_three_canaries_planted_at_the_documented_steps() -> None:

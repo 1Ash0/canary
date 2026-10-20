@@ -5,7 +5,8 @@ tokenizer (`count_fn`). The compaction and its summary are *scripted*, not produ
 model: the summary keeps one planted fact verbatim, paraphrases one, and omits one. Every consumer
 must label this data `synthetic fixture`.
 
-Convention the ledger relies on: a compaction event comes before the summary message it adds.
+Convention (shared with the loop): a compaction event is written after the message that triggered
+it and before the summary it adds.
 """
 
 from __future__ import annotations
@@ -76,8 +77,16 @@ def generate(
     system_id = message(1, "system", "user", _filler(rnd, 2400, count_fn))
 
     for step in range(1, steps + 1):
+        for cid, ctype, at, value in CANARIES:
+            if at == step:
+                mid = message(step, "user", "canary", f"Standing instruction ({ctype}): {value}.")
+                add(CanaryPlantedEvent, type="canary_planted", canary_id=cid, canary_type=ctype,
+                    message_id=mid, value=value)
+        user_id = message(step, "user", "user", _filler(rnd, rnd.randint(150, 400), count_fn))
         if step == compact_after + 1:
-            kept = [system_id]
+            # Same order as the loop: the new message arrives, the window is over budget, compact
+            # (keeping the system prompt and the new message), then the summary is added.
+            kept = [system_id, user_id]
             dropped = [m for m in live if m not in kept]
             before = tools_tokens + sum(live.values())
             for m in dropped:
@@ -95,12 +104,6 @@ def generate(
             live[summary_id] = tokens
             add(MessageEvent, type="message", message_id=summary_id, step=step, role="user",
                 content=summary, tokens_est=tokens, origin="summary")
-        for cid, ctype, at, value in CANARIES:
-            if at == step:
-                mid = message(step, "user", "canary", f"Standing instruction ({ctype}): {value}.")
-                add(CanaryPlantedEvent, type="canary_planted", canary_id=cid, canary_type=ctype,
-                    message_id=mid, value=value)
-        message(step, "user", "user", _filler(rnd, rnd.randint(150, 400), count_fn))
         message(step, "assistant", "assistant", _filler(rnd, rnd.randint(350, 900), count_fn))
         if rnd.random() < 0.55:
             call_id = f"c{step:03d}"

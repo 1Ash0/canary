@@ -36,9 +36,9 @@ def trace() -> list[TraceEvent]:
         msg(2, "u1", 1, 10),
         msg(3, "a1", 2, 20, role="assistant", origin="assistant"),
         msg(4, "t1", 3, 200, role="tool", origin="tool"),
-        compaction(5, dropped=["u1", "a1", "t1"]),
-        msg(6, "sum", 4, 30, role="user", origin="summary"),
-        msg(7, "u2", 4, 5),
+        msg(5, "u2", 4, 5),  # the message that pushes the window over budget
+        compaction(6, dropped=["u1", "a1", "t1"]),  # happens inside step 4, after u2
+        msg(7, "sum", 4, 30, role="user", origin="summary"),
         RunEndEvent(type="run_end", run_id="r", seq=8, ts=TS, status="ok"),
     ]
 
