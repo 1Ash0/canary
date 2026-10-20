@@ -6,7 +6,7 @@
 check: secrets
 	uv run ruff check src/ tests/ scripts/
 	uv run pyright src/
-	uv run pytest tests/ --co -q
+	uv run pytest tests/ -q
 
 test:
 	uv run pytest tests/ -x --tb=short

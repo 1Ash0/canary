@@ -15,11 +15,14 @@ Write-Host "    ok"
 
 Write-Host "==> lint (ruff)"
 uv run ruff check src/ tests/ scripts/
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 Write-Host "==> types (pyright)"
 uv run pyright src/
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 Write-Host "==> tests (offline)"
-uv run pytest tests/ --co -q
+uv run pytest tests/ -q
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 Write-Host "`nAll checks passed."
