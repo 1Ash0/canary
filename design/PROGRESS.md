@@ -45,7 +45,18 @@ Handoff: `docs/design/HANDOFF.md`.
 ## Open items
 - ADR-016 (video = headless render of the scene) and ADR-017 (theme = ground + ramp + device): still Proposed.
 - D0 schema additions (step index, limit_tokens, tools_tokens_est, canary_fate, pair_id) await the owner (Teach-First lane).
-- Nothing committed yet.
+- Committed as of 2026-10-20 (see `git log`); nothing is pushed (no remote).
+
+## Site build status (2026-10-20, after the data layer)
+Built in `web/` (Vite multi-page, imports the scene, tokens and fonts from `design/`): `/` (hero player + mock experiment + what this is), `/run/` (recorder: scrubber, ← → Home End c, `?run=&step=` permalinks, copy link), `/about/`. The old dark `web/index.html` is gone.
+Checks (all scripted, against dev and the production build): `scripts/check-site.mjs` (12 page x width combinations: no console errors, no sideways scroll, headline <= 2 lines, 1280x720 first-view rule), `scripts/check-recorder.mjs` (11 recorder behaviours, the M1 exit test). Initial JS on `/` is about 35.5 kB gzip (budget 60 kB).
+**Deferred, on purpose:**
+- The pinned, scroll-scrubbed "what compaction does" section (D8 polish).
+- The "consequence" section: it needs a probe in the trace (the synthetic run has none), and showing it now would mean inventing data. It arrives with M2.
+- The `?` shortcut overlay (the shortcuts are listed in text on the recorder).
+- A GitHub link: the repo has no remote yet.
+- Deploy, per the owner ("not yet").
+- The full guidelines audit (D8): so far only a scripted scan for the guideline anti-patterns, none found.
 
 ## Sequencing change (owner, 2026-10-20)
 The D gates **pause after D4b**. The owner's reasoning: the site and the video should show a mostly implemented project, not a fixture. Order from here:

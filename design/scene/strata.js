@@ -13,11 +13,19 @@ export const totalOf = (s) => ORDER.reduce((a, l) => a + s.layers[l], 0);
 export const formatTokens = (n) => nf.format(n);
 const f1 = (n) => n.toFixed(1);
 
+const CALLOUT_GAP = 38;
+
+// Extra height needed below the axis: each 'gone' fact gets its own stacked callout.
+export function extraBottom(run) {
+  const gone = run.canaries.filter((c) => c.fate === 'gone').length;
+  return CALLOUT_GAP * Math.max(0, gone - 1);
+}
+
 export function layout(run, { width, height, compact = width < 560 }) {
   const N = run.steps.length;
   const AT = run.compaction.at_step;
   const labelW = compact ? 0 : Math.min(260, Math.round(width * 0.38));
-  const left = compact ? 28 : 34, top = 22, bottom = 64, gap = 18;
+  const left = compact ? 28 : 34, top = 22, bottom = 64 + (compact ? 0 : extraBottom(run)), gap = 18;
   const limitX = width - labelW - (compact ? 12 : 28);
   const pitch = (height - top - bottom - gap) / N;
   const bar = Math.max(2, Math.round(pitch * 0.68));
@@ -112,7 +120,7 @@ export function renderStrata(run, opts) {
   }
 
   // callouts placed top-down with a minimum gap; leaders elbow from the anchor to the label
-  const MIN_GAP = 38;
+  const MIN_GAP = CALLOUT_GAP;
   callouts.sort((a, b) => a.y - b.y);
   let prev = -Infinity;
   for (const c of callouts) { c.ly = Math.max(c.y, prev + MIN_GAP); prev = c.ly; }

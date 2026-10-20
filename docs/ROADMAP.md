@@ -12,7 +12,7 @@ No dates. Milestones have **exit criteria**; units (see LEARNING.md) are sized b
 |---|---|---|
 | M0 Spine | **done** | `make check` passes offline; 8/8 PRIOR_ART tasks answered (notebook 2026-10-19); ledger M0 row |
 | Learning units U0–U5 | **done** (ahead of the milestones that list their gates) | `learn/*.py` demos; G0–G5 in LEDGER |
-| M1 First light | **not done** | schema v0 has 2 of 8 event types in `src/`; no real-tokenized fixture session; no `/run/[id]` recorder; no public URL; README still says "M0"; landing page `e6d8d84` superseded (wrong citation, see notebook 2026-10-20-constraintrot-figure) |
+| M1 First light | **in progress** (updated 2026-10-20) | DONE: trace schema v0 (9 event types, 23 tests); token ledger; real-tokenized synthetic fixture (160 events); canary fates; Wilson in `src/`; labelled mock experiment (control vs recency_truncate, 10 trials); export pipeline; site with hero, mock experiment and recorder with step permalinks (11 behaviours verified). TODO: README hero (product exit 2) and positioning paragraph; the owner's decision on deploying and the `ctxcheck` PyPI recheck before any public URL; the owner's acceptance of the Teach-First gates for what was built (see LEDGER) |
 | M2 Harness and replay | not started in `src/` | only the `learn/cassette.py` demo |
 | M3 Policies | not started in `src/` | only the `learn/policy_recency.py` demo |
 | M4 Canaries + first measurement | not started in `src/` | `learn/grader.py`, `learn/wilson.py` demos; no preregistration in `docs/experiments/` |
