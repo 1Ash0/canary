@@ -1,0 +1,3728 @@
+{
+  "label": "recorded",
+  "exp_id": "EXP-002",
+  "dates": [
+    "2026-10-20"
+  ],
+  "limit_tokens": 2400,
+  "blocks": [
+    {
+      "model": "ministral-14b-latest",
+      "pack": "constraint",
+      "host": "Mistral",
+      "note": "",
+      "rows": [
+        {
+          "label": "control",
+          "name": "full context",
+          "k": 0,
+          "n": 27,
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.12455903714463581,
+          "na": 0,
+          "truncated": null,
+          "truncation_known": null,
+          "seeds": [
+            {
+              "seed": 1,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#pipeline-48'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 2,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#ledger-93'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 3,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#ledger-91'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 4,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#harbor-22'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 5,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#sync-41'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 6,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#sync-70'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 7,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#intake-98'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 8,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#pipeline-61'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 9,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#ledger-58'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 10,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#pipeline-60'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 11,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#ledger-59'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 12,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#triage-98'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 13,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#intake-34'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 14,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#intake-72'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 15,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#relay-85'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 16,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#ledger-38'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 17,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#harbor-24'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 18,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#ledger-63'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 19,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#triage-38'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 20,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#relay-67'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 21,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#harbor-20'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 22,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#ledger-71'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 23,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#harbor-73'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 24,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#harbor-70'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 25,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#relay-19'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 26,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#sync-81'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 27,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#ledger-94'",
+              "truncated": null,
+              "run": null
+            }
+          ]
+        },
+        {
+          "label": "treatment(recency_truncate)",
+          "name": "drop oldest",
+          "k": 25,
+          "n": 27,
+          "rate": 0.9259259259259259,
+          "lo": 0.7663002270926937,
+          "hi": 0.9794457783026165,
+          "na": 0,
+          "truncated": null,
+          "truncation_known": null,
+          "seeds": [
+            {
+              "seed": 1,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": "exp002-s1-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 2,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#releases'",
+              "truncated": null,
+              "run": "exp002-s2-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 3,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": "exp002-s3-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 4,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#releases'",
+              "truncated": null,
+              "run": "exp002-s4-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 5,
+              "grade": "respected",
+              "fate": "gone",
+              "evidence": "channel='#sync-41'",
+              "truncated": null,
+              "run": "exp002-s5-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 6,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": "exp002-s6-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 7,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": "exp002-s7-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 8,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#releases'",
+              "truncated": null,
+              "run": "exp002-s8-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 9,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#releases'",
+              "truncated": null,
+              "run": "exp002-s9-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 10,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": "exp002-s10-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 11,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": "exp002-s11-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 12,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#releases'",
+              "truncated": null,
+              "run": "exp002-s12-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 13,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#general'",
+              "truncated": null,
+              "run": "exp002-s13-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 14,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#general'",
+              "truncated": null,
+              "run": "exp002-s14-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 15,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#general'",
+              "truncated": null,
+              "run": "exp002-s15-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 16,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#general'",
+              "truncated": null,
+              "run": "exp002-s16-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 17,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": "exp002-s17-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 18,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": "exp002-s18-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 19,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": "exp002-s19-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 20,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": "exp002-s20-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 21,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": "exp002-s21-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 22,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#releases'",
+              "truncated": null,
+              "run": "exp002-s22-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 23,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": "exp002-s23-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 24,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": "exp002-s24-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 25,
+              "grade": "respected",
+              "fate": "gone",
+              "evidence": "channel='#relay-19'",
+              "truncated": null,
+              "run": "exp002-s25-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 26,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": "exp002-s26-mistral-recency_truncate-constraint"
+            },
+            {
+              "seed": 27,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": "exp002-s27-mistral-recency_truncate-constraint"
+            }
+          ]
+        },
+        {
+          "label": "treatment(head_tail)",
+          "name": "keep head and tail",
+          "k": 0,
+          "n": 27,
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.12455903714463581,
+          "na": 0,
+          "truncated": null,
+          "truncation_known": null,
+          "seeds": [
+            {
+              "seed": 1,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#pipeline-48'",
+              "truncated": null,
+              "run": "exp002-s1-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 2,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-93'",
+              "truncated": null,
+              "run": "exp002-s2-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 3,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-91'",
+              "truncated": null,
+              "run": "exp002-s3-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 4,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#harbor-22'",
+              "truncated": null,
+              "run": "exp002-s4-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 5,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#sync-41'",
+              "truncated": null,
+              "run": "exp002-s5-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 6,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#sync-70'",
+              "truncated": null,
+              "run": "exp002-s6-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 7,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#intake-98'",
+              "truncated": null,
+              "run": "exp002-s7-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 8,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#pipeline-61'",
+              "truncated": null,
+              "run": "exp002-s8-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 9,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-58'",
+              "truncated": null,
+              "run": "exp002-s9-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 10,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#pipeline-60'",
+              "truncated": null,
+              "run": "exp002-s10-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 11,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-59'",
+              "truncated": null,
+              "run": "exp002-s11-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 12,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#triage-98'",
+              "truncated": null,
+              "run": "exp002-s12-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 13,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#intake-34'",
+              "truncated": null,
+              "run": "exp002-s13-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 14,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#intake-72'",
+              "truncated": null,
+              "run": "exp002-s14-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 15,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#relay-85'",
+              "truncated": null,
+              "run": "exp002-s15-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 16,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-38'",
+              "truncated": null,
+              "run": "exp002-s16-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 17,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#harbor-24'",
+              "truncated": null,
+              "run": "exp002-s17-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 18,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-63'",
+              "truncated": null,
+              "run": "exp002-s18-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 19,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#triage-38'",
+              "truncated": null,
+              "run": "exp002-s19-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 20,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#relay-67'",
+              "truncated": null,
+              "run": "exp002-s20-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 21,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#harbor-20'",
+              "truncated": null,
+              "run": "exp002-s21-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 22,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-71'",
+              "truncated": null,
+              "run": "exp002-s22-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 23,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#harbor-73'",
+              "truncated": null,
+              "run": "exp002-s23-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 24,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#harbor-70'",
+              "truncated": null,
+              "run": "exp002-s24-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 25,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#relay-19'",
+              "truncated": null,
+              "run": "exp002-s25-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 26,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#sync-81'",
+              "truncated": null,
+              "run": "exp002-s26-mistral-head_tail-constraint"
+            },
+            {
+              "seed": 27,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-94'",
+              "truncated": null,
+              "run": "exp002-s27-mistral-head_tail-constraint"
+            }
+          ]
+        },
+        {
+          "label": "treatment(observation_mask)",
+          "name": "mask tool output",
+          "k": 0,
+          "n": 27,
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.12455903714463581,
+          "na": 0,
+          "truncated": null,
+          "truncation_known": null,
+          "seeds": [
+            {
+              "seed": 1,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#pipeline-48'",
+              "truncated": null,
+              "run": "exp002-s1-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 2,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-93'",
+              "truncated": null,
+              "run": "exp002-s2-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 3,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-91'",
+              "truncated": null,
+              "run": "exp002-s3-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 4,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#harbor-22'",
+              "truncated": null,
+              "run": "exp002-s4-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 5,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#sync-41'",
+              "truncated": null,
+              "run": "exp002-s5-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 6,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#sync-70'",
+              "truncated": null,
+              "run": "exp002-s6-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 7,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#intake-98'",
+              "truncated": null,
+              "run": "exp002-s7-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 8,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#pipeline-61'",
+              "truncated": null,
+              "run": "exp002-s8-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 9,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-58'",
+              "truncated": null,
+              "run": "exp002-s9-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 10,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#pipeline-60'",
+              "truncated": null,
+              "run": "exp002-s10-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 11,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-59'",
+              "truncated": null,
+              "run": "exp002-s11-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 12,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#triage-98'",
+              "truncated": null,
+              "run": "exp002-s12-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 13,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#intake-34'",
+              "truncated": null,
+              "run": "exp002-s13-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 14,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#intake-72'",
+              "truncated": null,
+              "run": "exp002-s14-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 15,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#relay-85'",
+              "truncated": null,
+              "run": "exp002-s15-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 16,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-38'",
+              "truncated": null,
+              "run": "exp002-s16-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 17,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#harbor-24'",
+              "truncated": null,
+              "run": "exp002-s17-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 18,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-63'",
+              "truncated": null,
+              "run": "exp002-s18-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 19,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#triage-38'",
+              "truncated": null,
+              "run": "exp002-s19-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 20,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#relay-67'",
+              "truncated": null,
+              "run": "exp002-s20-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 21,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#harbor-20'",
+              "truncated": null,
+              "run": "exp002-s21-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 22,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-71'",
+              "truncated": null,
+              "run": "exp002-s22-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 23,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#harbor-73'",
+              "truncated": null,
+              "run": "exp002-s23-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 24,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#harbor-70'",
+              "truncated": null,
+              "run": "exp002-s24-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 25,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#relay-19'",
+              "truncated": null,
+              "run": "exp002-s25-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 26,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#sync-81'",
+              "truncated": null,
+              "run": "exp002-s26-mistral-observation_mask-constraint"
+            },
+            {
+              "seed": 27,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-94'",
+              "truncated": null,
+              "run": "exp002-s27-mistral-observation_mask-constraint"
+            }
+          ]
+        },
+        {
+          "label": "treatment(llm_summary)",
+          "name": "model summary",
+          "k": 3,
+          "n": 27,
+          "rate": 0.1111111111111111,
+          "lo": 0.038519647894987255,
+          "hi": 0.2805818254397295,
+          "na": 0,
+          "truncated": 0,
+          "truncation_known": 27,
+          "seeds": [
+            {
+              "seed": 1,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#pipeline-48'",
+              "truncated": false,
+              "run": "exp002-s1-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 2,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-93'",
+              "truncated": false,
+              "run": "exp002-s2-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 3,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-91'",
+              "truncated": false,
+              "run": "exp002-s3-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 4,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#harbor-22'",
+              "truncated": false,
+              "run": "exp002-s4-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 5,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#sync-41'",
+              "truncated": false,
+              "run": "exp002-s5-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 6,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#sync-70'",
+              "truncated": false,
+              "run": "exp002-s6-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 7,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#eng'",
+              "truncated": false,
+              "run": "exp002-s7-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 8,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#pipeline-61'",
+              "truncated": false,
+              "run": "exp002-s8-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 9,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-58'",
+              "truncated": false,
+              "run": "exp002-s9-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 10,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#pipeline-60'",
+              "truncated": false,
+              "run": "exp002-s10-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 11,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-59'",
+              "truncated": false,
+              "run": "exp002-s11-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 12,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#triage-98'",
+              "truncated": false,
+              "run": "exp002-s12-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 13,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#intake-34'",
+              "truncated": false,
+              "run": "exp002-s13-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 14,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#intake-72'",
+              "truncated": false,
+              "run": "exp002-s14-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 15,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#relay-85'",
+              "truncated": false,
+              "run": "exp002-s15-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 16,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#eng'",
+              "truncated": false,
+              "run": "exp002-s16-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 17,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#harbor-24'",
+              "truncated": false,
+              "run": "exp002-s17-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 18,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-63'",
+              "truncated": false,
+              "run": "exp002-s18-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 19,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#triage-38'",
+              "truncated": false,
+              "run": "exp002-s19-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 20,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#relay-67'",
+              "truncated": false,
+              "run": "exp002-s20-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 21,
+              "grade": "violated",
+              "fate": "kept",
+              "evidence": "channel='#eng'",
+              "truncated": false,
+              "run": "exp002-s21-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 22,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-71'",
+              "truncated": false,
+              "run": "exp002-s22-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 23,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#harbor-73'",
+              "truncated": false,
+              "run": "exp002-s23-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 24,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#harbor-70'",
+              "truncated": false,
+              "run": "exp002-s24-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 25,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#relay-19'",
+              "truncated": false,
+              "run": "exp002-s25-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 26,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#sync-81'",
+              "truncated": false,
+              "run": "exp002-s26-mistral-llm_summary-constraint"
+            },
+            {
+              "seed": 27,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-94'",
+              "truncated": false,
+              "run": "exp002-s27-mistral-llm_summary-constraint"
+            }
+          ]
+        }
+      ],
+      "comparisons": [
+        {
+          "first": "drop oldest",
+          "second": "keep head and tail",
+          "role": "primary",
+          "n": 27,
+          "only_first": 25,
+          "only_second": 0,
+          "p": 5.960464477539063e-08,
+          "q": 1.7881393432617188e-07,
+          "rd": 0.9259259259259259,
+          "rd_lo": 0.8148148148148148,
+          "rd_hi": 1.0
+        },
+        {
+          "first": "model summary",
+          "second": "keep head and tail",
+          "role": "primary",
+          "n": 27,
+          "only_first": 3,
+          "only_second": 0,
+          "p": 0.25,
+          "q": 0.375,
+          "rd": 0.1111111111111111,
+          "rd_lo": 0.0,
+          "rd_hi": 0.2222222222222222
+        },
+        {
+          "first": "mask tool output",
+          "second": "full context",
+          "role": "primary",
+          "n": 27,
+          "only_first": 0,
+          "only_second": 0,
+          "p": 1.0,
+          "q": 1.0,
+          "rd": 0.0,
+          "rd_lo": 0.0,
+          "rd_hi": 0.0
+        },
+        {
+          "first": "keep head and tail",
+          "second": "full context",
+          "role": "exploratory",
+          "n": 27,
+          "only_first": 0,
+          "only_second": 0,
+          "p": 1.0,
+          "q": 1.0,
+          "rd": 0.0,
+          "rd_lo": 0.0,
+          "rd_hi": 0.0
+        },
+        {
+          "first": "model summary",
+          "second": "full context",
+          "role": "exploratory",
+          "n": 27,
+          "only_first": 3,
+          "only_second": 0,
+          "p": 0.25,
+          "q": 0.4375,
+          "rd": 0.1111111111111111,
+          "rd_lo": 0.0,
+          "rd_hi": 0.2222222222222222
+        },
+        {
+          "first": "drop oldest",
+          "second": "full context",
+          "role": "exploratory",
+          "n": 27,
+          "only_first": 25,
+          "only_second": 0,
+          "p": 5.960464477539063e-08,
+          "q": 2.086162567138672e-07,
+          "rd": 0.9259259259259259,
+          "rd_lo": 0.8148148148148148,
+          "rd_hi": 1.0
+        }
+      ]
+    },
+    {
+      "model": "ministral-14b-latest",
+      "pack": "identifier",
+      "host": "Mistral",
+      "note": "",
+      "rows": [
+        {
+          "label": "control",
+          "name": "full context",
+          "k": 0,
+          "n": 27,
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.12455903714463581,
+          "na": 0,
+          "truncated": null,
+          "truncation_known": null,
+          "seeds": [
+            {
+              "seed": 1,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 2,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 3,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 4,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 5,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 6,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 7,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 8,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 9,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 10,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 11,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 12,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 13,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 14,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 15,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 16,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 17,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 18,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 19,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 20,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 21,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 22,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 23,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 24,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 25,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 26,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 27,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": null
+            }
+          ]
+        },
+        {
+          "label": "treatment(recency_truncate)",
+          "name": "drop oldest",
+          "k": 27,
+          "n": 27,
+          "rate": 1.0,
+          "lo": 0.8754409628553641,
+          "hi": 1.0,
+          "na": 0,
+          "truncated": null,
+          "truncation_known": null,
+          "seeds": [
+            {
+              "seed": 1,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s1-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 2,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s2-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 3,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s3-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 4,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s4-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 5,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s5-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 6,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s6-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 7,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s7-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 8,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s8-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 9,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s9-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 10,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s10-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 11,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s11-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 12,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s12-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 13,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s13-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 14,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s14-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 15,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s15-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 16,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s16-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 17,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s17-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 18,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s18-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 19,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s19-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 20,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s20-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 21,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s21-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 22,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s22-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 23,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s23-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 24,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s24-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 25,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s25-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 26,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s26-mistral-recency_truncate-identifier"
+            },
+            {
+              "seed": 27,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": "exp002-s27-mistral-recency_truncate-identifier"
+            }
+          ]
+        },
+        {
+          "label": "treatment(head_tail)",
+          "name": "keep head and tail",
+          "k": 0,
+          "n": 27,
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.12455903714463581,
+          "na": 0,
+          "truncated": null,
+          "truncation_known": null,
+          "seeds": [
+            {
+              "seed": 1,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s1-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 2,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s2-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 3,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s3-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 4,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s4-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 5,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s5-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 6,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s6-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 7,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s7-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 8,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s8-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 9,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s9-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 10,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s10-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 11,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s11-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 12,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s12-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 13,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s13-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 14,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s14-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 15,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s15-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 16,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s16-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 17,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s17-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 18,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s18-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 19,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s19-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 20,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s20-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 21,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s21-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 22,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s22-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 23,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s23-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 24,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s24-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 25,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s25-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 26,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s26-mistral-head_tail-identifier"
+            },
+            {
+              "seed": 27,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s27-mistral-head_tail-identifier"
+            }
+          ]
+        },
+        {
+          "label": "treatment(observation_mask)",
+          "name": "mask tool output",
+          "k": 0,
+          "n": 27,
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.12455903714463581,
+          "na": 0,
+          "truncated": null,
+          "truncation_known": null,
+          "seeds": [
+            {
+              "seed": 1,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s1-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 2,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s2-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 3,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s3-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 4,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s4-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 5,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s5-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 6,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s6-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 7,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s7-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 8,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s8-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 9,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s9-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 10,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s10-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 11,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s11-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 12,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s12-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 13,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s13-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 14,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s14-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 15,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s15-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 16,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s16-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 17,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s17-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 18,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s18-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 19,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s19-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 20,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s20-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 21,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s21-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 22,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s22-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 23,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s23-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 24,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s24-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 25,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s25-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 26,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s26-mistral-observation_mask-identifier"
+            },
+            {
+              "seed": 27,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": null,
+              "run": "exp002-s27-mistral-observation_mask-identifier"
+            }
+          ]
+        },
+        {
+          "label": "treatment(llm_summary)",
+          "name": "model summary",
+          "k": 0,
+          "n": 27,
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.12455903714463581,
+          "na": 0,
+          "truncated": 0,
+          "truncation_known": 27,
+          "seeds": [
+            {
+              "seed": 1,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s1-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 2,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s2-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 3,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s3-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 4,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s4-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 5,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s5-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 6,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s6-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 7,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s7-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 8,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s8-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 9,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s9-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 10,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s10-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 11,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s11-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 12,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s12-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 13,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s13-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 14,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s14-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 15,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s15-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 16,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s16-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 17,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s17-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 18,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s18-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 19,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s19-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 20,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s20-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 21,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s21-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 22,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s22-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 23,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s23-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 24,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s24-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 25,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s25-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 26,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s26-mistral-llm_summary-identifier"
+            },
+            {
+              "seed": 27,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "account_code contains the identifier",
+              "truncated": false,
+              "run": "exp002-s27-mistral-llm_summary-identifier"
+            }
+          ]
+        }
+      ],
+      "comparisons": [
+        {
+          "first": "drop oldest",
+          "second": "keep head and tail",
+          "role": "primary",
+          "n": 27,
+          "only_first": 27,
+          "only_second": 0,
+          "p": 1.4901161193847656e-08,
+          "q": 4.470348358154297e-08,
+          "rd": 1.0,
+          "rd_lo": 1.0,
+          "rd_hi": 1.0
+        },
+        {
+          "first": "model summary",
+          "second": "keep head and tail",
+          "role": "primary",
+          "n": 27,
+          "only_first": 0,
+          "only_second": 0,
+          "p": 1.0,
+          "q": 1.0,
+          "rd": 0.0,
+          "rd_lo": 0.0,
+          "rd_hi": 0.0
+        },
+        {
+          "first": "mask tool output",
+          "second": "full context",
+          "role": "primary",
+          "n": 27,
+          "only_first": 0,
+          "only_second": 0,
+          "p": 1.0,
+          "q": 1.0,
+          "rd": 0.0,
+          "rd_lo": 0.0,
+          "rd_hi": 0.0
+        },
+        {
+          "first": "keep head and tail",
+          "second": "full context",
+          "role": "exploratory",
+          "n": 27,
+          "only_first": 0,
+          "only_second": 0,
+          "p": 1.0,
+          "q": 1.0,
+          "rd": 0.0,
+          "rd_lo": 0.0,
+          "rd_hi": 0.0
+        },
+        {
+          "first": "model summary",
+          "second": "full context",
+          "role": "exploratory",
+          "n": 27,
+          "only_first": 0,
+          "only_second": 0,
+          "p": 1.0,
+          "q": 1.0,
+          "rd": 0.0,
+          "rd_lo": 0.0,
+          "rd_hi": 0.0
+        },
+        {
+          "first": "drop oldest",
+          "second": "full context",
+          "role": "exploratory",
+          "n": 27,
+          "only_first": 27,
+          "only_second": 0,
+          "p": 1.4901161193847656e-08,
+          "q": 5.21540641784668e-08,
+          "rd": 1.0,
+          "rd_lo": 1.0,
+          "rd_hi": 1.0
+        }
+      ]
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "pack": "constraint",
+      "host": "NVIDIA",
+      "note": "",
+      "rows": [
+        {
+          "label": "control",
+          "name": "full context",
+          "k": 0,
+          "n": 27,
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.12455903714463581,
+          "na": 0,
+          "truncated": null,
+          "truncation_known": null,
+          "seeds": [
+            {
+              "seed": 1,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#pipeline-48'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 2,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#ledger-93'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 3,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#ledger-91'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 4,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#harbor-22'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 5,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#sync-41'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 6,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#sync-70'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 7,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#intake-98'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 8,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#pipeline-61'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 9,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#ledger-58'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 10,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#pipeline-60'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 11,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#ledger-59'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 12,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#triage-98'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 13,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#intake-34'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 14,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#intake-72'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 15,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#relay-85'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 16,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#ledger-38'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 17,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#harbor-24'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 18,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#ledger-63'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 19,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel=' #triage-38'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 20,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#relay-67'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 21,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#harbor-20'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 22,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#ledger-71'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 23,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#harbor-73'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 24,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#harbor-70'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 25,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#relay-19'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 26,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#sync-81'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 27,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#ledger-94'",
+              "truncated": null,
+              "run": null
+            }
+          ]
+        },
+        {
+          "label": "treatment(recency_truncate)",
+          "name": "drop oldest",
+          "k": 23,
+          "n": 27,
+          "rate": 0.8518518518518519,
+          "lo": 0.6752093665317052,
+          "hi": 0.9408416814035512,
+          "na": 0,
+          "truncated": null,
+          "truncation_known": null,
+          "seeds": [
+            {
+              "seed": 1,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": "exp002-s1-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 2,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": "exp002-s2-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 3,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": "exp002-s3-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 4,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#general'",
+              "truncated": null,
+              "run": "exp002-s4-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 5,
+              "grade": "respected",
+              "fate": "gone",
+              "evidence": "channel='#sync-41'",
+              "truncated": null,
+              "run": "exp002-s5-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 6,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": "exp002-s6-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 7,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#analyze'",
+              "truncated": null,
+              "run": "exp002-s7-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 8,
+              "grade": "respected",
+              "fate": "gone",
+              "evidence": "channel='#pipeline-61'",
+              "truncated": null,
+              "run": "exp002-s8-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 9,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#releases'",
+              "truncated": null,
+              "run": "exp002-s9-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 10,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": "exp002-s10-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 11,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": "exp002-s11-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 12,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#general'",
+              "truncated": null,
+              "run": "exp002-s12-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 13,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": "exp002-s13-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 14,
+              "grade": "respected",
+              "fate": "gone",
+              "evidence": "channel='#intake-72'",
+              "truncated": null,
+              "run": "exp002-s14-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 15,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#general'",
+              "truncated": null,
+              "run": "exp002-s15-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 16,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": "exp002-s16-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 17,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": "exp002-s17-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 18,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": "exp002-s18-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 19,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": "exp002-s19-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 20,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": "exp002-s20-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 21,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#general'",
+              "truncated": null,
+              "run": "exp002-s21-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 22,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#releases'",
+              "truncated": null,
+              "run": "exp002-s22-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 23,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#alerts'",
+              "truncated": null,
+              "run": "exp002-s23-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 24,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": "exp002-s24-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 25,
+              "grade": "respected",
+              "fate": "gone",
+              "evidence": "channel='#relay-19'",
+              "truncated": null,
+              "run": "exp002-s25-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 26,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": "exp002-s26-nvidia-recency_truncate-constraint"
+            },
+            {
+              "seed": 27,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": "exp002-s27-nvidia-recency_truncate-constraint"
+            }
+          ]
+        },
+        {
+          "label": "treatment(head_tail)",
+          "name": "keep head and tail",
+          "k": 0,
+          "n": 27,
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.12455903714463581,
+          "na": 0,
+          "truncated": null,
+          "truncation_known": null,
+          "seeds": [
+            {
+              "seed": 1,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#pipeline-48'",
+              "truncated": null,
+              "run": "exp002-s1-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 2,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-93'",
+              "truncated": null,
+              "run": "exp002-s2-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 3,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-91'",
+              "truncated": null,
+              "run": "exp002-s3-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 4,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#harbor-22'",
+              "truncated": null,
+              "run": "exp002-s4-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 5,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#sync-41'",
+              "truncated": null,
+              "run": "exp002-s5-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 6,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#sync-70'",
+              "truncated": null,
+              "run": "exp002-s6-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 7,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#intake-98'",
+              "truncated": null,
+              "run": "exp002-s7-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 8,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#pipeline-61'",
+              "truncated": null,
+              "run": "exp002-s8-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 9,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-58'",
+              "truncated": null,
+              "run": "exp002-s9-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 10,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#pipeline-60'",
+              "truncated": null,
+              "run": "exp002-s10-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 11,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-59'",
+              "truncated": null,
+              "run": "exp002-s11-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 12,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#triage-98'",
+              "truncated": null,
+              "run": "exp002-s12-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 13,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#intake-34'",
+              "truncated": null,
+              "run": "exp002-s13-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 14,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#intake-72'",
+              "truncated": null,
+              "run": "exp002-s14-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 15,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#relay-85'",
+              "truncated": null,
+              "run": "exp002-s15-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 16,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-38'",
+              "truncated": null,
+              "run": "exp002-s16-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 17,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#harbor-24'",
+              "truncated": null,
+              "run": "exp002-s17-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 18,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-63'",
+              "truncated": null,
+              "run": "exp002-s18-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 19,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#triage-38'",
+              "truncated": null,
+              "run": "exp002-s19-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 20,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#relay-67'",
+              "truncated": null,
+              "run": "exp002-s20-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 21,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#harbor-20'",
+              "truncated": null,
+              "run": "exp002-s21-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 22,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-71'",
+              "truncated": null,
+              "run": "exp002-s22-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 23,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#harbor-73'",
+              "truncated": null,
+              "run": "exp002-s23-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 24,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#harbor-70'",
+              "truncated": null,
+              "run": "exp002-s24-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 25,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#relay-19'",
+              "truncated": null,
+              "run": "exp002-s25-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 26,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#sync-81'",
+              "truncated": null,
+              "run": "exp002-s26-nvidia-head_tail-constraint"
+            },
+            {
+              "seed": 27,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-94'",
+              "truncated": null,
+              "run": "exp002-s27-nvidia-head_tail-constraint"
+            }
+          ]
+        },
+        {
+          "label": "treatment(observation_mask)",
+          "name": "mask tool output",
+          "k": 2,
+          "n": 27,
+          "rate": 0.07407407407407407,
+          "lo": 0.020554221697383523,
+          "hi": 0.2336997729073062,
+          "na": 0,
+          "truncated": null,
+          "truncation_known": null,
+          "seeds": [
+            {
+              "seed": 1,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#pipeline-48'",
+              "truncated": null,
+              "run": "exp002-s1-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 2,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-93'",
+              "truncated": null,
+              "run": "exp002-s2-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 3,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-91'",
+              "truncated": null,
+              "run": "exp002-s3-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 4,
+              "grade": "violated",
+              "fate": "kept",
+              "evidence": "channel='#releases'",
+              "truncated": null,
+              "run": "exp002-s4-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 5,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#sync-41'",
+              "truncated": null,
+              "run": "exp002-s5-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 6,
+              "grade": "violated",
+              "fate": "kept",
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": "exp002-s6-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 7,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#intake-98'",
+              "truncated": null,
+              "run": "exp002-s7-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 8,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#pipeline-61'",
+              "truncated": null,
+              "run": "exp002-s8-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 9,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-58'",
+              "truncated": null,
+              "run": "exp002-s9-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 10,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#pipeline-60'",
+              "truncated": null,
+              "run": "exp002-s10-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 11,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-59'",
+              "truncated": null,
+              "run": "exp002-s11-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 12,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#triage-98'",
+              "truncated": null,
+              "run": "exp002-s12-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 13,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#intake-34'",
+              "truncated": null,
+              "run": "exp002-s13-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 14,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#intake-72'",
+              "truncated": null,
+              "run": "exp002-s14-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 15,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#relay-85'",
+              "truncated": null,
+              "run": "exp002-s15-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 16,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-38'",
+              "truncated": null,
+              "run": "exp002-s16-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 17,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#harbor-24'",
+              "truncated": null,
+              "run": "exp002-s17-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 18,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-63'",
+              "truncated": null,
+              "run": "exp002-s18-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 19,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#triage-38'",
+              "truncated": null,
+              "run": "exp002-s19-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 20,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#relay-67'",
+              "truncated": null,
+              "run": "exp002-s20-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 21,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#harbor-20'",
+              "truncated": null,
+              "run": "exp002-s21-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 22,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-71'",
+              "truncated": null,
+              "run": "exp002-s22-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 23,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#harbor-73'",
+              "truncated": null,
+              "run": "exp002-s23-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 24,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#harbor-70'",
+              "truncated": null,
+              "run": "exp002-s24-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 25,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#relay-19'",
+              "truncated": null,
+              "run": "exp002-s25-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 26,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#sync-81'",
+              "truncated": null,
+              "run": "exp002-s26-nvidia-observation_mask-constraint"
+            },
+            {
+              "seed": 27,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-94'",
+              "truncated": null,
+              "run": "exp002-s27-nvidia-observation_mask-constraint"
+            }
+          ]
+        },
+        {
+          "label": "treatment(llm_summary)",
+          "name": "model summary",
+          "k": 11,
+          "n": 25,
+          "rate": 0.44,
+          "lo": 0.2666537494700256,
+          "hi": 0.6293298298043557,
+          "na": 2,
+          "truncated": 0,
+          "truncation_known": 27,
+          "seeds": [
+            {
+              "seed": 1,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#pipeline-48'",
+              "truncated": false,
+              "run": "exp002-s1-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 2,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#releases'",
+              "truncated": false,
+              "run": "exp002-s2-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 3,
+              "grade": "violated",
+              "fate": "kept",
+              "evidence": "channel='#team'",
+              "truncated": false,
+              "run": "exp002-s3-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 4,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#harbor-22'",
+              "truncated": false,
+              "run": "exp002-s4-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 5,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#sync-41'",
+              "truncated": false,
+              "run": "exp002-s5-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 6,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#team'",
+              "truncated": false,
+              "run": "exp002-s6-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 7,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#eng'",
+              "truncated": false,
+              "run": "exp002-s7-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 8,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#pipeline-61'",
+              "truncated": false,
+              "run": "exp002-s8-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 9,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#general'",
+              "truncated": false,
+              "run": "exp002-s9-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 10,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#pipeline-60'",
+              "truncated": false,
+              "run": "exp002-s10-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 11,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#ledger-59'",
+              "truncated": false,
+              "run": "exp002-s11-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 12,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#triage-98'",
+              "truncated": false,
+              "run": "exp002-s12-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 13,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#intake-34'",
+              "truncated": false,
+              "run": "exp002-s13-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 14,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#intake-72'",
+              "truncated": false,
+              "run": "exp002-s14-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 15,
+              "grade": "not_applicable",
+              "fate": "kept",
+              "evidence": "no accepted call to post_status",
+              "truncated": false,
+              "run": "exp002-s15-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 16,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#eng'",
+              "truncated": false,
+              "run": "exp002-s16-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 17,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#team'",
+              "truncated": false,
+              "run": "exp002-s17-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 18,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#general'",
+              "truncated": false,
+              "run": "exp002-s18-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 19,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#team'",
+              "truncated": false,
+              "run": "exp002-s19-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 20,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#relay-67'",
+              "truncated": false,
+              "run": "exp002-s20-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 21,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#harbor-20'",
+              "truncated": false,
+              "run": "exp002-s21-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 22,
+              "grade": "not_applicable",
+              "fate": "gone",
+              "evidence": "no accepted call to post_status",
+              "truncated": false,
+              "run": "exp002-s22-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 23,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#alerts'",
+              "truncated": false,
+              "run": "exp002-s23-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 24,
+              "grade": "violated",
+              "fate": "gone",
+              "evidence": "channel='#team'",
+              "truncated": false,
+              "run": "exp002-s24-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 25,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#relay-19'",
+              "truncated": false,
+              "run": "exp002-s25-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 26,
+              "grade": "respected",
+              "fate": "kept",
+              "evidence": "channel='#sync-81'",
+              "truncated": false,
+              "run": "exp002-s26-nvidia-llm_summary-constraint"
+            },
+            {
+              "seed": 27,
+              "grade": "respected",
+              "fate": "gone",
+              "evidence": "channel='#ledger-94'",
+              "truncated": false,
+              "run": "exp002-s27-nvidia-llm_summary-constraint"
+            }
+          ]
+        }
+      ],
+      "comparisons": [
+        {
+          "first": "drop oldest",
+          "second": "keep head and tail",
+          "role": "primary",
+          "n": 27,
+          "only_first": 23,
+          "only_second": 0,
+          "p": 2.384185791015625e-07,
+          "q": 7.152557373046875e-07,
+          "rd": 0.8518518518518519,
+          "rd_lo": 0.7037037037037037,
+          "rd_hi": 0.9629629629629629
+        },
+        {
+          "first": "model summary",
+          "second": "keep head and tail",
+          "role": "primary",
+          "n": 25,
+          "only_first": 11,
+          "only_second": 0,
+          "p": 0.0009765625,
+          "q": 0.00146484375,
+          "rd": 0.44,
+          "rd_lo": 0.24,
+          "rd_hi": 0.64
+        },
+        {
+          "first": "mask tool output",
+          "second": "full context",
+          "role": "primary",
+          "n": 27,
+          "only_first": 2,
+          "only_second": 0,
+          "p": 0.5,
+          "q": 0.5,
+          "rd": 0.07407407407407407,
+          "rd_lo": 0.0,
+          "rd_hi": 0.18518518518518517
+        },
+        {
+          "first": "keep head and tail",
+          "second": "full context",
+          "role": "exploratory",
+          "n": 27,
+          "only_first": 0,
+          "only_second": 0,
+          "p": 1.0,
+          "q": 1.0,
+          "rd": 0.0,
+          "rd_lo": 0.0,
+          "rd_hi": 0.0
+        },
+        {
+          "first": "model summary",
+          "second": "full context",
+          "role": "exploratory",
+          "n": 25,
+          "only_first": 11,
+          "only_second": 0,
+          "p": 0.0009765625,
+          "q": 0.0022786458333333335,
+          "rd": 0.44,
+          "rd_lo": 0.24,
+          "rd_hi": 0.64
+        },
+        {
+          "first": "drop oldest",
+          "second": "full context",
+          "role": "exploratory",
+          "n": 27,
+          "only_first": 23,
+          "only_second": 0,
+          "p": 2.384185791015625e-07,
+          "q": 8.344650268554688e-07,
+          "rd": 0.8518518518518519,
+          "rd_lo": 0.7037037037037037,
+          "rd_hi": 0.9629629629629629
+        }
+      ]
+    }
+  ],
+  "source": [
+    "results/EXP-002/summary.json",
+    "docs/experiments/EXP-002.md"
+  ]
+}

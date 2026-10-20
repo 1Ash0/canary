@@ -570,6 +570,2274 @@
       "path": "runs/exp001b-s27-nvidia.json",
       "title": "EXP-001b seed 27, openai/gpt-oss-20b",
       "group": "EXP-001b"
+    },
+    {
+      "id": "exp002-s1-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s1-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 1, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s2-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s2-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 2, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s3-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s3-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 3, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s4-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s4-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 4, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s5-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s5-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 5, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s6-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s6-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 6, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s7-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s7-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 7, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s8-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s8-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 8, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s9-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s9-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 9, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s10-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s10-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 10, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s11-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s11-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 11, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s12-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s12-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 12, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s13-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s13-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 13, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s14-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s14-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 14, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s15-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s15-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 15, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s16-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s16-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 16, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s17-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s17-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 17, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s18-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s18-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 18, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s19-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s19-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 19, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s20-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s20-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 20, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s21-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s21-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 21, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s22-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s22-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 22, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s23-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s23-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 23, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s24-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s24-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 24, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s25-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s25-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 25, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s26-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s26-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 26, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s27-mistral-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s27-mistral-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 27, ministral-14b-latest, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s1-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s1-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 1, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s2-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s2-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 2, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s3-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s3-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 3, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s4-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s4-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 4, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s5-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s5-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 5, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s6-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s6-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 6, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s7-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s7-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 7, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s8-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s8-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 8, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s9-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s9-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 9, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s10-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s10-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 10, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s11-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s11-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 11, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s12-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s12-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 12, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s13-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s13-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 13, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s14-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s14-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 14, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s15-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s15-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 15, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s16-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s16-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 16, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s17-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s17-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 17, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s18-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s18-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 18, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s19-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s19-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 19, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s20-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s20-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 20, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s21-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s21-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 21, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s22-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s22-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 22, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s23-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s23-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 23, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s24-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s24-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 24, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s25-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s25-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 25, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s26-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s26-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 26, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s27-mistral-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s27-mistral-head_tail-constraint.json",
+      "title": "EXP-002 seed 27, ministral-14b-latest, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s1-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s1-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 1, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s2-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s2-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 2, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s3-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s3-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 3, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s4-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s4-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 4, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s5-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s5-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 5, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s6-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s6-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 6, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s7-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s7-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 7, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s8-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s8-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 8, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s9-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s9-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 9, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s10-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s10-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 10, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s11-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s11-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 11, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s12-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s12-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 12, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s13-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s13-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 13, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s14-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s14-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 14, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s15-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s15-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 15, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s16-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s16-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 16, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s17-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s17-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 17, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s18-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s18-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 18, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s19-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s19-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 19, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s20-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s20-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 20, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s21-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s21-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 21, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s22-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s22-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 22, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s23-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s23-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 23, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s24-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s24-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 24, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s25-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s25-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 25, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s26-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s26-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 26, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s27-mistral-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s27-mistral-observation_mask-constraint.json",
+      "title": "EXP-002 seed 27, ministral-14b-latest, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s1-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s1-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 1, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s2-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s2-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 2, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s3-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s3-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 3, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s4-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s4-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 4, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s5-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s5-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 5, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s6-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s6-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 6, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s7-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s7-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 7, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s8-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s8-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 8, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s9-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s9-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 9, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s10-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s10-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 10, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s11-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s11-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 11, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s12-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s12-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 12, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s13-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s13-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 13, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s14-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s14-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 14, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s15-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s15-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 15, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s16-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s16-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 16, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s17-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s17-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 17, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s18-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s18-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 18, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s19-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s19-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 19, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s20-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s20-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 20, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s21-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s21-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 21, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s22-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s22-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 22, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s23-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s23-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 23, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s24-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s24-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 24, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s25-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s25-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 25, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s26-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s26-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 26, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s27-mistral-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s27-mistral-llm_summary-constraint.json",
+      "title": "EXP-002 seed 27, ministral-14b-latest, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s1-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s1-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 1, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s2-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s2-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 2, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s3-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s3-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 3, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s4-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s4-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 4, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s5-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s5-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 5, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s6-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s6-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 6, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s7-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s7-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 7, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s8-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s8-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 8, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s9-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s9-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 9, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s10-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s10-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 10, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s11-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s11-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 11, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s12-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s12-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 12, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s13-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s13-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 13, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s14-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s14-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 14, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s15-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s15-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 15, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s16-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s16-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 16, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s17-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s17-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 17, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s18-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s18-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 18, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s19-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s19-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 19, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s20-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s20-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 20, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s21-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s21-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 21, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s22-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s22-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 22, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s23-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s23-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 23, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s24-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s24-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 24, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s25-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s25-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 25, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s26-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s26-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 26, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s27-mistral-recency_truncate-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s27-mistral-recency_truncate-identifier.json",
+      "title": "EXP-002 seed 27, ministral-14b-latest, recency_truncate, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s1-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s1-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 1, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s2-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s2-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 2, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s3-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s3-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 3, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s4-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s4-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 4, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s5-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s5-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 5, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s6-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s6-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 6, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s7-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s7-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 7, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s8-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s8-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 8, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s9-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s9-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 9, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s10-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s10-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 10, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s11-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s11-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 11, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s12-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s12-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 12, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s13-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s13-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 13, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s14-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s14-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 14, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s15-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s15-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 15, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s16-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s16-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 16, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s17-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s17-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 17, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s18-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s18-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 18, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s19-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s19-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 19, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s20-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s20-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 20, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s21-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s21-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 21, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s22-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s22-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 22, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s23-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s23-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 23, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s24-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s24-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 24, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s25-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s25-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 25, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s26-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s26-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 26, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s27-mistral-head_tail-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s27-mistral-head_tail-identifier.json",
+      "title": "EXP-002 seed 27, ministral-14b-latest, head_tail, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s1-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s1-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 1, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s2-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s2-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 2, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s3-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s3-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 3, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s4-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s4-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 4, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s5-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s5-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 5, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s6-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s6-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 6, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s7-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s7-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 7, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s8-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s8-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 8, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s9-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s9-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 9, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s10-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s10-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 10, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s11-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s11-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 11, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s12-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s12-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 12, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s13-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s13-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 13, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s14-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s14-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 14, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s15-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s15-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 15, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s16-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s16-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 16, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s17-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s17-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 17, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s18-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s18-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 18, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s19-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s19-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 19, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s20-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s20-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 20, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s21-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s21-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 21, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s22-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s22-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 22, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s23-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s23-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 23, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s24-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s24-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 24, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s25-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s25-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 25, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s26-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s26-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 26, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s27-mistral-observation_mask-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s27-mistral-observation_mask-identifier.json",
+      "title": "EXP-002 seed 27, ministral-14b-latest, observation_mask, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s1-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s1-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 1, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s2-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s2-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 2, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s3-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s3-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 3, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s4-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s4-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 4, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s5-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s5-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 5, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s6-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s6-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 6, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s7-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s7-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 7, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s8-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s8-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 8, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s9-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s9-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 9, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s10-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s10-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 10, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s11-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s11-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 11, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s12-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s12-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 12, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s13-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s13-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 13, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s14-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s14-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 14, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s15-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s15-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 15, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s16-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s16-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 16, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s17-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s17-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 17, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s18-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s18-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 18, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s19-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s19-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 19, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s20-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s20-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 20, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s21-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s21-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 21, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s22-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s22-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 22, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s23-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s23-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 23, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s24-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s24-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 24, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s25-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s25-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 25, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s26-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s26-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 26, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s27-mistral-llm_summary-identifier",
+      "label": "recorded",
+      "path": "runs/exp002-s27-mistral-llm_summary-identifier.json",
+      "title": "EXP-002 seed 27, ministral-14b-latest, llm_summary, identifier pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s1-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s1-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 1, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s2-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s2-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 2, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s3-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s3-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 3, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s4-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s4-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 4, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s5-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s5-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 5, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s6-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s6-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 6, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s7-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s7-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 7, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s8-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s8-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 8, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s9-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s9-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 9, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s10-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s10-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 10, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s11-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s11-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 11, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s12-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s12-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 12, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s13-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s13-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 13, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s14-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s14-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 14, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s15-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s15-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 15, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s16-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s16-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 16, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s17-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s17-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 17, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s18-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s18-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 18, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s19-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s19-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 19, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s20-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s20-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 20, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s21-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s21-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 21, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s22-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s22-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 22, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s23-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s23-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 23, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s24-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s24-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 24, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s25-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s25-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 25, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s26-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s26-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 26, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s27-nvidia-recency_truncate-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s27-nvidia-recency_truncate-constraint.json",
+      "title": "EXP-002 seed 27, openai/gpt-oss-20b, recency_truncate, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s1-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s1-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 1, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s2-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s2-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 2, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s3-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s3-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 3, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s4-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s4-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 4, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s5-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s5-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 5, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s6-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s6-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 6, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s7-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s7-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 7, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s8-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s8-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 8, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s9-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s9-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 9, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s10-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s10-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 10, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s11-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s11-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 11, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s12-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s12-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 12, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s13-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s13-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 13, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s14-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s14-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 14, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s15-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s15-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 15, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s16-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s16-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 16, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s17-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s17-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 17, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s18-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s18-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 18, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s19-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s19-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 19, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s20-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s20-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 20, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s21-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s21-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 21, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s22-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s22-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 22, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s23-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s23-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 23, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s24-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s24-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 24, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s25-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s25-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 25, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s26-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s26-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 26, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s27-nvidia-head_tail-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s27-nvidia-head_tail-constraint.json",
+      "title": "EXP-002 seed 27, openai/gpt-oss-20b, head_tail, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s1-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s1-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 1, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s2-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s2-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 2, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s3-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s3-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 3, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s4-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s4-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 4, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s5-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s5-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 5, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s6-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s6-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 6, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s7-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s7-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 7, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s8-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s8-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 8, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s9-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s9-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 9, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s10-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s10-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 10, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s11-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s11-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 11, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s12-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s12-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 12, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s13-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s13-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 13, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s14-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s14-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 14, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s15-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s15-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 15, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s16-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s16-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 16, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s17-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s17-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 17, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s18-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s18-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 18, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s19-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s19-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 19, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s20-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s20-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 20, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s21-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s21-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 21, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s22-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s22-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 22, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s23-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s23-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 23, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s24-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s24-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 24, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s25-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s25-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 25, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s26-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s26-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 26, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s27-nvidia-observation_mask-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s27-nvidia-observation_mask-constraint.json",
+      "title": "EXP-002 seed 27, openai/gpt-oss-20b, observation_mask, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s1-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s1-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 1, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s2-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s2-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 2, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s3-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s3-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 3, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s4-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s4-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 4, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s5-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s5-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 5, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s6-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s6-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 6, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s7-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s7-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 7, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s8-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s8-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 8, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s9-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s9-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 9, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s10-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s10-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 10, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s11-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s11-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 11, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s12-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s12-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 12, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s13-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s13-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 13, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s14-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s14-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 14, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s15-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s15-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 15, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s16-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s16-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 16, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s17-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s17-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 17, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s18-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s18-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 18, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s19-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s19-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 19, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s20-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s20-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 20, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s21-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s21-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 21, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s22-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s22-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 22, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s23-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s23-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 23, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s24-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s24-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 24, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s25-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s25-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 25, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s26-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s26-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 26, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
+    },
+    {
+      "id": "exp002-s27-nvidia-llm_summary-constraint",
+      "label": "recorded",
+      "path": "runs/exp002-s27-nvidia-llm_summary-constraint.json",
+      "title": "EXP-002 seed 27, openai/gpt-oss-20b, llm_summary, constraint pack",
+      "group": "EXP-002"
     }
   ],
   "experiments": [
@@ -592,6 +2860,11 @@
       "id": "exp001b",
       "label": "recorded",
       "path": "experiments/exp001b.json"
+    },
+    {
+      "id": "exp002",
+      "label": "recorded",
+      "path": "experiments/exp002.json"
     }
   ],
   "survival": [

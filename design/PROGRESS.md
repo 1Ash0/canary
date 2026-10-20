@@ -88,6 +88,15 @@ The reason for the pause is gone: M1 to M4 are built and EXP-001 has recorded da
 - **QA**: `scripts/check-landing.mjs` (reduced-motion final states at 1440/768/390, pin and scrub with notes advancing in order, every entry animation settling fully visible); `check-site.mjs` now includes the recorded run page; `check-hero.mjs` and `check-recorder.mjs` pass. Initial JS on `/` about 59 kB gzip of the 60 kB budget, so there is little headroom.
 - **Left for D8 polish**: the `?` shortcut overlay, a GitHub link once a remote exists, the full guidelines audit, OG images, then deploy (owner).
 
+## Site rework, 2026-10-21 (ADR-022: the site becomes an instrument)
+- **The Lab** (`#lab`, "You are the harness."): pick a policy, drag the budget and the rule's position, and the window recompacts on every input as an ASCII view (bright = in the window, dim = gone). Deterministic policies run a JS port of the Python policies, pinned by 540 parity cases in `design/tests/lab-parity.test.mjs`; the summary policy shows recorded summaries (EXP-001b for gpt-oss-20b). At EXP-002's settings it also lists what each recorded model did with that exact window, linked to the episode.
+- **Results** are one tab per experiment, rendered from one block shape: EXP-001 (two models), EXP-001b (the clean rerun), EXP-002 (four policies, both canaries). One mark per seed; every treatment mark opens its episode in the recorder (EXP-001b and EXP-002 runs exported as compact JSON).
+- **Recorder**: grouped run picker, bars or text view (`t`), transcript up to the step (stand-ins sit in their own turn), `?` help dialog.
+- **/about**: four beats drawn as text from a recorded run; copyable commands; limits now include the rule's early position.
+- **Copy pass**: turns counted from 1 on every page; the hero no longer equates compaction with summarising.
+- **Performance**: sections mount as they approach (half a screen ahead); first-view JS 61.7 kB gzip at 1280x800, where the Lab is on screen. **1.7 kB over the 60 kB budget**; the rest is GSAP core plus ScrollTrigger and SplitText (47 kB). Trimming SplitText from the first view is the obvious next cut.
+- **QA**: `check-landing` (now with a two-sided lazy-loading check), `check-site` (no sideways scroll at any width after the /about fix), `check-hero`, `check-recorder`, design tests 16 of 16. All pass.
+
 ## Exact next step
 D4b approved 2026-10-20. Design is unblocked (2026-10-21): next is D8 core above (real results on `/`, recorded run in `/run/`). D5 is the deterministic renderer: its page calls `scene/timeline.js` `frameAt` through `window.seek(t)`; exit test: SHA-256 of frame t=11.37 identical across random-order renders.
 
