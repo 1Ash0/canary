@@ -7,7 +7,7 @@ counts as gone. `changed` is reserved for a labelled judge model (ADR-002) and i
 
 from __future__ import annotations
 
-from collections.abc import Iterable
+from collections.abc import Collection, Iterable
 from typing import Literal
 
 from ctxcheck.schema import (
@@ -21,7 +21,12 @@ from ctxcheck.schema import (
 Fate = Literal["kept", "gone"]
 
 
-def derive_fates(events: Iterable[TraceEvent]) -> dict[str, Fate]:
+def derive_fates(
+    events: Iterable[TraceEvent], exclude: Collection[str] = ()
+) -> dict[str, Fate]:
+    """`exclude` names messages that must not count as survival, such as the probe turn: a probe
+    may legitimately mention the planted value (a list of channels), which is not the fact itself.
+    """
     ordered = sorted(events, key=lambda e: e.seq)
     if not ordered or not isinstance(ordered[0], RunStartEvent):
         raise ValueError("trace must begin with run_start")
@@ -39,7 +44,7 @@ def derive_fates(events: Iterable[TraceEvent]) -> dict[str, Fate]:
                     raise ValueError(f"compaction drops unknown message {message_id!r}")
                 del live[message_id]
 
-    window = list(live.values())
+    window = [text for message_id, text in live.items() if message_id not in exclude]
     return {
         cid: "kept" if any(value in text for text in window) else "gone"
         for cid, value in planted.items()
