@@ -1,7 +1,5 @@
 {
   "version": 2,
-  "outputDirectory": "web",
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
+  "buildCommand": "npm --prefix web ci && npm --prefix web run build",
+  "outputDirectory": "web/dist"
 }

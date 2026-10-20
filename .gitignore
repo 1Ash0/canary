@@ -42,6 +42,7 @@ results/*.json
 web/node_modules/
 web/.next/
 web/out/
+web/dist/
 
 # design tooling
 design/node_modules/

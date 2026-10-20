@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0E0D0B">
+  <title>Recorder · Canary</title>
+  <link rel="stylesheet" href="../src/site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site" data-header></header>
+
+  <main id="main" class="rec">
+    <h1 data-title>Recorder</h1>
+    <p class="rec-meta" data-meta></p>
+
+    <div class="rec-grid">
+      <figure class="player" data-player aria-label="Context window by step"></figure>
+
+      <section class="detail" aria-labelledby="detail-title" aria-live="polite">
+        <h2 id="detail-title" data-detail-title>Step</h2>
+        <ul class="layers" data-layers></ul>
+        <ul class="facts" data-facts></ul>
+      </section>
+
+      <div class="permalink">
+        <button type="button" data-copy>Copy link to this step</button>
+        <span class="note" data-copied role="status"></span>
+      </div>
+
+      <p class="shortcuts">Keys: <kbd>←</kbd> <kbd>→</kbd> step, <kbd>Home</kbd> <kbd>End</kbd> first and last, <kbd>c</kbd> the step after compaction. The step is kept in the address, so any URL here points at one moment.</p>
+    </div>
+  </main>
+
+  <footer class="site" data-footer></footer>
+  <script type="module" src="../src/main-run.js"></script>
+</body>
+</html>

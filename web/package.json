@@ -1,6 +1,16 @@
 {
+  "name": "canary-web",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "npx serve . -l 3000 --no-clipboard",
-    "build": "echo 'static site — no build step'"
+    "dev": "vite --port 3000 --strictPort",
+    "build": "vite build",
+    "preview": "vite preview --port 3000 --strictPort"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0"
+  },
+  "devDependencies": {
+    "vite": "^8.3.4"
   }
 }
