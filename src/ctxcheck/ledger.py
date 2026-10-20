@@ -1,7 +1,7 @@
 """Token ledger: a view derived by replaying trace events (never stored).
-
-One row per step, with the tokens in each layer of the window at the end of that step. A compaction
-event is applied when it is replayed, so it changes the *next* step's row.
+The question it answers: what was in the context window at the end of each step, split by layer?
+One row per step. A compaction event is applied when it is replayed, so it changes the *next*
+step's row.
 """
 
 from __future__ import annotations
