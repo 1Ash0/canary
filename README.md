@@ -2,7 +2,7 @@
 
 **See what compaction forgets.** A flight recorder and canary lab for agent context compaction. The Python package and CLI are called `ctxcheck`.
 
-When an agent's context fills up, the harness compacts it, and the agent carries on with a summary. One published benchmark found that a single compaction step took rule violations from 0% to 30% pooled across seven models, and as high as 59% on the worst two. In that benchmark, nothing crashed: the agent kept working, confidently, without a rule it had been given. *(Chen, [arXiv 2606.22528](https://arxiv.org/abs/2606.22528) v2, abstract. Reported by the paper; we have not yet reproduced it.)*
+When an agent's context fills up, the harness compacts it, and the agent carries on with a summary. One published benchmark found that a single compaction step took rule violations from 0% to 30% pooled across seven models, and as high as 59% on the worst two. In that benchmark, nothing crashed: the agent kept working, confidently, without a rule it had been given. *(Chen, [arXiv 2606.22528](https://arxiv.org/abs/2606.22528) v2, abstract. Reported by the paper. On our harness the effect appears with one of two free models; see below.)*
 
 ![The Canary recorder showing a synthetic run: the context window by step, three planted facts, one compaction, and the fate of each fact](docs/img/playground.png)
 
@@ -14,16 +14,21 @@ If you build or tune an agent harness and have to decide how its context gets co
 
 ## Where it stands
 
-**The machinery is built and tested offline, and EXP-001 has been run live on free-tier models at the planned 27 seeds for two of them.** The result is split, and depends on which model writes the summary: NVIDIA's `gpt-oss-20b` shows the published effect (the optional third model), Mistral's `ministral-14b-latest` shows none, Groq's `gpt-oss-120b` re-run is unfinished and Gemini's summarizer failed the validity check. **No cross-model replication is claimed.** Every number, and everything that went wrong, is in the Results section of [`docs/experiments/EXP-001.md`](docs/experiments/EXP-001.md). The manual audit of summaries is still owed.
+**The machinery is built and tested offline, and three preregistered experiments have run live on free models.**
+- **EXP-001** (does one summary make the agent break a rule?): split by the model writing the summary. NVIDIA's `gpt-oss-20b` shows the published effect, Mistral's `ministral-14b-latest` shows none; Groq's re-run is unfinished and Gemini's summaries failed the validity check. **No cross-model replication is claimed.** The owner's hand audit found behaviour followed what the summary kept. [`docs/experiments/EXP-001.md`](docs/experiments/EXP-001.md)
+- **EXP-001b** (the `gpt-oss-20b` result with its confound removed: its reasoning had been eating the summary's token cap): the effect replicates with no summary cut off, and a length-matched control shows a shorter window alone does not explain it. [`docs/experiments/EXP-001b.md`](docs/experiments/EXP-001b.md)
+- **EXP-002** (four policies, two canaries, same seeds): dropping the oldest turns loses an early rule and the agent guesses; keeping head and tail, or masking tool output, leaves it as good as full context; a model summary sits in between and depends on the model. [`docs/experiments/EXP-002.md`](docs/experiments/EXP-002.md)
+
+Every number, every deviation from the plan, and everything that went wrong is in those Results sections, generated from `results/` and checked by `scripts/check_claims.py`.
 
 | Works now | Not yet |
 |---|---|
-| Trace schema 0.3, token ledger and per-fact fates, derived by replaying a trace | Groq at the planned 27 seeds |
-| Agent loop with a budget check, two provider adapters (Anthropic, OpenAI-compatible), record/replay cassettes, a budget guard that refuses anything not provably free, live runs on free Groq, Gemini, Mistral and NVIDIA models | A result that holds across models, or a prompt that keeps the rule |
+| Trace schema 0.4, token ledger and per-fact fates, derived by replaying a trace | Groq at the planned 27 seeds (EXP-001 and EXP-001b) |
+| Agent loop with a budget check, two provider adapters (Anthropic, OpenAI-compatible), record/replay cassettes, a budget guard that refuses anything not provably free, live runs on free Groq, Gemini, Mistral and NVIDIA models | A summary result that holds across models, or a prompt that keeps the rule |
 | Four policies: `recency_truncate`, `head_tail`, `observation_mask`, `llm_summary` (versioned prompt), with property tests for the five invariants | Progressive compaction (history is scripted and compacted once, at the probe) |
-| Two canary packs (`constraint`, `identifier`), a tool-call grader tested on both sides, four conditions per seed, a resumable runner, exact McNemar, paired bootstrap, Benjamini-Hochberg, a summary-validity flag | EXP-002 (policy comparison) and EXP-003 (dose-response): drafts only |
-| A **deterministic** survival grid: what each policy keeps (real policy code on seeded histories, no model) | A fair test of reasoning models (their reasoning eats the summary token cap) |
-| A static site whose landing page shows the recorded EXP-001 runs and results (the same seed under two summarizers, scroll-scrubbed), a run recorder with step permalinks and recorded runs, a survival page, about | A public URL (deploy is the owner's decision) |
+| Two canary packs (`constraint`, `identifier`), a tool-call grader tested on both sides, four conditions per seed, a resumable runner, exact McNemar, paired bootstrap, Benjamini-Hochberg, a summary-validity flag | EXP-003 (dose-response: where the rule is planted): draft only |
+| A **deterministic** survival grid: what each policy keeps (real policy code on seeded histories, no model) | The owner's blind audits of the EXP-001b and EXP-002 summaries (sheets in `docs/audit/`) |
+| A static site: a Lab where you compact a real history yourself and see what real models did with that window, the same seed under two summarizers (scroll-scrubbed), results for all three experiments with one mark per seed that opens its episode, a recorder with a text view and transcript, a survival page, about | A public URL (deploy is the owner's decision) |
 
 ### What the survival grid shows
 

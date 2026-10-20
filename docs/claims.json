@@ -4929,5 +4929,14 @@
     "source": "results/EXP-002/summary.json",
     "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(recency_truncate),second=length_matched(recency_truncate)].rd_hi",
     "expected": 0.9629629629629629
+  },
+  {
+    "id": "cross-roadmap-exp002-episodes",
+    "file": "docs/ROADMAP.md",
+    "text": "EXP-002 run (810 episodes",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "n_episodes",
+    "expected": 810
   }
 ]

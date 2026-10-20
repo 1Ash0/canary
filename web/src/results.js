@@ -19,7 +19,7 @@ function dots(seeds, name, verb) {
   if (!seeds?.length) return '';
   return `<div class="dots" role="list" aria-label="${esc(name)}: one mark per seed">${seeds.map((d) => {
     const cls = d.grade === 'violated' ? 'is-broke' : d.grade === 'respected' ? 'is-ok' : 'is-na';
-    const what = d.grade === 'violated' ? verb.bad : d.grade === 'respected' ? verb.good : 'no summary';
+    const what = d.grade === 'violated' ? verb.bad : d.grade === 'respected' ? verb.good : 'not graded (no summary, or no post)';
     const ev = d.evidence && d.grade !== 'not_applicable' ? ` (${d.evidence.replace(/'/g, '')})` : '';
     const fate = d.fate ? `; the window ${d.fate === 'kept' ? verb.kept : verb.lost}` : '';
     const info = `seed ${d.seed}: ${what}${ev}${fate}${d.truncated ? '; summary cut off' : ''}`;
@@ -32,7 +32,7 @@ function row(r, verb) {
   if (r.rate == null) return '';
   return `<div class="cell" data-res-row>
     <div class="cell-name">${esc(r.name)}</div>
-    <div class="cell-n">${r.k} / ${r.n} ${verb.bad}${r.na ? ` · ${r.na} no summary` : ''}</div>
+    <div class="cell-n">${r.k} / ${r.n} ${verb.bad}${r.na ? ` · ${r.na} not graded` : ''}</div>
     <svg class="whisker" role="img" aria-label="${esc(r.name)}: ${pct(r.rate)}, interval ${pct(r.lo)} to ${pct(r.hi)}">
       <line class="axis" x1="0%" x2="100%" y1="50%" y2="50%"/>
       ${[0, 0.5, 1].map((t) => `<line class="tick" x1="${x(t)}" x2="${x(t)}" y1="30%" y2="70%"/>`).join('')}
@@ -60,7 +60,7 @@ function block(b, exp, i) {
       ${b.rows.map((r) => row(r, verb)).join('')}
       <div class="cell axis-row"><div class="axis-labels" aria-hidden="true"><span>0%</span><span>50%</span><span>100%</span></div></div>
     </div>
-    <p class="dot-info" data-dot-info aria-live="polite">${i === 0 ? `Hover or tab through the marks: one per seed. Filled marks ${verb.bad}; treatment marks open that episode in the recorder.` : ''}</p>
+    <p class="dot-info" data-dot-info aria-live="polite">${i === 0 ? `Hover or tab through the marks: one per seed. Filled marks ${verb.bad}, dashed ones were not graded; treatment marks open that episode in the recorder.` : ''}</p>
     ${b.note ? `<p class="res-note">${esc(b.note)}</p>` : ''}
     ${prim.length ? `<ul class="res-comps">${prim.map((c) => compare(c, verb)).join('')}</ul>` : ''}
     ${expl.length ? `<details class="res-more"><summary>Exploratory comparisons (${expl.length}, not preregistered)</summary><ul class="res-comps">${expl.map((c) => compare(c, verb)).join('')}</ul></details>` : ''}
@@ -99,7 +99,7 @@ const VIEWS = {
       const rt = rowOf(b, 'treatment(recency_truncate)'), ht = rowOf(b, 'treatment(head_tail)');
       return `Dropping the oldest turns broke the rule in <span class="res-big">${rt.k} of ${rt.n}</span> seeds. Keeping the head and the tail broke it in ${ht.k} of ${ht.n}.`;
     },
-    foot: (e) => `<p class="caveat"><span class="tag">${esc(e.label)}</span> Every policy compacts the same seeded history to the same ${e.limit_tokens}-token budget. The rule is planted early, so a policy that keeps the opening turns keeps it by construction; the policy grid below shows the same thing without any model. Three comparisons per model and canary were preregistered; the rest are exploratory. Recorded ${esc(e.dates.join(' and '))}. Sources: ${srcs(e)}.</p>`,
+    foot: (e) => `<p class="caveat"><span class="tag">${esc(e.label)}</span> Every policy compacts the same seeded history to the same ${e.limit_tokens.toLocaleString('en-US')}-token budget. The rule is planted early, so a policy that keeps the opening turns keeps it by construction; the policy grid below shows the same thing without any model. Three comparisons per model and canary were preregistered; the rest are exploratory. Recorded ${esc(e.dates.join(' and '))}. Sources: ${srcs(e)}.</p>`,
   },
 };
 
