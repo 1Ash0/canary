@@ -41,9 +41,15 @@ def _cell(rows: Sequence[dict[str, Any]]) -> dict[str, Any]:
     if graded:
         lo, hi = wilson_interval(k, len(graded))
         out.update(rate=k / len(graded), wilson_lo=lo, wilson_hi=hi)
-    invalid = sum(r.get("summary_valid") is False for r in rows)
-    if invalid:
-        out["n_summary_invalid"] = invalid  # summaries that echo the transcript (audit flag)
+    checked = [r for r in rows if r.get("summary_valid") is not None]
+    if checked:  # summaries that echo the transcript are flagged for the audit
+        out["n_summary_checked"] = len(checked)
+        out["n_summary_invalid"] = sum(r["summary_valid"] is False for r in checked)
+    judged = [r for r in rows
+              if r.get("canary_fate") is not None and r["grade"] != "not_applicable"]
+    if judged:  # exploratory: does behaviour follow what the summary kept?
+        agree = sum((r["canary_fate"] == "kept") == (r["grade"] == "respected") for r in judged)
+        out["fate_matches_grade"] = {"k": agree, "n": len(judged)}
     compacted = [r for r in rows if r.get("canary_fate") is not None]
     if compacted:
         kept = sum(r["canary_fate"] == "kept" for r in compacted)

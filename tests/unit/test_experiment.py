@@ -296,3 +296,17 @@ def test_two_models_have_separate_cells_and_neither_skips_the_other(tmp_path) ->
                            out_dir=tmp_path / "res", runs_dir=tmp_path / "runs",
                            source="simulated")
     assert (again.ran, again.skipped) == (0, 8)  # resume is still per model
+
+
+def test_cells_report_summary_validity_and_whether_behaviour_followed_survival() -> None:
+    def treat(seed, fate, grade, valid):
+        return {**row("treatment", seed, grade), "canary_fate": fate, "summary_valid": valid}
+
+    rows = [row("control", s, "respected") for s in range(1, 5)]
+    rows += [treat(1, "kept", "respected", True), treat(2, "gone", "violated", True),
+             treat(3, "gone", "respected", True), treat(4, "gone", "violated", False)]
+    cell = next(c for c in analyse(rows)["cells"] if c["condition"] == "treatment")
+    assert (cell["n_summary_checked"], cell["n_summary_invalid"]) == (4, 1)
+    assert cell["fate_matches_grade"] == {"k": 3, "n": 4}  # seed 3 lost the rule and still obeyed
+    control = next(c for c in analyse(rows)["cells"] if c["condition"] == "control")
+    assert "n_summary_checked" not in control and "fate_matches_grade" not in control

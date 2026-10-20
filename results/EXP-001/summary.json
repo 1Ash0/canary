@@ -72,7 +72,12 @@
       "rate": 1.0,
       "wilson_lo": 0.7224598312333834,
       "wilson_hi": 1.0,
+      "n_summary_checked": 10,
       "n_summary_invalid": 9,
+      "fate_matches_grade": {
+        "k": 10,
+        "n": 10
+      },
       "verbatim_survival": {
         "k_kept": 0,
         "n": 10,
@@ -140,6 +145,12 @@
       "rate": 0.1,
       "wilson_lo": 0.01787574951572113,
       "wilson_hi": 0.4041563854975721,
+      "n_summary_checked": 10,
+      "n_summary_invalid": 0,
+      "fate_matches_grade": {
+        "k": 10,
+        "n": 10
+      },
       "verbatim_survival": {
         "k_kept": 9,
         "n": 10,
@@ -207,6 +218,12 @@
       "rate": 0.625,
       "wilson_lo": 0.30573785458380187,
       "wilson_hi": 0.863158240538479,
+      "n_summary_checked": 8,
+      "n_summary_invalid": 0,
+      "fate_matches_grade": {
+        "k": 7,
+        "n": 8
+      },
       "verbatim_survival": {
         "k_kept": 2,
         "n": 8,
