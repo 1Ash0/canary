@@ -1,0 +1,1021 @@
+[
+  {
+    "id": "B",
+    "label": "B: warm near-black, cream ink (recommended)",
+    "pass": true,
+    "failed": [],
+    "needHairline": [],
+    "rows": [
+      {
+        "kind": "text",
+        "name": "ink on ground",
+        "fg": "#F2EDE0",
+        "bg": "#0E0D0B",
+        "ratio": 16.62,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "text",
+        "name": "ink on surface",
+        "fg": "#F2EDE0",
+        "bg": "#181613",
+        "ratio": 15.45,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "text",
+        "name": "ink2 on ground",
+        "fg": "#ABA493",
+        "bg": "#0E0D0B",
+        "ratio": 7.83,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "text",
+        "name": "ink2 on surface",
+        "fg": "#ABA493",
+        "bg": "#181613",
+        "ratio": 7.28,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "text",
+        "name": "accent on ground",
+        "fg": "#45AE9F",
+        "bg": "#0E0D0B",
+        "ratio": 7.22,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "text",
+        "name": "accent on surface",
+        "fg": "#45AE9F",
+        "bg": "#181613",
+        "ratio": 6.71,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "text",
+        "name": "loss on ground",
+        "fg": "#EE6240",
+        "bg": "#0E0D0B",
+        "ratio": 5.97,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "text",
+        "name": "loss on surface",
+        "fg": "#EE6240",
+        "bg": "#181613",
+        "ratio": 5.55,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "text",
+        "name": "link on ground",
+        "fg": "#8FB4E8",
+        "bg": "#0E0D0B",
+        "ratio": 9.12,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "non-text",
+        "name": "accent marker on ground",
+        "fg": "#45AE9F",
+        "bg": "#0E0D0B",
+        "ratio": 7.22,
+        "min": 3,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "non-text",
+        "name": "loss marker on ground",
+        "fg": "#EE6240",
+        "bg": "#0E0D0B",
+        "ratio": 5.97,
+        "min": 3,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "non-text",
+        "name": "ink3 marker on ground",
+        "fg": "#77715F",
+        "bg": "#0E0D0B",
+        "ratio": 3.99,
+        "min": 3,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "non-text",
+        "name": "hairline on ground (decorative)",
+        "fg": "#3C3A36",
+        "bg": "#0E0D0B",
+        "ratio": 1.71,
+        "min": 3,
+        "pass": false,
+        "required": false
+      },
+      {
+        "kind": "layer label",
+        "name": "ink label on system",
+        "fg": "#F2EDE0",
+        "bg": "#2B2722",
+        "ratio": 12.69,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "layer label",
+        "name": "ink label on tools",
+        "fg": "#F2EDE0",
+        "bg": "#39342C",
+        "ratio": 10.56,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "layer label",
+        "name": "ink label on history",
+        "fg": "#F2EDE0",
+        "bg": "#4A4337",
+        "ratio": 8.36,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "layer label",
+        "name": "ink label on toolOutput",
+        "fg": "#F2EDE0",
+        "bg": "#5D5444",
+        "ratio": 6.38,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "layer label",
+        "name": "ground label on summary",
+        "fg": "#0E0D0B",
+        "bg": "#8C7A55",
+        "ratio": 4.65,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "accent on system",
+        "fg": "#45AE9F",
+        "bg": "#2B2722",
+        "ratio": 5.51,
+        "min": 3,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "loss on system",
+        "fg": "#EE6240",
+        "bg": "#2B2722",
+        "ratio": 4.56,
+        "min": 3,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "accent on tools",
+        "fg": "#45AE9F",
+        "bg": "#39342C",
+        "ratio": 4.59,
+        "min": 3,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "loss on tools",
+        "fg": "#EE6240",
+        "bg": "#39342C",
+        "ratio": 3.79,
+        "min": 3,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "accent on history",
+        "fg": "#45AE9F",
+        "bg": "#4A4337",
+        "ratio": 3.63,
+        "min": 3,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "loss on history",
+        "fg": "#EE6240",
+        "bg": "#4A4337",
+        "ratio": 3,
+        "min": 3,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "accent on toolOutput",
+        "fg": "#45AE9F",
+        "bg": "#5D5444",
+        "ratio": 2.77,
+        "min": 3,
+        "pass": false,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "loss on toolOutput",
+        "fg": "#EE6240",
+        "bg": "#5D5444",
+        "ratio": 2.29,
+        "min": 3,
+        "pass": false,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "accent on summary",
+        "fg": "#45AE9F",
+        "bg": "#8C7A55",
+        "ratio": 1.55,
+        "min": 3,
+        "pass": false,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "loss on summary",
+        "fg": "#EE6240",
+        "bg": "#8C7A55",
+        "ratio": 1.28,
+        "min": 3,
+        "pass": false,
+        "required": false
+      },
+      {
+        "kind": "adjacent layers",
+        "name": "ground | system",
+        "fg": "#2B2722",
+        "bg": "#0E0D0B",
+        "ratio": 1.31,
+        "min": 1.15,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "adjacent layers",
+        "name": "system | tools",
+        "fg": "#39342C",
+        "bg": "#2B2722",
+        "ratio": 1.2,
+        "min": 1.15,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "adjacent layers",
+        "name": "tools | history",
+        "fg": "#4A4337",
+        "bg": "#39342C",
+        "ratio": 1.26,
+        "min": 1.15,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "adjacent layers",
+        "name": "history | toolOutput",
+        "fg": "#5D5444",
+        "bg": "#4A4337",
+        "ratio": 1.31,
+        "min": 1.15,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "adjacent layers",
+        "name": "toolOutput | summary",
+        "fg": "#8C7A55",
+        "bg": "#5D5444",
+        "ratio": 1.79,
+        "min": 1.15,
+        "pass": true,
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "A",
+    "label": "A: warm off-white notebook (DESIGN.md original)",
+    "pass": false,
+    "failed": [
+      "ink3 marker on ground"
+    ],
+    "needHairline": [],
+    "rows": [
+      {
+        "kind": "text",
+        "name": "ink on ground",
+        "fg": "#1A1814",
+        "bg": "#ECE6D8",
+        "ratio": 14.25,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "text",
+        "name": "ink on surface",
+        "fg": "#1A1814",
+        "bg": "#F4F0E6",
+        "ratio": 15.58,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "text",
+        "name": "ink2 on ground",
+        "fg": "#5A554B",
+        "bg": "#ECE6D8",
+        "ratio": 5.95,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "text",
+        "name": "ink2 on surface",
+        "fg": "#5A554B",
+        "bg": "#F4F0E6",
+        "ratio": 6.51,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "text",
+        "name": "accent on ground",
+        "fg": "#0F5E5C",
+        "bg": "#ECE6D8",
+        "ratio": 6.08,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "text",
+        "name": "accent on surface",
+        "fg": "#0F5E5C",
+        "bg": "#F4F0E6",
+        "ratio": 6.65,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "text",
+        "name": "loss on ground",
+        "fg": "#B83A1B",
+        "bg": "#ECE6D8",
+        "ratio": 4.61,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "text",
+        "name": "loss on surface",
+        "fg": "#B83A1B",
+        "bg": "#F4F0E6",
+        "ratio": 5.04,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "text",
+        "name": "link on ground",
+        "fg": "#1F4FA8",
+        "bg": "#ECE6D8",
+        "ratio": 6.15,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "non-text",
+        "name": "accent marker on ground",
+        "fg": "#0F5E5C",
+        "bg": "#ECE6D8",
+        "ratio": 6.08,
+        "min": 3,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "non-text",
+        "name": "loss marker on ground",
+        "fg": "#B83A1B",
+        "bg": "#ECE6D8",
+        "ratio": 4.61,
+        "min": 3,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "non-text",
+        "name": "ink3 marker on ground",
+        "fg": "#8A8478",
+        "bg": "#ECE6D8",
+        "ratio": 2.99,
+        "min": 3,
+        "pass": false,
+        "required": true
+      },
+      {
+        "kind": "non-text",
+        "name": "hairline on ground (decorative)",
+        "fg": "#C2BDB1",
+        "bg": "#ECE6D8",
+        "ratio": 1.51,
+        "min": 3,
+        "pass": false,
+        "required": false
+      },
+      {
+        "kind": "layer label",
+        "name": "ink label on system",
+        "fg": "#1A1814",
+        "bg": "#CFC6B2",
+        "ratio": 10.44,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "layer label",
+        "name": "ink label on tools",
+        "fg": "#1A1814",
+        "bg": "#BDB29A",
+        "ratio": 8.44,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "layer label",
+        "name": "ink label on history",
+        "fg": "#1A1814",
+        "bg": "#A99C82",
+        "ratio": 6.55,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "layer label",
+        "name": "ink label on toolOutput",
+        "fg": "#1A1814",
+        "bg": "#8F8269",
+        "ratio": 4.7,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "layer label",
+        "name": "ground label on summary",
+        "fg": "#ECE6D8",
+        "bg": "#6E6350",
+        "ratio": 4.74,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "accent on system",
+        "fg": "#0F5E5C",
+        "bg": "#CFC6B2",
+        "ratio": 4.46,
+        "min": 3,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "loss on system",
+        "fg": "#B83A1B",
+        "bg": "#CFC6B2",
+        "ratio": 3.38,
+        "min": 3,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "accent on tools",
+        "fg": "#0F5E5C",
+        "bg": "#BDB29A",
+        "ratio": 3.6,
+        "min": 3,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "loss on tools",
+        "fg": "#B83A1B",
+        "bg": "#BDB29A",
+        "ratio": 2.73,
+        "min": 3,
+        "pass": false,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "accent on history",
+        "fg": "#0F5E5C",
+        "bg": "#A99C82",
+        "ratio": 2.8,
+        "min": 3,
+        "pass": false,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "loss on history",
+        "fg": "#B83A1B",
+        "bg": "#A99C82",
+        "ratio": 2.12,
+        "min": 3,
+        "pass": false,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "accent on toolOutput",
+        "fg": "#0F5E5C",
+        "bg": "#8F8269",
+        "ratio": 2,
+        "min": 3,
+        "pass": false,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "loss on toolOutput",
+        "fg": "#B83A1B",
+        "bg": "#8F8269",
+        "ratio": 1.52,
+        "min": 3,
+        "pass": false,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "accent on summary",
+        "fg": "#0F5E5C",
+        "bg": "#6E6350",
+        "ratio": 1.28,
+        "min": 3,
+        "pass": false,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "loss on summary",
+        "fg": "#B83A1B",
+        "bg": "#6E6350",
+        "ratio": 1.03,
+        "min": 3,
+        "pass": false,
+        "required": false
+      },
+      {
+        "kind": "adjacent layers",
+        "name": "ground | system",
+        "fg": "#CFC6B2",
+        "bg": "#ECE6D8",
+        "ratio": 1.36,
+        "min": 1.15,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "adjacent layers",
+        "name": "system | tools",
+        "fg": "#BDB29A",
+        "bg": "#CFC6B2",
+        "ratio": 1.24,
+        "min": 1.15,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "adjacent layers",
+        "name": "tools | history",
+        "fg": "#A99C82",
+        "bg": "#BDB29A",
+        "ratio": 1.29,
+        "min": 1.15,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "adjacent layers",
+        "name": "history | toolOutput",
+        "fg": "#8F8269",
+        "bg": "#A99C82",
+        "ratio": 1.4,
+        "min": 1.15,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "adjacent layers",
+        "name": "toolOutput | summary",
+        "fg": "#6E6350",
+        "bg": "#8F8269",
+        "ratio": 1.56,
+        "min": 1.15,
+        "pass": true,
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "B2",
+    "label": "B2: cooler graphite-green dark",
+    "pass": true,
+    "failed": [],
+    "needHairline": [],
+    "rows": [
+      {
+        "kind": "text",
+        "name": "ink on ground",
+        "fg": "#EEEDE6",
+        "bg": "#0E100F",
+        "ratio": 16.27,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "text",
+        "name": "ink on surface",
+        "fg": "#EEEDE6",
+        "bg": "#171918",
+        "ratio": 15.05,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "text",
+        "name": "ink2 on ground",
+        "fg": "#A3A69C",
+        "bg": "#0E100F",
+        "ratio": 7.72,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "text",
+        "name": "ink2 on surface",
+        "fg": "#A3A69C",
+        "bg": "#171918",
+        "ratio": 7.14,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "text",
+        "name": "accent on ground",
+        "fg": "#45AE9F",
+        "bg": "#0E100F",
+        "ratio": 7.1,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "text",
+        "name": "accent on surface",
+        "fg": "#45AE9F",
+        "bg": "#171918",
+        "ratio": 6.57,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "text",
+        "name": "loss on ground",
+        "fg": "#EE6240",
+        "bg": "#0E100F",
+        "ratio": 5.87,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "text",
+        "name": "loss on surface",
+        "fg": "#EE6240",
+        "bg": "#171918",
+        "ratio": 5.43,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "text",
+        "name": "link on ground",
+        "fg": "#8FB4E8",
+        "bg": "#0E100F",
+        "ratio": 8.97,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "non-text",
+        "name": "accent marker on ground",
+        "fg": "#45AE9F",
+        "bg": "#0E100F",
+        "ratio": 7.1,
+        "min": 3,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "non-text",
+        "name": "loss marker on ground",
+        "fg": "#EE6240",
+        "bg": "#0E100F",
+        "ratio": 5.87,
+        "min": 3,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "non-text",
+        "name": "ink3 marker on ground",
+        "fg": "#6E716A",
+        "bg": "#0E100F",
+        "ratio": 3.85,
+        "min": 3,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "non-text",
+        "name": "hairline on ground (decorative)",
+        "fg": "#3B3C3A",
+        "bg": "#0E100F",
+        "ratio": 1.72,
+        "min": 3,
+        "pass": false,
+        "required": false
+      },
+      {
+        "kind": "layer label",
+        "name": "ink label on system",
+        "fg": "#EEEDE6",
+        "bg": "#262A27",
+        "ratio": 12.4,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "layer label",
+        "name": "ink label on tools",
+        "fg": "#EEEDE6",
+        "bg": "#323733",
+        "ratio": 10.34,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "layer label",
+        "name": "ink label on history",
+        "fg": "#EEEDE6",
+        "bg": "#404640",
+        "ratio": 8.25,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "layer label",
+        "name": "ink label on toolOutput",
+        "fg": "#EEEDE6",
+        "bg": "#50574F",
+        "ratio": 6.35,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "layer label",
+        "name": "ground label on summary",
+        "fg": "#0E100F",
+        "bg": "#8C7A55",
+        "ratio": 4.57,
+        "min": 4.5,
+        "pass": true,
+        "required": true
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "accent on system",
+        "fg": "#45AE9F",
+        "bg": "#262A27",
+        "ratio": 5.41,
+        "min": 3,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "loss on system",
+        "fg": "#EE6240",
+        "bg": "#262A27",
+        "ratio": 4.47,
+        "min": 3,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "accent on tools",
+        "fg": "#45AE9F",
+        "bg": "#323733",
+        "ratio": 4.51,
+        "min": 3,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "loss on tools",
+        "fg": "#EE6240",
+        "bg": "#323733",
+        "ratio": 3.73,
+        "min": 3,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "accent on history",
+        "fg": "#45AE9F",
+        "bg": "#404640",
+        "ratio": 3.6,
+        "min": 3,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "loss on history",
+        "fg": "#EE6240",
+        "bg": "#404640",
+        "ratio": 2.98,
+        "min": 3,
+        "pass": false,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "accent on toolOutput",
+        "fg": "#45AE9F",
+        "bg": "#50574F",
+        "ratio": 2.77,
+        "min": 3,
+        "pass": false,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "loss on toolOutput",
+        "fg": "#EE6240",
+        "bg": "#50574F",
+        "ratio": 2.29,
+        "min": 3,
+        "pass": false,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "accent on summary",
+        "fg": "#45AE9F",
+        "bg": "#8C7A55",
+        "ratio": 1.55,
+        "min": 3,
+        "pass": false,
+        "required": false
+      },
+      {
+        "kind": "marker on layer (advisory)",
+        "name": "loss on summary",
+        "fg": "#EE6240",
+        "bg": "#8C7A55",
+        "ratio": 1.28,
+        "min": 3,
+        "pass": false,
+        "required": false
+      },
+      {
+        "kind": "adjacent layers",
+        "name": "ground | system",
+        "fg": "#262A27",
+        "bg": "#0E100F",
+        "ratio": 1.31,
+        "min": 1.15,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "adjacent layers",
+        "name": "system | tools",
+        "fg": "#323733",
+        "bg": "#262A27",
+        "ratio": 1.2,
+        "min": 1.15,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "adjacent layers",
+        "name": "tools | history",
+        "fg": "#404640",
+        "bg": "#323733",
+        "ratio": 1.25,
+        "min": 1.15,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "adjacent layers",
+        "name": "history | toolOutput",
+        "fg": "#50574F",
+        "bg": "#404640",
+        "ratio": 1.3,
+        "min": 1.15,
+        "pass": true,
+        "required": false
+      },
+      {
+        "kind": "adjacent layers",
+        "name": "toolOutput | summary",
+        "fg": "#8C7A55",
+        "bg": "#50574F",
+        "ratio": 1.79,
+        "min": 1.15,
+        "pass": true,
+        "required": false
+      }
+    ]
+  }
+]

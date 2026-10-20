@@ -1,0 +1,43 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>D2 type specimen</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>:root{--sans:"Instrument Sans",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}*{box-sizing:border-box;margin:0}body{font-family:var(--sans)}
+body{background:#0E0D0B;color:#F2EDE0;padding:48px}section{max-width:980px;padding:32px 0 48px;border-bottom:1px solid rgb(242 237 224 / .2)}
+.lbl{font-family:var(--mono);font-size:12px;color:#ABA493;margin-bottom:20px}h1{font-size:68px;line-height:1.02;letter-spacing:-.025em;font-weight:500}
+h2{font-size:28px;line-height:1.2;letter-spacing:-.01em;font-weight:500;margin:20px 0 16px;color:#F2EDE0}.body{font-size:17px;line-height:1.55;max-width:68ch;color:#ABA493}
+.small{font-size:14px;margin-top:12px;color:#ABA493}.mono{font-size:13px;margin-top:20px;font-variant-numeric:tabular-nums}.mono12{font-size:12px;margin-top:8px;color:#ABA493}
+.tnum{font-family:var(--mono);font-size:12px;color:#45AE9F;margin-top:16px}</style></head><body><main>
+<section>
+  <p class="lbl">Pair 1 (recommended): Instrument Sans + JetBrains Mono, both OFL 1.1, no Reserved Font Name</p>
+  <h1 style="font-family:'Instrument Sans'">Context compaction, measured.</h1>
+  <h2 style="font-family:'Instrument Sans'">What an agent stops knowing when its window is summarised</h2>
+  <p class="body" style="font-family:'Instrument Sans'">A canary is a planted fact the agent must still act on after compaction. We record every step, so you can see which facts survived, which changed, and which were dropped without a trace.</p>
+  <p class="small" style="font-family:'Instrument Sans'">14 px small text: compaction at step 31 took the window from 71,990 to 11,800 tokens; the summary is 4,200.</p>
+  <p class="mono" style="font-family:'JetBrains Mono'">compaction @ step 31 · 71,990 / 73,000 tokens · synthetic fixture</p>
+  <p class="mono12" style="font-family:'JetBrains Mono'">12 px label: C2 · identifier · changed → deploy target: EU region</p>
+  <p class="tnum" data-sans="Instrument Sans" data-mono="JetBrains Mono"></p>
+</section>
+<section>
+  <p class="lbl">Pair 2: IBM Plex Sans + IBM Plex Mono, OFL 1.1, Reserved Font Name &quot;Plex&quot;</p>
+  <h1 style="font-family:'IBM Plex Sans'">Context compaction, measured.</h1>
+  <h2 style="font-family:'IBM Plex Sans'">What an agent stops knowing when its window is summarised</h2>
+  <p class="body" style="font-family:'IBM Plex Sans'">A canary is a planted fact the agent must still act on after compaction. We record every step, so you can see which facts survived, which changed, and which were dropped without a trace.</p>
+  <p class="small" style="font-family:'IBM Plex Sans'">14 px small text: compaction at step 31 took the window from 71,990 to 11,800 tokens; the summary is 4,200.</p>
+  <p class="mono" style="font-family:'IBM Plex Mono'">compaction @ step 31 · 71,990 / 73,000 tokens · synthetic fixture</p>
+  <p class="mono12" style="font-family:'IBM Plex Mono'">12 px label: C2 · identifier · changed → deploy target: EU region</p>
+  <p class="tnum" data-sans="IBM Plex Sans" data-mono="IBM Plex Mono"></p>
+</section>
+</main>
+<script>
+document.fonts.ready.then(() => {
+  const w = (font, text, tnum) => { const s = document.createElement('span'); s.style.cssText = 'position:absolute;visibility:hidden;font-size:40px;font-family:"' + font + '"' + (tnum ? ';font-variant-numeric:tabular-nums' : ''); s.textContent = text; document.body.appendChild(s); const v = s.getBoundingClientRect().width; s.remove(); return v; };
+  const res = {};
+  document.querySelectorAll('.tnum').forEach((el) => {
+    for (const f of [el.dataset.sans, el.dataset.mono]) {
+      const a = w(f, '1111111111', true), b = w(f, '0000000000', true);
+      res[f] = { ones: +a.toFixed(2), zeros: +b.toFixed(2), tabular: Math.abs(a - b) < 0.5, loaded: document.fonts.check('16px "' + f + '"') };
+    }
+    el.textContent = 'tabular-nums check: ' + [el.dataset.sans, el.dataset.mono].map((f) => f + ' ' + (res[f].tabular ? 'equal widths' : 'NOT tabular') + (res[f].loaded ? '' : ' (font not loaded)')).join(' · ');
+  });
+  window.__tnum = res;
+});
+</script></body></html>

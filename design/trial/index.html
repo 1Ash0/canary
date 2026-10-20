@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GSAP trial build</title>
+  <style>
+    body { margin: 0; font-family: system-ui, sans-serif; }
+    .spacer { height: 100vh; }
+    #pin { height: 100vh; display: grid; place-items: center; }
+    #bar { width: 60vw; height: 24px; transform-origin: left center; }
+  </style>
+</head>
+<body>
+  <h1 id="title">Trial: line reveal + pinned scrub</h1>
+  <div class="spacer"></div>
+  <section id="pin"><div id="bar" style="background: currentColor"></div></section>
+  <div class="spacer"></div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

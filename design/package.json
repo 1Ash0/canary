@@ -1,0 +1,24 @@
+{
+  "name": "canary-design",
+  "private": true,
+  "type": "module",
+  "description": "Design subsystem for Canary (ctxcheck): tokens, QA screenshots, video renderer.",
+  "scripts": {
+    "tokens": "node scripts/build-tokens.mjs",
+    "contrast": "node scripts/contrast.mjs",
+    "trial:build": "vite build trial",
+    "trial:measure": "node scripts/trial-measure.mjs",
+    "test": "node --test \"tests/*.test.mjs\"",
+    "check": "npm test && node scripts/contrast.mjs && node scripts/check-fonts.mjs"
+  },
+  "devDependencies": {
+    "@fontsource-variable/instrument-sans": "^5.3.0",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "playwright": "^1.64.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "$meta": "D2 alternatives to candidate B (which lives in identity/base.tokens.json + themes/canary/tokens.json). Same shape: base colours + theme ground/ramp.",
+  "candidates": [
+    {
+      "id": "A",
+      "label": "A: warm off-white notebook (DESIGN.md original)",
+      "color": {
+        "ground": "#F5F1E8", "surface": "#FBF9F4", "raised": "#FFFDF8",
+        "ink": "#1A1814", "ink2": "#5A554B", "ink3": "#8A8478", "hairlineAlpha": 0.2,
+        "accent": "#0F5E5C", "loss": "#B83A1B", "link": "#1F4FA8"
+      },
+      "ground": { "ground": "#ECE6D8", "surface": "#F4F0E6" },
+      "ramp": { "system": "#CFC6B2", "tools": "#BDB29A", "history": "#A99C82", "toolOutput": "#8F8269", "summary": "#6E6350" }
+    },
+    {
+      "id": "B2",
+      "label": "B2: cooler graphite-green dark",
+      "color": {
+        "ground": "#111312", "surface": "#191B1A", "raised": "#212423",
+        "ink": "#EEEDE6", "ink2": "#A3A69C", "ink3": "#6E716A", "hairlineAlpha": 0.2,
+        "accent": "#45AE9F", "loss": "#EE6240", "link": "#8FB4E8"
+      },
+      "ground": { "ground": "#0E100F", "surface": "#171918" },
+      "ramp": { "system": "#262A27", "tools": "#323733", "history": "#404640", "toolOutput": "#50574F", "summary": "#8C7A55" }
+    }
+  ]
+}

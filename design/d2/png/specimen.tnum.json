@@ -1,0 +1,26 @@
+{
+  "Instrument Sans": {
+    "ones": 240,
+    "zeros": 240,
+    "tabular": true,
+    "loaded": true
+  },
+  "JetBrains Mono": {
+    "ones": 240,
+    "zeros": 240,
+    "tabular": true,
+    "loaded": true
+  },
+  "IBM Plex Sans": {
+    "ones": 240,
+    "zeros": 240,
+    "tabular": true,
+    "loaded": true
+  },
+  "IBM Plex Mono": {
+    "ones": 240,
+    "zeros": 240,
+    "tabular": true,
+    "loaded": true
+  }
+}

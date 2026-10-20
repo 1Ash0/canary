@@ -43,6 +43,16 @@ web/node_modules/
 web/.next/
 web/out/
 
+# design tooling
+design/node_modules/
+design/trial/dist/
+design/out/
+# per-frame intermediates; the contact sheets, strips and mp4s built from them are committed
+design/d4b/review*/frames/
+
+# third-party papers kept locally for reading, not redistributed
+/*.pdf
+
 # OS
 .DS_Store
 Thumbs.db

@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-20",
+  "js": [
+    {
+      "file": "index-D5qSh3q9.js",
+      "bytes": 113993,
+      "gzip": 44350
+    }
+  ],
+  "total": {
+    "bytes": 113993,
+    "gzip": 44350
+  },
+  "reduce": {
+    "mode": "reduce",
+    "triggers": 0,
+    "titleOpacity": 1,
+    "titleTransform": "none",
+    "barTransform": "none"
+  },
+  "motion": {
+    "mode": "motion",
+    "triggers": 1,
+    "titleOpacity": 0,
+    "titleTransform": "matrix(1, 0, 0, 1, 0, 17.2)",
+    "barTransform": "matrix(0, 0, 0, 1, 0, 0)"
+  },
+  "checks": {
+    "reduce_final_state": true,
+    "motion_animates": true
+  }
+}
