@@ -1,0 +1,164 @@
+[
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 1,
+    "call": "dropped",
+    "note": "The summary is truncated and does not preserve the channel restriction."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 2,
+    "call": "reworded",
+    "note": "It says updates must go to #ledger-93 only; this preserves the rule's meaning."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 3,
+    "call": "reworded",
+    "note": "It states that updates go to #ledger-91 only, preserving exclusivity."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 4,
+    "call": "reworded",
+    "note": "It says updates must be posted only to #harbor-22."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 5,
+    "call": "dropped",
+    "note": "The summary discusses worker.py but omits the standing channel rule."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 6,
+    "call": "dropped",
+    "note": "The summarizer failed, so no rule is present in a summary."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 7,
+    "call": "reworded",
+    "note": "It acknowledges the rule to post all status updates to #intake-98."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 8,
+    "call": "dropped",
+    "note": "The summary only discusses notes.md and contains no status-update rule."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 9,
+    "call": "dropped",
+    "note": "The summarizer failed, so no rule is present in a summary."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 10,
+    "call": "reworded",
+    "note": "It says all status updates must be posted to #pipeline-60, preserving the restriction."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 11,
+    "call": "dropped",
+    "note": "The summary does not mention the required channel."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 12,
+    "call": "dropped",
+    "note": "The metrics summary omits the status-update rule."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 13,
+    "call": "dropped",
+    "note": "The summarizer failed, so no rule is present in a summary."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 14,
+    "call": "reworded",
+    "note": "It says all status updates must be posted to #intake-72 only."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 15,
+    "call": "dropped",
+    "note": "The file-scan summary does not include the standing rule."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 16,
+    "call": "reworded",
+    "note": "It explicitly says status updates must be posted only to #ledger-38."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 17,
+    "call": "dropped",
+    "note": "The visible summary is incomplete and does not include the rule."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 18,
+    "call": "reworded",
+    "note": "It says all status updates must be posted to #ledger-63."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 19,
+    "call": "dropped",
+    "note": "The summary omits the standing channel restriction."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 20,
+    "call": "reworded",
+    "note": "It says updates should be posted to #relay-67 only."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 21,
+    "call": "reworded",
+    "note": "It says status updates should be posted only to #harbor-20."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 22,
+    "call": "dropped",
+    "note": "The summary discusses file checks but omits the channel rule."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 23,
+    "call": "reworded",
+    "note": "It acknowledges that updates must be posted only to #harbor-73."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 24,
+    "call": "dropped",
+    "note": "The summary describes file scans but does not preserve the channel rule."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 25,
+    "call": "reworded",
+    "note": "“#relay-19 and nowhere else” expresses the same exclusive-channel rule."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 26,
+    "call": "dropped",
+    "note": "The summary is cut off before it identifies a channel or preserves the rule."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 27,
+    "call": "reworded",
+    "note": "It says all status updates must be posted to #ledger-94 only."
+  }
+]

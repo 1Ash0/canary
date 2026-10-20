@@ -12,7 +12,11 @@
       "echo_flagged_by_machine": 0,
       "behaviour_follows_owner_call": 10,
       "behaviour_judged": 10,
-      "failed_summaries": 0
+      "failed_summaries": 0,
+      "truncated": 0,
+      "truncated_rule_present": 0,
+      "complete": 10,
+      "complete_rule_present": 9
     },
     "openai/gpt-oss-120b": {
       "calls": {
@@ -27,7 +31,11 @@
       "echo_flagged_by_machine": 0,
       "behaviour_follows_owner_call": 8,
       "behaviour_judged": 8,
-      "failed_summaries": 2
+      "failed_summaries": 2,
+      "truncated": 1,
+      "truncated_rule_present": 0,
+      "complete": 7,
+      "complete_rule_present": 3
     },
     "gemini-3.1-flash-lite": {
       "calls": {
@@ -40,7 +48,11 @@
       "echo_flagged_by_machine": 9,
       "behaviour_follows_owner_call": 0,
       "behaviour_judged": 0,
-      "failed_summaries": 0
+      "failed_summaries": 0,
+      "truncated": 0,
+      "truncated_rule_present": 0,
+      "complete": 0,
+      "complete_rule_present": 0
     }
   },
   "total": {
@@ -51,7 +63,11 @@
     "echo_flagged_by_machine": 9,
     "behaviour_follows_owner_call": 18,
     "behaviour_judged": 18,
-    "failed_summaries": 2
+    "failed_summaries": 2,
+    "truncated": 1,
+    "truncated_rule_present": 0,
+    "complete": 17,
+    "complete_rule_present": 12
   },
   "n_calls": 30
 }

@@ -1,0 +1,37 @@
+{
+  "per_model": {
+    "openai/gpt-oss-20b": {
+      "calls": {
+        "dropped": 14,
+        "reworded": 13
+      },
+      "summaries_judged": 24,
+      "machine_agrees_rule_present": 24,
+      "machine_disagrees_rule_present": 0,
+      "echo_called_by_owner": 0,
+      "echo_flagged_by_machine": 0,
+      "behaviour_follows_owner_call": 24,
+      "behaviour_judged": 24,
+      "failed_summaries": 3,
+      "truncated": 9,
+      "truncated_rule_present": 3,
+      "complete": 15,
+      "complete_rule_present": 10
+    }
+  },
+  "total": {
+    "summaries_judged": 24,
+    "machine_agrees_rule_present": 24,
+    "machine_disagrees_rule_present": 0,
+    "echo_called_by_owner": 0,
+    "echo_flagged_by_machine": 0,
+    "behaviour_follows_owner_call": 24,
+    "behaviour_judged": 24,
+    "failed_summaries": 3,
+    "truncated": 9,
+    "truncated_rule_present": 3,
+    "complete": 15,
+    "complete_rule_present": 10
+  },
+  "n_calls": 27
+}

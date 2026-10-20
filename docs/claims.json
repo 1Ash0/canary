@@ -755,6 +755,204 @@
     "expected": 10
   },
   {
+    "id": "exp001-audit-agree-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "the machine and the owner agreed on whether the rule was present in 18 of 18 real summaries",
+    "kind": "json",
+    "source": "results/EXP-001-pilot10-reanalysed/audit_tally.json",
+    "path": "total.machine_agrees_rule_present",
+    "expected": 18
+  },
+  {
+    "id": "exp001-audit-agree-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "the machine and the owner agreed on whether the rule was present in 18 of 18 real summaries",
+    "kind": "json",
+    "source": "results/EXP-001-pilot10-reanalysed/audit_tally.json",
+    "path": "total.summaries_judged",
+    "expected": 18
+  },
+  {
+    "id": "exp001-audit-beh-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "behaviour followed the owner's call in 18 of 18",
+    "kind": "json",
+    "source": "results/EXP-001-pilot10-reanalysed/audit_tally.json",
+    "path": "total.behaviour_follows_owner_call",
+    "expected": 18
+  },
+  {
+    "id": "exp001-audit-beh-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "behaviour followed the owner's call in 18 of 18",
+    "kind": "json",
+    "source": "results/EXP-001-pilot10-reanalysed/audit_tally.json",
+    "path": "total.behaviour_judged",
+    "expected": 18
+  },
+  {
+    "id": "exp001-audit-echo-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "the machine flagged 9 of 10 echoes the owner identified",
+    "kind": "json",
+    "source": "results/EXP-001-pilot10-reanalysed/audit_tally.json",
+    "path": "total.echo_flagged_by_machine",
+    "expected": 9
+  },
+  {
+    "id": "exp001-audit-echo-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "the machine flagged 9 of 10 echoes the owner identified",
+    "kind": "json",
+    "source": "results/EXP-001-pilot10-reanalysed/audit_tally.json",
+    "path": "total.echo_called_by_owner",
+    "expected": 10
+  },
+  {
+    "id": "exp001-audit-verbatim-groq",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "only 1 of the 18 real summaries",
+    "kind": "json",
+    "source": "results/EXP-001-pilot10-reanalysed/audit_tally.json",
+    "path": "per_model.openai/gpt-oss-120b.calls.verbatim",
+    "expected": 1
+  },
+  {
+    "id": "exp001-audit-total-calls",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "all 30 pilot summaries",
+    "kind": "json",
+    "source": "results/EXP-001-pilot10-reanalysed/audit_tally.json",
+    "path": "n_calls",
+    "expected": 30
+  },
+  {
+    "id": "exp001-pilot-correction-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "re-analysed, behaviour followed survival in 8 of 8 Groq pilot episodes and the channel name survived in 3 of 8",
+    "kind": "json",
+    "source": "results/EXP-001-pilot10-reanalysed/summary.json",
+    "path": "cells[model=openai/gpt-oss-120b,label=treatment(llm_summary)].fate_matches_grade.k",
+    "expected": 8
+  },
+  {
+    "id": "exp001-pilot-correction-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "re-analysed, behaviour followed survival in 8 of 8 Groq pilot episodes and the channel name survived in 3 of 8",
+    "kind": "json",
+    "source": "results/EXP-001-pilot10-reanalysed/summary.json",
+    "path": "cells[model=openai/gpt-oss-120b,label=treatment(llm_summary)].fate_matches_grade.n",
+    "expected": 8
+  },
+  {
+    "id": "exp001-pilot-correction-sk",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "re-analysed, behaviour followed survival in 8 of 8 Groq pilot episodes and the channel name survived in 3 of 8",
+    "kind": "json",
+    "source": "results/EXP-001-pilot10-reanalysed/summary.json",
+    "path": "cells[model=openai/gpt-oss-120b,label=treatment(llm_summary)].verbatim_survival.k_kept",
+    "expected": 3
+  },
+  {
+    "id": "exp001-pilot-correction-sn",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "re-analysed, behaviour followed survival in 8 of 8 Groq pilot episodes and the channel name survived in 3 of 8",
+    "kind": "json",
+    "source": "results/EXP-001-pilot10-reanalysed/summary.json",
+    "path": "cells[model=openai/gpt-oss-120b,label=treatment(llm_summary)].verbatim_survival.n",
+    "expected": 8
+  },
+  {
+    "id": "exp001-nvaudit-agree-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "agreed with the machine on 24 of 24",
+    "kind": "json",
+    "source": "results/EXP-001/audit_tally_nvidia.json",
+    "path": "per_model.openai/gpt-oss-20b.machine_agrees_rule_present",
+    "expected": 24
+  },
+  {
+    "id": "exp001-nvaudit-agree-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "agreed with the machine on 24 of 24",
+    "kind": "json",
+    "source": "results/EXP-001/audit_tally_nvidia.json",
+    "path": "per_model.openai/gpt-oss-20b.summaries_judged",
+    "expected": 24
+  },
+  {
+    "id": "exp001-nvaudit-beh-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "behaviour followed the owner's call in 24 of 24",
+    "kind": "json",
+    "source": "results/EXP-001/audit_tally_nvidia.json",
+    "path": "per_model.openai/gpt-oss-20b.behaviour_follows_owner_call",
+    "expected": 24
+  },
+  {
+    "id": "exp001-nvaudit-beh-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "behaviour followed the owner's call in 24 of 24",
+    "kind": "json",
+    "source": "results/EXP-001/audit_tally_nvidia.json",
+    "path": "per_model.openai/gpt-oss-20b.behaviour_judged",
+    "expected": 24
+  },
+  {
+    "id": "exp001-nvaudit-reworded",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "13 reworded it",
+    "kind": "json",
+    "source": "results/EXP-001/audit_tally_nvidia.json",
+    "path": "per_model.openai/gpt-oss-20b.calls.reworded",
+    "expected": 13
+  },
+  {
+    "id": "exp001-nvaudit-cut-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "9 of the 24 judged summaries were cut off by the 400-token cap, and the rule was still usable in 3 of those",
+    "kind": "json",
+    "source": "results/EXP-001/audit_tally_nvidia.json",
+    "path": "per_model.openai/gpt-oss-20b.truncated",
+    "expected": 9
+  },
+  {
+    "id": "exp001-nvaudit-cut-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "9 of the 24 judged summaries were cut off by the 400-token cap, and the rule was still usable in 3 of those",
+    "kind": "json",
+    "source": "results/EXP-001/audit_tally_nvidia.json",
+    "path": "per_model.openai/gpt-oss-20b.truncated_rule_present",
+    "expected": 3
+  },
+  {
+    "id": "exp001-nvaudit-full-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "of the 15 complete summaries, the rule was usable in 10",
+    "kind": "json",
+    "source": "results/EXP-001/audit_tally_nvidia.json",
+    "path": "per_model.openai/gpt-oss-20b.complete",
+    "expected": 15
+  },
+  {
+    "id": "exp001-nvaudit-full-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "of the 15 complete summaries, the rule was usable in 10",
+    "kind": "json",
+    "source": "results/EXP-001/audit_tally_nvidia.json",
+    "path": "per_model.openai/gpt-oss-20b.complete_rule_present",
+    "expected": 10
+  },
+  {
+    "id": "exp001-nvaudit-failed",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "3 summaries were never produced",
+    "kind": "json",
+    "source": "results/EXP-001/audit_tally_nvidia.json",
+    "path": "per_model.openai/gpt-oss-20b.failed_summaries",
+    "expected": 3
+  },
+  {
     "id": "exp001-27-nv-floor-k",
     "file": "docs/experiments/EXP-001.md",
     "text": "| `openai/gpt-oss-20b` (NVIDIA), 27 seeds, optional third model (addendum B) | 25/27 | 1/27 | 1/27 | 11/24 | 3 | 0 of 24 |",
@@ -1455,113 +1653,5 @@
     "source": "results/EXP-001/summary.json",
     "path": "cells[model=openai/gpt-oss-20b,label=treatment(llm_summary)].n_episodes",
     "expected": 27
-  },
-  {
-    "id": "exp001-audit-agree-k",
-    "file": "docs/experiments/EXP-001.md",
-    "text": "the machine and the owner agreed on whether the rule was present in 18 of 18 real summaries",
-    "kind": "json",
-    "source": "results/EXP-001-pilot10-reanalysed/audit_tally.json",
-    "path": "total.machine_agrees_rule_present",
-    "expected": 18
-  },
-  {
-    "id": "exp001-audit-agree-n",
-    "file": "docs/experiments/EXP-001.md",
-    "text": "the machine and the owner agreed on whether the rule was present in 18 of 18 real summaries",
-    "kind": "json",
-    "source": "results/EXP-001-pilot10-reanalysed/audit_tally.json",
-    "path": "total.summaries_judged",
-    "expected": 18
-  },
-  {
-    "id": "exp001-audit-beh-k",
-    "file": "docs/experiments/EXP-001.md",
-    "text": "behaviour followed the owner's call in 18 of 18",
-    "kind": "json",
-    "source": "results/EXP-001-pilot10-reanalysed/audit_tally.json",
-    "path": "total.behaviour_follows_owner_call",
-    "expected": 18
-  },
-  {
-    "id": "exp001-audit-beh-n",
-    "file": "docs/experiments/EXP-001.md",
-    "text": "behaviour followed the owner's call in 18 of 18",
-    "kind": "json",
-    "source": "results/EXP-001-pilot10-reanalysed/audit_tally.json",
-    "path": "total.behaviour_judged",
-    "expected": 18
-  },
-  {
-    "id": "exp001-audit-echo-k",
-    "file": "docs/experiments/EXP-001.md",
-    "text": "the machine flagged 9 of 10 echoes the owner identified",
-    "kind": "json",
-    "source": "results/EXP-001-pilot10-reanalysed/audit_tally.json",
-    "path": "total.echo_flagged_by_machine",
-    "expected": 9
-  },
-  {
-    "id": "exp001-audit-echo-n",
-    "file": "docs/experiments/EXP-001.md",
-    "text": "the machine flagged 9 of 10 echoes the owner identified",
-    "kind": "json",
-    "source": "results/EXP-001-pilot10-reanalysed/audit_tally.json",
-    "path": "total.echo_called_by_owner",
-    "expected": 10
-  },
-  {
-    "id": "exp001-audit-verbatim-groq",
-    "file": "docs/experiments/EXP-001.md",
-    "text": "only 1 of the 18 real summaries",
-    "kind": "json",
-    "source": "results/EXP-001-pilot10-reanalysed/audit_tally.json",
-    "path": "per_model.openai/gpt-oss-120b.calls.verbatim",
-    "expected": 1
-  },
-  {
-    "id": "exp001-audit-total-calls",
-    "file": "docs/experiments/EXP-001.md",
-    "text": "all 30 pilot summaries",
-    "kind": "json",
-    "source": "results/EXP-001-pilot10-reanalysed/audit_tally.json",
-    "path": "n_calls",
-    "expected": 30
-  },
-  {
-    "id": "exp001-pilot-correction-k",
-    "file": "docs/experiments/EXP-001.md",
-    "text": "re-analysed, behaviour followed survival in 8 of 8 Groq pilot episodes and the channel name survived in 3 of 8",
-    "kind": "json",
-    "source": "results/EXP-001-pilot10-reanalysed/summary.json",
-    "path": "cells[model=openai/gpt-oss-120b,label=treatment(llm_summary)].fate_matches_grade.k",
-    "expected": 8
-  },
-  {
-    "id": "exp001-pilot-correction-n",
-    "file": "docs/experiments/EXP-001.md",
-    "text": "re-analysed, behaviour followed survival in 8 of 8 Groq pilot episodes and the channel name survived in 3 of 8",
-    "kind": "json",
-    "source": "results/EXP-001-pilot10-reanalysed/summary.json",
-    "path": "cells[model=openai/gpt-oss-120b,label=treatment(llm_summary)].fate_matches_grade.n",
-    "expected": 8
-  },
-  {
-    "id": "exp001-pilot-correction-sk",
-    "file": "docs/experiments/EXP-001.md",
-    "text": "re-analysed, behaviour followed survival in 8 of 8 Groq pilot episodes and the channel name survived in 3 of 8",
-    "kind": "json",
-    "source": "results/EXP-001-pilot10-reanalysed/summary.json",
-    "path": "cells[model=openai/gpt-oss-120b,label=treatment(llm_summary)].verbatim_survival.k_kept",
-    "expected": 3
-  },
-  {
-    "id": "exp001-pilot-correction-sn",
-    "file": "docs/experiments/EXP-001.md",
-    "text": "re-analysed, behaviour followed survival in 8 of 8 Groq pilot episodes and the channel name survived in 3 of 8",
-    "kind": "json",
-    "source": "results/EXP-001-pilot10-reanalysed/summary.json",
-    "path": "cells[model=openai/gpt-oss-120b,label=treatment(llm_summary)].verbatim_survival.n",
-    "expected": 8
   }
 ]

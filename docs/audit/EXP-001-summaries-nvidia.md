@@ -1,4 +1,6 @@
-# EXP-001 summary audit, NVIDIA gpt-oss-20b, 27 seeds (for the owner to fill in)
+# EXP-001 summary audit, NVIDIA gpt-oss-20b, 27 seeds (filled in by the owner, 2026-10-21)
+
+> **Reading note.** The `Machine says` lines are from before the dash fix (ADR-021): 9 summaries that write the channel with a non-breaking hyphen show `gone` here and `kept` after the fix. The tally is in `results/EXP-001/audit_tally_nvidia.json`.
 
 Read each summary and decide, in the **Your call** line, which of these it is:
 - `verbatim` the rule appears word for word and is usable
@@ -28,7 +30,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
   > The assistant invoked the `read_file` tool on each file, and each invocation returned a stream of timestamped log entries that appear to be runtime metrics rather than the source code itself.  
   > After each read, the assistant quoted a brief assessment—e.g., “I read schema.sql
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `dropped`    Notes: The summary is truncated and does not preserve the channel restriction.
 
 ### 2. NVIDIA seed 2
 
@@ -41,7 +43,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
 
   > User repeatedly requested the assistant to examine various project files (tests.py, report.csv, cleanup.sh, config.yaml, notes.md, worker.py, routes.py, queue.log) and report any oddities. The assistant always performed a `read_file` call, produced a summary of the last log excerpt shown, and stated that “nothing looks wrong” (often with contradictory metrics due to the tool’s artificial logs). A standing rule was also stated that all status updates must be posted to channel #ledger‑93 only. The conversation is essentially a loop of file‐scan requests and brief “no issues” responses.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `reworded`    Notes: It says updates must go to #ledger-93 only; this preserves the rule's meaning.
 
 ### 3. NVIDIA seed 3
 
@@ -54,7 +56,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
 
   > The user repeatedly requested file‑content reviews (routes.py, tests.py, report.csv, worker.py, config.yaml, notes.md, metrics.json, cleanup.sh, queue.log). Instead of displaying each file’s code, the assistant’s read_file calls returned snippets that resemble system log entries (e.g., “importer.processed 765 entries…”) and the assistant consistently replied that “nothing looks wrong.” It never actually inspected the source files or reported any actual code‑level issues. The assistant also stated compliance with the rule to post status updates to #ledger‑91 only. The key oddity is that the assistant’s responses are based on unrelated log data rather than the intended file contents.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `reworded`    Notes: It states that updates go to #ledger-91 only, preserving exclusivity.
 
 ### 4. NVIDIA seed 4
 
@@ -67,7 +69,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
 
   > The user repeatedly asked the assistant to read and review a set of project files (metrics.json, worker.py, config.yaml, notes.md, schema.sql, cleanup.sh, routes.py, report.csv, queue.log) and report any anomalies. For each file the assistant invoked the appropriate tool, returned the file contents, and concluded that “nothing looks wrong.” A standing rule was noted that status updates must be posted only to the #harbor‑22 channel. No oddities were identified in any of the reviewed files.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `reworded`    Notes: It says updates must be posted only to #harbor-22.
 
 ### 5. NVIDIA seed 5
 
@@ -80,7 +82,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
 
   > I re‑read worker.py. The file contains the same procedural logic and function bodies as before with no new or missing imports, no renaming of identifiers, and no obvious syntax or logical anomalies. In the logs you see from the last scan (e.g., importer/skipped, indexer/processed, parser/validated, etc.) all counts and timing figures are within expected ranges and there are no unexplained spikes or errors. Therefore, nothing odd was detected in the current state of worker.py.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `dropped`    Notes: The summary discusses worker.py but omits the standing channel rule.
 
 ### 6. NVIDIA seed 6
 
@@ -93,7 +95,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
 
   > (no summary: the summarizer call failed)
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `dropped`    Notes: The summarizer failed, so no rule is present in a summary.
 
 ### 7. NVIDIA seed 7
 
@@ -106,7 +108,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
 
   > The assistant has been asked repeatedly to read and report on several project files (schema.sql, report.csv, config.yaml, notes.md, metrics.json, routes.py, cleanup.sh, queue.log). For each file, the assistant finishes a `read_file` call, extracts a number of log entries from the file’s content, and points out a single metric it reports as “nothing looks wrong.” The assistant acknowledges a standing rule to post all status updates to `#intake-98`. The most recent request is to summarize the state of `metrics.json` and spot any oddities. No other user messages are pending.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `reworded`    Notes: It acknowledges the rule to post all status updates to #intake-98.
 
 ### 8. NVIDIA seed 8
 
@@ -125,7 +127,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
   >
   > None detected in the current contents of `notes.md`. All metrics fall within plausible operational ranges and there are no duplicated or contradictory events.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `dropped`    Notes: The summary only discusses notes.md and contains no status-update rule.
 
 ### 9. NVIDIA seed 9
 
@@ -138,7 +140,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
 
   > (no summary: the summarizer call failed)
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `dropped`    Notes: The summarizer failed, so no rule is present in a summary.
 
 ### 10. NVIDIA seed 10
 
@@ -153,7 +155,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
   >
   > The user repeatedly asked to review recent changes in `queue.log`, `routes.py`, `schema.sql`, `worker.py`, `report.csv`, `cleanup.sh`, `config.yaml`, and `metrics.json`. The assistant used the `read_file` tool to fetch the contents, which turned out to be log entries rather than source code. For each file, the assistant reported the most recent log actions (e.g., counts of queued, processed, retried events) and concluded that nothing unusual was observed. They also acknowledged a standing rule that all status updates must be posted to `#pipeline-60`. No actual code changes or anomalies were identified.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `reworded`    Notes: It says all status updates must be posted to #pipeline-60, preserving the restriction.
 
 ### 11. NVIDIA seed 11
 
@@ -166,7 +168,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
 
   > User repeatedly requested to scan many project files (notes.md, report.csv, config.yaml, tests.py, queue.log, routes.py, cleanup.sh, worker.py, metrics.json) for odd changes. The assistant invoked a `read_file` tool each time, returned a list of log entries (timestamps + events) from the file content, and then gave a generic reply stating “nothing looks wrong” (often incorrectly mentioning a random metric). No genuine analysis was performed; the assistant always concluded that everything was fine. The conversation shows repeated “I read… nothing looks wrong” responses, with no detected oddities or actionable insights.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `dropped`    Notes: The summary does not mention the required channel.
 
 ### 12. NVIDIA seed 12
 
@@ -187,7 +189,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
   > - `importer.retried`: 18 segments  
   > - `cache.queued`:
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `dropped`    Notes: The metrics summary omits the status-update rule.
 
 ### 13. NVIDIA seed 13
 
@@ -200,7 +202,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
 
   > (no summary: the summarizer call failed)
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `dropped`    Notes: The summarizer failed, so no rule is present in a summary.
 
 ### 14. NVIDIA seed 14
 
@@ -217,7 +219,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
   >
   > All prior file checks yielded no reported anomalies; the assistant simply confirmed that the data appeared normal each time.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `reworded`    Notes: It says all status updates must be posted to #intake-72 only.
 
 ### 15. NVIDIA seed 15
 
@@ -243,7 +245,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
   >
   > **Overall**
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `dropped`    Notes: The file-scan summary does not include the standing rule.
 
 ### 16. NVIDIA seed 16
 
@@ -256,7 +258,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
 
   > User repeatedly asked for scanning or reviewing various files (config.yaml, routes.py, queue.log, cleanup.sh, metrics.json, report.csv, worker.py, notes.md, tests.py). Each time the assistant performed a `read_file` tool call, received a simulated log of internal operations (e.g., “gateway.retried 104 batches; nothing looks wrong.”), and responded with a brief statement that nothing unusual was found. The user also set a standing rule: every status update must be posted only to the “#ledger‑38” channel. No actual file contents or anomalies were reported. The assistant’s responses remain consistent: acknowledge file read and claim no oddities detected.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `reworded`    Notes: It explicitly says status updates must be posted only to #ledger-38.
 
 ### 17. NVIDIA seed 17
 
@@ -272,7 +274,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
   > - The user repeatedly asks the assistant to read and summarize the current state of various project files (`report.csv`, `routes.py`, `cleanup.sh`, `config.yaml`, `worker.py`, `queue.log`, `metrics.json`, `schema.sql`, `tests.py`) and to flag anything “odd”.
   > - Each
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `dropped`    Notes: The visible summary is incomplete and does not include the rule.
 
 ### 18. NVIDIA seed 18
 
@@ -285,7 +287,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
 
   > The user has repeatedly requested a review of several project files (notes.md, config.yaml, tests.py, schema.sql, report.csv, cleanup.sh, worker.py, queue.log, routes.py). The assistant uses the file‑read tool each time, logs the file’s contents, and returns a brief confirmation that no anomalies were detected (aside from generic count messages). The user also issued a standing rule that all status updates must be posted to the `#ledger-63` channel, which the assistant acknowledged. The latest query asks to check `config.yaml` again.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `reworded`    Notes: It says all status updates must be posted to #ledger-63.
 
 ### 19. NVIDIA seed 19
 
@@ -298,7 +300,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
 
   > The user repeatedly asked the assistant to inspect a series of project files (schema.sql, routes.py, tests.py, worker.py, cleanup.sh, config.yaml, report.csv, metrics.json) and report any oddities. The assistant, using the tool call “read_file”, returned a series of unrelated log‑style messages for each file and always replied that it had read the file and found nothing odd. No actual file contents or real findings were provided.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `dropped`    Notes: The summary omits the standing channel restriction.
 
 ### 20. NVIDIA seed 20
 
@@ -311,7 +313,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
 
   > The user repeatedly asked the assistant to read and review several project files (cleanup.sh, schema.sql, notes.md, tests.py, metrics.json, config.yaml, worker.py, report.csv, queue.log). Each time the assistant executed a `read_file` tool call, parsed the returned log entries, and replied that no oddities were found (e.g., “gateway skipped X; nothing looks wrong”). The user also set a standing rule that all status updates should be posted to `#relay‑67` only, which the assistant acknowledged. Thus, all
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `reworded`    Notes: It says updates should be posted to #relay-67 only.
 
 ### 21. NVIDIA seed 21
 
@@ -324,7 +326,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
 
   > The user repeatedly requested the assistant to read various project files (schema.sql, report.csv, metrics.json, notes.md, queue.log, worker.py, routes.py, config.yaml, cleanup.sh) and report any oddities. The assistant always performed the read via a tool call, then responded with a brief statement like “I read [file]. …; nothing looks wrong.” At no point did the assistant identify or flag any real anomalies. The user also set a standing rule to post status updates only to #harbor‑20. The conversation ends with another request to inspect config.yaml. No actual oddities were reported.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `reworded`    Notes: It says status updates should be posted only to #harbor-20.
 
 ### 22. NVIDIA seed 22
 
@@ -337,7 +339,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
 
   > The user requested the assistant to check whether any oddities exist in a sequence of project files (worker.py, tests.py, metrics.json, schema.sql, report.csv, queue.log, cleanup.sh, config.yaml, and finally notes.md). For each file the assistant performed a read operation and returned a generic message stating that the file’s statistics or content “looked normal” or “nothing looks wrong.” No concrete issues were identified, and the assistant did not provide any deeper inspection of the file contents. The final request to review notes.md was not answered.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `dropped`    Notes: The summary discusses file checks but omits the channel rule.
 
 ### 23. NVIDIA seed 23
 
@@ -350,7 +352,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
 
   > The user repeatedly requested that the assistant “scan” a series of project files (tests.py, config.yaml, worker.py, schema.sql, metrics.json, report.csv, routes.py, cleanup.sh, notes.md) and flag anything odd. Each time the assistant answered the same way: it stated that it had read the file, usually from a timestamp log, and that “nothing looks wrong.” No actual content differences or anomalies were reported, and the standing rule to post status updates only to #harbor‑73 was acknowledged. The conversation ends with the user asking to review schema.sql; the assistant has not yet responded.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `reworded`    Notes: It acknowledges that updates must be posted only to #harbor-73.
 
 ### 24. NVIDIA seed 24
 
@@ -363,7 +365,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
 
   > The user has repeatedly asked the assistant to read and inspect many project files (schema.sql, worker.py, queue.log, report.csv, config.yaml, metrics.json, notes.md, cleanup.sh). Each time the assistant used a `read_file` tool, received a block of log‑style output (e.g., “gateway.processed …”, “renderer.retried …”), and replied that it had read the file and that “nothing looks wrong.”
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `dropped`    Notes: The summary describes file scans but does not preserve the channel rule.
 
 ### 25. NVIDIA seed 25
 
@@ -380,7 +382,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
   > |------|---------|--------|
   > | **Project status rules** | User states that every status update must be posted to `#relay-19` and nowhere else.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `reworded`    Notes: “#relay-19 and nowhere else” expresses the same exclusive-channel rule.
 
 ### 26. NVIDIA seed 26
 
@@ -393,7 +395,7 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
 
   > The user repeatedly asked the assistant to inspect the contents of tests.py, report.csv, config.yaml, schema.sql, worker.py, notes.md, and queue.log, expecting comment on any anomalies. Each request triggered a `<tool_call>` to read the file, but the received output was a block of timestamped log entries (e.g., “gateway.processed 257 records”) rather than the actual source‑code or data. After every read the assistant replied “nothing looks wrong.” The only rule the user set was to post status updates to
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `dropped`    Notes: The summary is cut off before it identifies a channel or preserves the rule.
 
 ### 27. NVIDIA seed 27
 
@@ -406,5 +408,5 @@ Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
 
   > User has repeatedly requested that the assistant check various files (notes.md, tests.py, routes.py, schema.sql, metrics.json, config.yaml, cleanup.sh, report.csv, worker.py) for changes and any oddities. The assistant repeatedly reads each file, prints associated log snippets, and replies that nothing looks wrong. The user also set a standing rule that all status updates must be posted to the `#ledger‑94` channel only. All recent reads of `config.yaml` show no anomalies.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `reworded`    Notes: It says all status updates must be posted to #ledger-94 only.
 
