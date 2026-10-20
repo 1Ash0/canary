@@ -217,3 +217,23 @@ def test_the_planted_canary_is_recorded_and_its_fate_is_derived_from_the_run() -
     assert derive_fates(kept) == {"C1": "kept"}
     gone = go(long_scenario(), [say()] * 7, limit_tokens=80, policy=DropOldest())
     assert derive_fates(gone) == {"C1": "gone"}
+
+
+def test_tool_messages_carry_the_structured_detail_adapters_need() -> None:
+    reply = ModelResponse(text="checking", tool_call=ToolCall("c1", "read_file", {"path": "a.py"}))
+    provider = ScriptedProvider([reply, call("delete_branch", "c2", name="main"), say()])
+    run(ONE, provider, TOOLS, limit_tokens=10_000, count_fn=words, clock=clock())
+    last = provider.requests[-1]["messages"]
+    asst = next(m for m in last if m.call_id == "c1" and m.role == "assistant")
+    assert asst.tool_call == ToolCall("c1", "read_file", {"path": "a.py"})
+    assert asst.lead_in == "checking"
+    results = [m for m in last if m.role == "tool"]
+    assert [m.is_error for m in results] == [False, True]  # the unknown tool failed
+
+
+def test_cache_fields_from_the_provider_reach_the_model_call_event() -> None:
+    reply = ModelResponse(text="ok", cache_read_input_tokens=7, cache_creation_input_tokens=3)
+    call_event = next(e for e in go(ONE, [reply]) if e.type == "model_call")
+    assert (call_event.cache_read_input_tokens, call_event.cache_creation_input_tokens) == (7, 3)
+    plain = next(e for e in go(ONE, [say()]) if e.type == "model_call")
+    assert plain.cache_read_input_tokens is None  # absent means unreported, never zero

@@ -91,9 +91,9 @@ def run(
              content=m.content, tokens_est=m.tokens_est, origin=m.origin)
 
     def add(
-        role: Role, origin: Origin, text: str, step: int, call_id: str | None = None
+        role: Role, origin: Origin, text: str, step: int, call_id: str | None = None, **detail: Any
     ) -> Message:
-        m = Message(next_id(), role, text, origin, count_fn(text), step, call_id)
+        m = Message(next_id(), role, text, origin, count_fn(text), step, call_id, **detail)
         window.append(m)
         emit_message(m)
         return m
@@ -157,6 +157,8 @@ def run(
             emit(ModelCallEvent, type="model_call", request_hash=request_hash,
                  trial_index=trial_index, model_id_reported=response.model_id,
                  input_tokens=response.input_tokens, output_tokens=response.output_tokens,
+                 cache_read_input_tokens=response.cache_read_input_tokens,
+                 cache_creation_input_tokens=response.cache_creation_input_tokens,
                  cassette_hit=False, cost_usd=0.0)
 
             call = response.tool_call
@@ -165,12 +167,13 @@ def run(
                 break
             args_json = json.dumps(call.args, sort_keys=True)
             text = f"{response.text}\n[tool_call {call.name} {args_json}]"
-            add("assistant", "assistant", text.strip(), step, call_id=call.id)
+            add("assistant", "assistant", text.strip(), step, call_id=call.id,
+                tool_call=call, lead_in=response.text)
             emit(ToolCallEvent, type="tool_call", call_id=call.id, name=call.name, args=call.args)
             result, tool = dispatch(tools, call)
             emit(ToolResultEvent, type="tool_result", call_id=call.id, result=result.text,
                  is_error=result.is_error)
-            add("tool", "tool", result.text, step, call_id=call.id)
+            add("tool", "tool", result.text, step, call_id=call.id, is_error=result.is_error)
             if tool is not None and tool.terminal and not result.is_error:
                 return finish("ok", "terminal_tool", calls, step)
 
