@@ -15,8 +15,8 @@ from datetime import UTC, datetime
 from typing import Any
 
 from ctxcheck.harness.tools import Tool, dispatch
-from ctxcheck.harness.types import Message, Origin, Role
-from ctxcheck.policies.base import Policy, PolicyContext
+from ctxcheck.harness.types import Message, ModelResponse, Origin, Role
+from ctxcheck.policies.base import Policy, PolicyContext, PolicyError
 from ctxcheck.providers.base import Provider
 from ctxcheck.schema import (
     CanaryPlantedEvent,
@@ -103,16 +103,39 @@ def run(
 
     def finish(status: str, reason: str, calls: int, steps: int) -> list[TraceEvent]:
         emit(RunEndEvent, type="run_end", status=status, reason=reason,
-             totals={"model_calls": calls, "steps": steps, "tokens_final": total()})
+             totals={"model_calls": calls, "summary_calls": summary_calls, "steps": steps,
+                     "tokens_final": total()})
         return events
 
+    summary_calls = 0
+
+    def emit_model_call(response: ModelResponse, sent: Sequence[Message]) -> None:
+        request_hash = hashlib.sha256(
+            json.dumps([(m.role, m.content) for m in sent], sort_keys=True).encode()
+        ).hexdigest()
+        emit(ModelCallEvent, type="model_call", request_hash=request_hash,
+             trial_index=trial_index, model_id_reported=response.model_id,
+             input_tokens=response.input_tokens, output_tokens=response.output_tokens,
+             cache_read_input_tokens=response.cache_read_input_tokens,
+             cache_creation_input_tokens=response.cache_creation_input_tokens,
+             cassette_hit=bool(response.extra.get("cassette_hit", False)), cost_usd=0.0)
+
+    def record_policy_call(response: ModelResponse, sent: Sequence[Message]) -> None:
+        nonlocal summary_calls
+        summary_calls += 1
+        emit_model_call(response, sent)
+
     def compact(step: int) -> bool:
-        """Bring the window under the limit. Returns False if it cannot (run must end)."""
+        """Bring the window under the limit. Returns False if it cannot (run must end).
+
+        Raises PolicyError when the policy itself fails; the caller ends the run with its code.
+        """
         if total() <= limit_tokens:
             return True
         if policy is None:
             return False
-        ctx = PolicyContext(step=step, new_id=next_id, count=count_fn)
+        ctx = PolicyContext(step=step, new_id=next_id, count=count_fn, trial_index=trial_index,
+                            provider=provider, params=params, record_call=record_policy_call)
         new = policy.apply(tuple(window), limit_tokens - tools_tokens, ctx)
         old_ids, new_ids = {m.id for m in window}, {m.id for m in new}
         added = [m for m in new if m.id not in old_ids]
@@ -124,7 +147,8 @@ def run(
              kept_ids=[m.id for m in new if m.id in old_ids],
              dropped_ids=[m.id for m in window if m.id not in new_ids],
              added_ids=[m.id for m in added],
-             summary_message_id=added[0].id if added else None)
+             summary_message_id=next((m.id for m in added if m.origin == "summary"), None),
+             prompt_version=getattr(policy, "prompt_version", None))
         window[:] = new
         for m in added:  # after the compaction event: the ledger's ordering convention
             emit_message(m)
@@ -144,22 +168,18 @@ def run(
                  message_id=planted.id, value=value)
         turn_calls = 0
         while True:
-            if not compact(step):
+            try:
+                fits = compact(step)
+            except PolicyError as e:
+                return finish("error", e.code, calls, step)
+            if not fits:
                 return finish("error", "budget_exceeded", calls, step)
             if turn_calls >= max_calls_per_turn:
                 return finish("aborted", "max_calls", calls, step)
             response = provider.complete(tuple(window), specs, params, trial_index)
             calls += 1
             turn_calls += 1
-            request_hash = hashlib.sha256(
-                json.dumps([(m.role, m.content) for m in window], sort_keys=True).encode()
-            ).hexdigest()
-            emit(ModelCallEvent, type="model_call", request_hash=request_hash,
-                 trial_index=trial_index, model_id_reported=response.model_id,
-                 input_tokens=response.input_tokens, output_tokens=response.output_tokens,
-                 cache_read_input_tokens=response.cache_read_input_tokens,
-                 cache_creation_input_tokens=response.cache_creation_input_tokens,
-                 cassette_hit=bool(response.extra.get("cassette_hit", False)), cost_usd=0.0)
+            emit_model_call(response, window)
 
             call = response.tool_call
             if call is None:  # end_turn: the model is done with this user turn
