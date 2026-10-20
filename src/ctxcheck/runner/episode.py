@@ -97,6 +97,20 @@ class EpisodeRow:
     params: dict[str, Any] = field(default_factory=dict)
     # None when no summary was written; False when the text echoes the transcript (audit flag)
     summary_valid: bool | None = None
+    # True when the summary call stopped at the token cap (schema 0.4); None if unknown
+    summary_truncated: bool | None = None
+
+
+def summary_truncation(events: list[TraceEvent]) -> bool | None:
+    """Was the summary cut off by the token cap? The summary call is the last model call before
+    the compaction event. None when there is no summary or the trace predates schema 0.4."""
+    compaction = next((e for e in events if e.type == "compaction"), None)
+    if compaction is None or compaction.summary_message_id is None:
+        return None
+    calls = [e for e in events if e.type == "model_call" and e.seq < compaction.seq]
+    if not calls or calls[-1].finish_reason is None:
+        return None
+    return calls[-1].finish_reason == "length"
 
 
 def summary_validity(events: list[TraceEvent]) -> bool | None:
@@ -185,4 +199,5 @@ def run_episode(
         run_id=end.run_id,
         trace_path=str((runs_dir / f"{spec.exp_id}-{spec.key}.jsonl").as_posix()),
         params=dict(spec.params), summary_valid=summary_validity(events),
+        summary_truncated=summary_truncation(events),
     )

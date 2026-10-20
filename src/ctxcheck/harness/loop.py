@@ -63,6 +63,14 @@ class Scenario:
     turns: Sequence[Turn]
 
 
+def finish_reason_of(response: ModelResponse) -> str | None:
+    """One vocabulary across adapters: Anthropic's `max_tokens` means the same as `length`."""
+    raw = response.extra.get("finish_reason") or response.extra.get("stop_reason")
+    if raw is None:
+        return None
+    return {"max_tokens": "length", "end_turn": "stop", "tool_use": "tool_calls"}.get(raw, raw)
+
+
 def _now() -> str:
     return datetime.now(UTC).isoformat()
 
@@ -131,7 +139,8 @@ def run(
              input_tokens=response.input_tokens, output_tokens=response.output_tokens,
              cache_read_input_tokens=response.cache_read_input_tokens,
              cache_creation_input_tokens=response.cache_creation_input_tokens,
-             cassette_hit=bool(response.extra.get("cassette_hit", False)), cost_usd=0.0)
+             cassette_hit=bool(response.extra.get("cassette_hit", False)), cost_usd=0.0,
+             finish_reason=finish_reason_of(response))
 
     def record_policy_call(response: ModelResponse, sent: Sequence[Message]) -> None:
         nonlocal summary_calls

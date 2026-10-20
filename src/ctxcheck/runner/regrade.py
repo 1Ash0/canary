@@ -14,11 +14,11 @@ from typing import Any
 
 from ctxcheck.canaries import build_pack
 from ctxcheck.grading import grade_trace
-from ctxcheck.runner.episode import summary_validity, survival_at_probe
+from ctxcheck.runner.episode import summary_truncation, summary_validity, survival_at_probe
 from ctxcheck.runner.trace_io import read_trace
 from ctxcheck.schema import MessageEvent
 
-FIELDS = ("grade", "evidence", "canary_fate", "summary_valid")
+FIELDS = ("grade", "evidence", "canary_fate", "summary_valid", "summary_truncated")
 
 
 @dataclass
@@ -40,7 +40,8 @@ def regrade_rows(rows: list[dict[str, Any]], root: Path = Path(".")) -> Regrade:
         fate = (survival_at_probe(events, built.spec.canary_id, probe.message_id)
                 if compacted and built.planted else None)
         new = {**r, "grade": graded.grade, "evidence": graded.evidence, "canary_fate": fate,
-               "summary_valid": summary_validity(events)}
+               "summary_valid": summary_validity(events),
+               "summary_truncated": summary_truncation(events)}
         for key in FIELDS:
             if new[key] != r.get(key):
                 out.changes.append((r["model_requested"], r["seed"], r["condition"], key,

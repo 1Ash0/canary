@@ -339,3 +339,26 @@ def test_echoing_a_transcript_line_is_not_a_summary() -> None:
 
 def test_an_empty_summary_is_not_valid() -> None:
     assert not summary_looks_valid("[Summary of earlier conversation]\n  ", DROPPED)
+
+
+def test_the_loop_records_the_finish_reason_in_one_vocabulary() -> None:
+    from ctxcheck.harness.loop import finish_reason_of
+
+    assert finish_reason_of(ModelResponse(extra={"finish_reason": "length"})) == "length"
+    assert finish_reason_of(ModelResponse(extra={"stop_reason": "max_tokens"})) == "length"
+    assert finish_reason_of(ModelResponse(extra={"stop_reason": "end_turn"})) == "stop"
+    assert finish_reason_of(ModelResponse()) is None
+
+
+def test_a_summary_cut_off_by_the_cap_is_flagged_and_a_complete_one_is_not(tmp_path) -> None:
+    from ctxcheck.runner.episode import summary_truncation
+
+    for reason, flagged in (("length", True), ("stop", False)):
+        replies = [*[ModelResponse(text="ok")] * 4,
+                   ModelResponse(text=f"Summary. Rule: {RULE}.", extra={"finish_reason": reason}),
+                   *[ModelResponse(text="ok")] * 4]
+        events = go(LLMSummary(keep_units=1), replies, limit=70)
+        assert summary_truncation(events) is flagged
+        call = [e for e in events if e.type == "model_call"][4]
+        assert call.finish_reason == reason
+    assert summary_truncation(go(RecencyTruncate(), [ModelResponse(text="ok")] * 6)) is None

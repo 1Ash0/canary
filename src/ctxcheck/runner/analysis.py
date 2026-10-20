@@ -45,6 +45,10 @@ def _cell(rows: Sequence[dict[str, Any]]) -> dict[str, Any]:
     if checked:  # summaries that echo the transcript are flagged for the audit
         out["n_summary_checked"] = len(checked)
         out["n_summary_invalid"] = sum(r["summary_valid"] is False for r in checked)
+    truncation_known = [r for r in rows if r.get("summary_truncated") is not None]
+    if truncation_known:  # schema 0.4 traces: summaries cut off by the token cap
+        out["n_summary_truncated"] = sum(r["summary_truncated"] for r in truncation_known)
+        out["n_truncation_known"] = len(truncation_known)
     judged = [r for r in rows
               if r.get("canary_fate") is not None and r["grade"] != "not_applicable"]
     if judged:  # exploratory: does behaviour follow what the summary kept?

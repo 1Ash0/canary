@@ -130,4 +130,4 @@ def test_run_end_accepts_an_optional_reason() -> None:
 
 def test_new_events_are_written_as_schema_0_2() -> None:
     event = RunEndEvent(type="run_end", run_id="r", seq=0, ts="t", status="ok")
-    assert event.schema_version == "0.3"
+    assert event.schema_version == "0.4"

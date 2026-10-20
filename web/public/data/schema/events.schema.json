@@ -4,7 +4,7 @@
       "additionalProperties": false,
       "properties": {
         "schema_version": {
-          "default": "0.3",
+          "default": "0.4",
           "title": "Schema Version",
           "type": "string"
         },
@@ -60,7 +60,7 @@
       "additionalProperties": false,
       "properties": {
         "schema_version": {
-          "default": "0.3",
+          "default": "0.4",
           "title": "Schema Version",
           "type": "string"
         },
@@ -121,7 +121,7 @@
       "additionalProperties": false,
       "properties": {
         "schema_version": {
-          "default": "0.3",
+          "default": "0.4",
           "title": "Schema Version",
           "type": "string"
         },
@@ -233,7 +233,7 @@
       "additionalProperties": false,
       "properties": {
         "schema_version": {
-          "default": "0.3",
+          "default": "0.4",
           "title": "Schema Version",
           "type": "string"
         },
@@ -314,7 +314,7 @@
       "additionalProperties": false,
       "properties": {
         "schema_version": {
-          "default": "0.3",
+          "default": "0.4",
           "title": "Schema Version",
           "type": "string"
         },
@@ -391,6 +391,18 @@
           "minimum": 0,
           "title": "Cost Usd",
           "type": "number"
+        },
+        "finish_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Finish Reason"
         }
       },
       "required": [
@@ -413,7 +425,7 @@
       "additionalProperties": false,
       "properties": {
         "schema_version": {
-          "default": "0.3",
+          "default": "0.4",
           "title": "Schema Version",
           "type": "string"
         },
@@ -478,7 +490,7 @@
       "additionalProperties": false,
       "properties": {
         "schema_version": {
-          "default": "0.3",
+          "default": "0.4",
           "title": "Schema Version",
           "type": "string"
         },
@@ -561,7 +573,7 @@
       "additionalProperties": false,
       "properties": {
         "schema_version": {
-          "default": "0.3",
+          "default": "0.4",
           "title": "Schema Version",
           "type": "string"
         },
@@ -613,7 +625,7 @@
       "additionalProperties": false,
       "properties": {
         "schema_version": {
-          "default": "0.3",
+          "default": "0.4",
           "title": "Schema Version",
           "type": "string"
         },

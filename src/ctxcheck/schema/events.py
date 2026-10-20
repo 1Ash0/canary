@@ -7,6 +7,8 @@ Bump schema_version when fields change: additive = minor, breaking = major plus 
 0.2: added optional run_end.reason (additive; 0.1 traces still parse).
 0.3: added optional compaction.prompt_version (the llm_summary prompt version) and the grade
 `not_applicable` on canary_probe (no accepted call to the watched tool). Both additive.
+0.4: added optional model_call.finish_reason (why the model stopped: `stop`, `length` = hit the
+token cap, ...). Additive; older traces parse with None.
 """
 
 from __future__ import annotations
@@ -23,7 +25,7 @@ class _Base(BaseModel):
     # forbid: a misspelled field is an error, not silently dropped
     model_config = ConfigDict(extra="forbid")
 
-    schema_version: str = "0.3"
+    schema_version: str = "0.4"
     run_id: str
     seq: int = Field(ge=0)  # monotonic logical clock; orders events even when timestamps tie
     ts: str  # ISO-8601
@@ -63,6 +65,8 @@ class ModelCallEvent(_Base):
     cache_creation_input_tokens: int | None = None
     cassette_hit: bool
     cost_usd: float = Field(ge=0)
+    # added in 0.4: normalised stop reason; "length" means the reply was cut off by the token cap
+    finish_reason: str | None = None
 
 
 class ToolCallEvent(_Base):
