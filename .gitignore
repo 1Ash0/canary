@@ -66,3 +66,4 @@ Thumbs.db
 # run logs and quota counters
 run_exp*.log
 runs/.usage.json
+runs/.usage*.json

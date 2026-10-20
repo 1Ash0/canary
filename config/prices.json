@@ -142,5 +142,95 @@
     "as_of": "2026-10-20",
     "input_per_mtok": 0.0,
     "output_per_mtok": 0.0
+  },
+  {
+    "provider": "nvidia",
+    "model": "deepseek-ai/deepseek-v4.1-flash",
+    "free": true,
+    "source": "https://docs.api.nvidia.com/nim/docs/api-quickstart",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
+  },
+  {
+    "provider": "nvidia",
+    "model": "moonshotai/kimi-k2.6",
+    "free": true,
+    "source": "https://docs.api.nvidia.com/nim/docs/api-quickstart",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
+  },
+  {
+    "provider": "nvidia",
+    "model": "nvidia/nemotron-3-ultra-550b-a55b",
+    "free": true,
+    "source": "https://docs.api.nvidia.com/nim/docs/api-quickstart",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
+  },
+  {
+    "provider": "nvidia",
+    "model": "z-ai/glm-5.3",
+    "free": true,
+    "source": "https://docs.api.nvidia.com/nim/docs/api-quickstart",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
+  },
+  {
+    "provider": "nvidia",
+    "model": "z-ai/glm-5.3-flash",
+    "free": true,
+    "source": "https://docs.api.nvidia.com/nim/docs/api-quickstart",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
+  },
+  {
+    "provider": "nvidia",
+    "model": "nvidia/llama-3.1-nemotron-ultra-253b-v1",
+    "free": true,
+    "source": "https://docs.api.nvidia.com/nim/docs/api-quickstart",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
+  },
+  {
+    "provider": "nvidia",
+    "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "free": true,
+    "source": "https://docs.api.nvidia.com/nim/docs/api-quickstart",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
+  },
+  {
+    "provider": "nvidia",
+    "model": "openai/gpt-oss-20b",
+    "free": true,
+    "source": "https://docs.api.nvidia.com/nim/docs/api-quickstart",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
+  },
+  {
+    "provider": "nvidia",
+    "model": "mistralai/mistral-large-2-instruct",
+    "free": true,
+    "source": "https://docs.api.nvidia.com/nim/docs/api-quickstart",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
+  },
+  {
+    "provider": "nvidia",
+    "model": "stepfun-ai/step-5-preview",
+    "free": true,
+    "source": "https://docs.api.nvidia.com/nim/docs/api-quickstart",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
   }
 ]
