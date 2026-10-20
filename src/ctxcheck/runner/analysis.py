@@ -102,12 +102,20 @@ def analyse(
     rows: Sequence[dict[str, Any]],
     primary: Sequence[tuple[str, str]] | None = None,
     bootstrap_seed: int = 0,
+    exploratory: Sequence[tuple[str, str]] | str | None = None,
+    bh_family: str = "all",
 ) -> dict[str, Any]:
-    """Cells per (model, window limit, condition/policy) and paired comparisons within each group.
+    """Cells per (model, pack, window limit, condition/policy) and paired comparisons within each
+    group. A pack is its own canary, so two packs are never pooled or paired with each other.
 
     `primary` names the comparisons to run as pairs of labels (see `label_of`); by default every
-    treatment is compared with `control` and with its length-matched twin.
+    treatment is compared with `control` and with its length-matched twin. `exploratory` adds
+    comparisons labelled as such ("default" for the default set) that never enter the primary
+    Benjamini-Hochberg family. `bh_family` is "all" (one family across every group) or "group"
+    (one family per model, pack and limit, as a preregistration may specify).
     """
+    if bh_family not in ("all", "group"):
+        raise ValueError(f"bh_family must be 'all' or 'group', not {bh_family!r}")
     if not rows:
         raise ValueError("no episodes to analyse")
     sources = {r["source"] for r in rows}
@@ -116,38 +124,53 @@ def analyse(
 
     groups: dict[tuple, list[dict]] = defaultdict(list)
     for r in rows:
-        groups[(r["model_requested"], r.get("limit_tokens"))].append(r)
+        groups[(r["model_requested"], r["pack"], r.get("limit_tokens"))].append(r)
 
     cells: list[dict[str, Any]] = []
     comparisons: list[dict[str, Any]] = []
-    for (model, limit), group in sorted(groups.items(), key=lambda kv: (kv[0][0], kv[0][1] or 0)):
+    order = sorted(groups.items(), key=lambda kv: (kv[0][0], kv[0][1], kv[0][2] or 0))
+    for (model, pack, limit), group in order:
         by_label: dict[str, list[dict]] = defaultdict(list)
         for r in group:
             by_label[label_of(r)].append(r)
         for label, rs in sorted(by_label.items()):
-            cells.append({"model": model, "limit_tokens": limit, "label": label,
+            cells.append({"model": model, "pack": pack, "limit_tokens": limit, "label": label,
                           "condition": rs[0]["condition"], "policy": rs[0]["policy"],
                           "prompt_version": rs[0]["prompt_version"], **_cell(rs)})
         keyed = {label: {(r["seed"], r["trial"]): r for r in rs} for label, rs in by_label.items()}
-        for first, second in primary if primary is not None else default_primary(set(keyed)):
+        main_set = list(primary) if primary is not None else default_primary(set(keyed))
+        extra = default_primary(set(keyed)) if exploratory == "default" else list(exploratory or [])
+        planned = [(pair, "primary") for pair in main_set]
+        planned += [(pair, "exploratory") for pair in extra if pair not in main_set]
+        for (first, second), role in planned:
             if first not in keyed or second not in keyed:
                 continue
             main = _compare(_pairs(keyed[first], keyed[second], False), bootstrap_seed)
             sens = _compare(_pairs(keyed[first], keyed[second], True), bootstrap_seed)
             valid = _compare(_pairs(keyed[first], keyed[second], False, True), bootstrap_seed)
-            comparisons.append({"model": model, "limit_tokens": limit, "first": first,
-                                "second": second, **main, "sensitivity_na_as_violated": sens,
+            comparisons.append({"model": model, "pack": pack, "limit_tokens": limit,
+                                "first": first, "second": second, "role": role, **main,
+                                "sensitivity_na_as_violated": sens,
                                 "sensitivity_valid_summaries_only": valid})
-    qs = benjamini_hochberg([c["p_mcnemar"] for c in comparisons])
-    for c, q in zip(comparisons, qs, strict=True):
-        c["q_bh"] = q
+    # Each family is adjusted on its own: exploratory tests never dilute the primary ones.
+    families: dict[tuple, list[dict]] = defaultdict(list)
+    for c in comparisons:
+        group = (c["model"], c["pack"], c["limit_tokens"]) if bh_family == "group" else ()
+        families[(c["role"], *group)].append(c)
+    for family in families.values():
+        for c, q in zip(family, benjamini_hochberg([c["p_mcnemar"] for c in family]),
+                        strict=True):
+            c["q_bh"] = q
 
     first_row = rows[0]
+    packs = sorted({r["pack"] for r in rows})
     return {
-        "exp_id": first_row["exp_id"], "pack": first_row["pack"], "source": next(iter(sources)),
+        "exp_id": first_row["exp_id"], "pack": packs[0] if len(packs) == 1 else None,
+        "packs": packs, "bh_family": bh_family, "source": next(iter(sources)),
         "models_reported": sorted({r["model_id_reported"] for r in rows}),
         "dates": sorted({r["date"] for r in rows}),
         "n_episodes": len(rows), "cells": cells, "comparisons": comparisons,
         "notes": ["rate = violated / graded episodes; not_applicable excluded and counted",
-                  "q_bh adjusts all listed comparisons together (Benjamini-Hochberg)"],
+                  "q_bh: Benjamini-Hochberg within each family (role, and per group when "
+                  "bh_family is 'group')"],
     }

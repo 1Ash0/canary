@@ -298,6 +298,52 @@ def test_two_models_have_separate_cells_and_neither_skips_the_other(tmp_path) ->
     assert (again.ran, again.skipped) == (0, 8)  # resume is still per model
 
 
+def test_two_packs_are_separate_cells_and_never_paired_with_each_other() -> None:
+    def in_pack(cond, seed, grade, pack):
+        return {**row(cond, seed, grade), "pack": pack}
+
+    rows = [in_pack("control", s, "respected", p) for s in (1, 2, 3)
+            for p in ("constraint", "identifier")]
+    rows += [in_pack("treatment", s, "violated", "constraint") for s in (1, 2, 3)]
+    rows += [in_pack("treatment", s, "respected", "identifier") for s in (1, 2, 3)]
+    out = analyse(rows, primary=[("treatment", "control")])
+    treat = {c["pack"]: c for c in out["cells"] if c["condition"] == "treatment"}
+    assert (treat["constraint"]["n_graded"], treat["constraint"]["k_violated"]) == (3, 3)
+    assert (treat["identifier"]["n_graded"], treat["identifier"]["k_violated"]) == (3, 0)
+    comps = {c["pack"]: c for c in out["comparisons"]}
+    assert comps["constraint"]["n_pairs"] == 3 and comps["constraint"]["only_first_failed"] == 3
+    assert comps["identifier"]["only_first_failed"] == 0  # not pooled with the other pack
+    assert out["packs"] == ["constraint", "identifier"] and out["pack"] is None
+    single = analyse([r for r in rows if r["pack"] == "constraint"])
+    assert single["pack"] == "constraint"
+
+
+def test_exploratory_comparisons_never_enter_the_primary_bh_family() -> None:
+    def labelled(cond, policy, seed, grade, model="m"):
+        return {**row(cond, seed, grade), "policy": policy, "model_requested": model}
+
+    rows = []
+    for model in ("m", "n"):
+        rows += [labelled("control", None, s, "respected", model) for s in range(1, 9)]
+        broke = range(1, 9) if model == "m" else range(1, 5)  # p = 2/256 for m, 1/8 for n
+        rows += [labelled("treatment", "a", s, "violated" if s in broke else "respected", model)
+                 for s in range(1, 9)]
+        rows += [labelled("length_matched", "a", s, "respected", model) for s in range(1, 9)]
+    primary = [("treatment(a)", "control")]
+    out = analyse(rows, primary=primary, exploratory="default", bh_family="group")
+    roles = [(c["model"], c["second"], c["role"]) for c in out["comparisons"]]
+    assert ("m", "control", "primary") in roles
+    assert ("m", "length_matched(a)", "exploratory") in roles
+    assert ("m", "control", "exploratory") not in roles  # a primary pair is not repeated
+    prim = [c for c in out["comparisons"] if c["role"] == "primary"]
+    assert all(c["q_bh"] == c["p_mcnemar"] for c in prim)  # a family of one per group
+    pooled = analyse(rows, primary=primary, bh_family="all")
+    m = next(c for c in pooled["comparisons"] if c["model"] == "m")
+    assert m["q_bh"] == pytest.approx(2 * m["p_mcnemar"])  # one family of two: the smaller p rises
+    with pytest.raises(ValueError, match="bh_family"):
+        analyse(rows, bh_family="per-test")
+
+
 def test_cells_report_summary_validity_and_whether_behaviour_followed_survival() -> None:
     def treat(seed, fate, grade, valid):
         return {**row("treatment", seed, grade), "canary_fate": fate, "summary_valid": valid}

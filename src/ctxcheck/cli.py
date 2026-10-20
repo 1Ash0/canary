@@ -276,24 +276,40 @@ def run(
 def report(
     exp_dir: Path = typer.Argument(..., help="results/<exp> directory with episodes.jsonl"),
 ) -> None:
-    """Write summary.json and print rates with Wilson intervals and the paired comparisons."""
+    """Write summary.json and print rates with Wilson intervals and the paired comparisons.
+
+    If the directory holds an analysis.json (the preregistered comparisons, written before the
+    analysis), its `primary`, `exploratory` and `bh_family` are used; otherwise the defaults.
+    """
     rows = read_rows(exp_dir / "episodes.jsonl")
     if not rows:
         typer.echo(f"no episodes in {exp_dir}")
         raise typer.Exit(1)
-    summary = analyse(rows)
+    config_path = exp_dir / "analysis.json"
+    config = json.loads(config_path.read_text(encoding="utf-8")) if config_path.exists() else {}
+    primary = [tuple(p) for p in config["primary"]] if "primary" in config else None
+    explore = config.get("exploratory")
+    if isinstance(explore, list):
+        explore = [tuple(p) for p in explore]
+    summary = analyse(rows, primary=primary, exploratory=explore,
+                      bh_family=config.get("bh_family", "all"))
     (exp_dir / "summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     tag = "SIMULATED (not measured)" if summary["source"] == "simulated" else "recorded"
     typer.echo(f"{summary['exp_id']}  {tag}  models: {', '.join(summary['models_reported'])}  "
                f"dates: {', '.join(summary['dates'])}  episodes: {summary['n_episodes']}")
+    group = None
     for c in summary["cells"]:
+        if (c["model"], c["pack"]) != group:
+            group = (c["model"], c["pack"])
+            typer.echo(f"  [{c['model']}, {c['pack']} pack]")
         if "rate" in c:
-            typer.echo(f"  {c['label']:<30} violated {c['k_violated']}/{c['n_graded']} = "
+            typer.echo(f"  {c['label']:<34} violated {c['k_violated']}/{c['n_graded']} = "
                        f"{c['rate']:.0%}  [{c['wilson_lo']:.0%}, {c['wilson_hi']:.0%}]"
                        f"  n/a {c['n_not_applicable']}")
     for c in summary["comparisons"]:
         if "risk_difference" in c:
-            typer.echo(f"  {c['first']} vs {c['second']}: RD {c['risk_difference']:+.0%} "
+            typer.echo(f"  {c['role'][:4]} {c['model']}, {c['pack']}: "
+                       f"{c['first']} vs {c['second']}: RD {c['risk_difference']:+.0%} "
                        f"[{c['rd_lo']:+.0%}, {c['rd_hi']:+.0%}]  McNemar p={c['p_mcnemar']:.3g} "
                        f"q={c['q_bh']:.3g}  ({c['only_first_failed']} vs "
                        f"{c['only_second_failed']} discordant)")

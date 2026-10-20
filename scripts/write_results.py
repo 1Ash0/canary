@@ -29,22 +29,34 @@ def build(exp: str, notes: str) -> tuple[str, list[dict]]:
         claims.append({"id": f"{exp.lower()}-{cid}", "file": doc, "text": text, "kind": "json",
                        "source": src, "path": path, "expected": value})
 
+    multi = len(s.get("packs") or []) > 1  # several packs: the pack is part of every key
+
+    def where(c: dict) -> str:
+        return f"pack={c['pack']}," if multi else ""
+
+    def name(c: dict) -> str:
+        return f"`{c['model']}` ({c['pack']})" if multi else f"`{c['model']}`"
+
+    def tag(c: dict) -> str:
+        return c["pack"] + "|" if multi else ""
+
     lines = ["| Model | Condition | Broke the rule | 95% interval | No summary | Cut off "
              "| Invalid summary |", "|---|---|---|---|---|---|---|"]
     fill: dict[str, str] = {}
     for c in s["cells"]:
         if c.get("rate") is None:
             continue
-        p = f"cells[model={c['model']},label={c['label']},limit_tokens={c['limit_tokens']}]"
+        p = (f"cells[model={c['model']},{where(c)}label={c['label']},"
+             f"limit_tokens={c['limit_tokens']}]")
         trunc = (f"{c['n_summary_truncated']} of {c['n_truncation_known']}"
                  if c.get("n_truncation_known") else "–")
         inval = (f"{c['n_summary_invalid']} of {c['n_summary_checked']}"
                  if c.get("n_summary_checked") else "–")
-        row = (f"| `{c['model']}` | {c['label']} | {c['k_violated']}/{c['n_graded']} | "
+        row = (f"| {name(c)} | {c['label']} | {c['k_violated']}/{c['n_graded']} | "
                f"{c['wilson_lo']:.0%}–{c['wilson_hi']:.0%} | {c['n_not_applicable']} | "
                f"{trunc} | {inval} |")
         lines.append(row)
-        key = f"{c['model'].split('/')[-1]}|{c['label']}"
+        key = f"{c['model'].split('/')[-1]}|{tag(c)}{c['label']}"
         for f, v in (("k_violated", c["k_violated"]), ("n_graded", c["n_graded"]),
                      ("n_not_applicable", c["n_not_applicable"])):
             claim(f"{key}-{f}", row, f"{p}.{f}", v)
@@ -58,18 +70,18 @@ def build(exp: str, notes: str) -> tuple[str, list[dict]]:
         if c.get("verbatim_survival"):
             v = c["verbatim_survival"]
             fill[f"{key}|kept"] = f"{v['k_kept']} of {v['n']}"
-    comps = []
+    comps: dict[str, list[str]] = {"primary": [], "exploratory": []}
     for c in s["comparisons"]:
         if c.get("risk_difference") is None:
             continue
-        p = f"comparisons[model={c['model']},first={c['first']},second={c['second']}]"
-        text = (f"`{c['model']}`, {c['first']} vs {c['second']}: {c['only_first_failed']} versus "
+        p = f"comparisons[model={c['model']},{where(c)}first={c['first']},second={c['second']}]"
+        text = (f"{name(c)}, {c['first']} vs {c['second']}: {c['only_first_failed']} versus "
                 f"{c['only_second_failed']} discordant pairs of {c['n_pairs']}, risk difference "
                 f"{c['risk_difference']:+.0%} (95% bootstrap {c['rd_lo']:+.0%} to "
                 f"{c['rd_hi']:+.0%}), "
                 f"exact McNemar p = {c['p_mcnemar']:.2g}, BH q = {c['q_bh']:.2g}")
-        comps.append(f"- {text}.")
-        key = f"{c['model'].split('/')[-1]}|{c['first']}|{c['second']}"
+        comps[c.get("role", "primary")].append(f"- {text}.")
+        key = f"{c['model'].split('/')[-1]}|{tag(c)}{c['first']}|{c['second']}"
         for f in ("only_first_failed", "only_second_failed", "n_pairs", "p_mcnemar", "q_bh",
                   "risk_difference", "rd_lo", "rd_hi"):
             claim(f"{key}-{f}", text, f"{p}.{f}", c[f])
@@ -78,13 +90,20 @@ def build(exp: str, notes: str) -> tuple[str, list[dict]]:
             key = key.replace(a, b)
         return key
 
+    if comps["exploratory"]:
+        family = "within each model and pack" if s.get("bh_family") == "group" else "together"
+        compared = (f"### Primary comparisons (preregistered; q adjusts {family})\n"
+                    + "\n".join(comps["primary"]) + "\n\n### Exploratory comparisons "
+                    "(not preregistered; adjusted in their own family)\n"
+                    + "\n".join(comps["exploratory"]) + "\n\n")
+    else:
+        compared = "### Comparisons\n" + "\n".join(comps["primary"]) + "\n\n"
     body = notes.format(**{slot(k): v for k, v in fill.items()}) if notes else ""
     section = (f"## Results\n\nRecorded {', '.join(s['dates'])}; source `{src}` (regenerate with "
                f"`ctxcheck report results/{exp}`, then `python scripts/write_results.py {exp}`). "
                f"{s['n_episodes']} episodes. Epistemic tag: `{s['source']}`. Every number below is "
                f"generated from the summary and checked by `scripts/check_claims.py`.\n\n"
-               + "\n".join(lines) + "\n\n### Comparisons\n" + "\n".join(comps) + "\n\n"
-               + body + "\n")
+               + "\n".join(lines) + "\n\n" + compared + body + "\n")
     return section, claims
 
 

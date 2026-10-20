@@ -1,0 +1,10 @@
+{
+  "note": "The preregistered comparisons of docs/experiments/EXP-002.md (frozen at d9ab010), per model and pack: three primary, Benjamini-Hochberg across the three within each model and pack; every other comparison is exploratory and adjusted in its own family.",
+  "primary": [
+    ["treatment(recency_truncate)", "treatment(head_tail)"],
+    ["treatment(llm_summary)", "treatment(head_tail)"],
+    ["treatment(observation_mask)", "control"]
+  ],
+  "exploratory": "default",
+  "bh_family": "group"
+}
