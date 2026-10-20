@@ -1,0 +1,29 @@
+/* Strata scene styles. Every value is a token variable from themes/<theme>/tokens.css. */
+.sx { display: block; overflow: visible; }
+/* Animatable groups (driven by timeline.js, transform/opacity only). */
+.sx-row, .sx-sweep { transform-box: fill-box; transform-origin: 0 50%; }
+.sx-pop { transform-box: fill-box; transform-origin: 50% 50%; }.sx-system { fill: var(--strata-system); }
+.sx-tools { fill: var(--strata-tools); }
+.sx-history { fill: var(--strata-history); }
+.sx-tool-output { fill: var(--strata-tool-output); }
+.sx-summary { fill: var(--strata-summary); }
+
+.sx-limit { stroke: var(--ink-3); stroke-width: var(--line-hair); }
+.sx-limit-hot { stroke: var(--ink); stroke-width: var(--line-hair); }
+.sx-axis { stroke: var(--hairline); stroke-width: var(--line-hair); }
+.sx-tick { stroke: var(--ink-3); stroke-width: var(--line-hair); }
+.sx-seam { stroke: var(--ink); stroke-width: var(--line-hair); }
+
+.sx-halo { fill: var(--ground); }
+.sx-kept { fill: var(--accent); }
+.sx-changed { fill: none; stroke: var(--accent); stroke-width: var(--line-mark); stroke-dasharray: 3 2.2; }
+.sx-gone { fill: var(--loss); }
+.sx-lead { stroke: var(--accent); stroke-width: var(--line-hair); }
+.sx-lead-loss { stroke: var(--loss); stroke-width: var(--line-hair); }
+.sx-dashed { stroke-dasharray: 4 3; }
+.sx-drop { stroke: var(--loss); stroke-width: var(--line-hair); stroke-dasharray: 2 3; }
+
+.sx-label { font-family: var(--type-label-family); font-size: var(--type-label-size); font-weight: 400; fill: var(--ink-2); font-variant-numeric: tabular-nums; }
+.sx-strong { fill: var(--ink); font-weight: var(--type-label-weight); }
+.sx-loss { fill: var(--loss); }
+.sx-fact { font-family: var(--type-small-family); font-size: var(--type-label-size); fill: var(--ink-2); }

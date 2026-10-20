@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0E0D0B">
+  <title>Canary: see what compaction forgets</title>
+  <link rel="preload" href="../identity/fonts/instrument-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../themes/canary/tokens.css">
+  <link rel="stylesheet" href="../scene/strata.css">
+  <link rel="stylesheet" href="mockup.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site">
+    <a class="wordmark" href="#" translate="no">canary</a>
+    <nav aria-label="Primary">
+      <a href="#">Recorder</a>
+      <a href="#about">About</a>
+      <a href="#">GitHub</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="claim">
+      <h1 id="claim">What compaction forgets.</h1>
+      <div class="intro">
+        <p class="lede">When an agent's context fills up, the harness compacts it. Canary plants facts in the run, then records which ones survive, change or disappear, and whether the agent acts differently afterwards.</p>
+        <div class="actions">
+          <a class="btn" href="#">Open the recorder</a>
+          <span class="note">Static site. No API key.</span>
+        </div>
+      </div>
+
+      <figure class="player" aria-labelledby="player-caption">
+        <dl class="readout">
+          <div><dt>step</dt><dd data-out="step">–</dd></div>
+          <div><dt>tokens</dt><dd data-out="tokens">–</dd></div>
+          <div><dt>data</dt><dd data-out="label">–</dd></div>
+        </dl>
+        <div class="stage" data-stage></div>
+        <div class="controls">
+          <button class="replay" type="button" aria-label="Replay the sample run">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2v12l10-6z"/></svg>
+            Replay
+          </button>
+          <label class="scrub">
+            <span class="visually-hidden">Step</span>
+            <input type="range" min="1" value="1" data-scrub>
+          </label>
+          <span class="keys" aria-hidden="true">← →</span>
+        </div>
+        <figcaption id="player-caption" class="visually-hidden">Context window for the sample run, one bar per step, showing one compaction and the fate of three planted facts.</figcaption>
+        <ul class="fates" data-fates></ul>
+        <div class="visually-hidden"><table data-table><caption>Tokens per layer by step</caption></table></div>
+      </figure>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+      <h2 id="about-title">What this is, and what it isn't</h2>
+      <dl class="defs">
+        <div>
+          <dt>What it is</dt>
+          <dd>A flight recorder and canary lab for agent context compaction. It records what is in the window at every step, what compaction dropped, and whether the agent acts differently afterwards.</dd>
+        </div>
+        <div>
+          <dt>What it isn't</dt>
+          <dd>Not a new compaction algorithm, an observability platform, a leaderboard or a framework for building agents. It makes no new claims: the first experiment replicates published work on our own harness, and a null result is a valid outcome.</dd>
+        </div>
+        <div>
+          <dt>Where the data comes from</dt>
+          <dd>Everything on this page is a <span class="tag">synthetic fixture</span>: generated test data used to build the recorder. Recorded runs replace it at the next milestone, and every figure will link to the run file it came from.</dd>
+        </div>
+        <div>
+          <dt>Built on</dt>
+          <dd>
+            <ol class="refs">
+              <li><span class="cite">arXiv 2606.22528</span> Chen. <em>Governance Decay / ConstraintRot</em>. The experimental design we replicate: planted constraints, deterministic grading of the emitted tool call.</li>
+              <li><span class="cite">arXiv 2605.08580</span> Chen et al. <em>Slipstream</em>. Asynchronous compaction with a judge that validates the summary.</li>
+              <li><span class="cite">arXiv 2608.06503</span> Min, Wu, Darbari et al. <em>TRACE</em>. Agents losing track of execution state after compression.</li>
+              <li><span class="cite">arXiv 2607.25066</span> Dang et al. <em>ARC</em>. Lossless compaction through addressable recall.</li>
+            </ol>
+          </dd>
+        </div>
+      </dl>
+    </section>
+  </main>
+
+  <footer class="site">
+    <span><span translate="no">canary</span> · the <code translate="no">ctxcheck</code> toolkit</span>
+    <a href="#">Source on GitHub</a>
+  </footer>
+
+  <script type="module" src="mockup.js"></script>
+</body>
+</html>
