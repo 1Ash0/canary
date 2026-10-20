@@ -19,7 +19,7 @@ from pathlib import Path
 from typing import Any
 
 from ctxcheck.canaries import build_pack, trim_to_length, window_tokens_before_probe
-from ctxcheck.fates import Fate, derive_fates
+from ctxcheck.fates import survival_at_probe
 from ctxcheck.grading import grade_trace
 from ctxcheck.harness.loop import run
 from ctxcheck.policies import make_policy
@@ -109,22 +109,6 @@ def summary_validity(events: list[TraceEvent]) -> bool | None:
     # line may come from a recent message that was kept (found by the owner's audit)
     source = [contents[i] for i in (*compaction.dropped_ids, *compaction.kept_ids)]
     return summary_looks_valid(contents[compaction.summary_message_id], source)
-
-
-def survival_at_probe(events: list[TraceEvent], canary_id: str, probe_message_id: str) -> Fate:
-    """Is the planted fact still verbatim in the window the probe call saw?
-
-    Judged before the first model call after the compaction (or after the probe, if the window was
-    never compacted): the agent's own reply may repeat the value, and so may the probe (a channel
-    list), and neither is the fact surviving.
-    """
-    compaction = next((e for e in events if e.type == "compaction"), None)
-    probe = next(e for e in events if isinstance(e, MessageEvent)
-                 and e.message_id == probe_message_id)
-    anchor = compaction.seq if compaction else probe.seq
-    cut = next((e.seq for e in events if e.type == "model_call" and e.seq > anchor), None)
-    window = [e for e in events if cut is None or e.seq < cut]
-    return derive_fates(window, exclude={probe_message_id})[canary_id]
 
 
 def _probe_event(events: list[TraceEvent], spec_grade: Any, canary_id: str,

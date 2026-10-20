@@ -57,3 +57,19 @@ def derive_fates(
         cid: "kept" if any(_fold(value) in text for text in window) else "gone"
         for cid, value in planted.items()
     }
+
+
+def survival_at_probe(events: list[TraceEvent], canary_id: str, probe_message_id: str) -> Fate:
+    """Is the planted fact still verbatim in the window the probe call saw?
+
+    Judged before the first model call after the compaction (or after the probe, if the window was
+    never compacted): the agent's own reply may repeat the value, and so may the probe (a channel
+    list), and neither is the fact surviving.
+    """
+    compaction = next((e for e in events if e.type == "compaction"), None)
+    probe = next(e for e in events if isinstance(e, MessageEvent)
+                 and e.message_id == probe_message_id)
+    anchor = compaction.seq if compaction else probe.seq
+    cut = next((e.seq for e in events if e.type == "model_call" and e.seq > anchor), None)
+    window = [e for e in events if cut is None or e.seq < cut]
+    return derive_fates(window, exclude={probe_message_id})[canary_id]

@@ -10,9 +10,15 @@ from __future__ import annotations
 from collections.abc import Iterable
 from typing import Any
 
-from ctxcheck.fates import derive_fates
+from ctxcheck.fates import derive_fates, survival_at_probe
 from ctxcheck.ledger import replay
-from ctxcheck.schema import CanaryPlantedEvent, MessageEvent, RunStartEvent, TraceEvent
+from ctxcheck.schema import (
+    CanaryPlantedEvent,
+    CanaryProbeEvent,
+    MessageEvent,
+    RunStartEvent,
+    TraceEvent,
+)
 
 
 def label_of(provider: str) -> str:
@@ -23,7 +29,12 @@ def label_of(provider: str) -> str:
 def to_scene_input(events: Iterable[TraceEvent], source: str) -> dict[str, Any]:
     ordered = sorted(events, key=lambda e: e.seq)
     ledger = replay(ordered)
-    fates = derive_fates(ordered)
+    probe = next((x for x in ordered if isinstance(x, CanaryProbeEvent)), None)
+    if probe is None:
+        fates = derive_fates(ordered)
+    else:  # a run with a probe: judge survival at the probe, not at the end (the reply repeats it)
+        fates = {e.canary_id: survival_at_probe(ordered, e.canary_id, probe.probe_message_id)
+                 for e in ordered if isinstance(e, CanaryPlantedEvent)}
     start = ordered[0]
     assert isinstance(start, RunStartEvent)  # replay() already rejected anything else
 

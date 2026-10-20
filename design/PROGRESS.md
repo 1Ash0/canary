@@ -11,10 +11,10 @@ Handoff: `docs/design/HANDOFF.md`.
 | D3 Rules files | **approved**; CLAUDE.md pointer applied | 2026-10-20 |
 | D4 Site mockup (static look) | **approved** (title "What compaction forgets.") | 2026-10-20 |
 | **D4b Hero motion prototype** (added at owner's request, 2026-10-20) | **approved** | 2026-10-20 |
-| D5 Renderer | not started | |
-| D6 Video keyframes | not started | |
-| D7 Full video | not started | |
-| D8 Site build | not started | |
+| D5 Renderer | not started; **unblocked** (needs no data) | |
+| D6 Video keyframes | not started; **unblocked** (recorded runs exist) | |
+| D7 Full video | not started; **unblocked** after D5 and D6 | |
+| D8 Site build | **partly built** (survival page, copy fixed); rest unblocked | |
 
 **Why D4b exists.** The owner asked that the landing page and the rest of the site be dynamic and moving, not just look right in stills. The handoff defers all site motion to D8, so the owner would only see motion at the very end. D4b builds the hero alone (claim reveal + strata player playthrough + seam + fates) after the static look is approved, renders it as a frame strip and a short screen recording, and gets the motion feel approved before D5–D8 build on it. Motion rules: `SITE_RULES.md` §4.
 
@@ -67,7 +67,16 @@ The D gates **pause after D4b**. The owner's reasoning: the site and the video s
 
 D5 (the renderer) doesn't depend on data and can slot in anywhere if useful. See the ROADMAP status check.
 
+## Status refresh (2026-10-21, after the live EXP-001 runs)
+The reason for the pause is gone: M1 to M4 are built and EXP-001 has recorded data. What is left on the design side, in the order I would do it:
+1. **D8 core (most value):** replace the mock experiment on `/` with the real EXP-001 results, labelled `recorded` (per-model cells with intervals, the 27-seed table, Gemini shown as excluded and why). Export recorded runs to the recorder (a kept and a dropped episode for the same seed), so `/run/` shows a real run, with the consequence section now that a probe exists. The export judges survival at the probe (fixed 2026-10-21).
+2. **D8 polish:** the pinned scroll-scrubbed "what compaction does" section, the `?` shortcut overlay, a GitHub link once a remote exists, the full guidelines audit, then the deploy decision (owner: "not yet").
+3. **D5 renderer:** deterministic `window.seek(t)` page over `scene/timeline.js`; exit test is the SHA-256 of frame t=11.37 identical across random-order renders.
+4. **D6 keyframes, D7 video:** render a recorded run (the same seed kept versus dropped is the natural story), after D5.
+5. **Proposed ADRs 016 and 017** (video as headless scene render; theme = ground + ramp + device) still need the owner's acceptance. D0 schema additions: step index, `limit_tokens`, `tools_tokens_est` and derived fate are done in schema 0.3; `pair_id` is still deferred.
+**Copy debt:** the home page sentence is rewritten (2026-10-21) to say the first experiment tried to reproduce published work and came out split; the sharpened "not a framework" wording is in. Re-check it when EXP-002 or EXP-003 produce results.
+
 ## Exact next step
-D4b approved 2026-10-20. Design waits for M1 (ROADMAP). When it resumes, D5 is the deterministic renderer: its page calls `scene/timeline.js` `frameAt` through `window.seek(t)`; exit test: SHA-256 of frame t=11.37 identical across random-order renders.
+D4b approved 2026-10-20. Design is unblocked (2026-10-21): next is D8 core above (real results on `/`, recorded run in `/run/`). D5 is the deterministic renderer: its page calls `scene/timeline.js` `frameAt` through `window.seek(t)`; exit test: SHA-256 of frame t=11.37 identical across random-order renders.
 
 Dev server: `canary-design` in `.claude/launch.json` (Vite, root `design/`). If an edit doesn't show up, restart it: the watcher missed one change on 2026-10-20.

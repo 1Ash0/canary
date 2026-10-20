@@ -71,3 +71,21 @@ def test_experiment_passes_through_with_its_label_and_a_source() -> None:
 def test_run_without_compaction_has_no_compaction_block() -> None:
     events = generate(1, count_fn=words, compact_after=999)
     assert to_scene_input(events, "s")["compaction"] is None
+
+
+def test_a_recorded_run_with_a_probe_reports_fate_at_the_probe_not_at_the_end(tmp_path) -> None:
+    """The agent's reply and the probe both repeat the channel; neither is the fact surviving."""
+    from pathlib import Path
+
+    from ctxcheck.providers.simulated import SimulatedAgent
+    from ctxcheck.runner.episode import EpisodeSpec, run_episode
+    from ctxcheck.runner.trace_io import read_trace
+
+    lost = SimulatedAgent(p_follow=1.0, p_keep_in_summary=0.0, seed=1)
+    kept = SimulatedAgent(p_follow=1.0, p_keep_in_summary=1.0, seed=1)
+    for agent, fate in ((lost, "gone"), (kept, "kept")):
+        row = run_episode(EpisodeSpec("E", "constraint", "treatment", 1, 0, policy="llm_summary"),
+                          agent, provider_name="sim", model="sim", runs_dir=tmp_path,
+                          source="simulated")
+        scene = to_scene_input(read_trace(Path(row.trace_path)), row.trace_path)
+        assert scene["canaries"][0]["fate"] == fate
