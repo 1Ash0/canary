@@ -156,6 +156,41 @@ We'll write a mini version of the trace: a function that appends events to a JSO
 
 ---
 
+### U1b — The trace schema in real code (M1)
+
+**What you'll understand:** How the documented trace schema becomes pydantic v2 models in `src/ctxcheck/schema/events.py`, how one JSONL line is parsed into the right event class, and which facts belong in events versus views derived from them.
+
+**Why now:** M1 needs a real trace. The recorder, the token ledger, the site and the video all read events, so this file is the seam everything else depends on (ARCHITECTURE: "small stable seams"). U1 taught the idea with `learn/trace.py`; this unit makes it the real, typed thing.
+
+**Decisions to make first** (Claude Code recommends; you decide):
+1. **Step:** store an explicit `step` (turn number) on events that belong to a turn, rather than deriving it from the nth model call. A synthetic fixture session has no model calls.
+2. **Window limit:** `limit_tokens` on `run_start` (a run parameter).
+3. **Tools layer:** `tools_tokens_est` on `run_start` (tool specs are fixed for a run).
+4. **Canary fate (kept/changed/gone):** *derive* it by replaying `canary_planted` + `compaction` + the summary text (verbatim check). Do not store it, unless a judge model is added later (a judge's verdict is an observation, so it would be an event).
+5. **Pairing ids** for control vs treatment: defer to M4 (an additive change later; scope fence).
+
+**Step 1 — Go to Claude Chat.** Paste this:
+
+> I'm turning a documented event schema into Python pydantic v2 models. It's a JSONL trace of an AI agent run with these event types: run_start, message, model_call, tool_call, tool_result, compaction, canary_planted, canary_probe, run_end. Every event has schema_version, run_id, seq (a monotonic counter), ts and a `type` field. Teach me, with small code examples:
+> 1. What pydantic v2's BaseModel does: validation, `model_validate_json`, `model_dump_json`. What happens when a field has the wrong type?
+> 2. Discriminated unions: each event class has `type: Literal["message"]` (etc.). How does `Annotated[Union[...], Field(discriminator="type")]` let pydantic pick the right class when it reads one JSONL line? Why is that better than trying each class in turn? What happens with an unknown `type`?
+> 3. Schema versioning: events carry `schema_version: "0.1"`. What is an additive (minor) change versus a breaking (major) change? Give examples: adding an optional field, renaming a field, changing a field's type.
+> 4. Event sourcing: I can either store a planted fact's "fate" (kept / changed / gone after compaction) as its own event, or compute it later by replaying the compaction event and the summary text. How do I decide whether something should be an event or a derived view?
+> 5. `model_json_schema()` exports JSON Schema. How does that let a TypeScript web app share the same types without hand-writing them twice?
+> I'm a second-year CS student who knows Python and has already learned the "log as source of truth" idea.
+
+**Step 2 — Build `src/ctxcheck/schema/events.py` together.**
+- All v0 event types from ARCHITECTURE, plus the fields from the decisions above.
+- A `parse_event(line) -> TraceEvent` using the discriminated union.
+- Two-sided tests in `tests/unit/`: valid lines parse to the right class; unknown types, missing fields and wrong types are rejected.
+
+**Gate G1b — before the token ledger:**
+1. How does pydantic know which class a JSONL line is? What happens to a line with `"type": "teleport"`?
+2. Why is canary fate derived rather than stored, and what would change that?
+3. Adding an optional `pair_id` later: minor or major version bump? Renaming `tokens_est`: which, and what else must ship with it?
+
+---
+
 ### U2 — Canaries and grading
 
 **What you'll understand:** What a canary is, why we grade behaviour (tool calls emitted) instead of text (does the summary mention the rule), and what the four conditions mean.
@@ -368,6 +403,7 @@ This lives in `docs/understanding/LEDGER.md`. Update it after each gate.
 |---|---|---|---|
 | G0 | Tokens + context window | | |
 | G1 | JSONL trace + event sourcing | | |
+| G1b | Trace schema in pydantic (M1) | | |
 | G2 | Canaries + conditions + deterministic grading | | |
 | G3 | Cassettes + trial_index | | |
 | G4 | Compaction policies + tool-pairing invariant | | |
