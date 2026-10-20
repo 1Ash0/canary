@@ -9,6 +9,10 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any, Literal
 
+# An adapter that cannot decode a model's tool arguments passes the raw text under this key, so the
+# dispatcher can tell the model the real problem instead of a misleading "missing argument".
+BAD_ARGS_KEY = "_unparsed_arguments"
+
 Role = Literal["system", "user", "assistant", "tool"]
 Origin = Literal["user", "assistant", "tool", "summary", "canary"]
 

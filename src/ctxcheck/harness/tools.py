@@ -11,7 +11,7 @@ from collections.abc import Callable, Sequence
 from dataclasses import dataclass
 from typing import Any
 
-from ctxcheck.harness.types import ToolCall, ToolSpec
+from ctxcheck.harness.types import BAD_ARGS_KEY, ToolCall, ToolSpec
 
 
 @dataclass(frozen=True)
@@ -53,6 +53,10 @@ def dispatch(tools: Sequence[Tool], call: ToolCall) -> tuple[ToolResult, Tool | 
     if tool is None:
         known = ", ".join(sorted(by_name)) or "none"
         return ToolResult(f"unknown tool {call.name!r}; available: {known}", is_error=True), None
+    if BAD_ARGS_KEY in call.args:
+        raw = call.args[BAD_ARGS_KEY]
+        text = f"arguments for {call.name} were not valid JSON: {raw}"
+        return ToolResult(text, is_error=True), tool
     problem = _check_args(tool.spec, call.args)
     if problem:
         return ToolResult(f"bad arguments for {call.name}: {problem}", is_error=True), tool

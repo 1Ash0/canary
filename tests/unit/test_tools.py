@@ -1,7 +1,7 @@
 """Dispatcher: valid calls run; every kind of bad call becomes an error result, not an exception."""
 
 from ctxcheck.harness.tools import Tool, dispatch
-from ctxcheck.harness.types import ToolCall, ToolSpec
+from ctxcheck.harness.types import BAD_ARGS_KEY, ToolCall, ToolSpec
 from ctxcheck.providers.scripted import ScriptedProvider  # noqa: F401  (import must work)
 
 READ = Tool(
@@ -65,6 +65,12 @@ def test_wrong_argument_type_is_an_error_result() -> None:
 
 def test_bool_is_not_accepted_as_an_integer() -> None:
     assert dispatch(TOOLS, call("read_file", path="a", lines=True))[0].is_error
+
+
+def test_undecodable_arguments_are_reported_as_such_not_as_a_missing_argument() -> None:
+    result, tool = dispatch(TOOLS, call("read_file", **{BAD_ARGS_KEY: '{"path": '}))
+    assert result.is_error and tool is READ
+    assert "not valid JSON" in result.text and "missing" not in result.text
 
 
 def test_a_tool_that_raises_is_reported_not_fatal() -> None:
