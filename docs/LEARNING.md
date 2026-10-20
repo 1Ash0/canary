@@ -346,7 +346,50 @@ A function `wilson_interval(k, n, z=1.96)` that returns `(lower, upper)`. Includ
 
 ### U6 — Web playground
 
-**Status: Later.** The web layer (Next.js, strata view, survival heatmap) is built in M3–M5, after the Python core is solid. Learning material will be written when we get there.
+**Status: built in M1 through the design lane (no gate).** The site, recorder and design system are in `web/` and `design/`; see `design/PROGRESS.md`.
+
+---
+
+### U7 — The agent loop (M2)
+
+**M2 unit plan:** U7 agent loop and tool dispatch (this unit) → U8 provider adapters → U9 budget guard and dry-run → U10 cassettes in `src/` (a short explain-back, since you passed G3).
+
+**What you'll understand:** What a harness actually does on every turn, how a model asks for a tool and gets the result back, when the loop stops, and why the loop is the one place where compaction can hook in.
+
+**Why now:** Everything measured in M4 happens inside this loop. A canary is planted by a turn, compaction fires between turns, and the probe is the last turn. If the loop is a black box, you cannot say what a result means.
+
+**Why a fake model first:** U7 builds the loop against a **scripted provider**, a stand-in that returns pre-written replies. That keeps the loop testable offline, free and deterministic. Real provider adapters are U8.
+
+**Decisions to make first** (Claude Code recommends; you decide):
+1. **Where compaction hooks in:** check the token budget *before each model call*, and compact then if the window would go over. Alternative: after each call. Recommendation: before, because the next call is what fails if the window is too big.
+2. **Stop conditions:** the model replies without a tool call (`end_turn`), or a `max_steps` safety cap is reached, or a terminal tool is called. Recommendation: all three, each recorded in `run_end`.
+3. **Tools for v0.1:** a small fixed set: one or two filler tools (read a file, run a command) that return seeded text, and one **terminal tool** (for example `post_status(channel, text)`) whose arguments the grader reads. Recommendation: exactly that.
+4. **Tool errors:** an unknown tool name or bad arguments become a `tool_result` with `is_error=true`, not a crash. Recommendation: yes, and test it.
+
+**Step 1 — Go to Claude Chat.** Paste this:
+
+> I'm building the main loop of a small agent harness in Python, for testing context compaction. I want to understand it from first principles, with small code examples. Please explain:
+> 1. What happens on one turn of an agent loop? Walk through it: the harness sends the message list and the tool definitions to the model, the model replies, and so on until it stops. Draw the sequence of messages for a turn where the model calls one tool.
+> 2. How does tool use work in a chat-style API like Anthropic's Messages API? What does the model's reply look like when it wants a tool (a `tool_use` block with an id and arguments), and how does my harness send the result back (a `tool_result` that refers to that id)? Why must every tool call be matched with its result?
+> 3. What are the usual ways the loop ends: the model finishes without calling a tool, a step limit, or a terminal action? Why does every real harness have a step limit?
+> 4. My harness will check the token budget before each model call and compact the history if it would go over. Why check before the call and not after? What goes wrong if I check after?
+> 5. What should a tool dispatcher do if the model asks for a tool that doesn't exist, or passes arguments in the wrong shape? Why return an error result to the model instead of raising an exception?
+> 6. I want tests to run with no network. What is a "scripted" or "fake" provider, and what makes a loop testable with one?
+> I'm a second-year CS student who knows Python, understands "log as source of truth" and tokens, and is new to LLM APIs.
+
+**Step 2 — Build `src/ctxcheck/harness/loop.py` and `tools.py` together.**
+- `tools.py`: a `Tool` (name, JSON schema, function) and a `dispatch(call)` that returns a result or an error result.
+- `loop.py`: `run(scenario, provider, tools, policy, budget)`:
+  - builds the first messages and emits the trace events as it goes (`run_start`, `message`, `tool_call`, `tool_result`, `compaction`, `run_end`)
+  - checks the budget before each model call and applies the policy hook (a no-op policy for now)
+  - stops on the three conditions
+- A `ScriptedProvider` that returns queued replies.
+- Two-sided tests (offline): runs to `end_turn`; stops at `max_steps`; every `tool_call` has its `tool_result`; an unknown tool gives an error result and the run continues; compaction fires when the window would exceed the budget and not before; every emitted event passes `parse_event`; replaying the run through `ledger.replay` agrees with the loop's own token counts.
+
+**Gate G7 — before U8:**
+1. Describe one turn of the loop in your own words, including what the model sends back when it wants a tool.
+2. Why must a `tool_call` always be paired with its `tool_result`, and what does the loop do if the model asks for a tool that doesn't exist?
+3. Why does the budget check come before the model call, and why does the loop need `max_steps`?
 
 ---
 
@@ -408,3 +451,4 @@ This lives in `docs/understanding/LEDGER.md`. Update it after each gate.
 | G3 | Cassettes + trial_index | | |
 | G4 | Compaction policies + tool-pairing invariant | | |
 | G5 | Wilson interval + paired design | | |
+| G7 | Agent loop and tool dispatch (M2) | | |
