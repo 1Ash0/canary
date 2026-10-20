@@ -22,7 +22,7 @@ def write(path: Path, data: object) -> None:
 
 
 def main() -> None:
-    index: dict[str, list[dict[str, str]]] = {"runs": [], "experiments": []}
+    index: dict[str, list[dict[str, str]]] = {"runs": [], "experiments": [], "survival": []}
 
     for path in sorted((ROOT / "runs" / "samples").glob("*.jsonl")):
         events = [parse_event(line) for line in path.read_text(encoding="utf-8").splitlines()]
@@ -45,6 +45,11 @@ def main() -> None:
         index["experiments"].append(
             {"id": path.stem, "label": result["label"], "path": f"experiments/{path.name}"}
         )
+
+    grid = ROOT / "results" / "survival" / "grid.json"
+    if grid.exists():  # deterministic: real policy code, no model; its tag travels in the file
+        write(OUT / "survival" / "grid.json", json.loads(grid.read_text(encoding="utf-8")))
+        index["survival"] = [{"id": "grid", "path": "survival/grid.json"}]
 
     write(OUT / "schema" / "events.schema.json", event_json_schema())
     write(OUT / "index.json", index)

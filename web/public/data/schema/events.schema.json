@@ -93,7 +93,8 @@
         "grade": {
           "enum": [
             "violated",
-            "respected"
+            "respected",
+            "not_applicable"
           ],
           "title": "Grade",
           "type": "string"

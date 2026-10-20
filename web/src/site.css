@@ -119,6 +119,31 @@ h2 { font-size: var(--type-h1-size); font-weight: var(--type-h1-weight); line-he
 .shortcuts { grid-column: 1 / -1; color: var(--ink-2); font-size: var(--type-small-size); }
 .shortcuts kbd { font-family: var(--type-label-family); font-size: var(--type-label-size); border: var(--line-hair) solid var(--hairline); padding: 0 var(--space-xs); }
 
+/* survival grid: one table per policy; the fill is the kept share, the words carry the meaning */
+.surv { padding-block: var(--space-xl) var(--space-3xl); }
+.surv h1 { font-size: var(--type-h1-size); font-weight: var(--type-h1-weight); line-height: var(--type-h1-leading); letter-spacing: var(--type-h1-tracking); margin: 0 0 var(--space-sm); }
+.surv-tag { margin: 0 0 var(--space-2xl); display: flex; flex-wrap: wrap; gap: var(--space-md); align-items: baseline; }
+.grid-block { margin: 0 0 var(--space-3xl); }
+.grid-block h2 { font-size: var(--type-h2-size); font-weight: var(--type-h2-weight); letter-spacing: var(--type-h2-tracking); max-width: none; margin: 0 0 var(--space-xs); }
+.grid-block .note { margin: 0 0 var(--space-md); max-width: var(--measure); }
+.surv-grid { width: 100%; border-collapse: collapse; table-layout: fixed; font-variant-numeric: tabular-nums; }
+.surv-grid th, .surv-grid td { padding: var(--space-xs) var(--space-sm); border-top: var(--line-hair) solid var(--hairline); text-align: left; font-family: var(--type-label-family); font-size: var(--type-label-size); }
+.surv-grid thead th { color: var(--ink-2); font-weight: 400; text-align: right; border-top: 0; }
+.surv-grid thead th:first-child { text-align: left; width: 18%; }
+.surv-grid tbody th { color: var(--ink-2); font-weight: 400; }
+.surv-grid td { position: relative; text-align: right; background: linear-gradient(to top, color-mix(in srgb, var(--ink) 22%, transparent) calc(var(--rate, 0) * 100%), transparent calc(var(--rate, 0) * 100%)); }
+.surv-grid td .v { display: block; color: var(--ink); }
+.surv-grid td .g { display: block; color: var(--loss); }
+.surv-grid td.is-gone { background: none; }
+.surv-grid td.empty { color: var(--ink-3); }
+.loss-text { color: var(--loss); font-family: var(--type-label-family); font-size: var(--type-label-size); }
+.surv-read { padding-top: var(--space-xl); border-top: var(--line-hair) solid var(--hairline); }
+.surv-read h2 { font-size: var(--type-h2-size); max-width: none; }
+@media (max-width: 767px) {
+  .surv-grid th, .surv-grid td { padding-inline: var(--space-xs); }
+  .surv-grid thead th:first-child { width: 22%; }
+}
+
 /* = layout.breakpoints.lg */
 @media (max-width: 1099px) {
   .intro { grid-column: 1 / -1; }

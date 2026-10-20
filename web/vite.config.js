@@ -12,6 +12,7 @@ export default {
       input: {
         home: resolve(import.meta.dirname, 'index.html'),
         run: resolve(import.meta.dirname, 'run/index.html'),
+        survival: resolve(import.meta.dirname, 'survival/index.html'),
         about: resolve(import.meta.dirname, 'about/index.html'),
       },
     },

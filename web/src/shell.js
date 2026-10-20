@@ -7,6 +7,7 @@ export function shell(base, current) {
     <a class="wordmark" href="${base}" translate="no">canary</a>
     <nav aria-label="Primary">
       ${link(`${base}run/?run=synthetic-001`, 'Recorder', 'run')}
+      ${link(`${base}survival/`, 'Survival', 'survival')}
       ${link(`${base}about/`, 'About', 'about')}
     </nav>`;
   document.querySelector('[data-footer]').innerHTML = `

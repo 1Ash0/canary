@@ -9,7 +9,7 @@ import { DESIGN } from './lib/palettes.mjs';
 const base = process.argv[2] ?? 'http://localhost:3000';
 const out = join(DESIGN, 'web-qa');
 mkdirSync(out, { recursive: true });
-const pages = [['home', '/'], ['run', '/run/?run=synthetic-001&step=31'], ['about', '/about/']];
+const pages = [['home', '/'], ['run', '/run/?run=synthetic-001&step=31'], ['survival', '/survival/'], ['about', '/about/']];
 const widths = [[1440, 900], [1280, 720], [768, 1024], [390, 844]];
 
 const browser = await chromium.launch();
@@ -34,7 +34,7 @@ for (const [name, path] of pages) {
         lines: Math.round(h.getBoundingClientRect().height / lh),
         overflowX: document.documentElement.scrollWidth > innerWidth,
         ctaBottom: bottom('.btn'), controlsBottom: bottom('.controls'),
-        labelVisible: [...document.querySelectorAll('.tag')].some((t) => /synthetic fixture|mock data/.test(t.textContent)) || /synthetic fixture/.test(document.body.innerText),
+        labelVisible: [...document.querySelectorAll('.tag')].some((t) => /synthetic fixture|mock data|deterministic|simulated/.test(t.textContent)) || /synthetic fixture/.test(document.body.innerText),
       };
     });
     const firstView = name === 'home' && w === 1280 ? m.ctaBottom <= h && m.controlsBottom <= h : null;

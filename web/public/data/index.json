@@ -12,5 +12,11 @@
       "label": "mock data",
       "path": "experiments/mock_exp_001.json"
     }
+  ],
+  "survival": [
+    {
+      "id": "grid",
+      "path": "survival/grid.json"
+    }
   ]
 }
