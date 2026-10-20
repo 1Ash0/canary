@@ -14,14 +14,14 @@ If you build or tune an agent harness and have to decide how its context gets co
 
 ## Where it stands
 
-**The machinery is built and tested offline, and one pilot has been run on real free-tier models.** EXP-001 (frozen before running) did **not replicate** the published effect at this scale: 10 seeds, two models that actually summarise, one prompt. It is a pilot, not a result about models in general; the Results section of [`docs/experiments/EXP-001.md`](docs/experiments/EXP-001.md) has every number and the things that went wrong. The manual audit of summaries is still owed.
+**The machinery is built and tested offline, and EXP-001 has been run live on free-tier models at the planned 27 seeds for two of them.** The result is split, and depends on which model writes the summary: NVIDIA's `gpt-oss-20b` shows the published effect (the optional third model), Mistral's `ministral-14b-latest` shows none, Groq's `gpt-oss-120b` re-run is unfinished and Gemini's summarizer failed the validity check. **No cross-model replication is claimed.** Every number, and everything that went wrong, is in the Results section of [`docs/experiments/EXP-001.md`](docs/experiments/EXP-001.md). The manual audit of summaries is still owed.
 
 | Works now | Not yet |
 |---|---|
-| Trace schema 0.3, token ledger and per-fact fates, derived by replaying a trace | Anything at the planned 27 seeds per cell |
-| Agent loop with a budget check, two provider adapters (Anthropic, OpenAI-compatible), record/replay cassettes, a budget guard that refuses anything not provably free, live runs on free Groq, Gemini and Mistral models | A replication of the published effect, or a clean null |
+| Trace schema 0.3, token ledger and per-fact fates, derived by replaying a trace | Groq at the planned 27 seeds |
+| Agent loop with a budget check, two provider adapters (Anthropic, OpenAI-compatible), record/replay cassettes, a budget guard that refuses anything not provably free, live runs on free Groq, Gemini, Mistral and NVIDIA models | A result that holds across models, or a prompt that keeps the rule |
 | Four policies: `recency_truncate`, `head_tail`, `observation_mask`, `llm_summary` (versioned prompt), with property tests for the five invariants | Progressive compaction (history is scripted and compacted once, at the probe) |
-| Two canary packs (`constraint`, `identifier`), a tool-call grader tested on both sides, four conditions per seed, a resumable runner, exact McNemar, paired bootstrap, Benjamini-Hochberg | EXP-002 (policy comparison) and EXP-003 (dose-response): drafts only |
+| Two canary packs (`constraint`, `identifier`), a tool-call grader tested on both sides, four conditions per seed, a resumable runner, exact McNemar, paired bootstrap, Benjamini-Hochberg, a summary-validity flag | EXP-002 (policy comparison) and EXP-003 (dose-response): drafts only |
 | A **deterministic** survival grid: what each policy keeps (real policy code on seeded histories, no model) | A public URL |
 | A static site: landing page, run recorder with step permalinks, survival page, about | The site still shows only synthetic and deterministic data, not the EXP-001 results |
 

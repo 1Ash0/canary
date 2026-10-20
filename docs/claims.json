@@ -753,5 +753,707 @@
     "source": "results/EXP-001-pilot10/summary.json",
     "path": "comparisons[model=ministral-14b-latest,second=control].n_pairs",
     "expected": 10
+  },
+  {
+    "id": "exp001-27-nv-floor-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `openai/gpt-oss-20b` (NVIDIA), 27 seeds, optional third model (addendum B) | 25/27 | 1/27 | 1/27 | 11/24 | 3 | 0 of 24 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=floor].k_violated",
+    "expected": 25
+  },
+  {
+    "id": "exp001-27-nv-floor-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `openai/gpt-oss-20b` (NVIDIA), 27 seeds, optional third model (addendum B) | 25/27 | 1/27 | 1/27 | 11/24 | 3 | 0 of 24 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=floor].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp001-27-nv-control-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `openai/gpt-oss-20b` (NVIDIA), 27 seeds, optional third model (addendum B) | 25/27 | 1/27 | 1/27 | 11/24 | 3 | 0 of 24 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=control].k_violated",
+    "expected": 1
+  },
+  {
+    "id": "exp001-27-nv-control-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `openai/gpt-oss-20b` (NVIDIA), 27 seeds, optional third model (addendum B) | 25/27 | 1/27 | 1/27 | 11/24 | 3 | 0 of 24 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=control].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp001-27-nv-lm-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `openai/gpt-oss-20b` (NVIDIA), 27 seeds, optional third model (addendum B) | 25/27 | 1/27 | 1/27 | 11/24 | 3 | 0 of 24 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=length_matched(llm_summary)].k_violated",
+    "expected": 1
+  },
+  {
+    "id": "exp001-27-nv-lm-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `openai/gpt-oss-20b` (NVIDIA), 27 seeds, optional third model (addendum B) | 25/27 | 1/27 | 1/27 | 11/24 | 3 | 0 of 24 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=length_matched(llm_summary)].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp001-27-nv-t-k_violated",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `openai/gpt-oss-20b` (NVIDIA), 27 seeds, optional third model (addendum B) | 25/27 | 1/27 | 1/27 | 11/24 | 3 | 0 of 24 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=treatment(llm_summary)].k_violated",
+    "expected": 11
+  },
+  {
+    "id": "exp001-27-nv-t-n_graded",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `openai/gpt-oss-20b` (NVIDIA), 27 seeds, optional third model (addendum B) | 25/27 | 1/27 | 1/27 | 11/24 | 3 | 0 of 24 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=treatment(llm_summary)].n_graded",
+    "expected": 24
+  },
+  {
+    "id": "exp001-27-nv-t-n_not_applicable",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `openai/gpt-oss-20b` (NVIDIA), 27 seeds, optional third model (addendum B) | 25/27 | 1/27 | 1/27 | 11/24 | 3 | 0 of 24 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=treatment(llm_summary)].n_not_applicable",
+    "expected": 3
+  },
+  {
+    "id": "exp001-27-nv-t-n_summary_invalid",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `openai/gpt-oss-20b` (NVIDIA), 27 seeds, optional third model (addendum B) | 25/27 | 1/27 | 1/27 | 11/24 | 3 | 0 of 24 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=treatment(llm_summary)].n_summary_invalid",
+    "expected": 0
+  },
+  {
+    "id": "exp001-27-nv-t-n_summary_checked",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `openai/gpt-oss-20b` (NVIDIA), 27 seeds, optional third model (addendum B) | 25/27 | 1/27 | 1/27 | 11/24 | 3 | 0 of 24 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=treatment(llm_summary)].n_summary_checked",
+    "expected": 24
+  },
+  {
+    "id": "exp001-27-mi-floor-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `ministral-14b-latest` (Mistral), 27 seeds | 26/27 | 0/27 | 0/27 | 2/27 | 0 | 0 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=ministral-14b-latest,label=floor].k_violated",
+    "expected": 26
+  },
+  {
+    "id": "exp001-27-mi-floor-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `ministral-14b-latest` (Mistral), 27 seeds | 26/27 | 0/27 | 0/27 | 2/27 | 0 | 0 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=ministral-14b-latest,label=floor].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp001-27-mi-control-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `ministral-14b-latest` (Mistral), 27 seeds | 26/27 | 0/27 | 0/27 | 2/27 | 0 | 0 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=ministral-14b-latest,label=control].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp001-27-mi-control-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `ministral-14b-latest` (Mistral), 27 seeds | 26/27 | 0/27 | 0/27 | 2/27 | 0 | 0 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=ministral-14b-latest,label=control].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp001-27-mi-lm-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `ministral-14b-latest` (Mistral), 27 seeds | 26/27 | 0/27 | 0/27 | 2/27 | 0 | 0 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=ministral-14b-latest,label=length_matched(llm_summary)].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp001-27-mi-lm-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `ministral-14b-latest` (Mistral), 27 seeds | 26/27 | 0/27 | 0/27 | 2/27 | 0 | 0 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=ministral-14b-latest,label=length_matched(llm_summary)].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp001-27-mi-t-k_violated",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `ministral-14b-latest` (Mistral), 27 seeds | 26/27 | 0/27 | 0/27 | 2/27 | 0 | 0 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=ministral-14b-latest,label=treatment(llm_summary)].k_violated",
+    "expected": 2
+  },
+  {
+    "id": "exp001-27-mi-t-n_graded",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `ministral-14b-latest` (Mistral), 27 seeds | 26/27 | 0/27 | 0/27 | 2/27 | 0 | 0 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=ministral-14b-latest,label=treatment(llm_summary)].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp001-27-mi-t-n_not_applicable",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `ministral-14b-latest` (Mistral), 27 seeds | 26/27 | 0/27 | 0/27 | 2/27 | 0 | 0 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=ministral-14b-latest,label=treatment(llm_summary)].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp001-27-mi-t-n_summary_invalid",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `ministral-14b-latest` (Mistral), 27 seeds | 26/27 | 0/27 | 0/27 | 2/27 | 0 | 0 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=ministral-14b-latest,label=treatment(llm_summary)].n_summary_invalid",
+    "expected": 0
+  },
+  {
+    "id": "exp001-27-mi-t-n_summary_checked",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `ministral-14b-latest` (Mistral), 27 seeds | 26/27 | 0/27 | 0/27 | 2/27 | 0 | 0 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=ministral-14b-latest,label=treatment(llm_summary)].n_summary_checked",
+    "expected": 27
+  },
+  {
+    "id": "exp001-27-gq-floor-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `openai/gpt-oss-120b` (Groq), **stopped at 4 of 27 seeds** (owner's call) | 4/4 | 0/4 | 0/3 | 3/3 | 1 | 0 of 3 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-120b,label=floor].k_violated",
+    "expected": 4
+  },
+  {
+    "id": "exp001-27-gq-floor-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `openai/gpt-oss-120b` (Groq), **stopped at 4 of 27 seeds** (owner's call) | 4/4 | 0/4 | 0/3 | 3/3 | 1 | 0 of 3 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-120b,label=floor].n_graded",
+    "expected": 4
+  },
+  {
+    "id": "exp001-27-gq-control-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `openai/gpt-oss-120b` (Groq), **stopped at 4 of 27 seeds** (owner's call) | 4/4 | 0/4 | 0/3 | 3/3 | 1 | 0 of 3 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-120b,label=control].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp001-27-gq-control-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `openai/gpt-oss-120b` (Groq), **stopped at 4 of 27 seeds** (owner's call) | 4/4 | 0/4 | 0/3 | 3/3 | 1 | 0 of 3 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-120b,label=control].n_graded",
+    "expected": 4
+  },
+  {
+    "id": "exp001-27-gq-lm-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `openai/gpt-oss-120b` (Groq), **stopped at 4 of 27 seeds** (owner's call) | 4/4 | 0/4 | 0/3 | 3/3 | 1 | 0 of 3 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-120b,label=length_matched(llm_summary)].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp001-27-gq-lm-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `openai/gpt-oss-120b` (Groq), **stopped at 4 of 27 seeds** (owner's call) | 4/4 | 0/4 | 0/3 | 3/3 | 1 | 0 of 3 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-120b,label=length_matched(llm_summary)].n_graded",
+    "expected": 3
+  },
+  {
+    "id": "exp001-27-gq-t-k_violated",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `openai/gpt-oss-120b` (Groq), **stopped at 4 of 27 seeds** (owner's call) | 4/4 | 0/4 | 0/3 | 3/3 | 1 | 0 of 3 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-120b,label=treatment(llm_summary)].k_violated",
+    "expected": 3
+  },
+  {
+    "id": "exp001-27-gq-t-n_graded",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `openai/gpt-oss-120b` (Groq), **stopped at 4 of 27 seeds** (owner's call) | 4/4 | 0/4 | 0/3 | 3/3 | 1 | 0 of 3 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-120b,label=treatment(llm_summary)].n_graded",
+    "expected": 3
+  },
+  {
+    "id": "exp001-27-gq-t-n_not_applicable",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `openai/gpt-oss-120b` (Groq), **stopped at 4 of 27 seeds** (owner's call) | 4/4 | 0/4 | 0/3 | 3/3 | 1 | 0 of 3 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-120b,label=treatment(llm_summary)].n_not_applicable",
+    "expected": 1
+  },
+  {
+    "id": "exp001-27-gq-t-n_summary_invalid",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `openai/gpt-oss-120b` (Groq), **stopped at 4 of 27 seeds** (owner's call) | 4/4 | 0/4 | 0/3 | 3/3 | 1 | 0 of 3 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-120b,label=treatment(llm_summary)].n_summary_invalid",
+    "expected": 0
+  },
+  {
+    "id": "exp001-27-gq-t-n_summary_checked",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `openai/gpt-oss-120b` (Groq), **stopped at 4 of 27 seeds** (owner's call) | 4/4 | 0/4 | 0/3 | 3/3 | 1 | 0 of 3 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-120b,label=treatment(llm_summary)].n_summary_checked",
+    "expected": 3
+  },
+  {
+    "id": "exp001-27-ge-floor-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `gemini-3.1-flash-lite` (Gemini), 10 seeds, excluded: summarizer failed | 10/10 | 0/10 | 0/10 | 10/10 | 0 | 9 of 10 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=gemini-3.1-flash-lite,label=floor].k_violated",
+    "expected": 10
+  },
+  {
+    "id": "exp001-27-ge-floor-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `gemini-3.1-flash-lite` (Gemini), 10 seeds, excluded: summarizer failed | 10/10 | 0/10 | 0/10 | 10/10 | 0 | 9 of 10 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=gemini-3.1-flash-lite,label=floor].n_graded",
+    "expected": 10
+  },
+  {
+    "id": "exp001-27-ge-control-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `gemini-3.1-flash-lite` (Gemini), 10 seeds, excluded: summarizer failed | 10/10 | 0/10 | 0/10 | 10/10 | 0 | 9 of 10 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=gemini-3.1-flash-lite,label=control].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp001-27-ge-control-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `gemini-3.1-flash-lite` (Gemini), 10 seeds, excluded: summarizer failed | 10/10 | 0/10 | 0/10 | 10/10 | 0 | 9 of 10 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=gemini-3.1-flash-lite,label=control].n_graded",
+    "expected": 10
+  },
+  {
+    "id": "exp001-27-ge-lm-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `gemini-3.1-flash-lite` (Gemini), 10 seeds, excluded: summarizer failed | 10/10 | 0/10 | 0/10 | 10/10 | 0 | 9 of 10 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=gemini-3.1-flash-lite,label=length_matched(llm_summary)].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp001-27-ge-lm-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `gemini-3.1-flash-lite` (Gemini), 10 seeds, excluded: summarizer failed | 10/10 | 0/10 | 0/10 | 10/10 | 0 | 9 of 10 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=gemini-3.1-flash-lite,label=length_matched(llm_summary)].n_graded",
+    "expected": 10
+  },
+  {
+    "id": "exp001-27-ge-t-k_violated",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `gemini-3.1-flash-lite` (Gemini), 10 seeds, excluded: summarizer failed | 10/10 | 0/10 | 0/10 | 10/10 | 0 | 9 of 10 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=gemini-3.1-flash-lite,label=treatment(llm_summary)].k_violated",
+    "expected": 10
+  },
+  {
+    "id": "exp001-27-ge-t-n_graded",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `gemini-3.1-flash-lite` (Gemini), 10 seeds, excluded: summarizer failed | 10/10 | 0/10 | 0/10 | 10/10 | 0 | 9 of 10 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=gemini-3.1-flash-lite,label=treatment(llm_summary)].n_graded",
+    "expected": 10
+  },
+  {
+    "id": "exp001-27-ge-t-n_not_applicable",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `gemini-3.1-flash-lite` (Gemini), 10 seeds, excluded: summarizer failed | 10/10 | 0/10 | 0/10 | 10/10 | 0 | 9 of 10 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=gemini-3.1-flash-lite,label=treatment(llm_summary)].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp001-27-ge-t-n_summary_invalid",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `gemini-3.1-flash-lite` (Gemini), 10 seeds, excluded: summarizer failed | 10/10 | 0/10 | 0/10 | 10/10 | 0 | 9 of 10 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=gemini-3.1-flash-lite,label=treatment(llm_summary)].n_summary_invalid",
+    "expected": 9
+  },
+  {
+    "id": "exp001-27-ge-t-n_summary_checked",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "| `gemini-3.1-flash-lite` (Gemini), 10 seeds, excluded: summarizer failed | 10/10 | 0/10 | 0/10 | 10/10 | 0 | 9 of 10 |",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=gemini-3.1-flash-lite,label=treatment(llm_summary)].n_summary_checked",
+    "expected": 10
+  },
+  {
+    "id": "exp001-27-nv-pair-only_first_failed",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "NVIDIA: 11 versus 0 discordant pairs over 24 paired seeds, exact McNemar p = 0.000976562",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,second=control].only_first_failed",
+    "expected": 11
+  },
+  {
+    "id": "exp001-27-nv-pair-only_second_failed",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "NVIDIA: 11 versus 0 discordant pairs over 24 paired seeds, exact McNemar p = 0.000976562",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,second=control].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp001-27-nv-pair-n_pairs",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "NVIDIA: 11 versus 0 discordant pairs over 24 paired seeds, exact McNemar p = 0.000976562",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,second=control].n_pairs",
+    "expected": 24
+  },
+  {
+    "id": "exp001-27-nv-pair-p_mcnemar",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "NVIDIA: 11 versus 0 discordant pairs over 24 paired seeds, exact McNemar p = 0.000976562",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,second=control].p_mcnemar",
+    "expected": 0.0009765625
+  },
+  {
+    "id": "exp001-27-mi-pair-only_first_failed",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "Mistral: 2 versus 0 discordant pairs over 27 paired seeds, exact McNemar p = 0.5",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,second=control].only_first_failed",
+    "expected": 2
+  },
+  {
+    "id": "exp001-27-mi-pair-only_second_failed",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "Mistral: 2 versus 0 discordant pairs over 27 paired seeds, exact McNemar p = 0.5",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,second=control].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp001-27-mi-pair-n_pairs",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "Mistral: 2 versus 0 discordant pairs over 27 paired seeds, exact McNemar p = 0.5",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,second=control].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp001-27-mi-pair-p_mcnemar",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "Mistral: 2 versus 0 discordant pairs over 27 paired seeds, exact McNemar p = 0.5",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,second=control].p_mcnemar",
+    "expected": 0.5
+  },
+  {
+    "id": "exp001-27-gq-pair-only_first_failed",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "Groq: 3 versus 0 discordant pairs over 3 paired seeds, exact McNemar p = 0.25",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-120b,second=control].only_first_failed",
+    "expected": 3
+  },
+  {
+    "id": "exp001-27-gq-pair-only_second_failed",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "Groq: 3 versus 0 discordant pairs over 3 paired seeds, exact McNemar p = 0.25",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-120b,second=control].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp001-27-gq-pair-n_pairs",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "Groq: 3 versus 0 discordant pairs over 3 paired seeds, exact McNemar p = 0.25",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-120b,second=control].n_pairs",
+    "expected": 3
+  },
+  {
+    "id": "exp001-27-gq-pair-p_mcnemar",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "Groq: 3 versus 0 discordant pairs over 3 paired seeds, exact McNemar p = 0.25",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-120b,second=control].p_mcnemar",
+    "expected": 0.25
+  },
+  {
+    "id": "exp001-27-ge-pair-only_first_failed",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "Gemini: 10 versus 0 discordant pairs over 10 paired seeds, exact McNemar p = 0.00195312",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "comparisons[model=gemini-3.1-flash-lite,second=control].only_first_failed",
+    "expected": 10
+  },
+  {
+    "id": "exp001-27-ge-pair-only_second_failed",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "Gemini: 10 versus 0 discordant pairs over 10 paired seeds, exact McNemar p = 0.00195312",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "comparisons[model=gemini-3.1-flash-lite,second=control].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp001-27-ge-pair-n_pairs",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "Gemini: 10 versus 0 discordant pairs over 10 paired seeds, exact McNemar p = 0.00195312",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "comparisons[model=gemini-3.1-flash-lite,second=control].n_pairs",
+    "expected": 10
+  },
+  {
+    "id": "exp001-27-ge-pair-p_mcnemar",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "Gemini: 10 versus 0 discordant pairs over 10 paired seeds, exact McNemar p = 0.00195312",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "comparisons[model=gemini-3.1-flash-lite,second=control].p_mcnemar",
+    "expected": 0.001953125
+  },
+  {
+    "id": "exp001-27-nv-risk_difference",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "NVIDIA risk difference +46% with a 95% bootstrap interval of +25% to +67%",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,second=control].risk_difference",
+    "expected": 0.4583333333333333
+  },
+  {
+    "id": "exp001-27-nv-rd_lo",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "NVIDIA risk difference +46% with a 95% bootstrap interval of +25% to +67%",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,second=control].rd_lo",
+    "expected": 0.25
+  },
+  {
+    "id": "exp001-27-nv-rd_hi",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "NVIDIA risk difference +46% with a 95% bootstrap interval of +25% to +67%",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,second=control].rd_hi",
+    "expected": 0.6666666666666666
+  },
+  {
+    "id": "exp001-27-mi-risk_difference",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "Mistral risk difference +7% with an interval of +0% to +19%",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,second=control].risk_difference",
+    "expected": 0.07407407407407407
+  },
+  {
+    "id": "exp001-27-mi-rd_lo",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "Mistral risk difference +7% with an interval of +0% to +19%",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,second=control].rd_lo",
+    "expected": 0.0
+  },
+  {
+    "id": "exp001-27-mi-rd_hi",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "Mistral risk difference +7% with an interval of +0% to +19%",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,second=control].rd_hi",
+    "expected": 0.18518518518518517
+  },
+  {
+    "id": "exp001-27-nv-sens1",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "counting the failed summaries as violations gives 13 versus 0",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,second=control].sensitivity_na_as_violated.only_first_failed",
+    "expected": 13
+  },
+  {
+    "id": "exp001-27-nv-sens2",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "counting the failed summaries as violations gives 13 versus 0",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,second=control].sensitivity_na_as_violated.only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp001-27-nv-surv-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "channel name still in the summary: NVIDIA 4 of 24, Mistral 25 of 27",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=treatment(llm_summary)].verbatim_survival.k_kept",
+    "expected": 4
+  },
+  {
+    "id": "exp001-27-nv-surv-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "channel name still in the summary: NVIDIA 4 of 24, Mistral 25 of 27",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=treatment(llm_summary)].verbatim_survival.n",
+    "expected": 24
+  },
+  {
+    "id": "exp001-27-nv-fate-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "behaviour matched what the summary kept in 27 of 27 Mistral episodes and 15 of 24 NVIDIA episodes",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=treatment(llm_summary)].fate_matches_grade.k",
+    "expected": 15
+  },
+  {
+    "id": "exp001-27-nv-fate-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "behaviour matched what the summary kept in 27 of 27 Mistral episodes and 15 of 24 NVIDIA episodes",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=treatment(llm_summary)].fate_matches_grade.n",
+    "expected": 24
+  },
+  {
+    "id": "exp001-27-mi-surv-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "channel name still in the summary: NVIDIA 4 of 24, Mistral 25 of 27",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=ministral-14b-latest,label=treatment(llm_summary)].verbatim_survival.k_kept",
+    "expected": 25
+  },
+  {
+    "id": "exp001-27-mi-surv-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "channel name still in the summary: NVIDIA 4 of 24, Mistral 25 of 27",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=ministral-14b-latest,label=treatment(llm_summary)].verbatim_survival.n",
+    "expected": 27
+  },
+  {
+    "id": "exp001-27-mi-fate-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "behaviour matched what the summary kept in 27 of 27 Mistral episodes and 15 of 24 NVIDIA episodes",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=ministral-14b-latest,label=treatment(llm_summary)].fate_matches_grade.k",
+    "expected": 27
+  },
+  {
+    "id": "exp001-27-mi-fate-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "behaviour matched what the summary kept in 27 of 27 Mistral episodes and 15 of 24 NVIDIA episodes",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=ministral-14b-latest,label=treatment(llm_summary)].fate_matches_grade.n",
+    "expected": 27
+  },
+  {
+    "id": "exp001-27-nv-na-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "NVIDIA treatment: 3 of 27 not applicable",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=treatment(llm_summary)].n_not_applicable",
+    "expected": 3
+  },
+  {
+    "id": "exp001-27-nv-na-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "NVIDIA treatment: 3 of 27 not applicable",
+    "kind": "json",
+    "source": "results/EXP-001/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=treatment(llm_summary)].n_episodes",
+    "expected": 27
   }
 ]
