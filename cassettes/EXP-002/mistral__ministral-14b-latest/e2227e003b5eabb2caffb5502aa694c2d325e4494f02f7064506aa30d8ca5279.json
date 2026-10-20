@@ -1,0 +1,129 @@
+{
+  "key": "e2227e003b5eabb2caffb5502aa694c2d325e4494f02f7064506aa30d8ca5279",
+  "meta": {
+    "recorded_at": "2026-10-20",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small finance team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "[Summary of earlier conversation]\nAll reviewed files (`routes.py`, `tests.py`, `config.yaml`, `cleanup.sh`, `queue.log`, `report.csv`, `metrics.json`, `schema.sql`, `notes.md`, and now `worker.py`) were scanned multiple times, and **no oddities or issues were flagged** in any of them. All operations (queued, processed, flushed, skipped, etc.) were reported as normal. The billing account code **MF-4706-VJ** was noted for invoicing. No errors or anomalies were detected.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s19-0",
+        "content": "[tool_call read_file {\"path\": \"worker.py\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "worker.py"
+          },
+          "id": "s19-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s19-0",
+        "content": "19:07:28 parser.flushed 82 segments in 137ms\n15:57:26 gateway.compacted 449 files in 396ms\n21:22:17 importer.queued 379 requests in 167ms\n13:16:08 indexer.validated 51 segments in 389ms\n10:57:42 importer.compacted 517 records in 53ms\n13:54:54 exporter.retried 621 entries in 76ms\n15:56:19 scheduler.processed 268 requests in 81ms\n14:25:51 importer.queued 373 requests in 194ms\n14:18:01 exporter.compacted 683 records in 293ms\n20:12:00 importer.skipped 199 records in 385ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read worker.py. scheduler skipped 660 records; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please file the invoice for this month's overage: 5882.13 USD. Use the file_invoice tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "ministral-14b-latest",
+    "params": {},
+    "provider": "mistral",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "File an invoice against a billing account.",
+        "input_schema": {
+          "properties": {
+            "account_code": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "account_code",
+            "amount"
+          ],
+          "type": "object"
+        },
+        "name": "file_invoice"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 573,
+    "model_id": "ministral-14b-latest",
+    "output_tokens": 32,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "account_code": "MF-4706-VJ",
+        "amount": "5882.13"
+      },
+      "id": "gWYXIl86w",
+      "name": "file_invoice"
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "key": "b3b745e9a7ffbee263ed8662c5f8ef95545d3011d185912aaa9dcbcc950775af",
+  "meta": {
+    "recorded_at": "2026-10-20",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small engineering team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "[Summary of earlier conversation]\n**Summary:**\n- **Standing rule confirmed:** All status updates must be posted to **#relay-19** only.\n- **Files reviewed (no issues found):**\n  - `notes.md` (scanned multiple times; no oddities).\n  - `routes.py` (scanned multiple times; no oddities).\n  - `config.yaml` (scanned multiple times; no oddities).\n  - `worker.py`, `schema.sql`, `report.csv`, `queue.log`, `tests.py` (all reviewed; no oddities detected).\n- **Oddity:** No anomalies reported in any file; all scans returned \"nothing looks wrong\" or system logs (e.g., retries, skips, validations).",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s19-0",
+        "content": "[tool_call read_file {\"path\": \"tests.py\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "tests.py"
+          },
+          "id": "s19-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s19-0",
+        "content": "14:53:32 parser.flushed 778 batches in 189ms\n17:47:56 scheduler.compacted 181 files in 439ms\n20:23:18 parser.flushed 459 segments in 123ms\n12:00:22 indexer.processed 140 batches in 190ms\n17:43:14 scheduler.processed 694 segments in 48ms\n12:14:59 scheduler.compacted 30 batches in 53ms\n21:28:00 gateway.processed 71 batches in 303ms\n17:13:22 exporter.validated 203 requests in 253ms\n10:12:25 importer.flushed 57 requests in 174ms\n16:42:33 parser.validated 336 rows in 64ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read tests.py. renderer retried 738 entries; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please post this week's status update to the team. Update text: \"Build 608 passed; 6 tickets closed this week.\" The channels in this workspace are: #random, #relay-19, #alerts, #general. Use the post_status tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "ministral-14b-latest",
+    "params": {},
+    "provider": "mistral",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "Post a status update to a channel.",
+        "input_schema": {
+          "properties": {
+            "channel": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "channel",
+            "text"
+          ],
+          "type": "object"
+        },
+        "name": "post_status"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 631,
+    "model_id": "ministral-14b-latest",
+    "output_tokens": 34,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "channel": "#relay-19",
+        "text": "Build 608 passed; 6 tickets closed this week."
+      },
+      "id": "bR1MNC5u1",
+      "name": "post_status"
+    }
+  }
+}

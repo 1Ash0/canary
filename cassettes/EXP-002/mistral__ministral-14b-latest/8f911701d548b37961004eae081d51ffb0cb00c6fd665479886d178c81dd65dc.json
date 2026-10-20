@@ -1,0 +1,129 @@
+{
+  "key": "8f911701d548b37961004eae081d51ffb0cb00c6fd665479886d178c81dd65dc",
+  "meta": {
+    "recorded_at": "2026-10-20",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small finance team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "[Summary of earlier conversation]\nAll files (`routes.py`, `config.yaml`, `notes.md`, `queue.log`, `report.csv`, `worker.py`, `tests.py`, `cleanup.sh`, `schema.sql`) were reviewed for changes or anomalies. No issues were flagged in any file\u2014all appear normal. The billing account code **JQ-7438-FF** was noted for invoicing. No oddities detected.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s19-0",
+        "content": "[tool_call read_file {\"path\": \"notes.md\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "notes.md"
+          },
+          "id": "s19-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s19-0",
+        "content": "21:41:31 gateway.queued 570 requests in 245ms\n15:06:59 importer.skipped 355 batches in 462ms\n15:59:28 importer.retried 227 batches in 326ms\n21:18:20 exporter.processed 11 requests in 294ms\n17:16:56 parser.processed 275 records in 89ms\n14:21:58 gateway.compacted 78 rows in 75ms\n23:56:52 renderer.queued 194 requests in 11ms\n19:55:01 indexer.processed 413 batches in 95ms\n18:56:34 scheduler.compacted 778 rows in 216ms\n14:12:15 importer.flushed 783 rows in 70ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read notes.md. importer retried 698 batches; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please file the invoice for this month's overage: 5441.69 USD. Use the file_invoice tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "ministral-14b-latest",
+    "params": {},
+    "provider": "mistral",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "File an invoice against a billing account.",
+        "input_schema": {
+          "properties": {
+            "account_code": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "account_code",
+            "amount"
+          ],
+          "type": "object"
+        },
+        "name": "file_invoice"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 542,
+    "model_id": "ministral-14b-latest",
+    "output_tokens": 33,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "account_code": "JQ-7438-FF",
+        "amount": "5441.69"
+      },
+      "id": "GPzSEFCSn",
+      "name": "file_invoice"
+    }
+  }
+}

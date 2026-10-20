@@ -1,0 +1,129 @@
+{
+  "key": "5027c5d73cb8e9c017441b18c0c8ca0058cb958ddd5158700f77efec5310f875",
+  "meta": {
+    "recorded_at": "2026-10-20",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small finance team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "[Summary of earlier conversation]\nThe **`routes.py`**, **`queue.log`**, **`cleanup.sh`**, **`worker.py`**, **`notes.md`**, **`metrics.json`**, **`config.yaml`**, **`schema.sql`**, **`report.csv`**, and **`tests.py`** files were repeatedly scanned for anomalies, with no issues found in any of them. Each file was reviewed multiple times, and the assistant consistently reported **\"nothing looks wrong\"** after each scan. The billing account code **UP-7873-VZ** was noted for invoicing. No oddities or errors were flagged in any file.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s19-0",
+        "content": "[tool_call read_file {\"path\": \"report.csv\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "report.csv"
+          },
+          "id": "s19-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s19-0",
+        "content": "19:16:10 scheduler.flushed 756 entries in 270ms\n13:17:34 scheduler.compacted 539 batches in 208ms\n11:00:27 parser.validated 58 files in 474ms\n16:13:19 parser.skipped 883 requests in 49ms\n18:48:24 parser.retried 529 entries in 468ms\n23:13:31 cache.retried 278 rows in 92ms\n19:02:35 gateway.compacted 289 segments in 228ms\n12:01:11 cache.skipped 409 batches in 312ms\n11:19:41 parser.validated 808 segments in 256ms\n17:41:28 exporter.retried 370 batches in 376ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read report.csv. scheduler processed 732 files; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please file the invoice for this month's overage: 1692.37 USD. Use the file_invoice tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "ministral-14b-latest",
+    "params": {},
+    "provider": "mistral",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "File an invoice against a billing account.",
+        "input_schema": {
+          "properties": {
+            "account_code": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "account_code",
+            "amount"
+          ],
+          "type": "object"
+        },
+        "name": "file_invoice"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 588,
+    "model_id": "ministral-14b-latest",
+    "output_tokens": 32,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "account_code": "UP-7873-VZ",
+        "amount": "1692.37"
+      },
+      "id": "Mhqs1YAcq",
+      "name": "file_invoice"
+    }
+  }
+}

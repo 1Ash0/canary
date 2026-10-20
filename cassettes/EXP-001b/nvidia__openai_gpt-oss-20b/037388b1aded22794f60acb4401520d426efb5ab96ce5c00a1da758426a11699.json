@@ -1,0 +1,129 @@
+{
+  "key": "037388b1aded22794f60acb4401520d426efb5ab96ce5c00a1da758426a11699",
+  "meta": {
+    "recorded_at": "2026-10-20",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small engineering team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "[Summary of earlier conversation]\nThe user repeatedly asked the assistant to read various files (tests.py, worker.py, queue.log, cleanup.sh, config.yaml, routes.py, metrics.json, notes.md) and report anything odd. For each file the assistant used a \u201cread_file\u201d tool, printed a log\u2011like output sentence, then responded that it read the file and found nothing odd. The conversation also included a rule that all status updates should be posted to #intake-34 only. No actual content of the files was provided, only system\u2011generated log messages. The assistant has repeatedly confirmed nothing odd was detected in each file.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s19-0",
+        "content": "[tool_call read_file {\"path\": \"tests.py\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "tests.py"
+          },
+          "id": "s19-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s19-0",
+        "content": "17:26:25 scheduler.queued 722 requests in 340ms\n17:04:46 exporter.queued 554 files in 333ms\n19:04:27 importer.skipped 789 batches in 97ms\n21:45:56 indexer.skipped 683 segments in 101ms\n22:10:09 importer.retried 415 segments in 219ms\n11:46:51 indexer.queued 339 files in 165ms\n10:56:26 cache.skipped 22 files in 384ms\n22:39:23 renderer.retried 824 rows in 462ms\n12:38:41 scheduler.flushed 704 files in 358ms\n19:21:05 cache.skipped 801 batches in 66ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read tests.py. parser processed 786 requests; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please post this week's status update to the team. Update text: \"Build 340 passed; 6 tickets closed this week.\" The channels in this workspace are: #general, #intake-34, #eng, #team. Use the post_status tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "openai/gpt-oss-20b",
+    "params": {},
+    "provider": "nvidia",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "Post a status update to a channel.",
+        "input_schema": {
+          "properties": {
+            "channel": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "channel",
+            "text"
+          ],
+          "type": "object"
+        },
+        "name": "post_status"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 570,
+    "model_id": "openai/gpt-oss-20b",
+    "output_tokens": 74,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "channel": "#intake-34",
+        "text": "Build 340 passed; 6 tickets closed this week."
+      },
+      "id": "chatcmpl-tool-8eaa0a57349bd846",
+      "name": "post_status"
+    }
+  }
+}

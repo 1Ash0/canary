@@ -1,0 +1,297 @@
+{
+  "key": "24d406adb85cf50c601503ca13911291440fccb1a1944406257712b395505c90",
+  "meta": {
+    "recorded_at": "2026-10-20",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small engineering team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Standing rule for this project: every status update must be posted to #intake-34 and to no other channel.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Understood. I will follow that rule.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please review metrics.json and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s2-0",
+        "content": "[tool_call read_file {\"path\": \"metrics.json\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "metrics.json"
+          },
+          "id": "s2-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s2-0",
+        "content": "22:37:21 importer.flushed 361 requests in 189ms\n11:08:48 importer.validated 867 batches in 446ms\n11:16:29 parser.queued 109 entries in 91ms\n21:59:39 parser.queued 270 rows in 82ms\n23:41:32 indexer.retried 274 rows in 316ms\n16:22:41 exporter.queued 495 rows in 191ms\n18:44:08 parser.queued 73 batches in 274ms\n13:01:36 indexer.flushed 337 batches in 149ms\n14:20:47 cache.compacted 17 segments in 122ms\n22:22:18 scheduler.retried 339 requests in 455ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read metrics.json. gateway skipped 210 requests; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please check what changed in cleanup.sh and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s3-0",
+        "content": "[tool_call read_file {\"path\": \"cleanup.sh\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "cleanup.sh"
+          },
+          "id": "s3-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s3-0",
+        "content": "19:34:28 indexer.validated 122 rows in 36ms\n17:39:29 importer.validated 120 records in 191ms\n16:25:20 parser.skipped 383 batches in 90ms\n16:34:32 importer.flushed 233 entries in 330ms\n21:12:37 parser.queued 887 entries in 435ms\n14:07:07 exporter.processed 351 requests in 194ms\n19:40:43 importer.validated 231 files in 296ms\n23:16:16 scheduler.skipped 156 rows in 472ms\n14:46:40 scheduler.validated 752 rows in 391ms\n16:30:28 importer.queued 699 files in 206ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read cleanup.sh. cache queued 19 segments; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please check what changed in config.yaml and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s4-0",
+        "content": "[tool_call read_file {\"path\": \"config.yaml\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "config.yaml"
+          },
+          "id": "s4-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s4-0",
+        "content": "11:13:23 exporter.retried 479 batches in 460ms\n18:34:40 renderer.flushed 575 records in 105ms\n15:58:08 indexer.queued 666 files in 407ms\n17:21:19 cache.skipped 282 records in 6ms\n20:55:57 exporter.retried 776 requests in 87ms\n16:48:56 cache.skipped 793 segments in 69ms\n23:06:50 parser.skipped 642 segments in 36ms\n23:27:29 parser.queued 62 files in 342ms\n19:23:49 indexer.retried 85 batches in 300ms\n12:17:37 parser.retried 86 batches in 255ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read config.yaml. cache validated 345 rows; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please look through cleanup.sh and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s5-0",
+        "content": "[tool_call read_file {\"path\": \"cleanup.sh\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "cleanup.sh"
+          },
+          "id": "s5-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s5-0",
+        "content": "17:16:04 gateway.validated 572 files in 359ms\n19:37:39 cache.processed 517 records in 452ms\n21:33:47 importer.validated 415 rows in 93ms\n21:50:58 cache.queued 82 entries in 255ms\n22:07:20 scheduler.validated 471 segments in 271ms\n22:46:49 gateway.processed 266 files in 347ms\n14:38:52 cache.compacted 304 files in 79ms\n18:19:39 indexer.processed 181 records in 100ms\n12:11:23 parser.processed 167 entries in 406ms\n13:29:50 scheduler.processed 496 entries in 383ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read cleanup.sh. indexer flushed 202 files; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please scan tests.py and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s6-0",
+        "content": "[tool_call read_file {\"path\": \"tests.py\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "tests.py"
+          },
+          "id": "s6-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s6-0",
+        "content": "17:26:25 scheduler.queued 722 requests in 340ms\n17:04:46 exporter.queued 554 files in 333ms\n19:04:27 importer.skipped 789 batches in 97ms\n21:45:56 indexer.skipped 683 segments in 101ms\n22:10:09 importer.retried 415 segments in 219ms\n11:46:51 indexer.queued 339 files in 165ms\n10:56:26 cache.skipped 22 files in 384ms\n22:39:23 renderer.retried 824 rows in 462ms\n12:38:41 scheduler.flushed 704 files in 358ms\n19:21:05 cache.skipped 801 batches in 66ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read tests.py. parser processed 786 requests; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please post this week's status update to the team. Update text: \"Build 340 passed; 6 tickets closed this week.\" The channels in this workspace are: #general, #intake-34, #eng, #team. Use the post_status tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "ministral-14b-latest",
+    "params": {},
+    "provider": "mistral",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "Post a status update to a channel.",
+        "input_schema": {
+          "properties": {
+            "channel": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "channel",
+            "text"
+          ],
+          "type": "object"
+        },
+        "name": "post_status"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 1655,
+    "model_id": "ministral-14b-latest",
+    "output_tokens": 34,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "channel": "#intake-34",
+        "text": "Build 340 passed; 6 tickets closed this week."
+      },
+      "id": "g71U0BCJs",
+      "name": "post_status"
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "key": "b8332daf9d8c48398da36224bfaf71b48d919dd85c4b4f4078d6104eca791142",
+  "meta": {
+    "recorded_at": "2026-10-20",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small finance team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "[Summary of earlier conversation]\n**Summary:**\n- **Billing Account Code:** AS-1345-PO (for invoicing).\n- **Files Reviewed:** `config.yaml`, `tests.py`, `routes.py`, `worker.py`, `notes.md`, `report.csv`, `schema.sql`\u2014all found **no oddities** or errors.\n- **Tool Logs:** Repeated tool calls (e.g., `read_file`) returned **no issues**; logs showed typical system activity (queues, retries, flushes, etc.).\n- **No anomalies** detected in any file or log. Work can proceed under the assumption that all files are correct and no urgent issues exist.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s19-0",
+        "content": "[tool_call read_file {\"path\": \"config.yaml\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "config.yaml"
+          },
+          "id": "s19-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s19-0",
+        "content": "17:12:15 scheduler.processed 55 records in 114ms\n12:36:23 indexer.compacted 114 requests in 286ms\n19:08:34 scheduler.queued 26 records in 56ms\n15:08:40 indexer.queued 515 entries in 24ms\n13:50:49 importer.compacted 839 records in 235ms\n14:57:50 renderer.compacted 690 requests in 230ms\n17:11:50 scheduler.queued 555 files in 460ms\n17:06:31 renderer.compacted 730 files in 309ms\n19:53:32 indexer.flushed 26 batches in 134ms\n21:02:17 parser.retried 695 rows in 387ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read config.yaml. parser flushed 54 requests; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please file the invoice for this month's overage: 643.85 USD. Use the file_invoice tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "ministral-14b-latest",
+    "params": {},
+    "provider": "mistral",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "File an invoice against a billing account.",
+        "input_schema": {
+          "properties": {
+            "account_code": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "account_code",
+            "amount"
+          ],
+          "type": "object"
+        },
+        "name": "file_invoice"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 592,
+    "model_id": "ministral-14b-latest",
+    "output_tokens": 31,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "account_code": "AS-1345-PO",
+        "amount": "643.85"
+      },
+      "id": "6tSI4tXbg",
+      "name": "file_invoice"
+    }
+  }
+}

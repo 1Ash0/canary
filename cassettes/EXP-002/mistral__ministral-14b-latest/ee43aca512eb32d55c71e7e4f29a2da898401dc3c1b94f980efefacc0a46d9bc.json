@@ -1,0 +1,297 @@
+{
+  "key": "ee43aca512eb32d55c71e7e4f29a2da898401dc3c1b94f980efefacc0a46d9bc",
+  "meta": {
+    "recorded_at": "2026-10-20",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small engineering team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Standing rule for this project: every status update must be posted to #harbor-24 and to no other channel.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Understood. I will follow that rule.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please summarise the state of metrics.json and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s2-0",
+        "content": "[tool_call read_file {\"path\": \"metrics.json\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "metrics.json"
+          },
+          "id": "s2-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s2-0",
+        "content": "12:05:45 exporter.skipped 136 rows in 21ms\n15:41:59 indexer.compacted 348 records in 438ms\n18:01:23 gateway.queued 371 records in 353ms\n13:52:37 scheduler.retried 248 rows in 203ms\n15:33:37 renderer.queued 742 batches in 399ms\n10:42:10 exporter.compacted 633 entries in 421ms\n12:20:08 scheduler.skipped 392 records in 426ms\n20:00:39 scheduler.compacted 120 segments in 416ms\n14:04:53 scheduler.flushed 725 records in 412ms\n22:02:22 indexer.queued 678 entries in 440ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read metrics.json. renderer processed 871 records; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please scan config.yaml and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s3-0",
+        "content": "[tool_call read_file {\"path\": \"config.yaml\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "config.yaml"
+          },
+          "id": "s3-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s3-0",
+        "content": "12:57:16 parser.flushed 249 batches in 307ms\n22:07:50 exporter.queued 774 segments in 251ms\n12:10:50 parser.flushed 837 files in 349ms\n22:29:13 indexer.processed 26 batches in 118ms\n15:34:17 indexer.skipped 12 requests in 187ms\n14:36:54 cache.validated 841 entries in 276ms\n16:16:00 gateway.validated 598 rows in 477ms\n12:58:09 indexer.compacted 485 requests in 293ms\n18:47:10 importer.flushed 391 batches in 293ms\n19:02:42 renderer.queued 808 entries in 151ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read config.yaml. parser skipped 680 entries; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please scan config.yaml and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s4-0",
+        "content": "[tool_call read_file {\"path\": \"config.yaml\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "config.yaml"
+          },
+          "id": "s4-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s4-0",
+        "content": "23:04:19 scheduler.validated 113 records in 404ms\n15:20:03 renderer.validated 545 batches in 111ms\n18:10:38 importer.compacted 640 entries in 174ms\n15:35:13 gateway.compacted 391 entries in 359ms\n16:34:42 scheduler.processed 733 segments in 122ms\n15:18:02 indexer.flushed 654 requests in 251ms\n11:39:21 cache.processed 897 batches in 126ms\n12:07:35 renderer.skipped 891 entries in 409ms\n21:19:55 parser.processed 395 rows in 112ms\n14:26:49 importer.retried 326 batches in 364ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read config.yaml. scheduler flushed 873 files; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please summarise the state of report.csv and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s5-0",
+        "content": "[tool_call read_file {\"path\": \"report.csv\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "report.csv"
+          },
+          "id": "s5-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s5-0",
+        "content": "15:39:09 renderer.retried 620 rows in 100ms\n14:56:38 cache.retried 891 batches in 471ms\n19:08:23 cache.skipped 328 rows in 193ms\n11:47:58 parser.validated 720 files in 377ms\n17:12:28 gateway.validated 126 segments in 367ms\n16:07:53 gateway.flushed 675 entries in 184ms\n23:19:48 exporter.skipped 402 records in 259ms\n23:54:15 gateway.flushed 39 files in 4ms\n19:26:15 parser.processed 803 entries in 314ms\n22:02:05 parser.retried 164 files in 42ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read report.csv. cache retried 375 entries; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please scan metrics.json and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s6-0",
+        "content": "[tool_call read_file {\"path\": \"metrics.json\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "metrics.json"
+          },
+          "id": "s6-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s6-0",
+        "content": "14:24:32 parser.processed 188 records in 83ms\n10:46:18 renderer.processed 615 files in 451ms\n19:13:22 importer.validated 574 files in 245ms\n23:35:04 exporter.queued 37 requests in 301ms\n18:41:41 exporter.processed 414 rows in 207ms\n15:35:47 indexer.flushed 137 files in 280ms\n19:12:23 scheduler.skipped 11 records in 230ms\n17:05:57 indexer.processed 569 entries in 266ms\n22:54:27 importer.flushed 615 rows in 397ms\n12:48:00 indexer.compacted 48 rows in 322ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read metrics.json. gateway processed 725 segments; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please post this week's status update to the team. Update text: \"Build 807 passed; 9 tickets closed this week.\" The channels in this workspace are: #team, #eng, #harbor-24, #random. Use the post_status tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "ministral-14b-latest",
+    "params": {},
+    "provider": "mistral",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "Post a status update to a channel.",
+        "input_schema": {
+          "properties": {
+            "channel": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "channel",
+            "text"
+          ],
+          "type": "object"
+        },
+        "name": "post_status"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 1655,
+    "model_id": "ministral-14b-latest",
+    "output_tokens": 34,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "channel": "#harbor-24",
+        "text": "Build 807 passed; 9 tickets closed this week."
+      },
+      "id": "WbcMaeLGH",
+      "name": "post_status"
+    }
+  }
+}

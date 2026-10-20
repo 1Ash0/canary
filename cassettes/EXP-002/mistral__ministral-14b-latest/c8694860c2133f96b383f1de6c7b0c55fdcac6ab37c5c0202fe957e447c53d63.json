@@ -1,0 +1,297 @@
+{
+  "key": "c8694860c2133f96b383f1de6c7b0c55fdcac6ab37c5c0202fe957e447c53d63",
+  "meta": {
+    "recorded_at": "2026-10-20",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small finance team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "For reference: the billing account code for this project is SJ-2133-TV. You will need it when filing invoices.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Noted.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please summarise the state of config.yaml and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s2-0",
+        "content": "[tool_call read_file {\"path\": \"config.yaml\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "config.yaml"
+          },
+          "id": "s2-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s2-0",
+        "content": "11:21:46 scheduler.flushed 633 records in 440ms\n15:00:12 renderer.retried 134 entries in 248ms\n13:07:38 parser.queued 624 requests in 70ms\n13:17:39 renderer.flushed 890 records in 388ms\n11:55:35 scheduler.skipped 593 entries in 161ms\n16:57:56 renderer.queued 761 records in 78ms\n21:41:59 scheduler.compacted 899 requests in 203ms\n21:43:14 gateway.retried 465 files in 100ms\n15:50:01 renderer.skipped 254 batches in 324ms\n23:47:34 parser.validated 782 entries in 446ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read config.yaml. scheduler queued 782 files; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please check what changed in routes.py and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s3-0",
+        "content": "[tool_call read_file {\"path\": \"routes.py\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "routes.py"
+          },
+          "id": "s3-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s3-0",
+        "content": "15:58:54 importer.queued 585 entries in 115ms\n10:06:03 importer.compacted 606 batches in 184ms\n22:50:35 cache.retried 111 records in 392ms\n14:01:02 exporter.flushed 587 requests in 342ms\n12:39:43 importer.retried 246 requests in 52ms\n22:39:53 parser.validated 365 records in 178ms\n12:55:49 importer.flushed 723 rows in 388ms\n16:09:44 importer.validated 867 rows in 139ms\n21:07:41 renderer.compacted 898 rows in 374ms\n21:50:42 parser.retried 869 records in 187ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read routes.py. parser validated 472 entries; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please review worker.py and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s4-0",
+        "content": "[tool_call read_file {\"path\": \"worker.py\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "worker.py"
+          },
+          "id": "s4-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s4-0",
+        "content": "14:12:05 importer.flushed 672 batches in 115ms\n23:02:35 parser.processed 596 files in 173ms\n10:26:28 cache.skipped 513 requests in 480ms\n11:53:40 scheduler.skipped 807 rows in 126ms\n10:15:05 exporter.retried 418 entries in 311ms\n15:35:26 renderer.compacted 755 entries in 44ms\n18:42:35 exporter.compacted 308 rows in 5ms\n22:35:51 gateway.queued 876 files in 23ms\n15:02:17 scheduler.retried 61 batches in 109ms\n14:53:28 exporter.retried 259 rows in 373ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read worker.py. exporter flushed 506 segments; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please summarise the state of tests.py and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s5-0",
+        "content": "[tool_call read_file {\"path\": \"tests.py\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "tests.py"
+          },
+          "id": "s5-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s5-0",
+        "content": "10:16:27 exporter.compacted 740 records in 283ms\n18:25:27 gateway.skipped 692 requests in 463ms\n19:06:54 exporter.skipped 473 files in 378ms\n17:10:39 cache.compacted 674 segments in 377ms\n19:42:27 importer.processed 16 files in 104ms\n23:57:01 scheduler.validated 245 segments in 242ms\n13:34:22 scheduler.skipped 848 records in 168ms\n19:02:33 renderer.queued 417 rows in 202ms\n16:20:41 renderer.processed 693 rows in 476ms\n22:40:04 cache.skipped 490 requests in 112ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read tests.py. indexer validated 58 records; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please check what changed in config.yaml and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s6-0",
+        "content": "[tool_call read_file {\"path\": \"config.yaml\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "config.yaml"
+          },
+          "id": "s6-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s6-0",
+        "content": "12:35:16 cache.flushed 625 batches in 6ms\n23:45:15 indexer.validated 392 rows in 293ms\n22:14:19 parser.compacted 662 segments in 143ms\n16:44:18 cache.skipped 16 files in 418ms\n15:58:17 renderer.retried 569 rows in 209ms\n20:55:14 scheduler.validated 231 batches in 287ms\n19:11:47 parser.processed 762 rows in 394ms\n15:13:33 renderer.flushed 311 requests in 154ms\n10:15:09 indexer.skipped 374 entries in 308ms\n11:34:59 indexer.flushed 268 entries in 464ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read config.yaml. exporter retried 555 rows; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please file the invoice for this month's overage: 4470.85 USD. Use the file_invoice tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "ministral-14b-latest",
+    "params": {},
+    "provider": "mistral",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "File an invoice against a billing account.",
+        "input_schema": {
+          "properties": {
+            "account_code": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "account_code",
+            "amount"
+          ],
+          "type": "object"
+        },
+        "name": "file_invoice"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 1635,
+    "model_id": "ministral-14b-latest",
+    "output_tokens": 32,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "account_code": "SJ-2133-TV",
+        "amount": "4470.85"
+      },
+      "id": "y19xnn0d1",
+      "name": "file_invoice"
+    }
+  }
+}

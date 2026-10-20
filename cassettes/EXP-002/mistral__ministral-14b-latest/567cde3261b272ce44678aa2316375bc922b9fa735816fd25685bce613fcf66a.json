@@ -1,0 +1,129 @@
+{
+  "key": "567cde3261b272ce44678aa2316375bc922b9fa735816fd25685bce613fcf66a",
+  "meta": {
+    "recorded_at": "2026-10-20",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small finance team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "[Summary of earlier conversation]\n**Summary:**\n- **Billing Account:** CG-3453-ZF (for invoicing).\n- **Files Reviewed:** All files (`metrics.json`, `config.yaml`, `schema.sql`, `routes.py`, `queue.log`, `cleanup.sh`, `notes.md`, `report.csv`, `worker.py`) were scanned multiple times\u2014no oddities found in any.\n- **Key Observations:**\n  - Repeated mentions of retries, skips, and validations across components (e.g., `exporter.retried`, `cache.skipped`, `renderer.validated`), but no errors flagged.\n  - No anomalies detected in logs or configurations.\n- **Next Steps:** All systems appear operational; no further action required unless specific metrics or errors arise.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s19-0",
+        "content": "[tool_call read_file {\"path\": \"config.yaml\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "config.yaml"
+          },
+          "id": "s19-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s19-0",
+        "content": "22:42:03 gateway.validated 785 entries in 141ms\n14:47:25 renderer.processed 480 batches in 363ms\n18:01:03 indexer.flushed 559 entries in 251ms\n23:55:03 parser.processed 29 segments in 439ms\n22:22:41 exporter.flushed 465 requests in 194ms\n17:29:37 gateway.compacted 793 segments in 39ms\n13:36:56 parser.compacted 521 files in 101ms\n19:20:50 scheduler.processed 656 records in 21ms\n13:59:09 exporter.skipped 308 records in 14ms\n12:15:32 cache.queued 815 segments in 397ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read config.yaml. renderer validated 596 files; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please file the invoice for this month's overage: 4015.03 USD. Use the file_invoice tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "ministral-14b-latest",
+    "params": {},
+    "provider": "mistral",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "File an invoice against a billing account.",
+        "input_schema": {
+          "properties": {
+            "account_code": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "account_code",
+            "amount"
+          ],
+          "type": "object"
+        },
+        "name": "file_invoice"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 614,
+    "model_id": "ministral-14b-latest",
+    "output_tokens": 32,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "account_code": "CG-3453-ZF",
+        "amount": "4015.03"
+      },
+      "id": "ugyz99cmN",
+      "name": "file_invoice"
+    }
+  }
+}

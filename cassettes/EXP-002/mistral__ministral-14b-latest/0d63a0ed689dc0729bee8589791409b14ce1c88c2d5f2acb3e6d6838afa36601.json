@@ -1,0 +1,297 @@
+{
+  "key": "0d63a0ed689dc0729bee8589791409b14ce1c88c2d5f2acb3e6d6838afa36601",
+  "meta": {
+    "recorded_at": "2026-10-20",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small finance team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "For reference: the billing account code for this project is JQ-7438-FF. You will need it when filing invoices.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Noted.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please summarise the state of notes.md and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s2-0",
+        "content": "[tool_call read_file {\"path\": \"notes.md\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "notes.md"
+          },
+          "id": "s2-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s2-0",
+        "content": "10:43:00 renderer.skipped 697 records in 147ms\n13:45:57 indexer.compacted 381 requests in 205ms\n16:19:21 renderer.flushed 196 segments in 338ms\n22:36:12 cache.processed 114 records in 302ms\n15:59:47 cache.skipped 759 rows in 165ms\n17:24:20 gateway.processed 381 entries in 444ms\n14:30:12 parser.retried 613 requests in 266ms\n13:26:43 parser.processed 85 rows in 339ms\n20:42:19 importer.validated 674 rows in 310ms\n14:35:16 renderer.validated 404 records in 87ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read notes.md. exporter flushed 15 files; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please look through config.yaml and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s3-0",
+        "content": "[tool_call read_file {\"path\": \"config.yaml\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "config.yaml"
+          },
+          "id": "s3-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s3-0",
+        "content": "22:22:49 gateway.queued 295 segments in 297ms\n22:59:51 parser.retried 173 batches in 381ms\n12:57:46 gateway.processed 307 batches in 51ms\n19:34:12 renderer.processed 780 rows in 129ms\n19:53:11 importer.processed 92 files in 61ms\n21:51:32 parser.processed 607 batches in 406ms\n22:15:35 parser.skipped 781 rows in 123ms\n19:00:45 indexer.processed 481 files in 334ms\n11:54:19 gateway.flushed 894 requests in 187ms\n14:37:04 cache.processed 58 files in 92ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read config.yaml. importer queued 512 entries; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please scan schema.sql and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s4-0",
+        "content": "[tool_call read_file {\"path\": \"schema.sql\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "schema.sql"
+          },
+          "id": "s4-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s4-0",
+        "content": "12:44:14 parser.compacted 698 rows in 439ms\n20:06:23 parser.retried 86 segments in 376ms\n23:08:06 cache.flushed 373 batches in 314ms\n15:15:00 parser.flushed 57 records in 338ms\n17:07:19 renderer.queued 431 requests in 444ms\n20:55:59 parser.flushed 88 requests in 404ms\n16:15:39 cache.validated 292 files in 136ms\n20:05:41 renderer.queued 857 segments in 296ms\n12:52:51 renderer.validated 601 requests in 351ms\n10:19:58 parser.validated 479 batches in 273ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read schema.sql. parser queued 770 records; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please review cleanup.sh and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s5-0",
+        "content": "[tool_call read_file {\"path\": \"cleanup.sh\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "cleanup.sh"
+          },
+          "id": "s5-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s5-0",
+        "content": "15:49:50 indexer.processed 134 files in 44ms\n19:51:47 indexer.validated 870 files in 135ms\n14:31:05 cache.validated 631 rows in 208ms\n20:10:57 indexer.compacted 828 batches in 349ms\n11:28:47 importer.validated 899 batches in 394ms\n16:40:30 gateway.queued 482 batches in 159ms\n17:49:32 indexer.compacted 172 records in 98ms\n15:10:22 scheduler.compacted 471 entries in 383ms\n23:09:39 exporter.skipped 58 segments in 79ms\n17:39:59 parser.validated 303 batches in 303ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read cleanup.sh. cache flushed 155 rows; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please scan notes.md and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s6-0",
+        "content": "[tool_call read_file {\"path\": \"notes.md\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "notes.md"
+          },
+          "id": "s6-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s6-0",
+        "content": "21:41:31 gateway.queued 570 requests in 245ms\n15:06:59 importer.skipped 355 batches in 462ms\n15:59:28 importer.retried 227 batches in 326ms\n21:18:20 exporter.processed 11 requests in 294ms\n17:16:56 parser.processed 275 records in 89ms\n14:21:58 gateway.compacted 78 rows in 75ms\n23:56:52 renderer.queued 194 requests in 11ms\n19:55:01 indexer.processed 413 batches in 95ms\n18:56:34 scheduler.compacted 778 rows in 216ms\n14:12:15 importer.flushed 783 rows in 70ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read notes.md. importer retried 698 batches; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please file the invoice for this month's overage: 5441.69 USD. Use the file_invoice tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "ministral-14b-latest",
+    "params": {},
+    "provider": "mistral",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "File an invoice against a billing account.",
+        "input_schema": {
+          "properties": {
+            "account_code": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "account_code",
+            "amount"
+          ],
+          "type": "object"
+        },
+        "name": "file_invoice"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 1610,
+    "model_id": "ministral-14b-latest",
+    "output_tokens": 33,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "account_code": "JQ-7438-FF",
+        "amount": "5441.69"
+      },
+      "id": "4WjLwn3Gb",
+      "name": "file_invoice"
+    }
+  }
+}

@@ -1,0 +1,351 @@
+{
+  "key": "0b99d34d0376253e58a1e5332c4eb27b441279cae230d6ca6db8822dc9c41a54",
+  "meta": {
+    "recorded_at": "2026-10-20",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small finance team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please look through report.csv and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s1-0",
+        "content": "[tool_call read_file {\"path\": \"report.csv\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "report.csv"
+          },
+          "id": "s1-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s1-0",
+        "content": "23:30:49 gateway.processed 695 rows in 241ms\n16:57:01 indexer.queued 321 records in 18ms\n21:27:52 renderer.queued 406 files in 258ms\n11:22:47 scheduler.skipped 69 segments in 24ms\n20:40:54 exporter.queued 880 requests in 150ms\n18:25:12 exporter.flushed 149 records in 247ms\n16:07:39 renderer.retried 53 batches in 421ms\n14:13:47 importer.compacted 411 batches in 208ms\n11:26:43 cache.skipped 302 requests in 66ms\n12:57:14 exporter.compacted 825 entries in 277ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read report.csv. importer processed 896 records; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "For reference: the billing account code for this project is UT-4789-VM. You will need it when filing invoices.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Noted.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please summarise the state of worker.py and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read schema.sql. importer flushed 86 files; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please review report.csv and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s15-0",
+        "content": "[tool_call read_file {\"path\": \"report.csv\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "report.csv"
+          },
+          "id": "s15-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s15-0",
+        "content": "22:19:12 gateway.validated 19 requests in 423ms\n12:21:07 importer.processed 442 files in 367ms\n18:30:46 importer.queued 317 requests in 219ms\n21:59:50 cache.processed 667 rows in 110ms\n23:42:01 renderer.queued 303 rows in 213ms\n19:56:10 cache.skipped 438 requests in 211ms\n15:36:52 indexer.flushed 560 segments in 4ms\n18:35:53 exporter.compacted 403 rows in 127ms\n23:27:35 scheduler.queued 586 requests in 38ms\n11:47:23 cache.validated 16 batches in 389ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read report.csv. importer skipped 467 files; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please look through metrics.json and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s16-0",
+        "content": "[tool_call read_file {\"path\": \"metrics.json\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "metrics.json"
+          },
+          "id": "s16-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s16-0",
+        "content": "10:33:58 renderer.queued 214 requests in 68ms\n21:53:42 cache.skipped 539 batches in 237ms\n14:15:04 renderer.skipped 880 requests in 90ms\n17:36:13 importer.validated 301 files in 339ms\n18:13:43 parser.flushed 702 files in 219ms\n19:32:07 indexer.validated 256 files in 480ms\n12:15:45 gateway.compacted 423 requests in 147ms\n17:59:21 renderer.processed 689 rows in 158ms\n21:28:44 exporter.retried 29 requests in 282ms\n13:32:03 indexer.compacted 207 entries in 200ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read metrics.json. importer validated 812 batches; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please look through tests.py and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s17-0",
+        "content": "[tool_call read_file {\"path\": \"tests.py\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "tests.py"
+          },
+          "id": "s17-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s17-0",
+        "content": "20:12:13 gateway.validated 369 files in 373ms\n22:02:29 cache.retried 50 requests in 384ms\n21:59:22 renderer.queued 753 entries in 144ms\n17:33:08 exporter.skipped 501 entries in 429ms\n23:14:18 importer.retried 754 entries in 85ms\n20:32:02 scheduler.flushed 508 rows in 108ms\n21:40:13 importer.validated 828 files in 317ms\n23:57:52 indexer.processed 350 entries in 125ms\n13:45:14 cache.skipped 877 entries in 60ms\n13:24:45 indexer.processed 431 rows in 155ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read tests.py. importer queued 266 requests; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please review schema.sql and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s18-0",
+        "content": "[tool_call read_file {\"path\": \"schema.sql\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "schema.sql"
+          },
+          "id": "s18-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s18-0",
+        "content": "18:15:44 gateway.queued 324 requests in 110ms\n12:39:56 renderer.compacted 491 requests in 131ms\n16:10:42 exporter.flushed 113 requests in 347ms\n11:30:59 importer.flushed 700 records in 10ms\n22:13:16 scheduler.compacted 308 requests in 21ms\n21:51:37 indexer.processed 691 records in 424ms\n20:33:19 scheduler.flushed 739 files in 233ms\n16:22:02 scheduler.compacted 285 entries in 239ms\n14:53:01 importer.compacted 92 files in 50ms\n14:32:04 renderer.processed 470 requests in 54ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read schema.sql. gateway flushed 75 segments; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please review tests.py and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s19-0",
+        "content": "[tool_call read_file {\"path\": \"tests.py\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "tests.py"
+          },
+          "id": "s19-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s19-0",
+        "content": "23:37:26 exporter.skipped 681 batches in 340ms\n20:19:05 scheduler.retried 438 segments in 124ms\n22:13:40 exporter.compacted 486 records in 79ms\n11:21:56 indexer.compacted 247 segments in 154ms\n12:15:33 cache.retried 62 rows in 417ms\n23:44:51 cache.processed 182 records in 152ms\n15:59:37 exporter.validated 822 requests in 221ms\n20:41:22 exporter.skipped 727 entries in 103ms\n11:00:11 renderer.retried 872 files in 404ms\n16:33:46 exporter.queued 481 rows in 449ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read tests.py. gateway queued 827 files; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please file the invoice for this month's overage: 5726.14 USD. Use the file_invoice tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "ministral-14b-latest",
+    "params": {},
+    "provider": "mistral",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "File an invoice against a billing account.",
+        "input_schema": {
+          "properties": {
+            "account_code": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "account_code",
+            "amount"
+          ],
+          "type": "object"
+        },
+        "name": "file_invoice"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 1939,
+    "model_id": "ministral-14b-latest",
+    "output_tokens": 32,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "account_code": "UT-4789-VM",
+        "amount": "5726.14"
+      },
+      "id": "2psNdXHuW",
+      "name": "file_invoice"
+    }
+  }
+}

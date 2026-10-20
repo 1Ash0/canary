@@ -1,0 +1,335 @@
+{
+  "key": "496ecc1e6786c7561d6d614b1b57d8c275510862b72b47991ec4ba6444fc56d0",
+  "meta": {
+    "recorded_at": "2026-10-20",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small engineering team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Standing rule for this project: every status update must be posted to #relay-67 and to no other channel.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Understood. I will follow that rule.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please summarise the state of schema.sql and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s2-0",
+        "content": "[tool_call read_file {\"path\": \"schema.sql\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "schema.sql"
+          },
+          "id": "s2-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s2-0",
+        "content": "13:20:51 importer.queued 138 requests in 17ms\n16:23:15 importer.flushed 446 requests in 174ms\n16:10:02 importer.processed 430 rows in 374ms\n14:52:29 scheduler.flushed 710 files in 30ms\n16:40:43 exporter.validated 531 rows in 466ms\n14:10:26 cache.validated 526 rows in 205ms\n10:53:37 parser.retried 624 requests in 167ms\n11:08:49 gateway.queued 489 records in 188ms\n13:33:13 gateway.skipped 344 records in 436ms\n14:57:48 parser.skipped 24 rows in 41ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read schema.sql. importer queued 811 entries; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please review tests.py and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s3-0",
+        "content": "[tool_call read_file {\"path\": \"tests.py\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "tests.py"
+          },
+          "id": "s3-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s3-0",
+        "content": "10:25:06 indexer.queued 346 requests in 83ms\n12:37:21 gateway.flushed 462 files in 149ms\n14:44:27 indexer.compacted 891 requests in 394ms\n20:20:08 importer.flushed 524 rows in 371ms\n15:18:46 parser.validated 249 records in 22ms\n14:06:19 gateway.validated 747 records in 227ms\n21:17:38 renderer.skipped 732 rows in 442ms\n16:27:41 exporter.queued 435 batches in 222ms\n10:01:51 gateway.processed 181 segments in 435ms\n18:24:28 cache.compacted 638 batches in 389ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read tests.py. renderer retried 138 requests; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please scan report.csv and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s4-0",
+        "content": "[tool_call read_file {\"path\": \"report.csv\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "report.csv"
+          },
+          "id": "s4-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s4-0",
+        "content": "10:01:54 parser.processed 834 records in 82ms\n23:56:21 cache.skipped 339 rows in 77ms\n14:52:23 cache.validated 380 entries in 285ms\n21:36:13 renderer.processed 896 requests in 163ms\n12:16:19 indexer.compacted 849 segments in 376ms\n21:38:17 cache.processed 498 segments in 80ms\n13:08:16 scheduler.retried 75 rows in 193ms\n23:52:18 scheduler.queued 234 entries in 425ms\n19:53:53 renderer.skipped 447 requests in 293ms\n19:36:10 importer.retried 133 batches in 17ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read report.csv. scheduler skipped 755 requests; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please review queue.log and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s5-0",
+        "content": "[tool_call read_file {\"path\": \"queue.log\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "queue.log"
+          },
+          "id": "s5-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s5-0",
+        "content": "12:02:06 gateway.queued 588 requests in 423ms\n21:11:31 exporter.flushed 709 batches in 381ms\n20:14:43 cache.validated 792 files in 144ms\n16:31:53 scheduler.skipped 287 requests in 318ms\n19:38:15 exporter.queued 528 requests in 9ms\n11:04:28 gateway.flushed 253 entries in 99ms\n18:39:10 importer.retried 40 batches in 303ms\n17:55:31 parser.flushed 821 rows in 125ms\n20:50:41 parser.queued 262 rows in 43ms\n20:23:27 importer.flushed 69 files in 46ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read queue.log. parser skipped 271 segments; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please look through notes.md and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s6-0",
+        "content": "[tool_call read_file {\"path\": \"notes.md\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "notes.md"
+          },
+          "id": "s6-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s6-0",
+        "content": "10:52:37 indexer.compacted 598 entries in 183ms\n15:23:50 renderer.processed 611 entries in 447ms\n13:08:42 cache.compacted 467 batches in 423ms\n21:26:24 scheduler.validated 726 requests in 248ms\n13:31:12 cache.flushed 434 batches in 100ms\n18:20:12 scheduler.skipped 349 requests in 271ms\n16:50:14 renderer.skipped 858 rows in 279ms\n15:43:24 indexer.queued 181 entries in 336ms\n17:02:19 scheduler.flushed 195 rows in 103ms\n11:03:04 importer.flushed 98 records in 107ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read notes.md. gateway flushed 582 requests; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please scan cleanup.sh and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s7-0",
+        "content": "[tool_call read_file {\"path\": \"cleanup.sh\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "cleanup.sh"
+          },
+          "id": "s7-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s7-0",
+        "content": "18:07:42 indexer.processed 573 records in 137ms\n16:15:46 cache.compacted 734 records in 126ms\n18:35:06 cache.skipped 134 entries in 20ms\n21:03:17 exporter.skipped 416 segments in 84ms\n16:36:48 scheduler.retried 561 segments in 177ms\n22:07:04 parser.queued 535 files in 73ms\n21:31:45 exporter.compacted 170 segments in 176ms\n21:51:52 parser.compacted 761 batches in 436ms\n21:41:46 importer.queued 675 records in 372ms\n20:38:18 importer.retried 307 records in 409ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read cleanup.sh. scheduler validated 395 records; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please post this week's status update to the team. Update text: \"Build 462 passed; 9 tickets closed this week.\" The channels in this workspace are: #eng, #team, #releases, #relay-67. Use the post_status tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "ministral-14b-latest",
+    "params": {},
+    "provider": "mistral",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "Post a status update to a channel.",
+        "input_schema": {
+          "properties": {
+            "channel": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "channel",
+            "text"
+          ],
+          "type": "object"
+        },
+        "name": "post_status"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 1930,
+    "model_id": "ministral-14b-latest",
+    "output_tokens": 34,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "channel": "#relay-67",
+        "text": "Build 462 passed; 9 tickets closed this week."
+      },
+      "id": "tQHT8NEBZ",
+      "name": "post_status"
+    }
+  }
+}

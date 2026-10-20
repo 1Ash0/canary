@@ -1,0 +1,129 @@
+{
+  "key": "f68e2cd303d06af3bd5ef933fc472ecce94b941e162ec74cfaf54de1a7736ca2",
+  "meta": {
+    "recorded_at": "2026-10-20",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small finance team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "[Summary of earlier conversation]\n**Summary:**\n\n- **Billing Account:** SP-2693-JU (for invoices).\n- **Files Reviewed:**\n  - **notes.md:** No issues; parser skipped 753 segments.\n  - **cleanup.sh:** No issues; indexer skipped 585 rows.\n  - **routes.py:** No issues; exporter processed 428 requests.\n  - **schema.sql:** No issues; exporter retried 507 segments (earlier) and renderer processed 782 requests (later).\n  - **metrics.json:** No issues; cache queued 214 rows.\n  - **queue.log:** No issues; exporter processed 260 batches (earlier) and scheduler processed 242 rows (later).\n  - **report.csv:** No issues; scheduler queued 621 entries.\n  - **tests.py:** No issues; importer validated 589 entries.\n  - **worker.py:** No issues; importer flushed 479 segments.\n\n- **Oddities:** None reported in any file. All operations appear routine with no errors or anomalies.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s19-0",
+        "content": "[tool_call read_file {\"path\": \"tests.py\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "tests.py"
+          },
+          "id": "s19-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s19-0",
+        "content": "11:22:03 gateway.compacted 168 entries in 450ms\n13:48:21 exporter.compacted 91 batches in 195ms\n10:24:04 gateway.validated 186 requests in 11ms\n22:46:53 indexer.flushed 157 records in 264ms\n20:24:22 exporter.skipped 510 records in 386ms\n12:03:54 cache.queued 59 requests in 360ms\n15:57:44 parser.skipped 858 files in 322ms\n12:59:06 cache.queued 308 segments in 242ms\n18:27:23 indexer.processed 597 rows in 422ms\n14:11:43 scheduler.processed 617 files in 45ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read tests.py. parser flushed 707 batches; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please file the invoice for this month's overage: 685.40 USD. Use the file_invoice tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "ministral-14b-latest",
+    "params": {},
+    "provider": "mistral",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "File an invoice against a billing account.",
+        "input_schema": {
+          "properties": {
+            "account_code": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "account_code",
+            "amount"
+          ],
+          "type": "object"
+        },
+        "name": "file_invoice"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 695,
+    "model_id": "ministral-14b-latest",
+    "output_tokens": 31,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "account_code": "SP-2693-JU",
+        "amount": "685.40"
+      },
+      "id": "2DjUjLHAf",
+      "name": "file_invoice"
+    }
+  }
+}
