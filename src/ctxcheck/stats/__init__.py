@@ -1,1 +1,3 @@
-# stats/ — wilson intervals, bootstrap CI, McNemar test (M4)
+from ctxcheck.stats.wilson import wilson_interval
+
+__all__ = ["wilson_interval"]
