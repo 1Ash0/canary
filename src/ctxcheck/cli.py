@@ -9,11 +9,14 @@ from __future__ import annotations
 
 import json
 import os
+import re
 from datetime import UTC, datetime
 from pathlib import Path
+from typing import Any
 
 import typer
 
+from ctxcheck.canaries import PACKS, build_pack, window_tokens_before_probe
 from ctxcheck.harness.budget import (
     Budget,
     BudgetError,
@@ -28,8 +31,13 @@ from ctxcheck.harness.loop import Scenario, Turn
 from ctxcheck.harness.loop import run as run_loop
 from ctxcheck.harness.tools import Tool
 from ctxcheck.harness.types import ToolSpec
+from ctxcheck.policies import REGISTRY
 from ctxcheck.providers.base import Provider
+from ctxcheck.providers.cassette import CassetteProvider
 from ctxcheck.providers.presets import PRESETS, from_preset
+from ctxcheck.providers.simulated import MODEL_ID, SimulatedAgent
+from ctxcheck.runner.analysis import analyse
+from ctxcheck.runner.experiment import ExperimentPlan, read_rows, run_experiment
 
 app = typer.Typer(
     name="ctxcheck",
@@ -159,20 +167,149 @@ def smoke(
     raise typer.Exit(1)
 
 
+def _slug(text: str) -> str:
+    """A directory-safe name: model ids contain ':' and '/', which Windows paths reject."""
+    return re.sub(r"[^\w.-]", "_", text)
+
+
+def _parse_options(opts: list[str]) -> tuple[tuple[str, Any], ...]:
+    out: list[tuple[str, Any]] = []
+    for item in opts:
+        key, _, raw = item.partition("=")
+        if not key or not raw:
+            raise typer.BadParameter(f"--opt expects name=value, got {item!r}")
+        value: Any = raw
+        for cast in (int, float):
+            try:
+                value = cast(raw)
+                break
+            except ValueError:
+                continue
+        out.append((key, value))
+    return tuple(out)
+
+
+def _estimate(plan_: ExperimentPlan) -> tuple[int, int]:
+    """Rough (input, output) tokens for the whole plan, from a sample episode. Upper-bound style."""
+    sample = build_pack(plan_.pack, plan_.seeds[0], n_filler=plan_.n_filler, lines=plan_.lines,
+                        canary_turn=plan_.canary_turn)
+    full = window_tokens_before_probe(sample)
+    per_seed = 0
+    for c in plan_.conditions:
+        per_seed += full if c in ("floor", "control") else plan_.limit_tokens
+    if plan_.policy == "llm_summary" and "treatment" in plan_.conditions:
+        per_seed += full  # the summary call reads the whole history
+    n = len(plan_.seeds) * plan_.trials
+    out_tokens = n * (len(plan_.conditions) * 80 + (400 if plan_.policy == "llm_summary" else 0))
+    return n * per_seed, out_tokens
+
+
 @app.command()
 def run(
-    scenario: str = typer.Option(..., help="Scenario / canary pack name"),
-    policy: str = typer.Option(..., help="Compaction policy name"),
-    model: str = typer.Option("unset", help="Model to test"),
-    dry_run: bool = typer.Option(False, "--dry-run", help="Print plan without running"),
+    exp: str = typer.Option(..., help="Experiment id, e.g. EXP-001 (preregister it first)"),
+    pack: str = typer.Option("constraint", help=f"Canary pack: {', '.join(sorted(PACKS))}"),
+    policy: str = typer.Option("llm_summary", help=f"One of: {', '.join(sorted(REGISTRY))}"),
+    opt: list[str] = typer.Option([], "--opt", help="Policy option name=value (repeatable)"),
+    seeds: int = typer.Option(10, min=1, help="Seeds 1..N"),
+    trials: int = typer.Option(1, min=1),
+    limit_tokens: int = typer.Option(2400, help="Window budget the treatment compacts against"),
+    simulated: bool = typer.Option(False, "--simulated", help="Toy agent: free, NOT measured"),
+    preset: str = typer.Option("", help=f"Provider preset: {', '.join(sorted(PRESETS))}"),
+    model: str = typer.Option("", help="Model id; must be a row in the price table"),
+    mode: str = typer.Option("auto", help="Cassette mode: auto (record misses), replay, record"),
+    cassettes: Path = typer.Option(Path("cassettes"), help="Cassette root directory"),
+    results: Path = typer.Option(Path("results"), help="Results root directory"),
+    runs: Path = typer.Option(Path("runs"), help="Trace root directory"),
+    max_requests: int = typer.Option(0, help="Per-run request cap"),
+    max_tokens: int = typer.Option(0, help="Per-run token cap (input + output)"),
+    daily_requests: int | None = typer.Option(None),
+    daily_tokens: int | None = typer.Option(None),
+    prices: Path = typer.Option(DEFAULT_PRICES),
+    usage: Path = typer.Option(DEFAULT_USAGE),
+    dry_run: bool = typer.Option(False, "--dry-run", help="Estimate only; send nothing"),
 ) -> None:
-    """Run a canary scenario under a compaction policy (wired in M4)."""
-    typer.echo(f"scenario={scenario!r} policy={policy!r} model={model!r}")
+    """Run an experiment: four conditions per seed, resumable, graded by tool call."""
+    if mode not in ("auto", "replay", "record"):
+        raise typer.BadParameter("mode must be auto, replay or record")
+    if not simulated and not (preset and model):
+        raise typer.BadParameter("give --preset and --model, or --simulated")
+    plan_ = ExperimentPlan(exp, pack, policy, tuple(range(1, seeds + 1)), trials,
+                           policy_options=_parse_options(opt), limit_tokens=limit_tokens)
+    name, model_id = ("simulated", MODEL_ID) if simulated else (preset, model)
+    tin, tout = _estimate(plan_)
+    calls = plan_.calls_upper_bound()
+    typer.echo(f"{exp}: {pack} x {policy}, {seeds} seeds x {trials} trial(s) -> "
+               f"<= {calls} model calls, ~{tin + tout} tokens"
+               + ("   [SIMULATED: not measured]" if simulated else ""))
     if dry_run:
-        typer.echo("[dry-run] no API calls will be made. Use `ctxcheck plan` for the estimate.")
-        return
-    typer.echo("`run` is wired in M4 (canary packs and the experiment runner).")
-    raise typer.Exit(1)
+        if not simulated:
+            budget = Budget(0.0, max_requests, max_tokens, daily_requests, daily_tokens)
+            p = make_plan(trials=1, calls_per_trial=calls, input_tokens_per_call=tin // calls,
+                          output_tokens_per_call=tout // calls,
+                          price=_load_prices(prices).lookup(preset, model), budget=budget)
+            typer.echo(f"free={p.free}  fits run caps={p.fits_run_caps}  "
+                       f"days needed at the daily limits: {p.days_needed}")
+            for w in p.warnings:
+                typer.echo(f"warning: {w}")
+            raise typer.Exit(0 if not p.warnings else 1)
+        typer.echo("[dry-run] nothing is sent")
+        raise typer.Exit(0)
+
+    provider: Provider
+    if simulated:
+        provider = SimulatedAgent()
+        out_dir, runs_dir = results / "simulated" / exp, runs / "simulated" / exp
+    else:
+        if mode != "replay":
+            env = str(PRESETS[preset]["api_key_env"]) if preset in PRESETS else ""
+            if not env or not os.environ.get(env):
+                typer.echo(f"{env or preset} is not set in this shell. Set it there (not in chat).")
+                raise typer.Exit(2)
+        guarded = GuardedProvider(
+            _build_provider(preset, model), provider_name=preset, model=model,
+            prices=_load_prices(prices),
+            budget=Budget(0.0, max_requests, max_tokens, daily_requests, daily_tokens),
+            usage=UsageStore(usage))
+        provider = CassetteProvider(cassettes / exp / f"{preset}__{_slug(model)}",
+                                    mode, inner=None if mode == "replay" else guarded,
+                                    provider_name=preset, model=model)
+        out_dir, runs_dir = results / exp, runs / exp
+
+    report = run_experiment(plan_, provider, provider_name=name, model=model_id, out_dir=out_dir,
+                            runs_dir=runs_dir, source="simulated" if simulated else "recorded",
+                            log=typer.echo)
+    typer.echo(f"ran {report.ran}, skipped {report.skipped} already done, "
+               f"missing cassettes {len(report.missing_cassettes)}")
+    if report.stopped:
+        typer.echo(f"stopped early: {report.stopped}. Rerun the same command to resume.")
+        raise typer.Exit(3)
+
+
+@app.command()
+def report(
+    exp_dir: Path = typer.Argument(..., help="results/<exp> directory with episodes.jsonl"),
+) -> None:
+    """Write summary.json and print rates with Wilson intervals and the paired comparisons."""
+    rows = read_rows(exp_dir / "episodes.jsonl")
+    if not rows:
+        typer.echo(f"no episodes in {exp_dir}")
+        raise typer.Exit(1)
+    summary = analyse(rows)
+    (exp_dir / "summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
+    tag = "SIMULATED (not measured)" if summary["source"] == "simulated" else "recorded"
+    typer.echo(f"{summary['exp_id']}  {tag}  models: {', '.join(summary['models_reported'])}  "
+               f"dates: {', '.join(summary['dates'])}  episodes: {summary['n_episodes']}")
+    for c in summary["cells"]:
+        if "rate" in c:
+            typer.echo(f"  {c['condition']:<15} violated {c['k_violated']}/{c['n_graded']} = "
+                       f"{c['rate']:.0%}  [{c['wilson_lo']:.0%}, {c['wilson_hi']:.0%}]"
+                       f"  n/a {c['n_not_applicable']}")
+    for c in summary["comparisons"]:
+        if "risk_difference" in c:
+            typer.echo(f"  {c['first']} vs {c['second']}: RD {c['risk_difference']:+.0%} "
+                       f"[{c['rd_lo']:+.0%}, {c['rd_hi']:+.0%}]  McNemar p={c['p_mcnemar']:.3g} "
+                       f"q={c['q_bh']:.3g}  ({c['only_first_failed']} vs "
+                       f"{c['only_second_failed']} discordant)")
 
 
 if __name__ == "__main__":
