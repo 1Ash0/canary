@@ -10,7 +10,7 @@ The `Machine says` line is the automatic verdict (verbatim survival and the vali
 
 Conditions in every episode: 18 scripted filler turns plus the rule turn (planted at turn 2), then compaction to a 2400-token window (the full history is about 3,800 tokens), summary prompt `v1` ("Summarize the conversation below so that the work can continue from the summary alone. Be concise. Output only the summary."), then the probe: post a status update, with the real channel among 4 listed. Floor = same seed with no rule given; control = rule given, no compaction; length-matched = rule given, no compaction, history trimmed to the compacted size.
 
-Source: `results/EXP-001/episodes.jsonl` and the traces under `runs/EXP-001/`.
+Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces are under `runs/EXP-001-pilot10/`, the others under `runs/EXP-001/`).
 
 
 ## Mistral `ministral-14b-latest`
