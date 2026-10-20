@@ -13,6 +13,8 @@ Working name. A test kit and flight recorder for agent context-compaction polici
 - `docs/ROADMAP.md` milestones with exit criteria, scope fence, Later list
 - `docs/DESIGN.md` web identity, views, interaction rules
 - `docs/DECISIONS.md` ADRs (append-only)
+- `design/SITE_RULES.md`, `design/VIDEO_RULES.md` banned looks, motion system, honesty rules: read before any web or video work
+- `design/PROGRESS.md` design-subsystem gates and the exact next step
 - `docs/understanding/` my explain-backs and `LEDGER.md` (gates passed)
 - `docs/notebook/` lab notebook (failures included)
 - `docs/experiments/` preregistrations

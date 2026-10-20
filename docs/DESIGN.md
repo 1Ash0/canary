@@ -3,10 +3,10 @@
 Goal: someone lands from a LinkedIn post, usually on a phone, and within 30 seconds sees something real, interactive and unmistakably made by a person. It must not look like a templated dashboard or a paper in a dull wrapper.
 
 ## Identity
-- Feel: engineering notebook / technical editorial. Warm off-white background, near-black text, one deep-teal accent. **Vermilion only for genuine loss or failure.** No blue (except hyperlinks and syntax highlighting, where semantic blue is expected by engineers).
-- Type: a clean sans (Inter / IBM Plex Sans / Geist family) for text, a mono for labels, numbers and ids.
+- Feel: premium technical instrument: restraint on a warm near-black ground, cream text, one teal accent (ADR-014; values in `design/identity/base.tokens.json` and `design/themes/canary/tokens.json`, which are the source of truth). **Vermilion only for genuine loss or failure.** No blue (except hyperlinks and syntax highlighting, where semantic blue is expected by engineers). No glow, gradients or 3D.
+- Type: Instrument Sans for text, JetBrains Mono for labels, numbers and ids (both OFL 1.1, self-hosted woff2).
 - Signature device: the **point of observation**: one consistent marker that shows the reader where and when to look (the compaction event, the step where a canary vanished). It appears in every view and every post image.
-- **Epistemic tags** on every number and figure: `recorded`, `simulated`, `measured n=…`, `reproduced`, `reasoned`, `broke`. A viewer must never have to guess whether they are looking at a real model output or a transform of one.
+- **Epistemic tags** on every number and figure: `recorded`, `simulated`, `measured n=…`, `reproduced`, `reasoned`, `broke`, `synthetic fixture` (generated test data, shown until real runs exist). A viewer must never have to guess whether they are looking at a real model output or a transform of one.
 - This matches the LinkedIn visual identity already planned, so posts and site look like the same hand.
 
 ## Pages
