@@ -19,6 +19,7 @@ from collections.abc import Sequence
 from ctxcheck.harness.types import Message
 from ctxcheck.policies.base import PolicyContext, SummaryFailed
 from ctxcheck.policies.units import check_reducible, split, tokens
+from ctxcheck.providers._http import ProviderError
 
 PROMPTS: dict[str, str] = {
     "v1": (
@@ -73,7 +74,15 @@ class LLMSummary:
                     ctx.count(_transcript(old)), ctx.step),
         ]
         params = {**ctx.params, "max_tokens": self.max_summary_tokens}
-        response = ctx.provider.complete(request, [], params, ctx.trial_index)
+        try:
+            response = ctx.provider.complete(request, [], params, ctx.trial_index)
+        except ProviderError as e:
+            # a 4xx other than 429 means the provider rejected this request (for example the model
+            # tried to call a tool when none were offered): that is the summarizer failing, so the
+            # episode records it. Rate limits and server errors are infrastructure and propagate.
+            if e.status is not None and 400 <= e.status < 500 and e.status != 429:
+                raise SummaryFailed(f"the summarizer request was rejected: {e}") from e
+            raise
         if ctx.record_call is not None:
             ctx.record_call(response, request)
         text = response.text.strip()

@@ -21,6 +21,7 @@ from ctxcheck.policies import (
     SummaryFailed,
     make_policy,
 )
+from ctxcheck.providers._http import ProviderError
 from ctxcheck.providers.scripted import ScriptedProvider
 from ctxcheck.schema import TraceEvent
 
@@ -197,6 +198,27 @@ def test_summary_calls_are_reported_so_the_loop_can_log_them() -> None:
 def test_empty_summary_fails_loudly() -> None:
     with pytest.raises(SummaryFailed, match="no text"):
         LLMSummary(keep_units=2).apply(window(), 80, ctx(ScriptedProvider([reply("  ")])))
+
+
+class Raises:
+    def __init__(self, error: Exception) -> None:
+        self.error = error
+
+    def complete(self, *args, **kwargs):
+        raise self.error
+
+
+def test_a_rejected_summary_request_is_a_summary_failure_not_a_crash() -> None:
+    rejected = ProviderError("400: Tool choice is none, but model called a tool", 400)
+    with pytest.raises(SummaryFailed, match="rejected"):
+        LLMSummary(keep_units=2).apply(window(), 80, ctx(Raises(rejected)))
+
+
+def test_rate_limits_and_server_errors_are_not_blamed_on_the_summarizer() -> None:
+    for error in (ProviderError("429: slow down", 429), ProviderError("500: oops", 500),
+                  ProviderError("gave up after 4 attempts; last: 429")):
+        with pytest.raises(ProviderError):
+            LLMSummary(keep_units=2).apply(window(), 80, ctx(Raises(error)))
 
 
 def test_summary_needs_a_provider() -> None:
