@@ -18,11 +18,19 @@
       <div class="intro">
         <p class="lede" data-hero-rise>When an agent's context fills up, the harness compacts it into a summary. Canary plants a rule early in a run, compacts, and records whether the agent still follows it.</p>
         <div class="actions" data-hero-rise>
-          <a class="btn" href="./run/?run=exp001-s19-nvidia">Open the recorder</a>
-          <span class="note">A recorded run on a free model. No API key.</span>
+          <a class="btn" href="#lab">Try compacting</a>
+          <a class="link-quiet" href="./run/?run=exp001-s19-nvidia">Open the recorder</a>
         </div>
       </div>
       <figure class="player" data-player aria-label="Context window of a recorded run, one bar per turn, showing the planted rule, the compaction and what happened to the rule"></figure>
+    </section>
+
+    <section class="section" id="lab" aria-labelledby="lab-title">
+      <div class="lab-head">
+        <h2 id="lab-title">You are the harness.</h2>
+        <p class="lede">The window is full and the agent needs one more call. Pick how to make room, drag the budget, move the rule, and watch what the agent can still see. Bright is still in the window. Dim is gone.</p>
+      </div>
+      <div data-lab></div>
     </section>
 
     <section class="section compare" id="compare" aria-labelledby="compare-title" data-compare>

@@ -14,10 +14,18 @@
   <main id="main" class="rec">
     <h1 data-title>Recorder</h1>
     <p class="rec-meta" data-meta></p>
-    <nav class="rec-runs" aria-label="Runs" data-runs></nav>
+    <div class="rec-bar">
+      <label class="rec-pick"><span class="lab-label">Run</span><select data-runs></select></label>
+      <div class="lab-seg rec-view" role="radiogroup" aria-label="View">
+        <label><input type="radio" name="view" value="bars" checked><span>bars</span></label>
+        <label><input type="radio" name="view" value="text"><span>text</span></label>
+      </div>
+      <button type="button" class="replay" data-help-open aria-haspopup="dialog">? shortcuts</button>
+    </div>
 
     <div class="rec-grid">
       <figure class="player" data-player aria-label="Context window by step"></figure>
+      <pre class="ascii rec-ascii" data-rec-ascii aria-hidden="true" hidden></pre>
 
       <section class="detail" aria-labelledby="detail-title" aria-live="polite">
         <h2 id="detail-title" data-detail-title>Step</h2>
@@ -30,9 +38,27 @@
         <span class="note" data-copied role="status"></span>
       </div>
 
-      <p class="shortcuts">Keys: <kbd>←</kbd> <kbd>→</kbd> step, <kbd>Home</kbd> <kbd>End</kbd> first and last, <kbd>c</kbd> the step after compaction. The step is kept in the address, so any URL here points at one moment.</p>
+      <section class="transcript" aria-labelledby="tr-title">
+        <h2 id="tr-title">Transcript up to this step</h2>
+        <p class="note">The recorded messages, as the agent saw them. Dimmed: removed by the compaction. Text is selectable.</p>
+        <ol class="tr-list" data-transcript></ol>
+      </section>
+
+      <p class="shortcuts">Keys: <kbd>←</kbd> <kbd>→</kbd> step, <kbd>Home</kbd> <kbd>End</kbd> first and last, <kbd>c</kbd> the step after compaction, <kbd>t</kbd> bars or text, <kbd>?</kbd> this help. The step is kept in the address, so any URL here points at one moment.</p>
     </div>
   </main>
+
+  <dialog class="help" data-help aria-labelledby="help-title">
+    <h2 id="help-title">Keyboard</h2>
+    <dl class="help-keys">
+      <div><dt><kbd>←</kbd> <kbd>→</kbd></dt><dd>Previous or next step</dd></div>
+      <div><dt><kbd>Home</kbd> <kbd>End</kbd></dt><dd>First or last step</dd></div>
+      <div><dt><kbd>c</kbd></dt><dd>Jump to the step after compaction</dd></div>
+      <div><dt><kbd>t</kbd></dt><dd>Switch between bars and text</dd></div>
+      <div><dt><kbd>?</kbd></dt><dd>Open or close this help</dd></div>
+    </dl>
+    <form method="dialog"><button class="btn" type="submit">Close</button></form>
+  </dialog>
 
   <footer class="site" data-footer></footer>
   <script type="module" src="../src/main-run.js"></script>

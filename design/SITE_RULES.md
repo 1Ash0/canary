@@ -1,6 +1,6 @@
 # SITE_RULES — Canary site
 
-Status: **approved (owner, D3 gate, 2026-10-20)**. Applies to everything under `web/`. Values come from `design/themes/canary/tokens.css` only; no raw hex or px in site code.
+Status: **approved (owner, D3 gate, 2026-10-20); amended by ADR-022 (2026-10-21)**. Applies to everything under `web/`. Values come from `design/themes/canary/tokens.css` only; no raw hex or px in site code.
 
 The goal is a site that feels **alive and premium, like the best GSAP showcase work, without looking AI-made**. The difference is choreography: every motion carries data or meaning, one thing moves at a time, and nothing loops for decoration.
 
@@ -18,6 +18,7 @@ The goal is a site that feels **alive and premium, like the best GSAP showcase w
 - Identical card rows repeated section after section.
 - Hero headlines of 3 or more lines at any width (stricter than "4 or more"; borrowed from Taste Skill: two lines max).
 - Cursor followers or glows, particle fields, 3D tilt, dither or noise backgrounds, smooth-scroll hijacking.
+- Decorative ASCII art and character-scramble text effects (ASCII is allowed only as a data view, §4.7).
 - `transition: all`, `outline: none` without a replacement, animated GIFs.
 
 **Borrowed constraints** (Taste Skill, MIT, credited):
@@ -89,6 +90,13 @@ Every animation is set up inside `gsap.matchMedia()` with a `(prefers-reduced-mo
 - **GSAP:** core + ScrollTrigger; SplitText at line level, at most one heading per page (D1).
 - **Not used:** Lenis, ScrollSmoother, MorphSVG, ScrambleText, React Bits backgrounds, WebGL.
 - **The scene module is shared with the video** (ADR-016). The site player drives it from GSAP timelines; the video drives it with `seek(t)`.
+
+### 4.7 ASCII views, brightness and the lab (ADR-022)
+- **Window as text.** One monospace row per message: a role tag, then a run of glyphs whose length is the message's tokens and whose glyph is its kind (`░` history, `▒` tool output, `▓` summary, `█` the planted rule). The seam is a `═` rule with a label. Rows are `aria-hidden`; the same information is in a text alternative.
+- **Brightness is presence.** In the window: `--ink`. Removed by compaction: `--ink-3`. A lost fact: `--loss` plus the words `gone ↓` or `∅`. No glow, blur or shadow.
+- **Transcript replay** shows real trace text only, never invented output, and stays selectable and copyable.
+- **The lab** may move while the user drives it (exempt from §4.1.2 during input). It never autoplays. Its in-browser policies are labelled `simulated`; recorded summaries are labelled `recorded`.
+- **Reduced motion:** text appears whole, lab updates are instant.
 
 ## 5. Interaction and accessibility
 - Keyboard-first: every control reachable, visible focus, a skip link, `scroll-margin-top` on anchors.

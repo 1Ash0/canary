@@ -2,10 +2,6 @@ import { loadRun, loadExperiment, loadJson } from './data.js';
 import { mountPlayer, playerMarkup } from './player.js';
 import { shell, fail } from './shell.js';
 import { splitHeading, riseOnEnter, gsap, MOTION, REDUCE, springEase, ms } from './motion-kit.js';
-import { mountCompare } from './compare.js';
-import { mountConsequence } from './consequence.js';
-import { mountResults } from './results.js';
-import { mountSurvivalMini } from './survival-mini.js';
 
 shell('./', 'home');
 const $ = (sel) => document.querySelector(sel);
@@ -32,15 +28,33 @@ try {
   splitHeading($('[data-split]'));
 }
 
+// Below the fold: each section's module and data load on demand (ADR-022 point 5), so the first
+// view ships only the hero.
 const sections = [
+  ['[data-lab]', async (el) => {
+    const [{ mountLab }, lab, summaries, exp] = await Promise.all([
+      import('./lab.js'), loadJson('./data/lab/constraint.json'), loadJson('./data/lab/summaries.json'),
+      loadExperiment('./', 'exp001')]);
+    const floors = exp.models.filter((m) => m.usable).map((m) => m.floor);
+    mountLab(el, lab, summaries, { k: floors.reduce((a, f) => a + f.k, 0), n: floors.reduce((a, f) => a + f.n, 0) });
+  }],
   ['[data-compare]', async (el) => {
-    const pair = await loadExperiment('./', 'exp001_pair');
+    const [{ mountCompare }, pair] = await Promise.all([import('./compare.js'), loadExperiment('./', 'exp001_pair')]);
     const runs = await Promise.all(pair.sides.map((s) => loadRun('./', s.run)));
     mountCompare(el, pair, runs);
   }],
-  ['[data-consequence]', async (el) => mountConsequence(el, await loadExperiment('./', 'exp001_pair'))],
-  ['[data-results]', async (el) => mountResults(el, await loadExperiment('./', 'exp001'))],
-  ['[data-survival-mini]', async (el) => mountSurvivalMini(el, await loadJson('./data/survival/grid.json'))],
+  ['[data-consequence]', async (el) => {
+    const [{ mountConsequence }, pair] = await Promise.all([import('./consequence.js'), loadExperiment('./', 'exp001_pair')]);
+    mountConsequence(el, pair);
+  }],
+  ['[data-results]', async (el) => {
+    const [{ mountResults }, exp] = await Promise.all([import('./results.js'), loadExperiment('./', 'exp001')]);
+    mountResults(el, exp);
+  }],
+  ['[data-survival-mini]', async (el) => {
+    const [{ mountSurvivalMini }, grid] = await Promise.all([import('./survival-mini.js'), loadJson('./data/survival/grid.json')]);
+    mountSurvivalMini(el, grid);
+  }],
 ];
 for (const [sel, mount] of sections) {
   try { await mount($(sel)); } catch (e) { fail($(sel), e); }

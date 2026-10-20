@@ -15,6 +15,7 @@ from ctxcheck.ledger import replay
 from ctxcheck.schema import (
     CanaryPlantedEvent,
     CanaryProbeEvent,
+    CompactionEvent,
     MessageEvent,
     RunStartEvent,
     TraceEvent,
@@ -54,6 +55,12 @@ def to_scene_input(events: Iterable[TraceEvent], source: str) -> dict[str, Any]:
             )
 
     rows = [{"i": r.step, "layers": dict(r.layers)} for r in ledger.rows]
+    # the transcript, for the recorder's text view: every message with its step, and whether it is
+    # still in the window at the end (compaction may have dropped it)
+    dropped = {i for e in ordered if isinstance(e, CompactionEvent) for i in e.dropped_ids}
+    transcript = [{"id": m.message_id, "step": m.step, "role": m.role, "origin": m.origin,
+                   "tokens": m.tokens_est, "text": m.content[:600],
+                   "kept": m.message_id not in dropped} for m in messages.values()]
     compaction = None
     if ledger.compactions:
         at = ledger.compactions[0].after_step
@@ -75,6 +82,7 @@ def to_scene_input(events: Iterable[TraceEvent], source: str) -> dict[str, Any]:
         "steps": rows,
         "compaction": compaction,
         "canaries": canaries,
+        "transcript": transcript,
     }
 
 

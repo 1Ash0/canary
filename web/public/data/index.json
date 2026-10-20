@@ -17,6 +17,370 @@
       "label": "recorded",
       "path": "runs/exp001-s19-nvidia.json",
       "title": "EXP-001 seed 19, NVIDIA openai/gpt-oss-20b"
+    },
+    {
+      "id": "exp001-s1-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s1-mistral.json",
+      "title": "EXP-001 seed 1, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s2-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s2-mistral.json",
+      "title": "EXP-001 seed 2, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s3-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s3-mistral.json",
+      "title": "EXP-001 seed 3, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s4-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s4-mistral.json",
+      "title": "EXP-001 seed 4, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s5-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s5-mistral.json",
+      "title": "EXP-001 seed 5, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s6-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s6-mistral.json",
+      "title": "EXP-001 seed 6, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s7-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s7-mistral.json",
+      "title": "EXP-001 seed 7, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s8-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s8-mistral.json",
+      "title": "EXP-001 seed 8, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s9-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s9-mistral.json",
+      "title": "EXP-001 seed 9, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s10-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s10-mistral.json",
+      "title": "EXP-001 seed 10, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s11-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s11-mistral.json",
+      "title": "EXP-001 seed 11, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s12-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s12-mistral.json",
+      "title": "EXP-001 seed 12, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s13-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s13-mistral.json",
+      "title": "EXP-001 seed 13, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s14-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s14-mistral.json",
+      "title": "EXP-001 seed 14, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s15-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s15-mistral.json",
+      "title": "EXP-001 seed 15, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s16-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s16-mistral.json",
+      "title": "EXP-001 seed 16, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s17-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s17-mistral.json",
+      "title": "EXP-001 seed 17, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s18-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s18-mistral.json",
+      "title": "EXP-001 seed 18, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s20-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s20-mistral.json",
+      "title": "EXP-001 seed 20, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s21-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s21-mistral.json",
+      "title": "EXP-001 seed 21, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s22-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s22-mistral.json",
+      "title": "EXP-001 seed 22, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s23-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s23-mistral.json",
+      "title": "EXP-001 seed 23, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s24-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s24-mistral.json",
+      "title": "EXP-001 seed 24, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s25-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s25-mistral.json",
+      "title": "EXP-001 seed 25, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s26-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s26-mistral.json",
+      "title": "EXP-001 seed 26, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s27-mistral",
+      "label": "recorded",
+      "path": "runs/exp001-s27-mistral.json",
+      "title": "EXP-001 seed 27, ministral-14b-latest",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s1-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s1-nvidia.json",
+      "title": "EXP-001 seed 1, openai/gpt-oss-20b",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s2-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s2-nvidia.json",
+      "title": "EXP-001 seed 2, openai/gpt-oss-20b",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s3-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s3-nvidia.json",
+      "title": "EXP-001 seed 3, openai/gpt-oss-20b",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s4-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s4-nvidia.json",
+      "title": "EXP-001 seed 4, openai/gpt-oss-20b",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s5-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s5-nvidia.json",
+      "title": "EXP-001 seed 5, openai/gpt-oss-20b",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s6-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s6-nvidia.json",
+      "title": "EXP-001 seed 6, openai/gpt-oss-20b",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s7-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s7-nvidia.json",
+      "title": "EXP-001 seed 7, openai/gpt-oss-20b",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s8-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s8-nvidia.json",
+      "title": "EXP-001 seed 8, openai/gpt-oss-20b",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s9-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s9-nvidia.json",
+      "title": "EXP-001 seed 9, openai/gpt-oss-20b",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s10-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s10-nvidia.json",
+      "title": "EXP-001 seed 10, openai/gpt-oss-20b",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s11-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s11-nvidia.json",
+      "title": "EXP-001 seed 11, openai/gpt-oss-20b",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s12-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s12-nvidia.json",
+      "title": "EXP-001 seed 12, openai/gpt-oss-20b",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s13-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s13-nvidia.json",
+      "title": "EXP-001 seed 13, openai/gpt-oss-20b",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s14-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s14-nvidia.json",
+      "title": "EXP-001 seed 14, openai/gpt-oss-20b",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s15-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s15-nvidia.json",
+      "title": "EXP-001 seed 15, openai/gpt-oss-20b",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s16-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s16-nvidia.json",
+      "title": "EXP-001 seed 16, openai/gpt-oss-20b",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s17-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s17-nvidia.json",
+      "title": "EXP-001 seed 17, openai/gpt-oss-20b",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s18-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s18-nvidia.json",
+      "title": "EXP-001 seed 18, openai/gpt-oss-20b",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s20-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s20-nvidia.json",
+      "title": "EXP-001 seed 20, openai/gpt-oss-20b",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s21-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s21-nvidia.json",
+      "title": "EXP-001 seed 21, openai/gpt-oss-20b",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s22-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s22-nvidia.json",
+      "title": "EXP-001 seed 22, openai/gpt-oss-20b",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s23-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s23-nvidia.json",
+      "title": "EXP-001 seed 23, openai/gpt-oss-20b",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s24-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s24-nvidia.json",
+      "title": "EXP-001 seed 24, openai/gpt-oss-20b",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s25-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s25-nvidia.json",
+      "title": "EXP-001 seed 25, openai/gpt-oss-20b",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s26-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s26-nvidia.json",
+      "title": "EXP-001 seed 26, openai/gpt-oss-20b",
+      "group": "EXP-001"
+    },
+    {
+      "id": "exp001-s27-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001-s27-nvidia.json",
+      "title": "EXP-001 seed 27, openai/gpt-oss-20b",
+      "group": "EXP-001"
     }
   ],
   "experiments": [

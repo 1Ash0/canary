@@ -14,6 +14,7 @@ from pathlib import Path
 from typing import Any
 
 from ctxcheck.export import label_of, to_experiment, to_scene_input
+from ctxcheck.lab import lab_history, parity_cases
 from ctxcheck.runner.trace_io import read_trace
 from ctxcheck.schema import RunStartEvent, event_json_schema, parse_event
 
@@ -37,6 +38,32 @@ MODELS = [
     ("gemini-3.1-flash-lite", "Gemini", "gemini-3.1-flash-lite", False,
      "Excluded: its summaries were copied transcript lines, not summaries."),
 ]
+
+
+TAGS = {"ministral-14b-latest": "mistral", "openai/gpt-oss-20b": "nvidia",
+        "openai/gpt-oss-120b": "groq", "gemini-3.1-flash-lite": "gemini"}
+
+
+def export_episode_runs(exp_dir: Path, prefix: str, models: list[str],
+                        index: dict[str, list[dict[str, str]]]) -> int:
+    """Every treatment episode of these models as a recorder run, so the results page can link a
+    seed dot to the exact episode."""
+    rows = [json.loads(line) for line in (exp_dir / "episodes.jsonl").read_text(encoding="utf-8")
+            .splitlines() if line]
+    n = 0
+    for r in rows:
+        if r["model_requested"] not in models or r["condition"] != "treatment":
+            continue
+        run_id = f"{prefix}-s{r['seed']}-{TAGS[r['model_requested']]}"
+        scene = to_scene_input(read_trace(ROOT / r["trace_path"]), r["trace_path"])
+        scene["meta"].update(run_id=run_id, model=r["model_requested"], exp=exp_dir.name)
+        write(OUT / "runs" / f"{run_id}.json", scene)
+        if not any(x["id"] == run_id for x in index["runs"]):
+            title = f"{exp_dir.name} seed {r['seed']}, {r['model_requested']}"
+            index["runs"].append({"id": run_id, "label": "recorded", "path": f"runs/{run_id}.json",
+                                  "title": title, "group": exp_dir.name})
+        n += 1
+    return n
 
 
 def write(path: Path, data: object) -> None:
@@ -72,6 +99,17 @@ def exp001_results() -> dict[str, Any]:
                 "kept": (c.get("verbatim_survival") or {}).get("k_kept"),
                 "kept_n": (c.get("verbatim_survival") or {}).get("n")}
 
+    rows = [json.loads(line) for line in (EXP001 / "episodes.jsonl").read_text(encoding="utf-8")
+            .splitlines() if line]
+
+    def seeds_of(model: str, condition: str, exp: str = "exp001") -> list[dict[str, Any]]:
+        mine = sorted((r for r in rows if r["model_requested"] == model
+                       and r["condition"] == condition), key=lambda r: r["seed"])
+        return [{"seed": r["seed"], "grade": r["grade"], "fate": r["canary_fate"],
+                 "evidence": r["evidence"], "truncated": r.get("summary_truncated"),
+                 "run": f"{exp}-s{r['seed']}-{TAGS[model]}" if condition == "treatment" else None}
+                for r in mine]
+
     models = []
     for model, host, short, usable, note in MODELS:
         comp = next(x for x in summary["comparisons"]
@@ -80,6 +118,8 @@ def exp001_results() -> dict[str, Any]:
             "model": model, "host": host, "short": short, "usable": usable, "note": note,
             "floor": cell(model, "floor"), "control": cell(model, "control"),
             "treatment": cell(model, "treatment(llm_summary)"),
+            "seeds": {"control": seeds_of(model, "control"),
+                      "treatment": seeds_of(model, "treatment")} if usable else None,
             "pairs": {"n": comp["n_pairs"], "only_treatment": comp["only_first_failed"],
                       "only_control": comp["only_second_failed"], "p": comp["p_mcnemar"],
                       "rd": comp.get("risk_difference"), "rd_lo": comp.get("rd_lo"),
@@ -135,6 +175,44 @@ def exp001_pair(index: dict[str, list[dict[str, str]]]) -> dict[str, Any]:
             "source": rel(EXP001 / "episodes.jsonl")}
 
 
+def lab_summaries(seeds: range) -> dict[str, Any]:
+    """Recorded summaries for the lab's summary mode: per seed and summarizer, the text, whether it
+    still named the rule, what the agent then did. NVIDIA prefers EXP-001b (reasoning kept short,
+    so summaries are not cut off) and falls back to EXP-001."""
+    reasons = finish_reasons()
+    sources = [("mistral", "ministral-14b-latest", ["EXP-001"]),
+               ("nvidia", "openai/gpt-oss-20b", ["EXP-001b", "EXP-001"])]
+    out: dict[str, Any] = {}
+    for tag, model, exps in sources:
+        for exp in exps:
+            path = ROOT / "results" / exp / "episodes.jsonl"
+            if not path.exists():
+                continue
+            text_rows = path.read_text(encoding="utf-8").splitlines()
+            rows = [json.loads(line) for line in text_rows if line]
+            for seed in seeds:
+                key = f"{seed}"
+                if tag in out.get(key, {}):
+                    continue
+                row = next((r for r in rows if r["model_requested"] == model
+                            and r["seed"] == seed and r["condition"] == "treatment"
+                            and r["summary_valid"] is not None), None)
+                if row is None:
+                    continue
+                events = read_trace(ROOT / row["trace_path"])
+                summ = next(e for e in events if e.type == "message" and e.origin == "summary")
+                call = next((e for e in events if e.type == "tool_call" and e.name == "post_status"
+                             and e.seq > summ.seq), None)
+                text = summ.content.split("\n", 1)[1].strip()
+                out.setdefault(key, {})[tag] = {
+                    "model": model, "exp": exp, "text": text, "tokens": summ.tokens_est,
+                    "fate": row["canary_fate"], "grade": row["grade"],
+                    "chosen": call.args.get("channel") if call else None,
+                    "truncated": row.get("summary_truncated", reasons.get(text) == "length"),
+                    "trace": row["trace_path"]}
+    return {"epistemic": "recorded", "seeds": out}
+
+
 def main() -> None:
     index: dict[str, list[dict[str, str]]] = {"runs": [], "experiments": [], "survival": []}
 
@@ -156,9 +234,20 @@ def main() -> None:
     if (EXP001 / "summary.json").exists():  # recorded: real models, real traces
         write(OUT / "experiments" / "exp001.json", exp001_results())
         write(OUT / "experiments" / "exp001_pair.json", exp001_pair(index))
+        export_episode_runs(EXP001, "exp001", ["ministral-14b-latest", "openai/gpt-oss-20b"], index)
         index["experiments"] += [
             {"id": "exp001", "label": "recorded", "path": "experiments/exp001.json"},
             {"id": "exp001_pair", "label": "recorded", "path": "experiments/exp001_pair.json"}]
+
+    # the lab: real scripted histories, and parity cases that pin the JS policies to the Python
+    write(OUT / "lab" / "constraint.json",
+          {"epistemic": "simulated",
+           "description": "Real seeded histories with exact token counts; "
+           "the browser runs a JS port of the Python policies, checked against them in the design "
+           "tests.", "seeds": [lab_history(s) for s in range(1, 11)]})
+    write(OUT / "lab" / "summaries.json", lab_summaries(range(1, 11)))
+    write(ROOT / "design" / "tests" / "fixtures" / "lab-parity.json",
+          parity_cases(range(1, 6), (0, 1, 5, 9, 14, 17), (900, 1300, 1800, 2400, 3000, 3600)))
 
     grid = ROOT / "results" / "survival" / "grid.json"
     if grid.exists():  # deterministic: real policy code, no model; its tag travels in the file
