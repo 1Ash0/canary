@@ -5,7 +5,8 @@ shows is derived by replaying these events, including canary fate (kept / change
 computed from `canary_planted` + `compaction` + the summary text and is deliberately not an event.
 Bump schema_version when fields change: additive = minor, breaking = major plus a migration.
 0.2: added optional run_end.reason (additive; 0.1 traces still parse).
-0.3: added optional compaction.prompt_version (additive; the llm_summary prompt version).
+0.3: added optional compaction.prompt_version (the llm_summary prompt version) and the grade
+`not_applicable` on canary_probe (no accepted call to the watched tool). Both additive.
 """
 
 from __future__ import annotations
@@ -104,7 +105,7 @@ class CanaryProbeEvent(_Base):
     type: Literal["canary_probe"]
     canary_id: str
     probe_message_id: str
-    grade: Literal["violated", "respected"]
+    grade: Literal["violated", "respected", "not_applicable"]  # n/a added in 0.3
     evidence: str
 
 

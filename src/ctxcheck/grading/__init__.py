@@ -1,1 +1,10 @@
-# grading/ — Grader protocol + tool_call_grader, survival check (M4)
+from ctxcheck.grading.tool_call_grader import (
+    CanarySpec,
+    Grade,
+    GradeResult,
+    grade_call,
+    grade_trace,
+    normalize,
+)
+
+__all__ = ["CanarySpec", "Grade", "GradeResult", "grade_call", "grade_trace", "normalize"]
