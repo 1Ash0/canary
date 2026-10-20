@@ -70,5 +70,77 @@
     "as_of": "2026-10-20",
     "input_per_mtok": 0.0,
     "output_per_mtok": 0.0
+  },
+  {
+    "provider": "gemini",
+    "model": "gemini-2.5-flash",
+    "free": true,
+    "source": "https://ai.google.dev/gemini-api/docs/rate-limits",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
+  },
+  {
+    "provider": "mistral",
+    "model": "mistral-small-latest",
+    "free": true,
+    "source": "https://docs.mistral.ai/admin/billing-usage/usage-limits",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
+  },
+  {
+    "provider": "nvidia",
+    "model": "nvidia/nemotron-3-super-120b-a12b",
+    "free": true,
+    "source": "https://docs.api.nvidia.com/nim/docs/api-quickstart",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
+  },
+  {
+    "provider": "gemini",
+    "model": "gemma-4-31b-it",
+    "free": true,
+    "source": "https://ai.google.dev/gemini-api/docs/rate-limits",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
+  },
+  {
+    "provider": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "free": true,
+    "source": "https://ai.google.dev/gemini-api/docs/rate-limits",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
+  },
+  {
+    "provider": "nvidia",
+    "model": "meta/llama-3.1-70b-instruct",
+    "free": true,
+    "source": "https://docs.api.nvidia.com/nim/docs/api-quickstart",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
+  },
+  {
+    "provider": "nvidia",
+    "model": "nvidia/llama-3.1-nemotron-70b-instruct",
+    "free": true,
+    "source": "https://docs.api.nvidia.com/nim/docs/api-quickstart",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
+  },
+  {
+    "provider": "mistral",
+    "model": "ministral-14b-latest",
+    "free": true,
+    "source": "https://docs.mistral.ai/admin/billing-usage/usage-limits",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
   }
 ]

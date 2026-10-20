@@ -1,7 +1,7 @@
 """Named presets for OpenAI-compatible providers. Only facts read from the provider's docs are here.
 
 Verified 2026-10-20 (see docs/notebook/2026-10-20-free-tier-providers.md). Not verified, so not set:
-Mistral's host name, and whether any of these accept `parallel_tool_calls`; hence it is off for all
+whether any of these accept `parallel_tool_calls`; hence it is off for all
 presets until a live call proves it. Passing a preset's `model` is always the caller's choice: use a
 model that is free on that provider (see ADR-018), never a router that picks one for you.
 """
@@ -20,6 +20,8 @@ PRESETS: dict[str, dict[str, Any]] = {
         "api_key_env": "GEMINI_API_KEY",
     },
     "nvidia": {"base_url": "https://integrate.api.nvidia.com/v1", "api_key_env": "NVIDIA_API_KEY"},
+    # host confirmed 2026-10-20 by an authenticated GET /v1/models; free mode may train on data
+    "mistral": {"base_url": "https://api.mistral.ai/v1", "api_key_env": "MISTRAL_API_KEY"},
 }
 
 

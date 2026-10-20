@@ -12,12 +12,13 @@ def test_presets_hold_only_the_verified_base_urls() -> None:
     assert PRESETS["groq"]["base_url"] == "https://api.groq.com/openai/v1"
     assert PRESETS["nvidia"]["base_url"] == "https://integrate.api.nvidia.com/v1"
     assert PRESETS["gemini"]["base_url"].endswith("/v1beta/openai/")
-    assert "mistral" not in PRESETS  # host not verified yet
+    assert PRESETS["mistral"]["base_url"] == "https://api.mistral.ai/v1"  # confirmed by a real call
 
 
 def test_each_preset_reads_its_own_key_variable_and_never_holds_a_key() -> None:
     assert {p["api_key_env"] for p in PRESETS.values()} == {
-        "OPENROUTER_API_KEY", "GROQ_API_KEY", "GEMINI_API_KEY", "NVIDIA_API_KEY"}
+        "OPENROUTER_API_KEY", "GROQ_API_KEY", "GEMINI_API_KEY", "NVIDIA_API_KEY",
+        "MISTRAL_API_KEY"}
     assert not any("sk-" in json.dumps(p) for p in PRESETS.values())
 
 
