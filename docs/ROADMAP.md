@@ -7,16 +7,17 @@ No dates. Milestones have **exit criteria**; units (see LEARNING.md) are sized b
 - A milestone is "done" only when exit criteria hold **and** its gates are passed.
 - Prefer a thin vertical slice that works end to end over a deep layer that cannot be seen.
 
-## Status check (2026-10-20, against the exits below, with evidence)
+## Status check (2026-10-20, against the exits below, with evidence; refreshed after the M2 to M5 build)
 | Milestone | State | Evidence |
 |---|---|---|
 | M0 Spine | **done** | `make check` passes offline; 8/8 PRIOR_ART tasks answered (notebook 2026-10-19); ledger M0 row |
 | Learning units U0–U5 | **done** (ahead of the milestones that list their gates) | `learn/*.py` demos; G0–G5 in LEDGER |
 | M1 First light | **in progress** (updated 2026-10-20) | DONE: trace schema v0 (9 event types, 23 tests); token ledger; real-tokenized synthetic fixture (160 events); canary fates; Wilson in `src/`; labelled mock experiment (control vs recency_truncate, 10 trials); export pipeline; site with hero, mock experiment and recorder with step permalinks (11 behaviours verified). README hero and positioning paragraph (product exits 2 and 4, 2026-10-20). TODO: the owner's decision on deploying and the `ctxcheck` PyPI recheck before any public URL; the owner's acceptance of the Teach-First gates for what was built (see LEDGER) |
-| M2 Harness and replay | **in progress** (2026-10-20) | DONE, all offline: agent loop with budget check and policy hook, tool dispatcher, scripted provider, Anthropic and OpenAI-compatible adapters (formats read from the docs), retrying HTTP layer with secret scrubbing; suite passes with sockets blocked. TODO: budget guard and dry-run (U9), cassettes in `src/` (U10), the first live call (needs both), and the M2 exit test (record live under a cap, replay byte-for-byte) |
-| M3 Policies | not started in `src/` | only the `learn/policy_recency.py` demo |
-| M4 Canaries + first measurement | not started in `src/` | `learn/grader.py`, `learn/wilson.py` demos; no preregistration in `docs/experiments/` |
-| M5, M6 | not started | — |
+| M2 Harness and replay | **built offline; live part waits on the owner** | DONE: loop, tools, scripted provider, Anthropic and OpenAI-compatible adapters, budget guard (U9), cassettes in `src/` (U10), trace writer, CLI `plan` `add-price` `smoke` `run` `report`; the exit test records through cassettes and replays byte-identically except `cassette_hit` (`tests/replay/test_m2_exit.py`). WAITING ON OWNER: a free-tier key in the shell, `ctxcheck smoke`, the first live call; gates G8, G9, G10 |
+| M3 Policies | **built offline; gate pending** | four policies with property tests for the five invariants, ADR-019; the deterministic survival grid and page. NOT BUILT: re-applying a policy to a recorded run in the browser (stretch; needs a recorded run, now under Later). Gate G11 |
+| M4 Canaries + first measurement | **built offline; nothing measured** | constraint and identifier packs, two-sided grader, exact McNemar, paired bootstrap, Benjamini-Hochberg, resumable runner, simulated agent (labelled), EXP-001 drafted. NOT DONE: freezing and running EXP-001; the measured result and its heatmap of behaviour. Gates G12, G13, and revisit G7 |
+| M5 Rigor and write-up | **partly built** | `check_claims.py` in CI, threats to validity extended, EXP-002 and EXP-003 drafted, CI covers design tests, site build and export drift. NOT DONE: EXP-002 and EXP-003 runs, counterfactual-fork view (needs recorded runs), v0.1 tag (not before a measured result exists), posts |
+| M6 | not started | — |
 | Design subsystem (`design/`) | D0–D4 approved, D4b built; **paused after D4b** so site and video build on real data (see `design/PROGRESS.md`) | tokens, rules, scene module, hero motion, tests |
 
 ## Milestones
@@ -67,6 +68,9 @@ Anything not in PROJECT.md "In" goes to Later below with a trigger. Do not build
 | Item | Trigger to start |
 |---|---|
 | Pinning, offload, reset+handoff policies | v0.1 shipped and EXP-002 done |
+| Re-apply a deterministic policy to a recorded run in the browser (labelled `simulated`); counterfactual-fork view | A recorded run exists (the M3 stretch and M5 view were deferred because there is nothing recorded to re-apply them to) |
+| Progressive compaction (summary of a summary, drift over rounds) | EXP-001 outcome is understood; needs the loop to compact mid-history instead of once at the probe (ADR-020) |
+| Crossed compactor and agent models (EXP-004) | Two free models pass `ctxcheck smoke` and EXP-001 is reported |
 | Canary packs: failed_approach, decision_rationale, preference, execution_state, superseded_fact | After EXP-001 outcome is understood; pick by what real harnesses seem to forget |
 | Import real session logs (Claude Code/Codex JSONL) to trace v0 | A concrete user or post comment asks for it, and the trace schema is stable |
 | MCP wrapper (`run_canaries`, `explain_loss`) | M6 shipped |

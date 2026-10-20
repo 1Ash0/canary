@@ -436,6 +436,147 @@ A function `wilson_interval(k, n, z=1.96)` that returns `(lower, upper)`. Includ
 
 ---
 
+### U9 — The budget guard (M2)
+
+**Built (2026-10-20), offline, before your explain-back** (you asked for M2 to M5 in one go, with gates after; the order here is "code first, gate next", so treat each unit below as something to be taught back to me, not something already understood). Code: `src/ctxcheck/harness/budget.py`, tests `tests/unit/test_budget.py`.
+
+**What you'll understand:** Why a free tier needs different guarding from a paid one, and what makes "refuse before sending" safer than "stop when it gets expensive".
+
+**What it does:** `GuardedProvider` wraps any provider. Before every call it checks (a) the model is in a dated price table and marked free (ADR-018), (b) the per-run request and token caps, (c) the per-day caps kept in a small JSON file. After the call it records what was actually used. An unlisted or paid model is refused at a $0 budget and **nothing is sent**.
+
+**Decisions made for you (change any, the code follows):**
+1. The price table is a user-supplied dated file (`config/prices.json`, edited with `ctxcheck add-price`); nothing is hard-coded. A row without a date and a source is rejected.
+2. A call's reserved tokens are `estimated input + max_tokens` and are checked **before** sending, so one big call cannot blow a cap.
+3. The guard sits **under** the cassette layer, so a replay costs nothing and counts against nothing.
+4. A failed call is not counted.
+
+**Step 1 — Go to Claude Chat.** Paste this:
+
+> I'm building a guard that sits in front of an LLM API client so a student project never spends money. I only use free models, and free tiers limit requests per day and tokens per day (and per minute), not dollars. Please explain, with small examples:
+> 1. Why is "stop when the bill gets high" the wrong design when the tier is free? What are the two ways a free route can silently become paid (think model names, billing linked to a project)?
+> 2. Why check limits *before* sending a request rather than after? What does a guard have to know about a request in advance, and what can it only know afterwards (token usage)?
+> 3. Where should the guard sit relative to a record/replay cache, and why does that order matter for cost and for counting?
+> 4. What is a sensible way to track a daily limit across separate program runs, and what goes wrong at midnight or with two processes at once?
+> 5. If a request fails with a network error, should it count against the cap? Argue both sides.
+> I'm a second-year CS student who knows Python and the idea of an agent loop, and is new to LLM API pricing and rate limits.
+
+**Gate G9:**
+1. Why does the guard refuse an unlisted model instead of assuming it is free, and what does it do with a paid model when the budget is $0?
+2. Why is the check before the call, and what does the guard still have to do after it?
+3. Where does it sit relative to cassettes, and what would break if you swapped them?
+
+---
+
+### U10 — Cassettes in `src/` (M2)
+
+**Built (2026-10-20), offline.** Code: `src/ctxcheck/providers/cassette.py`, tests `tests/unit/test_cassette.py`, `tests/replay/test_m2_exit.py`. This is the port of the `learn/cassette.py` demo you passed at G3, so this gate is short.
+
+**What changed from the demo, and why:** the key hashes the request dict **without** message ids, steps or token estimates (they can change without the request changing); the stored entry keeps the response, the date and library versions; the write is atomic (temp file then rename) so a crash never leaves half a cassette; the response carries `cassette_hit` into the trace; a replay miss raises `CassetteMiss` (a `FileNotFoundError`) and never touches the network. The M2 exit test records a run, replays it, and asserts the two traces are byte-identical except `cassette_hit`.
+
+**Step 1 — Go to Claude Chat.** Paste this:
+
+> I have a record/replay layer for an LLM client. The cache key is the sha256 of a canonical JSON of the request (provider, model, params, messages, tools, trial index). Please quiz me, one question at a time, and tell me where I'm wrong:
+> 1. Which fields must be in the key, and which must be left out? What goes wrong if a volatile field (an id, a timestamp) is in the key? What goes wrong if a relevant field (the model, a parameter) is left out?
+> 2. Why must the trial index be in the key when I run n independent trials at temperature above zero?
+> 3. Why write the cache file atomically?
+> 4. In CI a missing recording must be an error, never a live call. Why is a silent fallback to the network the worst option?
+> 5. Two traces from a recorded run and its replay should be identical except one flag. What is that flag and what does it prove?
+
+**Gate G10:**
+1. Name one field that is deliberately not in the key, and one that must be.
+2. What does `cassette_hit` prove when the record and replay traces differ only in it?
+3. Why does a replay miss raise instead of calling the provider?
+
+---
+
+### U11 — Compaction policies in `src/` (M3)
+
+**Built (2026-10-20), offline.** Code: `src/ctxcheck/policies/` (`units.py`, `recency.py`, `head_tail.py`, `mask.py`, `summarize.py`), tests `tests/unit/test_policies.py` and `tests/property/test_policy_invariants.py`, decisions in **ADR-019**. This extends G4 (you passed on the demo) with things the demo did not have.
+
+**What you'll understand:** What each policy keeps and loses, why the system prompt and the current turn are never droppable, why compaction targets 60% of the budget rather than 100%, and how a property test checks an invariant on thousands of random windows.
+
+**New ideas since the demo:**
+- **Protected parts and `IrreducibleBudget`:** if the system prompt and current turn alone exceed the budget no policy can help; it raises instead of silently overrunning (invariant 1).
+- **Units:** a tool call and its result are one droppable piece (invariant 2).
+- **`observation_mask`** replaces old tool outputs with a short placeholder and **falls back to dropping history** when that is not enough, so its results must say when the fallback fired.
+- **`llm_summary`** reads the history through the same provider stack (so the guard and cassettes apply), its prompt is a versioned artifact logged on the compaction event, and **v1 is generic on purpose**.
+- **Property tests:** five invariants checked on random windows. I planted two bugs on purpose (stop pairing tool calls; ignore the budget) and both were caught.
+
+**Step 1 — Go to Claude Chat.** Paste this:
+
+> I'm testing context compaction policies for an LLM agent: recency truncation, keep-head-and-tail, masking old tool outputs, and LLM summarisation. Please explain, with small examples:
+> 1. For each of the four, what kind of fact survives and what kind is lost? Where would a rule stated in the first user turn end up?
+> 2. Why must a tool call and its result be dropped or kept together? What does an API do with an orphaned tool result?
+> 3. Why compact down to, say, 60% of the limit instead of exactly the limit?
+> 4. What is a property-based test (Hypothesis)? For "the compacted window never exceeds the budget unless the protected part alone does", what would the random inputs be, and what would the assertion be?
+> 5. A summarisation prompt can say "keep every rule and identifier" or just "summarise". Why does that choice change what an experiment measures, and which should be the baseline?
+> I'm a second-year CS student who knows Python and has met the idea of compaction.
+
+**Gate G11:**
+1. Which of the four policies keeps a rule from turn 1 at a tight budget, and which loses it? (The deterministic grid in `results/survival/grid.json` has the answer; say what it shows and what it does not.)
+2. What is `IrreducibleBudget` and why does it raise?
+3. Why is the baseline summary prompt generic, and what would v2 change about how to read a result?
+
+---
+
+### U12 — Canaries, scripted history and the grader (M4)
+
+**Built (2026-10-20), offline.** Code: `src/ctxcheck/canaries/`, `src/ctxcheck/grading/tool_call_grader.py`, `src/ctxcheck/runner/episode.py`, tests `test_canaries.py`, `test_grader.py`, `test_experiment.py`, decisions in **ADR-020**. This puts G2 (canaries, conditions, grading) into code, with five choices that change what a result means.
+
+**New ideas since the demo:**
+- **The grader is looser than the demo on purpose:** whitespace, case, quotes and look-alike characters do not change a grade; a different value still does (ADR-020).
+- **First accepted call:** a call the dispatcher rejected is not an action; no call at all is `not_applicable`, counted and given a sensitivity analysis.
+- **Scripted history:** everything before the probe is replayed, not generated, so an episode costs about one live call. The cost: the harness compacts once, at the probe.
+- **Survival is judged on the window the probe call saw**, excluding the probe. I got this wrong first: judging at the end of the trace scored a forgotten rule as kept because the agent's reply repeated the channel.
+- **The constraint probe lists the real channel among decoys**, so the floor condition measures chance (about one in four), not zero.
+- **`length_matched`** trims the oldest filler until the pre-probe window matches the treatment's post-compaction size, never touching the canary or the probe.
+
+**Step 1 — Go to Claude Chat.** Paste this:
+
+> I'm designing an experiment that tests whether an LLM agent still obeys a rule after its context was compacted. Conditions: floor (rule never given), control (rule given, full context), length-matched (rule given, no compaction, but the context shortened to the size of the compacted one), treatment (rule given, then compacted). Please explain, and quiz me on:
+> 1. What does each condition rule out as an explanation for a failure? If treatment fails and length-matched passes, what does that tell me? If floor already "obeys", what does that tell me?
+> 2. I grade by parsing the arguments of the agent's tool call, not by asking a model to judge its text. Why? What are the failure modes of each?
+> 3. Formatting noise (extra spaces, different case, quotes) in the tool call arguments: should it change the grade? Where is the line between noise and a different value?
+> 4. If the probe message itself contains the planted value (for example a list of channels), how does that confound a "did the rule survive" check, and how do I avoid it?
+> 5. What is lost by scripting the history instead of letting the model produce it, and what is gained?
+> I'm a second-year CS student with basic statistics, new to experiment design for LLM evals.
+
+**Gate G12:**
+1. Say what floor, control and length_matched each rule out, in one sentence each.
+2. Why is `not_applicable` reported instead of dropped, and what is the sensitivity analysis for?
+3. Why is survival judged on the window the probe saw, and what went wrong when it was judged at the end?
+
+---
+
+### U13 — Paired statistics and the runner (M4)
+
+**Built (2026-10-20), offline.** Code: `src/ctxcheck/stats/paired.py`, `src/ctxcheck/runner/` (`experiment.py`, `analysis.py`, `survival.py`), `src/ctxcheck/claims.py`, tests `test_paired_stats.py`, `test_experiment.py`, `test_survival.py`, `test_claims.py`. This extends G5 (Wilson, pairing) with the tests the preregistrations use.
+
+**New ideas since the demo:**
+- **Exact McNemar:** only pairs that disagree count; under "no difference" each disagreement is a fair coin flip, so the p-value is a binomial tail. Hand check: 5 vs 0 disagreements gives 2/32 = 0.0625.
+- **Paired bootstrap:** resample whole pairs to get an interval on the risk difference.
+- **Benjamini-Hochberg:** with several comparisons, adjust so that a list of "significant" ones is not mostly luck.
+- **Resumable runner:** each cell has a stable key; rows are appended as episodes finish; a rerun skips finished cells; a budget stop keeps partial results.
+- **Simulated vs recorded** can never mix: the analysis refuses mixed rows and `check_claims.py` fails CI if a simulated row sits beside recorded ones.
+- **The deterministic survival grid** answers "what does a policy keep" with no model; it does not say what an agent does next.
+
+**Step 1 — Go to Claude Chat.** Paste this:
+
+> I'm analysing paired binary outcomes: the same seeds run under two conditions, and the outcome per seed is violated or respected. Please make me compute by hand and quiz me on:
+> 1. Exact McNemar test: with 5 seeds violated only under A and 0 only under B, what is the two-sided p-value and why? What do the seeds where both agree contribute?
+> 2. A paired bootstrap interval for the risk difference: what exactly is resampled, and why resample pairs rather than each condition separately?
+> 3. If I report ten comparisons and call the ones with p<0.05 "significant", what goes wrong? What does Benjamini-Hochberg change, and what does it not?
+> 4. With 10 seeds per cell, what can an interval on a rate tell me, and what can't it? Why is "no significant difference" not "no difference"?
+> 5. Why should I write the interpretation rules (what counts as a replication, a null, inconclusive) before running the experiment?
+> I'm a second-year CS student who has seen the Wilson interval.
+
+**Gate G13:**
+1. Compute the exact McNemar p-value for 7 vs 2 by hand and say what the concordant pairs add.
+2. What would make you call EXP-001 a replication, a null, or inconclusive? (Read `docs/experiments/EXP-001.md` first.)
+3. Why can a simulated result and a recorded one never be analysed together here, and what enforces it?
+
+---
+
 ## When to go to Chat vs stay here
 
 | Situation | Go to |
@@ -496,3 +637,8 @@ This lives in `docs/understanding/LEDGER.md`. Update it after each gate.
 | G5 | Wilson interval + paired design | | |
 | G7 | Agent loop and tool dispatch (M2) | 2026-10-20 | waived by owner, not passed (see LEDGER) |
 | G8 | Provider adapters (M2) | | |
+| G9 | Budget guard (M2) | | |
+| G10 | Cassettes in `src/` (M2) | | |
+| G11 | Compaction policies in `src/` (M3) | | |
+| G12 | Canaries, scripted history and the grader (M4) | | |
+| G13 | Paired statistics and the runner (M4) | | |

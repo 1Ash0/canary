@@ -88,6 +88,13 @@ Unit of analysis: one **episode** = one (seed, model, condition/policy, trial) w
 - **External:** one or two models, one harness, one date. Models change; results are dated, not timeless.
 - **Prior knowledge / contamination:** models may have seen related benchmarks; seeded random values reduce but do not eliminate this.
 - **Selection:** do not drop scenarios because they gave boring results.
+- **Scripted history (ADR-020):** everything before the probe is replayed, and the harness compacts once, at the probe. Progressive compaction (a summary of a summary, drift over rounds) is not tested.
+- **Verbatim survival undercounts:** a rule that was reworded but is still actionable counts as `gone` in the survival check. Behaviour (the grade) is the primary measure for that reason; the manual audit reads how summaries transform the rule.
+- **The probe offers options:** the constraint probe lists the real channel among decoys, so `floor` measures chance (about one in four), not zero. Option order is seeded and shuffled; a model that favours the first or last option is a bias the floor condition exposes.
+- **Same model summarises and acts:** failures cannot be attributed to the summarizer or the agent separately (EXP-004, Later).
+- **Free models:** they change and disappear, tool-calling reliability varies (`not_applicable` is reported), and free tiers may use prompts for training, so only synthetic scenarios are sent (ADR-018). Every result records the model id the provider reported and the date.
+- **The deterministic survival grid is mechanical:** it says what a policy keeps from a synthetic history, not how an agent behaves afterwards, and it does not include `llm_summary`.
+- **Pilot-scale n:** reports state the achieved n per cell; intervals will be wide; a directional result with an interval that includes zero is inconclusive.
 
 ## 8. Honesty rules for reporting
 - No claim without an artifact; no artifact without a version, date and model id.

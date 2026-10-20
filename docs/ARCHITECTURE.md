@@ -28,12 +28,13 @@ ctxcheck/
     schema/      pydantic models: events, scenario, result (SINGLE SOURCE OF TRUTH)
     tokens.py    tokenizer adapters, counting
     harness/     loop.py  tools.py  budget.py
-    providers/   base.py  anthropic.py  openai_compat.py  cassette.py
-    policies/    base.py  recency.py  head_tail.py  summarize.py  mask.py
-    canaries/    base.py  constraint.py  identifier.py
-    grading/     tool_call_grader.py  survival.py
-    runner/      matrix.py  resume.py
-    stats/       wilson.py  bootstrap.py  mcnemar.py
+    providers/   base.py  anthropic.py  openai_compat.py  presets.py  cassette.py  simulated.py  scripted.py
+    policies/    base.py  units.py  recency.py  head_tail.py  summarize.py  mask.py
+    canaries/    base.py  constraint.py  identifier.py   (history is scripted, ADR-020)
+    grading/     tool_call_grader.py   (survival is judged in runner/episode.py, see ADR-020)
+    runner/      episode.py  experiment.py  analysis.py  survival.py  trace_io.py
+    stats/       wilson.py  paired.py   (exact McNemar, paired bootstrap, Benjamini-Hochberg)
+    claims.py    checks numbers in docs against results/ (scripts/check_claims.py)
     cli.py
   tests/       unit/  property/  fixtures/  replay/
   cassettes/   recorded model responses (committed; kept small)
@@ -61,10 +62,10 @@ Common fields: `schema_version`, `run_id`, `seq` (monotonic int), `ts`, `type`.
 | `message` | message_id, `step` (turn number), role, content blocks, `tokens_est` (local tokenizer), origin (`user`, `assistant`, `tool`, `summary`, `canary`) |
 | `model_call` | request_hash, trial_index, model_id_reported, usage (input/output, cached if reported), cassette_hit, cost_usd |
 | `tool_call` / `tool_result` | call_id, name, args / result, is_error |
-| `compaction` | policy, trigger, tokens_before, tokens_after, kept_ids, dropped_ids, added_ids, cost_usd, summary_message_id |
+| `compaction` | policy, trigger, tokens_before, tokens_after, kept_ids, dropped_ids, added_ids, cost_usd, summary_message_id, `prompt_version` (set by policies that call a model; added in 0.3) |
 | `canary_planted` | canary_id, type, message_id, span, value (the planted fact) |
-| `canary_probe` | canary_id, probe_message_id, grade (violated/respected), evidence |
-| `run_end` | status, `reason` (why it stopped: `end_turn`, `terminal_tool`, `max_calls`, `budget_exceeded`; added in 0.2), totals |
+| `canary_probe` | canary_id, probe_message_id, grade (violated / respected / `not_applicable`; the last added in 0.3), evidence |
+| `run_end` | status, `reason` (why it stopped: `end_turn`, `terminal_tool`, `max_calls`, `budget_exceeded`, `irreducible_budget`, `summary_failed`; added in 0.2), totals (`model_calls`, `summary_calls`, `steps`, `tokens_final`) |
 
 Additions decided in LEARNING U1b (2026-10-20): `step`, `limit_tokens`, `tools_tokens_est` as above. **Canary fate is a derived view** (`src/ctxcheck/fates.py`), computed by replaying the trace. v0 rule, decided 2026-10-20: a planted fact is `kept` if its text appears verbatim in a message still in the window at the end, otherwise `gone`. Case and punctuation matter, so a paraphrase counts as gone (this undercounts survival; state it wherever the number is shown). `changed` is reserved for a labelled judge model and becomes an event only then (ADR-002). Pairing ids for control vs treatment are deferred to M4 (additive).
 
