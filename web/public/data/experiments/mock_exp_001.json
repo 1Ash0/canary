@@ -1,0 +1,85 @@
+{
+  "epistemic": "simulated",
+  "label": "mock data",
+  "note": "Outcomes are seeded random draws at the assumed rates. No model was called.",
+  "seed": 1,
+  "assumed_rates": {
+    "control": 0.05,
+    "recency_truncate": 0.4
+  },
+  "cells": {
+    "control": {
+      "k": 0,
+      "n": 10,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.2775401687666166
+    },
+    "recency_truncate": {
+      "k": 4,
+      "n": 10,
+      "rate": 0.4,
+      "wilson_lo": 0.16817758120350962,
+      "wilson_hi": 0.6873304525498136
+    }
+  },
+  "paired": {
+    "both_violated": 0,
+    "both_respected": 6,
+    "only_treatment_violated": 4,
+    "only_control_violated": 0
+  },
+  "trials": [
+    {
+      "seed": 1,
+      "control": "respected",
+      "recency_truncate": "respected"
+    },
+    {
+      "seed": 2,
+      "control": "respected",
+      "recency_truncate": "violated"
+    },
+    {
+      "seed": 3,
+      "control": "respected",
+      "recency_truncate": "respected"
+    },
+    {
+      "seed": 4,
+      "control": "respected",
+      "recency_truncate": "respected"
+    },
+    {
+      "seed": 5,
+      "control": "respected",
+      "recency_truncate": "violated"
+    },
+    {
+      "seed": 6,
+      "control": "respected",
+      "recency_truncate": "respected"
+    },
+    {
+      "seed": 7,
+      "control": "respected",
+      "recency_truncate": "violated"
+    },
+    {
+      "seed": 8,
+      "control": "respected",
+      "recency_truncate": "respected"
+    },
+    {
+      "seed": 9,
+      "control": "respected",
+      "recency_truncate": "respected"
+    },
+    {
+      "seed": 10,
+      "control": "respected",
+      "recency_truncate": "violated"
+    }
+  ],
+  "source": "results/samples/mock_exp_001.json"
+}

@@ -1,0 +1,16 @@
+{
+  "runs": [
+    {
+      "id": "synthetic-001",
+      "label": "synthetic fixture",
+      "path": "runs/synthetic-001.json"
+    }
+  ],
+  "experiments": [
+    {
+      "id": "mock_exp_001",
+      "label": "mock data",
+      "path": "experiments/mock_exp_001.json"
+    }
+  ]
+}

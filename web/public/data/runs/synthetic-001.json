@@ -1,0 +1,450 @@
+{
+  "meta": {
+    "label": "synthetic fixture",
+    "run_id": "synthetic-001",
+    "seed": 1,
+    "model": null,
+    "policy": "llm_summary",
+    "limit_tokens": 65000,
+    "token_counts": "tokens_est: local tokenizer estimate, not provider-reported",
+    "source": "runs/samples/run_synthetic_001.jsonl"
+  },
+  "steps": [
+    {
+      "i": 1,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 1169,
+        "toolOutput": 0,
+        "summary": 0
+      }
+    },
+    {
+      "i": 2,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 1960,
+        "toolOutput": 2224,
+        "summary": 0
+      }
+    },
+    {
+      "i": 3,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 2783,
+        "toolOutput": 3875,
+        "summary": 0
+      }
+    },
+    {
+      "i": 4,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 3525,
+        "toolOutput": 5913,
+        "summary": 0
+      }
+    },
+    {
+      "i": 5,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 4277,
+        "toolOutput": 8078,
+        "summary": 0
+      }
+    },
+    {
+      "i": 6,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 5032,
+        "toolOutput": 8078,
+        "summary": 0
+      }
+    },
+    {
+      "i": 7,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 5970,
+        "toolOutput": 8078,
+        "summary": 0
+      }
+    },
+    {
+      "i": 8,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 6944,
+        "toolOutput": 10243,
+        "summary": 0
+      }
+    },
+    {
+      "i": 9,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 7656,
+        "toolOutput": 10243,
+        "summary": 0
+      }
+    },
+    {
+      "i": 10,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 8714,
+        "toolOutput": 10243,
+        "summary": 0
+      }
+    },
+    {
+      "i": 11,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 9802,
+        "toolOutput": 11180,
+        "summary": 0
+      }
+    },
+    {
+      "i": 12,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 10538,
+        "toolOutput": 11180,
+        "summary": 0
+      }
+    },
+    {
+      "i": 13,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 11559,
+        "toolOutput": 11180,
+        "summary": 0
+      }
+    },
+    {
+      "i": 14,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 12742,
+        "toolOutput": 11180,
+        "summary": 0
+      }
+    },
+    {
+      "i": 15,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 13841,
+        "toolOutput": 11180,
+        "summary": 0
+      }
+    },
+    {
+      "i": 16,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 14886,
+        "toolOutput": 11180,
+        "summary": 0
+      }
+    },
+    {
+      "i": 17,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 15630,
+        "toolOutput": 11180,
+        "summary": 0
+      }
+    },
+    {
+      "i": 18,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 16266,
+        "toolOutput": 11180,
+        "summary": 0
+      }
+    },
+    {
+      "i": 19,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 17002,
+        "toolOutput": 13304,
+        "summary": 0
+      }
+    },
+    {
+      "i": 20,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 18060,
+        "toolOutput": 15106,
+        "summary": 0
+      }
+    },
+    {
+      "i": 21,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 18823,
+        "toolOutput": 16089,
+        "summary": 0
+      }
+    },
+    {
+      "i": 22,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 19976,
+        "toolOutput": 17213,
+        "summary": 0
+      }
+    },
+    {
+      "i": 23,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 20865,
+        "toolOutput": 17213,
+        "summary": 0
+      }
+    },
+    {
+      "i": 24,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 21574,
+        "toolOutput": 18248,
+        "summary": 0
+      }
+    },
+    {
+      "i": 25,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 22664,
+        "toolOutput": 20297,
+        "summary": 0
+      }
+    },
+    {
+      "i": 26,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 23895,
+        "toolOutput": 21208,
+        "summary": 0
+      }
+    },
+    {
+      "i": 27,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 24910,
+        "toolOutput": 23774,
+        "summary": 0
+      }
+    },
+    {
+      "i": 28,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 25822,
+        "toolOutput": 25836,
+        "summary": 0
+      }
+    },
+    {
+      "i": 29,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 26647,
+        "toolOutput": 25836,
+        "summary": 0
+      }
+    },
+    {
+      "i": 30,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 27648,
+        "toolOutput": 26929,
+        "summary": 0
+      }
+    },
+    {
+      "i": 31,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 28533,
+        "toolOutput": 28409,
+        "summary": 0
+      }
+    },
+    {
+      "i": 32,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 884,
+        "toolOutput": 0,
+        "summary": 4227
+      }
+    },
+    {
+      "i": 33,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 2109,
+        "toolOutput": 1213,
+        "summary": 4227
+      }
+    },
+    {
+      "i": 34,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 3069,
+        "toolOutput": 1213,
+        "summary": 4227
+      }
+    },
+    {
+      "i": 35,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 3890,
+        "toolOutput": 3164,
+        "summary": 4227
+      }
+    },
+    {
+      "i": 36,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 4910,
+        "toolOutput": 5120,
+        "summary": 4227
+      }
+    },
+    {
+      "i": 37,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 5876,
+        "toolOutput": 5120,
+        "summary": 4227
+      }
+    },
+    {
+      "i": 38,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 6740,
+        "toolOutput": 6233,
+        "summary": 4227
+      }
+    },
+    {
+      "i": 39,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 7316,
+        "toolOutput": 7409,
+        "summary": 4227
+      }
+    },
+    {
+      "i": 40,
+      "layers": {
+        "system": 2402,
+        "tools": 3801,
+        "history": 8226,
+        "toolOutput": 9981,
+        "summary": 4227
+      }
+    }
+  ],
+  "compaction": {
+    "at_step": 31,
+    "after": {
+      "system": 2402,
+      "tools": 3801,
+      "history": 884,
+      "toolOutput": 0,
+      "summary": 4227
+    }
+  },
+  "canaries": [
+    {
+      "id": "C1",
+      "type": "constraint",
+      "planted_step": 3,
+      "text": "never call delete_branch on main",
+      "fate": "kept",
+      "after_text": null
+    },
+    {
+      "id": "C2",
+      "type": "identifier",
+      "planted_step": 9,
+      "text": "deploy target: eu-west-3b",
+      "fate": "gone",
+      "after_text": null
+    },
+    {
+      "id": "C3",
+      "type": "failed_approach",
+      "planted_step": 14,
+      "text": "retrying with --force corrupted the cache",
+      "fate": "gone",
+      "after_text": null
+    }
+  ]
+}

@@ -1,0 +1,682 @@
+{
+  "$defs": {
+    "CanaryPlantedEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "seq": {
+          "minimum": 0,
+          "title": "Seq",
+          "type": "integer"
+        },
+        "ts": {
+          "title": "Ts",
+          "type": "string"
+        },
+        "type": {
+          "const": "canary_planted",
+          "title": "Type",
+          "type": "string"
+        },
+        "canary_id": {
+          "title": "Canary Id",
+          "type": "string"
+        },
+        "canary_type": {
+          "title": "Canary Type",
+          "type": "string"
+        },
+        "message_id": {
+          "title": "Message Id",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "seq",
+        "ts",
+        "type",
+        "canary_id",
+        "canary_type",
+        "message_id",
+        "value"
+      ],
+      "title": "CanaryPlantedEvent",
+      "type": "object"
+    },
+    "CanaryProbeEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "seq": {
+          "minimum": 0,
+          "title": "Seq",
+          "type": "integer"
+        },
+        "ts": {
+          "title": "Ts",
+          "type": "string"
+        },
+        "type": {
+          "const": "canary_probe",
+          "title": "Type",
+          "type": "string"
+        },
+        "canary_id": {
+          "title": "Canary Id",
+          "type": "string"
+        },
+        "probe_message_id": {
+          "title": "Probe Message Id",
+          "type": "string"
+        },
+        "grade": {
+          "enum": [
+            "violated",
+            "respected"
+          ],
+          "title": "Grade",
+          "type": "string"
+        },
+        "evidence": {
+          "title": "Evidence",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "seq",
+        "ts",
+        "type",
+        "canary_id",
+        "probe_message_id",
+        "grade",
+        "evidence"
+      ],
+      "title": "CanaryProbeEvent",
+      "type": "object"
+    },
+    "CompactionEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "seq": {
+          "minimum": 0,
+          "title": "Seq",
+          "type": "integer"
+        },
+        "ts": {
+          "title": "Ts",
+          "type": "string"
+        },
+        "type": {
+          "const": "compaction",
+          "title": "Type",
+          "type": "string"
+        },
+        "policy": {
+          "title": "Policy",
+          "type": "string"
+        },
+        "trigger": {
+          "title": "Trigger",
+          "type": "string"
+        },
+        "tokens_before": {
+          "minimum": 0,
+          "title": "Tokens Before",
+          "type": "integer"
+        },
+        "tokens_after": {
+          "minimum": 0,
+          "title": "Tokens After",
+          "type": "integer"
+        },
+        "kept_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Kept Ids",
+          "type": "array"
+        },
+        "dropped_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Dropped Ids",
+          "type": "array"
+        },
+        "added_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Added Ids",
+          "type": "array"
+        },
+        "cost_usd": {
+          "default": 0.0,
+          "minimum": 0,
+          "title": "Cost Usd",
+          "type": "number"
+        },
+        "summary_message_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Summary Message Id"
+        }
+      },
+      "required": [
+        "run_id",
+        "seq",
+        "ts",
+        "type",
+        "policy",
+        "trigger",
+        "tokens_before",
+        "tokens_after",
+        "kept_ids",
+        "dropped_ids",
+        "added_ids"
+      ],
+      "title": "CompactionEvent",
+      "type": "object"
+    },
+    "MessageEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "seq": {
+          "minimum": 0,
+          "title": "Seq",
+          "type": "integer"
+        },
+        "ts": {
+          "title": "Ts",
+          "type": "string"
+        },
+        "type": {
+          "const": "message",
+          "title": "Type",
+          "type": "string"
+        },
+        "message_id": {
+          "title": "Message Id",
+          "type": "string"
+        },
+        "step": {
+          "minimum": 1,
+          "title": "Step",
+          "type": "integer"
+        },
+        "role": {
+          "enum": [
+            "system",
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "content": {
+          "title": "Content",
+          "type": "string"
+        },
+        "tokens_est": {
+          "minimum": 0,
+          "title": "Tokens Est",
+          "type": "integer"
+        },
+        "origin": {
+          "enum": [
+            "user",
+            "assistant",
+            "tool",
+            "summary",
+            "canary"
+          ],
+          "title": "Origin",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "seq",
+        "ts",
+        "type",
+        "message_id",
+        "step",
+        "role",
+        "content",
+        "tokens_est",
+        "origin"
+      ],
+      "title": "MessageEvent",
+      "type": "object"
+    },
+    "ModelCallEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "seq": {
+          "minimum": 0,
+          "title": "Seq",
+          "type": "integer"
+        },
+        "ts": {
+          "title": "Ts",
+          "type": "string"
+        },
+        "type": {
+          "const": "model_call",
+          "title": "Type",
+          "type": "string"
+        },
+        "request_hash": {
+          "title": "Request Hash",
+          "type": "string"
+        },
+        "trial_index": {
+          "minimum": 0,
+          "title": "Trial Index",
+          "type": "integer"
+        },
+        "model_id_reported": {
+          "title": "Model Id Reported",
+          "type": "string"
+        },
+        "input_tokens": {
+          "minimum": 0,
+          "title": "Input Tokens",
+          "type": "integer"
+        },
+        "output_tokens": {
+          "minimum": 0,
+          "title": "Output Tokens",
+          "type": "integer"
+        },
+        "cache_read_input_tokens": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Cache Read Input Tokens"
+        },
+        "cache_creation_input_tokens": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Cache Creation Input Tokens"
+        },
+        "cassette_hit": {
+          "title": "Cassette Hit",
+          "type": "boolean"
+        },
+        "cost_usd": {
+          "minimum": 0,
+          "title": "Cost Usd",
+          "type": "number"
+        }
+      },
+      "required": [
+        "run_id",
+        "seq",
+        "ts",
+        "type",
+        "request_hash",
+        "trial_index",
+        "model_id_reported",
+        "input_tokens",
+        "output_tokens",
+        "cassette_hit",
+        "cost_usd"
+      ],
+      "title": "ModelCallEvent",
+      "type": "object"
+    },
+    "RunEndEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "seq": {
+          "minimum": 0,
+          "title": "Seq",
+          "type": "integer"
+        },
+        "ts": {
+          "title": "Ts",
+          "type": "string"
+        },
+        "type": {
+          "const": "run_end",
+          "title": "Type",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "ok",
+            "error",
+            "aborted"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "totals": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "title": "Totals",
+          "type": "object"
+        }
+      },
+      "required": [
+        "run_id",
+        "seq",
+        "ts",
+        "type",
+        "status"
+      ],
+      "title": "RunEndEvent",
+      "type": "object"
+    },
+    "RunStartEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "seq": {
+          "minimum": 0,
+          "title": "Seq",
+          "type": "integer"
+        },
+        "ts": {
+          "title": "Ts",
+          "type": "string"
+        },
+        "type": {
+          "const": "run_start",
+          "title": "Type",
+          "type": "string"
+        },
+        "scenario_id": {
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "seed": {
+          "title": "Seed",
+          "type": "integer"
+        },
+        "policy": {
+          "title": "Policy",
+          "type": "string"
+        },
+        "provider": {
+          "title": "Provider",
+          "type": "string"
+        },
+        "model": {
+          "title": "Model",
+          "type": "string"
+        },
+        "params": {
+          "additionalProperties": true,
+          "title": "Params",
+          "type": "object"
+        },
+        "harness_git_sha": {
+          "default": "unknown",
+          "title": "Harness Git Sha",
+          "type": "string"
+        },
+        "limit_tokens": {
+          "exclusiveMinimum": 0,
+          "title": "Limit Tokens",
+          "type": "integer"
+        },
+        "tools_tokens_est": {
+          "minimum": 0,
+          "title": "Tools Tokens Est",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "run_id",
+        "seq",
+        "ts",
+        "type",
+        "scenario_id",
+        "seed",
+        "policy",
+        "provider",
+        "model",
+        "limit_tokens",
+        "tools_tokens_est"
+      ],
+      "title": "RunStartEvent",
+      "type": "object"
+    },
+    "ToolCallEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "seq": {
+          "minimum": 0,
+          "title": "Seq",
+          "type": "integer"
+        },
+        "ts": {
+          "title": "Ts",
+          "type": "string"
+        },
+        "type": {
+          "const": "tool_call",
+          "title": "Type",
+          "type": "string"
+        },
+        "call_id": {
+          "title": "Call Id",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "args": {
+          "additionalProperties": true,
+          "title": "Args",
+          "type": "object"
+        }
+      },
+      "required": [
+        "run_id",
+        "seq",
+        "ts",
+        "type",
+        "call_id",
+        "name",
+        "args"
+      ],
+      "title": "ToolCallEvent",
+      "type": "object"
+    },
+    "ToolResultEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "seq": {
+          "minimum": 0,
+          "title": "Seq",
+          "type": "integer"
+        },
+        "ts": {
+          "title": "Ts",
+          "type": "string"
+        },
+        "type": {
+          "const": "tool_result",
+          "title": "Type",
+          "type": "string"
+        },
+        "call_id": {
+          "title": "Call Id",
+          "type": "string"
+        },
+        "result": {
+          "title": "Result",
+          "type": "string"
+        },
+        "is_error": {
+          "default": false,
+          "title": "Is Error",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "run_id",
+        "seq",
+        "ts",
+        "type",
+        "call_id",
+        "result"
+      ],
+      "title": "ToolResultEvent",
+      "type": "object"
+    }
+  },
+  "discriminator": {
+    "mapping": {
+      "canary_planted": "#/$defs/CanaryPlantedEvent",
+      "canary_probe": "#/$defs/CanaryProbeEvent",
+      "compaction": "#/$defs/CompactionEvent",
+      "message": "#/$defs/MessageEvent",
+      "model_call": "#/$defs/ModelCallEvent",
+      "run_end": "#/$defs/RunEndEvent",
+      "run_start": "#/$defs/RunStartEvent",
+      "tool_call": "#/$defs/ToolCallEvent",
+      "tool_result": "#/$defs/ToolResultEvent"
+    },
+    "propertyName": "type"
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/RunStartEvent"
+    },
+    {
+      "$ref": "#/$defs/MessageEvent"
+    },
+    {
+      "$ref": "#/$defs/ModelCallEvent"
+    },
+    {
+      "$ref": "#/$defs/ToolCallEvent"
+    },
+    {
+      "$ref": "#/$defs/ToolResultEvent"
+    },
+    {
+      "$ref": "#/$defs/CompactionEvent"
+    },
+    {
+      "$ref": "#/$defs/CanaryPlantedEvent"
+    },
+    {
+      "$ref": "#/$defs/CanaryProbeEvent"
+    },
+    {
+      "$ref": "#/$defs/RunEndEvent"
+    }
+  ]
+}
