@@ -159,7 +159,7 @@ def run(
                  input_tokens=response.input_tokens, output_tokens=response.output_tokens,
                  cache_read_input_tokens=response.cache_read_input_tokens,
                  cache_creation_input_tokens=response.cache_creation_input_tokens,
-                 cassette_hit=False, cost_usd=0.0)
+                 cassette_hit=bool(response.extra.get("cassette_hit", False)), cost_usd=0.0)
 
             call = response.tool_call
             if call is None:  # end_turn: the model is done with this user turn
