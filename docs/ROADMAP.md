@@ -7,6 +7,18 @@ No dates. Milestones have **exit criteria**; units (see LEARNING.md) are sized b
 - A milestone is "done" only when exit criteria hold **and** its gates are passed.
 - Prefer a thin vertical slice that works end to end over a deep layer that cannot be seen.
 
+## Status check (2026-10-20, against the exits below, with evidence)
+| Milestone | State | Evidence |
+|---|---|---|
+| M0 Spine | **done** | `make check` passes offline; 8/8 PRIOR_ART tasks answered (notebook 2026-10-19); ledger M0 row |
+| Learning units U0–U5 | **done** (ahead of the milestones that list their gates) | `learn/*.py` demos; G0–G5 in LEDGER |
+| M1 First light | **not done** | schema v0 has 2 of 8 event types in `src/`; no real-tokenized fixture session; no `/run/[id]` recorder; no public URL; README still says "M0"; landing page `e6d8d84` superseded (wrong citation, see notebook 2026-10-20-constraintrot-figure) |
+| M2 Harness and replay | not started in `src/` | only the `learn/cassette.py` demo |
+| M3 Policies | not started in `src/` | only the `learn/policy_recency.py` demo |
+| M4 Canaries + first measurement | not started in `src/` | `learn/grader.py`, `learn/wilson.py` demos; no preregistration in `docs/experiments/` |
+| M5, M6 | not started | — |
+| Design subsystem (`design/`) | D0–D4 approved, D4b built; **paused after D4b** so site and video build on real data (see `design/PROGRESS.md`) | tokens, rules, scene module, hero motion, tests |
+
 ## Milestones
 
 ### M0 — Spine
@@ -20,7 +32,7 @@ Exit: a public URL; a stranger opens a run, scrubs steps, copies a permalink to 
 
 **Product exits (all required before M1 is done):**
 1. **Name confirmed.** Run `pip index versions ctxcheck` (or `pip install ctxcheck --dry-run`). If taken, pick a new name and update all refs before publishing anything. A name change after a public URL exists is painful.
-2. **README hero.** First screen of README states the problem with a number: the 37% finding from ConstraintRot (tagged `[reproduced by third party]`), what ctxcheck measures, and one playground screenshot. No install required to understand what the tool does.
+2. **README hero.** First screen of README states the problem with a number: ConstraintRot's finding that one compaction raises pooled violation from 0% to 30% (Chen, arXiv 2606.22528v2; tagged `[reproduced by third party]`; corrected from "37%" on 2026-10-20, see PRIOR_ART), what ctxcheck measures, and one playground screenshot. No install required to understand what the tool does.
 3. **Playground ships with a complete mock experiment.** At minimum: two conditions (control vs recency_truncate), 10 mock trials, violation rate with Wilson interval, strata view showing one dropped canary highlighted in red. A visitor sees a real result before touching the CLI.
 4. **Positioning copy.** One paragraph above the fold: who this is for, what it reveals, why the confidence intervals matter. Not a feature list.
 
