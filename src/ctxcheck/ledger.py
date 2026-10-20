@@ -69,6 +69,9 @@ def replay(events: Iterable[TraceEvent]) -> Ledger:
     ledger = Ledger(run_id=start.run_id, limit_tokens=start.limit_tokens)
 
     live: dict[str, MessageEvent] = {}  # messages currently in the window, by id
+    # A compaction may add stand-ins that keep the step of the message they replace (masked tool
+    # output is still "step 3" in the conversation); they join the window now, out of step order.
+    replacements: set[str] = set()
     current_step = 0
     last_row_step = 0
 
@@ -87,6 +90,9 @@ def replay(events: Iterable[TraceEvent]) -> Ledger:
 
     for event in ordered[1:]:
         if isinstance(event, MessageEvent):
+            if event.message_id in replacements:
+                live[event.message_id] = event
+                continue
             if event.step < current_step:
                 raise ValueError(f"message step went backwards at seq {event.seq}")
             if event.step > current_step:
@@ -98,6 +104,7 @@ def replay(events: Iterable[TraceEvent]) -> Ledger:
                 if message_id not in live:
                     raise ValueError(f"compaction drops unknown message {message_id!r}")
                 del live[message_id]
+            replacements = set(event.added_ids)
             ledger.compactions.append(
                 CompactionRecord(last_row_step, event.tokens_before, event.tokens_after)
             )

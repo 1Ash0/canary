@@ -381,6 +381,195 @@
       "path": "runs/exp001-s27-nvidia.json",
       "title": "EXP-001 seed 27, openai/gpt-oss-20b",
       "group": "EXP-001"
+    },
+    {
+      "id": "exp001b-s1-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s1-nvidia.json",
+      "title": "EXP-001b seed 1, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s2-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s2-nvidia.json",
+      "title": "EXP-001b seed 2, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s3-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s3-nvidia.json",
+      "title": "EXP-001b seed 3, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s4-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s4-nvidia.json",
+      "title": "EXP-001b seed 4, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s5-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s5-nvidia.json",
+      "title": "EXP-001b seed 5, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s6-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s6-nvidia.json",
+      "title": "EXP-001b seed 6, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s7-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s7-nvidia.json",
+      "title": "EXP-001b seed 7, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s8-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s8-nvidia.json",
+      "title": "EXP-001b seed 8, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s9-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s9-nvidia.json",
+      "title": "EXP-001b seed 9, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s10-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s10-nvidia.json",
+      "title": "EXP-001b seed 10, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s11-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s11-nvidia.json",
+      "title": "EXP-001b seed 11, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s12-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s12-nvidia.json",
+      "title": "EXP-001b seed 12, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s13-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s13-nvidia.json",
+      "title": "EXP-001b seed 13, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s14-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s14-nvidia.json",
+      "title": "EXP-001b seed 14, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s15-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s15-nvidia.json",
+      "title": "EXP-001b seed 15, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s16-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s16-nvidia.json",
+      "title": "EXP-001b seed 16, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s17-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s17-nvidia.json",
+      "title": "EXP-001b seed 17, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s18-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s18-nvidia.json",
+      "title": "EXP-001b seed 18, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s19-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s19-nvidia.json",
+      "title": "EXP-001b seed 19, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s20-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s20-nvidia.json",
+      "title": "EXP-001b seed 20, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s21-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s21-nvidia.json",
+      "title": "EXP-001b seed 21, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s22-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s22-nvidia.json",
+      "title": "EXP-001b seed 22, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s23-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s23-nvidia.json",
+      "title": "EXP-001b seed 23, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s24-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s24-nvidia.json",
+      "title": "EXP-001b seed 24, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s25-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s25-nvidia.json",
+      "title": "EXP-001b seed 25, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s26-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s26-nvidia.json",
+      "title": "EXP-001b seed 26, openai/gpt-oss-20b",
+      "group": "EXP-001b"
+    },
+    {
+      "id": "exp001b-s27-nvidia",
+      "label": "recorded",
+      "path": "runs/exp001b-s27-nvidia.json",
+      "title": "EXP-001b seed 27, openai/gpt-oss-20b",
+      "group": "EXP-001b"
     }
   ],
   "experiments": [
@@ -398,6 +587,11 @@
       "id": "exp001_pair",
       "label": "recorded",
       "path": "experiments/exp001_pair.json"
+    },
+    {
+      "id": "exp001b",
+      "label": "recorded",
+      "path": "experiments/exp001b.json"
     }
   ],
   "survival": [

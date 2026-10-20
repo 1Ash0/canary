@@ -44,31 +44,122 @@ TAGS = {"ministral-14b-latest": "mistral", "openai/gpt-oss-20b": "nvidia",
         "openai/gpt-oss-120b": "groq", "gemini-3.1-flash-lite": "gemini"}
 
 
+def read_rows(exp_dir: Path) -> list[dict[str, Any]]:
+    text = (exp_dir / "episodes.jsonl").read_text(encoding="utf-8")
+    return [json.loads(line) for line in text.splitlines() if line]
+
+
+def run_id_of(prefix: str, r: dict[str, Any], detail: bool) -> str:
+    """exp001-s19-nvidia; with several policies or packs, exp002-s5-nvidia-head_tail-constraint."""
+    base = f"{prefix}-s{r['seed']}-{TAGS[r['model_requested']]}"
+    return f"{base}-{r['policy']}-{r['pack']}" if detail else base
+
+
 def export_episode_runs(exp_dir: Path, prefix: str, models: list[str],
-                        index: dict[str, list[dict[str, str]]]) -> int:
+                        index: dict[str, list[dict[str, str]]], detail: bool = False) -> int:
     """Every treatment episode of these models as a recorder run, so the results page can link a
-    seed dot to the exact episode."""
-    rows = [json.loads(line) for line in (exp_dir / "episodes.jsonl").read_text(encoding="utf-8")
-            .splitlines() if line]
+    seed dot to the exact episode. Runs beyond the first experiment are written compact."""
     n = 0
-    for r in rows:
+    for r in read_rows(exp_dir):
         if r["model_requested"] not in models or r["condition"] != "treatment":
             continue
-        run_id = f"{prefix}-s{r['seed']}-{TAGS[r['model_requested']]}"
+        run_id = run_id_of(prefix, r, detail)
         scene = to_scene_input(read_trace(ROOT / r["trace_path"]), r["trace_path"])
         scene["meta"].update(run_id=run_id, model=r["model_requested"], exp=exp_dir.name)
-        write(OUT / "runs" / f"{run_id}.json", scene)
+        write(OUT / "runs" / f"{run_id}.json", scene, compact=prefix != "exp001")
         if not any(x["id"] == run_id for x in index["runs"]):
             title = f"{exp_dir.name} seed {r['seed']}, {r['model_requested']}"
+            if detail:
+                title += f", {r['policy']}, {r['pack']} pack"
             index["runs"].append({"id": run_id, "label": "recorded", "path": f"runs/{run_id}.json",
                                   "title": title, "group": exp_dir.name})
         n += 1
     return n
 
 
-def write(path: Path, data: object) -> None:
+def experiment_blocks(exp_dir: Path, prefix: str, spec: list[dict[str, Any]],
+                      detail: bool = False) -> list[dict[str, Any]]:
+    """One block per model and pack: a row per condition with its Wilson interval and one mark per
+    seed, and the comparisons the summary lists for that block (primary first)."""
+    summary = json.loads((exp_dir / "summary.json").read_text(encoding="utf-8"))
+    rows = read_rows(exp_dir)
+    blocks = []
+    for b in spec:
+        model, pack = b["model"], b.get("pack", "constraint")
+        out_rows = []
+        for label, name in b["rows"]:
+            c = next((x for x in summary["cells"] if x["model"] == model
+                      and x.get("pack", pack) == pack and x["label"] == label), None)
+            if c is None:
+                continue
+            mine = sorted((r for r in rows if r["model_requested"] == model and r["pack"] == pack
+                           and label_of_row(r) == label), key=lambda r: r["seed"])
+            out_rows.append({
+                "label": label, "name": name, "k": c["k_violated"], "n": c["n_graded"],
+                "rate": c.get("rate"), "lo": c.get("wilson_lo"), "hi": c.get("wilson_hi"),
+                "na": c["n_not_applicable"], "truncated": c.get("n_summary_truncated"),
+                "truncation_known": c.get("n_truncation_known"),
+                "seeds": [{"seed": r["seed"], "grade": r["grade"], "fate": r["canary_fate"],
+                           "evidence": r["evidence"], "truncated": r.get("summary_truncated"),
+                           "run": run_id_of(prefix, r, detail)
+                           if r["condition"] == "treatment" else None} for r in mine]})
+        names = dict(b["rows"])
+        comps = [{"first": names.get(c["first"], c["first"]),
+                  "second": names.get(c["second"], c["second"]), "role": c.get("role", "primary"),
+                  "n": c["n_pairs"], "only_first": c["only_first_failed"],
+                  "only_second": c["only_second_failed"], "p": c["p_mcnemar"], "q": c["q_bh"],
+                  "rd": c.get("risk_difference"), "rd_lo": c.get("rd_lo"), "rd_hi": c.get("rd_hi")}
+                 for c in summary["comparisons"]
+                 if c["model"] == model and c.get("pack", pack) == pack
+                 and c["first"] in names and c["second"] in names]
+        comps.sort(key=lambda c: c["role"] != "primary")
+        blocks.append({"model": model, "pack": pack, "host": b["host"], "note": b.get("note", ""),
+                       "rows": out_rows, "comparisons": comps})
+    return blocks
+
+
+def label_of_row(r: dict[str, Any]) -> str:
+    return r["condition"] if r.get("policy") is None else f"{r['condition']}({r['policy']})"
+
+
+EXP001B = ROOT / "results" / "EXP-001b"
+EXP002 = ROOT / "results" / "EXP-002"
+POLICY_ROWS = [("control", "full context"),
+               ("treatment(recency_truncate)", "drop oldest"),
+               ("treatment(head_tail)", "keep head and tail"),
+               ("treatment(observation_mask)", "mask tool output"),
+               ("treatment(llm_summary)", "model summary")]
+
+
+def exp001b_results() -> dict[str, Any]:
+    summary = json.loads((EXP001B / "summary.json").read_text(encoding="utf-8"))
+    spec = [{"model": "openai/gpt-oss-20b", "host": "NVIDIA",
+             "rows": [("control", "control"), ("length_matched(llm_summary)", "length-matched"),
+                      ("treatment(llm_summary)", "treatment")],
+             "note": "Same 27 seeds as EXP-001, reasoning kept short on the summary call."}]
+    return {"label": "recorded", "exp_id": "EXP-001b", "dates": summary["dates"],
+            "blocks": experiment_blocks(EXP001B, "exp001b", spec),
+            "source": [rel(EXP001B / "summary.json"), "docs/experiments/EXP-001b.md"]}
+
+
+def exp002_results() -> dict[str, Any]:
+    summary = json.loads((EXP002 / "summary.json").read_text(encoding="utf-8"))
+    spec = [{"model": "ministral-14b-latest", "pack": "constraint", "host": "Mistral",
+             "rows": POLICY_ROWS},
+            {"model": "ministral-14b-latest", "pack": "identifier", "host": "Mistral",
+             "rows": POLICY_ROWS},
+            {"model": "openai/gpt-oss-20b", "pack": "constraint", "host": "NVIDIA",
+             "rows": POLICY_ROWS}]
+    blocks = [b for b in experiment_blocks(EXP002, "exp002", spec, detail=True) if b["rows"]]
+    return {"label": "recorded", "exp_id": "EXP-002", "dates": summary["dates"],
+            "limit_tokens": summary["cells"][0]["limit_tokens"], "blocks": blocks,
+            "source": [rel(EXP002 / "summary.json"), "docs/experiments/EXP-002.md"]}
+
+
+def write(path: Path, data: object, compact: bool = False) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8", newline="\n")
+    text = json.dumps(data, separators=(",", ":")) if compact else json.dumps(data, indent=2)
+    path.write_text(text + "\n", encoding="utf-8", newline="\n")
 
 
 def rel(path: Path) -> str:
@@ -127,9 +218,14 @@ def exp001_results() -> dict[str, Any]:
         })
     t_pilot, t_nv = pilot["total"], nvidia["total"]
     nv = nvidia["per_model"]["openai/gpt-oss-20b"]
+    spec = [{"model": model, "host": host, "note": note,
+             "rows": [("control", "control"), ("treatment(llm_summary)", "treatment")]}
+            for model, host, _, usable, note in MODELS if usable]
     return {
         "label": "recorded", "exp_id": "EXP-001", "dates": summary["dates"],
-        "models": models,
+        "models": models, "blocks": experiment_blocks(EXP001, "exp001", spec),
+        "other": [{"host": host, "model": model, "note": note}
+                  for model, host, _, usable, note in MODELS if not usable],
         "audit": {"judged": t_pilot["behaviour_judged"] + t_nv["behaviour_judged"],
                   "followed": t_pilot["behaviour_follows_owner_call"]
                   + t_nv["behaviour_follows_owner_call"]},
@@ -238,6 +334,16 @@ def main() -> None:
         index["experiments"] += [
             {"id": "exp001", "label": "recorded", "path": "experiments/exp001.json"},
             {"id": "exp001_pair", "label": "recorded", "path": "experiments/exp001_pair.json"}]
+    if (EXP001B / "summary.json").exists():
+        write(OUT / "experiments" / "exp001b.json", exp001b_results())
+        export_episode_runs(EXP001B, "exp001b", ["openai/gpt-oss-20b"], index)
+        index["experiments"].append(
+            {"id": "exp001b", "label": "recorded", "path": "experiments/exp001b.json"})
+    if (EXP002 / "summary.json").exists():
+        write(OUT / "experiments" / "exp002.json", exp002_results())
+        export_episode_runs(EXP002, "exp002", list(TAGS), index, detail=True)
+        index["experiments"].append(
+            {"id": "exp002", "label": "recorded", "path": "experiments/exp002.json"})
 
     # the lab: real scripted histories, and parity cases that pin the JS policies to the Python
     write(OUT / "lab" / "constraint.json",

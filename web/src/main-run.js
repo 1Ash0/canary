@@ -22,7 +22,10 @@ function renderText(run, step) {
   const tr = run.transcript ?? [];
   const AT = run.compaction?.at_step ?? Infinity;
   const after = step > AT;
-  const shown = tr.filter((m) => m.step <= step && (after || m.origin !== 'summary'));
+  // Stand-ins a compaction adds (masked tool output) keep the step of what they replace, so a stable
+  // sort by step shows each one inside its own turn rather than after the request.
+  const shown = tr.filter((m) => m.step <= step && (after || m.origin !== 'summary'))
+    .sort((a, b) => a.step - b.step);
   const rows = [];
   for (const m of shown) {
     const kind = kindOf(m, run);

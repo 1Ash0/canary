@@ -92,6 +92,22 @@ def test_step_going_backwards_is_rejected() -> None:
         replay([start(), msg(1, "a", 2, 5), msg(2, "b", 1, 5)])
 
 
+def test_a_compactions_stand_ins_may_keep_their_original_step() -> None:
+    # observation_mask: the tool output of step 3 is replaced by a short placeholder still at step 3
+    events = [start(), msg(1, "u1", 1, 10), msg(2, "t1", 3, 200, role="tool", origin="tool"),
+              msg(3, "u2", 4, 5), compaction(4, dropped=["t1"], added=["t1m"]),
+              msg(5, "t1m", 3, 8, role="tool", origin="tool")]
+    rows = replay(events).rows
+    assert rows[-1].step == 4 and rows[-1].layers["toolOutput"] == 8
+
+
+def test_a_message_the_compaction_did_not_add_still_cannot_go_back() -> None:
+    events = [start(), msg(1, "u1", 1, 10), msg(2, "t1", 3, 200, role="tool", origin="tool"),
+              compaction(3, dropped=["t1"], added=["t1m"]), msg(4, "other", 2, 8)]
+    with pytest.raises(ValueError, match="backwards"):
+        replay(events)
+
+
 @pytest.mark.parametrize(
     ("role", "origin", "layer"),
     [

@@ -48,8 +48,11 @@ const sections = [
     mountConsequence(el, pair);
   }],
   ['[data-results]', async (el) => {
-    const [{ mountResults }, exp] = await Promise.all([import('./results.js'), loadExperiment('./', 'exp001')]);
-    mountResults(el, exp);
+    // later experiments are optional: a missing file drops its tab, never the section
+    const soft = (id) => loadExperiment('./', id).catch(() => null);
+    const [{ mountResults }, exp001, exp001b, exp002] = await Promise.all([
+      import('./results.js'), loadExperiment('./', 'exp001'), soft('exp001b'), soft('exp002')]);
+    mountResults(el, { exp001, exp001b, exp002 });
   }],
   ['[data-survival-mini]', async (el) => {
     const [{ mountSurvivalMini }, grid] = await Promise.all([import('./survival-mini.js'), loadJson('./data/survival/grid.json')]);
