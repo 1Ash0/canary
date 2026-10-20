@@ -1,1 +1,74 @@
-[]
+[
+  {
+    "provider": "openrouter",
+    "model": "google/gemma-4-31b-it:free",
+    "free": true,
+    "source": "https://openrouter.ai/api/v1/models",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
+  },
+  {
+    "provider": "openrouter",
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "free": true,
+    "source": "https://openrouter.ai/api/v1/models",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
+  },
+  {
+    "provider": "openrouter",
+    "model": "google/gemma-4-26b-a4b-it:free",
+    "free": true,
+    "source": "https://openrouter.ai/api/v1/models",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
+  },
+  {
+    "provider": "openrouter",
+    "model": "poolside/laguna-s-2.1:free",
+    "free": true,
+    "source": "https://openrouter.ai/api/v1/models",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
+  },
+  {
+    "provider": "openrouter",
+    "model": "cohere/north-mini-code:free",
+    "free": true,
+    "source": "https://openrouter.ai/api/v1/models",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
+  },
+  {
+    "provider": "openrouter",
+    "model": "minimax/minimax-m3.1-flash:free",
+    "free": true,
+    "source": "https://openrouter.ai/api/v1/models",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
+  },
+  {
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "free": true,
+    "source": "https://console.groq.com/docs/rate-limits",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
+  },
+  {
+    "provider": "groq",
+    "model": "openai/gpt-oss-20b",
+    "free": true,
+    "source": "https://console.groq.com/docs/rate-limits",
+    "as_of": "2026-10-20",
+    "input_per_mtok": 0.0,
+    "output_per_mtok": 0.0
+  }
+]
