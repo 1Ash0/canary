@@ -310,3 +310,16 @@ def test_cells_report_summary_validity_and_whether_behaviour_followed_survival()
     assert cell["fate_matches_grade"] == {"k": 3, "n": 4}  # seed 3 lost the rule and still obeyed
     control = next(c for c in analyse(rows)["cells"] if c["condition"] == "control")
     assert "n_summary_checked" not in control and "fate_matches_grade" not in control
+
+
+def test_regrading_from_traces_reproduces_the_rows_and_catches_a_stale_one(tmp_path) -> None:
+    from ctxcheck.runner.regrade import regrade_rows
+
+    go(tmp_path, plan(seeds=(1, 2)), agent=SimulatedAgent(p_follow=1.0, seed=4))
+    rows = read_rows(tmp_path / "res" / "episodes.jsonl")
+    root = Path(".")
+    assert regrade_rows(rows, root).changes == []  # a faithful cache changes nothing
+    rows[0]["grade"] = "violated" if rows[0]["grade"] == "respected" else "respected"
+    stale = regrade_rows(rows, root)
+    assert [c[3] for c in stale.changes] == ["grade"]  # only the tampered field is reported
+    assert stale.rows[0]["grade"] != rows[0]["grade"]

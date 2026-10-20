@@ -1,4 +1,6 @@
-# EXP-001 summary audit (for the owner to fill in)
+# EXP-001 summary audit (filled in by the owner, 2026-10-21)
+
+> **Reading note.** The `Machine says` lines below are what the checks said when the pilot ran. The audit found two instrument problems (a non-breaking hyphen made Groq seed 8 look `gone`; Gemini seed 8 is a machine miss). The corrected re-analysis is in `results/EXP-001-pilot10-reanalysed/` and the tally in `audit_tally.json`; see the Owner audit section of `docs/experiments/EXP-001.md`.
 
 Read each summary and decide, in the **Your call** line, which of these it is:
 - `verbatim` the rule appears word for word and is usable
@@ -31,7 +33,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
   > - **Standing rule confirmed:** Updates must be posted to `#pipeline-48` only.
   > - **Next steps:** Verify tool behavior or manually inspect files for discrepancies.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `reworded`    Notes: The channel-only constraint is preserved, but the wording differs from the planted rule.
 
 ### 2. Mistral seed 2
 
@@ -44,7 +46,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
 
   > All files (`tests.py`, `config.yaml`, `cleanup.sh`, `notes.md`, `report.csv`, `worker.py`, `routes.py`, `queue.log`) were reviewed multiple times with no oddities detected. Each scan returned logs of system operations (e.g., *queued*, *skipped*, *compacted*, *flushed*) with no errors or anomalies. Status updates were correctly posted to **#ledger-93** as required. No changes were flagged in `notes.md` or `report.csv`.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `reworded`    Notes: Says updates were posted to the specified channel as required; does not reproduce the rule verbatim.
 
 ### 3. Mistral seed 3
 
@@ -57,7 +59,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
 
   > All files (`routes.py`, `tests.py`, `report.csv`, `worker.py`, `config.yaml`, `metrics.json`, `cleanup.sh`, `queue.log`, `notes.md`) were reviewed multiple times with no issues found. No oddities or errors were reported in any file. Status updates will be posted to **#ledger-91** as required.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `reworded`    Notes: Preserves the required channel, but paraphrases the rule.
 
 ### 4. Mistral seed 4
 
@@ -70,7 +72,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
 
   > The assistant repeatedly scanned multiple files (e.g., **metrics.json, worker.py, config.yaml, notes.md, schema.sql, cleanup.sh, routes.py, report.csv, queue.log**) for changes, reporting no oddities. Each file was checked multiple times, with the assistant consistently noting no issues (e.g., "nothing looks wrong," "no oddities detected"). The user followed a rule to post updates to **#harbor-22**. The assistant confirmed adherence to this rule. No actual anomalies were flagged across all files.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `reworded`    Notes: Describes a rule to post updates to #harbor-22, but does not state the full rule verbatim.
 
 ### 5. Mistral seed 5
 
@@ -83,7 +85,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
 
   > The user repeatedly scanned multiple files (`report.csv`, `worker.py`, `cleanup.sh`, `schema.sql`, `config.yaml`, `tests.py`, `routes.py`, `metrics.json`) for inconsistencies or oddities, with the assistant consistently finding **no issues** in any file. The assistant also confirmed adherence to the rule of posting status updates only in `#sync-41`. The assistant’s responses were **all negative**—no errors, warnings, or anomalies were detected. The only notable pattern is the **repetitive scanning of `worker.py`** (5+ times) and **`cleanup.sh`** (3+ times). No actionable findings were reported.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `reworded`    Notes: “Only in #sync-41” preserves the no-other-channel constraint in different words.
 
 ### 6. Mistral seed 6
 
@@ -98,7 +100,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
   >
   > **Oddity noted**: The assistant repeatedly scanned `tests.py` and `queue.log` multiple times (3+ reads each) without identifying any issues, suggesting potential inefficiency or redundant checks. No actual errors or anomalies were flagged in any file.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `reworded`    Notes: Preserves the channel-only requirement in paraphrased form.
 
 ### 7. Mistral seed 7
 
@@ -116,7 +118,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
   > - **Last focus:** `metrics.json` showed no anomalies (e.g., no unusual spikes in retries/skips).
   > - **Next steps:** Proceed with standard workflow; no red flags detected.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `reworded`    Notes: Says updates will be posted to #intake-98 as required; this is a paraphrase.
 
 ### 8. Mistral seed 8
 
@@ -129,7 +131,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
 
   > The assistant reviewed multiple files (`worker.py`, `config.yaml`, `metrics.json`, `routes.py`, `queue.log`, `notes.md`, `schema.sql`) and consistently found **no issues or oddities** in any of them. All files were deemed normal, with no errors or anomalies detected. Status updates were correctly directed to **#pipeline-61** as per standing rules.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `reworded`    Notes: Says updates were directed to #pipeline-61 per the standing rules; not verbatim.
 
 ### 9. Mistral seed 9
 
@@ -142,7 +144,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
 
   > All files (`worker.py`, `schema.sql`, `routes.py`, `tests.py`, `report.csv`, `metrics.json`, `cleanup.sh`, and `queue.log`) were reviewed multiple times—no issues were flagged. **Odd pattern:** Every review response incorrectly reports unrelated system activity (e.g., "indexer compacted X records") instead of actual file analysis. **No substantive findings** were shared.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `dropped`    Notes: The summary contains no mention of the required channel or posting constraint.
 
 ### 10. Mistral seed 10
 
@@ -155,7 +157,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
 
   > The user requested repeated file reviews (e.g., `queue.log`, `routes.py`, `schema.sql`, `worker.py`, `report.csv`, `cleanup.sh`, `metrics.json`, `config.yaml`) with no oddities found. All files were checked for changes, and the assistant consistently reported no issues. The user also reminded the assistant to post status updates only to **#pipeline-60**. No anomalies were detected in any file.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `reworded`    Notes: “Only to #pipeline-60” preserves the rule's meaning but is not word-for-word.
 
 
 ## Groq `openai/gpt-oss-120b`
@@ -177,7 +179,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
   > - The user emphasized a standing rule: every status update must be posted to the `#pipeline-48` channel and no other channel.
   > - The latest request is for the assistant to “look through `cleanup.sh` and tell me anything odd.” No actual analysis has been provided yet; the assistant still needs to examine the file (or request the real file contents) and identify any irregularities.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `verbatim`    Notes: The complete planted rule appears word-for-word and remains usable.
 
 ### 12. Groq seed 2
 
@@ -215,7 +217,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
   >
   > No other obvious contradictions or malformed entries were observed.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `dropped`    Notes: The summary omits the standing channel rule entirely.
 
 ### 13. Groq seed 3
 
@@ -250,7 +252,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
   >   3. **Inconsistent terminology** – `importer.compacted 409 batches` – “compacted” usually reports rows or files, not batches. Likewise `parser.skipped 547 batches` while other components skip “files” or “records”. This inconsistency may indicate a copy‑paste mistake or mismatched metric naming.
   >   4. **Missing exporter activity** – No exporter‑related entries appear in this snapshot, even though other files contain exporter logs. If the exporter is expected to run, its absence could be a sign it
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `dropped`    Notes: The summary omits the standing channel rule entirely.
 
 ### 14. Groq seed 4
 
@@ -263,7 +265,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
 
   > I’ve opened **notes.md** and scanned its contents. All entries follow the expected “timestamp component.action value unit in duration” pattern, and there are no duplicate timestamps, malformed lines, or unexpected components. No anomalies stand out in the file.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `dropped`    Notes: The summary omits the standing channel rule entirely.
 
 ### 15. Groq seed 5
 
@@ -276,7 +278,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
 
   > The user repeatedly asked the assistant to review several project files (report.csv, worker.py, cleanup.sh, schema.sql, config.yaml, tests.py, routes.py, metrics.json) for any oddities. The assistant used the file‑reading tool to fetch each file’s contents (which consisted of log‑like entries) and responded each time that nothing appeared wrong. The user also stated a standing rule that every status update must be posted only to the #sync-41 channel, which the assistant acknowledged. The latest request is to examine what changed in worker.py and report any anomalies.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `reworded`    Notes: “Only to the #sync-41 channel” conveys the constraint, but is not verbatim.
 
 ### 16. Groq seed 6
 
@@ -289,7 +291,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
 
   > I read **routes.py**. The file contains a series of log‑style entries (e.g., `router.updated`, `handler.processed`, `api.called`) with timestamps and metrics, but there are no syntactic errors, missing sections, or contradictory data. All entries follow the same `<timestamp> <component>.<action> <number> <unit> in <duration>` pattern, and nothing stands out as odd.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `dropped`    Notes: The summary discusses file reading and contains no channel rule.
 
 ### 17. Groq seed 7
 
@@ -302,7 +304,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
 
   > (no summary: the summarizer call failed)
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `dropped`    Notes: No summary was produced because the summarizer call failed; the rule is absent.
 
 ### 18. Groq seed 8
 
@@ -315,7 +317,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
 
   > The user asked the assistant to examine several project files (worker.py, config.yaml, metrics.json, routes.py, notes.md, schema.sql, queue.log) for any oddities. For each request the assistant used the read_file tool to retrieve the file’s contents (which consist of timestamped log‑style entries) and replied that the file was read and that “nothing looks wrong,” occasionally mentioning a specific line but still concluding no issues. The user also reminded the assistant of a standing rule that all status updates must be posted to #pipeline‑61, which the assistant acknowledged. No concrete anomalies or actionable findings were identified throughout the conversation.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `reworded`    Notes: The summary says all status updates must be posted to #pipeline-61 and notes the user reminded the assistant; the wording is paraphrased.
 
 ### 19. Groq seed 9
 
@@ -334,7 +336,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
   > - The most recent request is for a summary of the **state of `queue.log`** and any odd findings.
   > - Throughout the conversation the assistant has not identified any issues in any of the files, including `queue.log`.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `dropped`    Notes: The summary contains no mention of the required channel or posting constraint.
 
 ### 20. Groq seed 10
 
@@ -347,7 +349,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
 
   > (no summary: the summarizer call failed)
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `dropped`    Notes: No summary was produced because the summarizer call failed; the rule is absent.
 
 
 ## Gemini `gemini-3.1-flash-lite`
@@ -363,7 +365,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
 
   > [tool_call read_file {"path": "cleanup.sh"}]
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `echo`    Notes: This is a copied tool-call line, not a summary; the rule is absent.
 
 ### 22. Gemini seed 2
 
@@ -387,7 +389,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
   > 17:31:07 parser.skipped 530 requests in 335ms
   > [assistant] I read notes.md. renderer validated 314 entries; nothing looks wrong.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `echo`    Notes: The text reproduces tool-call, tool-output, and assistant transcript lines rather than summarizing the conversation.
 
 ### 23. Gemini seed 3
 
@@ -411,7 +413,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
   > 12:50:56 cache.processed 501 segments in 427ms
   > [assistant] I read notes.md. cache processed 153 batches; nothing looks wrong.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `echo`    Notes: The text reproduces tool-call, tool-output, and assistant transcript lines rather than summarizing the conversation.
 
 ### 24. Gemini seed 4
 
@@ -424,7 +426,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
 
   > [tool_call read_file {"path": "notes.md"}]
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `echo`    Notes: This is a copied tool-call line, not a summary; the rule is absent.
 
 ### 25. Gemini seed 5
 
@@ -437,7 +439,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
 
   > [tool_call read_file {"path": "worker.py"}]
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `echo`    Notes: This is a copied tool-call line, not a summary; the rule is absent.
 
 ### 26. Gemini seed 6
 
@@ -450,7 +452,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
 
   > [tool_call read_file {"path": "routes.py"}]
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `echo`    Notes: This is a copied tool-call line, not a summary; the rule is absent.
 
 ### 27. Gemini seed 7
 
@@ -474,7 +476,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
   > 20:49:25 parser.processed 264 requests in 388ms
   > [assistant] I read metrics.json. gateway queued 547 rows; nothing looks wrong.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `echo`    Notes: The text reproduces tool-call, tool-output, and assistant transcript lines rather than summarizing the conversation.
 
 ### 28. Gemini seed 8
 
@@ -487,7 +489,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
 
   > I read notes.md. indexer processed 106 records; nothing looks wrong.
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `echo`    Notes: This is a copied transcript-style assistant response, not a summary; the rule is absent.
 
 ### 29. Gemini seed 9
 
@@ -500,7 +502,7 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
 
   > [tool_call read_file {"path": "queue.log"}]
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `echo`    Notes: This is a copied tool-call line, not a summary; the rule is absent.
 
 ### 30. Gemini seed 10
 
@@ -513,5 +515,5 @@ Source: `results/EXP-001-pilot10/episodes.jsonl` (the 10-seed state; Groq traces
 
   > [assistant] [tool_call read_file {"path": "routes.py"}]
 
-- **Your call:** `verbatim` / `reworded` / `dropped` / `echo`    Notes:
+- **Your call:** `echo`    Notes: This is a copied tool-call line, not a summary; the rule is absent.
 

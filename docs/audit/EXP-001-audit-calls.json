@@ -1,0 +1,182 @@
+[
+  {
+    "model": "ministral-14b-latest",
+    "seed": 1,
+    "call": "reworded",
+    "note": "The channel-only constraint is preserved, but the wording differs from the planted rule."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 2,
+    "call": "reworded",
+    "note": "Says updates were posted to the specified channel as required; does not reproduce the rule verbatim."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 3,
+    "call": "reworded",
+    "note": "Preserves the required channel, but paraphrases the rule."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 4,
+    "call": "reworded",
+    "note": "Describes a rule to post updates to #harbor-22, but does not state the full rule verbatim."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 5,
+    "call": "reworded",
+    "note": "“Only in #sync-41” preserves the no-other-channel constraint in different words."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 6,
+    "call": "reworded",
+    "note": "Preserves the channel-only requirement in paraphrased form."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 7,
+    "call": "reworded",
+    "note": "Says updates will be posted to #intake-98 as required; this is a paraphrase."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 8,
+    "call": "reworded",
+    "note": "Says updates were directed to #pipeline-61 per the standing rules; not verbatim."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 9,
+    "call": "dropped",
+    "note": "The summary contains no mention of the required channel or posting constraint."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 10,
+    "call": "reworded",
+    "note": "“Only to #pipeline-60” preserves the rule's meaning but is not word-for-word."
+  },
+  {
+    "model": "openai/gpt-oss-120b",
+    "seed": 1,
+    "call": "verbatim",
+    "note": "The complete planted rule appears word-for-word and remains usable."
+  },
+  {
+    "model": "openai/gpt-oss-120b",
+    "seed": 2,
+    "call": "dropped",
+    "note": "The summary omits the standing channel rule entirely."
+  },
+  {
+    "model": "openai/gpt-oss-120b",
+    "seed": 3,
+    "call": "dropped",
+    "note": "The summary omits the standing channel rule entirely."
+  },
+  {
+    "model": "openai/gpt-oss-120b",
+    "seed": 4,
+    "call": "dropped",
+    "note": "The summary omits the standing channel rule entirely."
+  },
+  {
+    "model": "openai/gpt-oss-120b",
+    "seed": 5,
+    "call": "reworded",
+    "note": "“Only to the #sync-41 channel” conveys the constraint, but is not verbatim."
+  },
+  {
+    "model": "openai/gpt-oss-120b",
+    "seed": 6,
+    "call": "dropped",
+    "note": "The summary discusses file reading and contains no channel rule."
+  },
+  {
+    "model": "openai/gpt-oss-120b",
+    "seed": 7,
+    "call": "dropped",
+    "note": "No summary was produced because the summarizer call failed; the rule is absent."
+  },
+  {
+    "model": "openai/gpt-oss-120b",
+    "seed": 8,
+    "call": "reworded",
+    "note": "The summary says all status updates must be posted to #pipeline-61 and notes the user reminded the assistant; the wording is paraphrased."
+  },
+  {
+    "model": "openai/gpt-oss-120b",
+    "seed": 9,
+    "call": "dropped",
+    "note": "The summary contains no mention of the required channel or posting constraint."
+  },
+  {
+    "model": "openai/gpt-oss-120b",
+    "seed": 10,
+    "call": "dropped",
+    "note": "No summary was produced because the summarizer call failed; the rule is absent."
+  },
+  {
+    "model": "gemini-3.1-flash-lite",
+    "seed": 1,
+    "call": "echo",
+    "note": "This is a copied tool-call line, not a summary; the rule is absent."
+  },
+  {
+    "model": "gemini-3.1-flash-lite",
+    "seed": 2,
+    "call": "echo",
+    "note": "The text reproduces tool-call, tool-output, and assistant transcript lines rather than summarizing the conversation."
+  },
+  {
+    "model": "gemini-3.1-flash-lite",
+    "seed": 3,
+    "call": "echo",
+    "note": "The text reproduces tool-call, tool-output, and assistant transcript lines rather than summarizing the conversation."
+  },
+  {
+    "model": "gemini-3.1-flash-lite",
+    "seed": 4,
+    "call": "echo",
+    "note": "This is a copied tool-call line, not a summary; the rule is absent."
+  },
+  {
+    "model": "gemini-3.1-flash-lite",
+    "seed": 5,
+    "call": "echo",
+    "note": "This is a copied tool-call line, not a summary; the rule is absent."
+  },
+  {
+    "model": "gemini-3.1-flash-lite",
+    "seed": 6,
+    "call": "echo",
+    "note": "This is a copied tool-call line, not a summary; the rule is absent."
+  },
+  {
+    "model": "gemini-3.1-flash-lite",
+    "seed": 7,
+    "call": "echo",
+    "note": "The text reproduces tool-call, tool-output, and assistant transcript lines rather than summarizing the conversation."
+  },
+  {
+    "model": "gemini-3.1-flash-lite",
+    "seed": 8,
+    "call": "echo",
+    "note": "This is a copied transcript-style assistant response, not a summary; the rule is absent."
+  },
+  {
+    "model": "gemini-3.1-flash-lite",
+    "seed": 9,
+    "call": "echo",
+    "note": "This is a copied tool-call line, not a summary; the rule is absent."
+  },
+  {
+    "model": "gemini-3.1-flash-lite",
+    "seed": 10,
+    "call": "echo",
+    "note": "This is a copied tool-call line, not a summary; the rule is absent."
+  }
+]

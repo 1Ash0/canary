@@ -7,9 +7,11 @@ counts as gone. `changed` is reserved for a labelled judge model (ADR-002) and i
 
 from __future__ import annotations
 
+import unicodedata
 from collections.abc import Collection, Iterable
 from typing import Literal
 
+from ctxcheck.grading import fold_dashes
 from ctxcheck.schema import (
     CanaryPlantedEvent,
     CompactionEvent,
@@ -19,6 +21,12 @@ from ctxcheck.schema import (
 )
 
 Fate = Literal["kept", "gone"]
+
+
+def _fold(text: str) -> str:
+    """Compare modulo compatibility forms and dash variants only. Case still matters. A model's
+    non-breaking hyphen in a channel name must not make a kept fact look gone (owner's audit)."""
+    return fold_dashes(unicodedata.normalize("NFKC", text))
 
 
 def derive_fates(
@@ -44,8 +52,8 @@ def derive_fates(
                     raise ValueError(f"compaction drops unknown message {message_id!r}")
                 del live[message_id]
 
-    window = [text for message_id, text in live.items() if message_id not in exclude]
+    window = [_fold(text) for message_id, text in live.items() if message_id not in exclude]
     return {
-        cid: "kept" if any(value in text for text in window) else "gone"
+        cid: "kept" if any(_fold(value) in text for text in window) else "gone"
         for cid, value in planted.items()
     }

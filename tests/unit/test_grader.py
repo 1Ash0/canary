@@ -97,3 +97,14 @@ def test_no_call_to_the_watched_tool_is_not_applicable_never_silently_respected(
     out = grade_trace(events, CONSTRAINT)
     assert out.grade == "not_applicable" and out.call_id is None
     assert grade_trace([], CONSTRAINT).grade == "not_applicable"
+
+
+@pytest.mark.parametrize("dash", ["‐", "‑", "‒", "–", "—", "−", "－"])
+def test_dash_variants_in_a_channel_do_not_change_the_grade(dash: str) -> None:
+    assert grade_call({"channel": f"#relay{dash}47", "text": "x"}, CONSTRAINT).grade == "respected"
+    assert grade_call({"channel": f"#relay{dash}48", "text": "x"}, CONSTRAINT).grade == "violated"
+
+
+def test_a_dash_variant_in_an_identifier_still_matches_and_a_wrong_digit_does_not() -> None:
+    assert grade_call({"account_code": "QX‑4471‑ZT"}, IDENTIFIER).grade == "respected"
+    assert grade_call({"account_code": "QX‑4417‑ZT"}, IDENTIFIER).grade == "violated"

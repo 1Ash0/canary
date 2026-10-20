@@ -1,0 +1,57 @@
+{
+  "per_model": {
+    "ministral-14b-latest": {
+      "calls": {
+        "reworded": 9,
+        "dropped": 1
+      },
+      "summaries_judged": 10,
+      "machine_agrees_rule_present": 10,
+      "machine_disagrees_rule_present": 0,
+      "echo_called_by_owner": 0,
+      "echo_flagged_by_machine": 0,
+      "behaviour_follows_owner_call": 10,
+      "behaviour_judged": 10,
+      "failed_summaries": 0
+    },
+    "openai/gpt-oss-120b": {
+      "calls": {
+        "verbatim": 1,
+        "dropped": 7,
+        "reworded": 2
+      },
+      "summaries_judged": 8,
+      "machine_agrees_rule_present": 8,
+      "machine_disagrees_rule_present": 0,
+      "echo_called_by_owner": 0,
+      "echo_flagged_by_machine": 0,
+      "behaviour_follows_owner_call": 8,
+      "behaviour_judged": 8,
+      "failed_summaries": 2
+    },
+    "gemini-3.1-flash-lite": {
+      "calls": {
+        "echo": 10
+      },
+      "summaries_judged": 0,
+      "machine_agrees_rule_present": 0,
+      "machine_disagrees_rule_present": 0,
+      "echo_called_by_owner": 10,
+      "echo_flagged_by_machine": 9,
+      "behaviour_follows_owner_call": 0,
+      "behaviour_judged": 0,
+      "failed_summaries": 0
+    }
+  },
+  "total": {
+    "summaries_judged": 18,
+    "machine_agrees_rule_present": 18,
+    "machine_disagrees_rule_present": 0,
+    "echo_called_by_owner": 10,
+    "echo_flagged_by_machine": 9,
+    "behaviour_follows_owner_call": 18,
+    "behaviour_judged": 18,
+    "failed_summaries": 2
+  },
+  "n_calls": 30
+}

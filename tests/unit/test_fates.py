@@ -97,3 +97,20 @@ def test_trace_must_begin_with_run_start() -> None:
 def test_fixture_fates_are_one_kept_two_gone() -> None:
     fates = derive_fates(generate(1, count_fn=lambda t: len(t.split())))
     assert fates == {"C1": "kept", "C2": "gone", "C3": "gone"}
+
+
+def channel_events(summary: str) -> list[TraceEvent]:
+    rule = CanaryPlantedEvent(
+        type="canary_planted", run_id="r", seq=2, ts=TS, canary_id="C1", canary_type="constraint",
+        message_id="c1", value="#pipeline-61",
+    )
+    return [start(), msg(1, "c1", "Post to #pipeline-61 only.", origin="canary"), rule,
+            drop(3, ["c1"]), msg(4, "s1", summary, origin="summary")]
+
+
+def test_a_non_breaking_hyphen_in_the_summary_does_not_hide_a_kept_fact() -> None:
+    assert derive_fates(channel_events("Updates go to #pipeline‑61 only.")) == {"C1": "kept"}
+
+
+def test_a_different_channel_number_is_still_gone_despite_the_dash_folding() -> None:
+    assert derive_fates(channel_events("Updates go to #pipeline‑62 only.")) == {"C1": "gone"}

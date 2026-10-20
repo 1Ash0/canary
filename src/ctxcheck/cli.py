@@ -38,6 +38,7 @@ from ctxcheck.providers.presets import PRESETS, from_preset
 from ctxcheck.providers.simulated import MODEL_ID, SimulatedAgent
 from ctxcheck.runner.analysis import analyse
 from ctxcheck.runner.experiment import ExperimentPlan, estimate_tokens, read_rows, run_experiment
+from ctxcheck.runner.regrade import regrade_rows, write_rows
 from ctxcheck.runner.survival import survival_grid
 
 app = typer.Typer(
@@ -309,6 +310,25 @@ def survival(
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(grid, indent=2) + "\n", encoding="utf-8", newline="\n")
     typer.echo(f"wrote {out}: {len(grid['cells'])} cells x {seeds} seeds (deterministic; no model)")
+
+
+@app.command()
+def regrade(
+    exp_dir: Path = typer.Argument(..., help="results/<exp> directory with episodes.jsonl"),
+    out: Path | None = typer.Option(None, help="Write the regraded rows to this directory instead"),
+    write: bool = typer.Option(False, "--write", help="Overwrite episodes.jsonl in place"),
+) -> None:
+    """Re-derive grade, survival and summary validity from the traces and show what changes."""
+    result = regrade_rows(read_rows(exp_dir / "episodes.jsonl"))
+    for model, seed, condition, key, old, new in result.changes:
+        typer.echo(f"  {model} seed {seed} {condition}: {key} {old!r} -> {new!r}")
+    typer.echo(f"{len(result.changes)} change(s) in {len(result.rows)} rows")
+    if out is not None:
+        write_rows(out / "episodes.jsonl", result.rows)
+        typer.echo(f"wrote {out / 'episodes.jsonl'}")
+    elif write:
+        write_rows(exp_dir / "episodes.jsonl", result.rows)
+        typer.echo("episodes.jsonl rewritten in place")
 
 
 if __name__ == "__main__":

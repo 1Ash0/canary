@@ -105,8 +105,10 @@ def summary_validity(events: list[TraceEvent]) -> bool | None:
     if compaction is None or compaction.summary_message_id is None:
         return None
     contents = {e.message_id: e.content for e in events if isinstance(e, MessageEvent)}
-    return summary_looks_valid(contents[compaction.summary_message_id],
-                               [contents[i] for i in compaction.dropped_ids])
+    # the whole window the summary was written from, not only the messages it replaced: a copied
+    # line may come from a recent message that was kept (found by the owner's audit)
+    source = [contents[i] for i in (*compaction.dropped_ids, *compaction.kept_ids)]
+    return summary_looks_valid(contents[compaction.summary_message_id], source)
 
 
 def survival_at_probe(events: list[TraceEvent], canary_id: str, probe_message_id: str) -> Fate:

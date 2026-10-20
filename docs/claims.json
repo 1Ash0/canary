@@ -1369,16 +1369,16 @@
   {
     "id": "exp001-27-nv-surv-k",
     "file": "docs/experiments/EXP-001.md",
-    "text": "channel name still in the summary: NVIDIA 4 of 24, Mistral 25 of 27",
+    "text": "channel name still in the summary: NVIDIA 13 of 24, Mistral 25 of 27",
     "kind": "json",
     "source": "results/EXP-001/summary.json",
     "path": "cells[model=openai/gpt-oss-20b,label=treatment(llm_summary)].verbatim_survival.k_kept",
-    "expected": 4
+    "expected": 13
   },
   {
     "id": "exp001-27-nv-surv-n",
     "file": "docs/experiments/EXP-001.md",
-    "text": "channel name still in the summary: NVIDIA 4 of 24, Mistral 25 of 27",
+    "text": "channel name still in the summary: NVIDIA 13 of 24, Mistral 25 of 27",
     "kind": "json",
     "source": "results/EXP-001/summary.json",
     "path": "cells[model=openai/gpt-oss-20b,label=treatment(llm_summary)].verbatim_survival.n",
@@ -1387,16 +1387,16 @@
   {
     "id": "exp001-27-nv-fate-k",
     "file": "docs/experiments/EXP-001.md",
-    "text": "behaviour matched what the summary kept in 27 of 27 Mistral episodes and 15 of 24 NVIDIA episodes",
+    "text": "behaviour matched what the summary kept in 27 of 27 Mistral episodes and 24 of 24 NVIDIA episodes",
     "kind": "json",
     "source": "results/EXP-001/summary.json",
     "path": "cells[model=openai/gpt-oss-20b,label=treatment(llm_summary)].fate_matches_grade.k",
-    "expected": 15
+    "expected": 24
   },
   {
     "id": "exp001-27-nv-fate-n",
     "file": "docs/experiments/EXP-001.md",
-    "text": "behaviour matched what the summary kept in 27 of 27 Mistral episodes and 15 of 24 NVIDIA episodes",
+    "text": "behaviour matched what the summary kept in 27 of 27 Mistral episodes and 24 of 24 NVIDIA episodes",
     "kind": "json",
     "source": "results/EXP-001/summary.json",
     "path": "cells[model=openai/gpt-oss-20b,label=treatment(llm_summary)].fate_matches_grade.n",
@@ -1405,7 +1405,7 @@
   {
     "id": "exp001-27-mi-surv-k",
     "file": "docs/experiments/EXP-001.md",
-    "text": "channel name still in the summary: NVIDIA 4 of 24, Mistral 25 of 27",
+    "text": "channel name still in the summary: NVIDIA 13 of 24, Mistral 25 of 27",
     "kind": "json",
     "source": "results/EXP-001/summary.json",
     "path": "cells[model=ministral-14b-latest,label=treatment(llm_summary)].verbatim_survival.k_kept",
@@ -1414,7 +1414,7 @@
   {
     "id": "exp001-27-mi-surv-n",
     "file": "docs/experiments/EXP-001.md",
-    "text": "channel name still in the summary: NVIDIA 4 of 24, Mistral 25 of 27",
+    "text": "channel name still in the summary: NVIDIA 13 of 24, Mistral 25 of 27",
     "kind": "json",
     "source": "results/EXP-001/summary.json",
     "path": "cells[model=ministral-14b-latest,label=treatment(llm_summary)].verbatim_survival.n",
@@ -1423,7 +1423,7 @@
   {
     "id": "exp001-27-mi-fate-k",
     "file": "docs/experiments/EXP-001.md",
-    "text": "behaviour matched what the summary kept in 27 of 27 Mistral episodes and 15 of 24 NVIDIA episodes",
+    "text": "behaviour matched what the summary kept in 27 of 27 Mistral episodes and 24 of 24 NVIDIA episodes",
     "kind": "json",
     "source": "results/EXP-001/summary.json",
     "path": "cells[model=ministral-14b-latest,label=treatment(llm_summary)].fate_matches_grade.k",
@@ -1432,7 +1432,7 @@
   {
     "id": "exp001-27-mi-fate-n",
     "file": "docs/experiments/EXP-001.md",
-    "text": "behaviour matched what the summary kept in 27 of 27 Mistral episodes and 15 of 24 NVIDIA episodes",
+    "text": "behaviour matched what the summary kept in 27 of 27 Mistral episodes and 24 of 24 NVIDIA episodes",
     "kind": "json",
     "source": "results/EXP-001/summary.json",
     "path": "cells[model=ministral-14b-latest,label=treatment(llm_summary)].fate_matches_grade.n",
@@ -1455,5 +1455,113 @@
     "source": "results/EXP-001/summary.json",
     "path": "cells[model=openai/gpt-oss-20b,label=treatment(llm_summary)].n_episodes",
     "expected": 27
+  },
+  {
+    "id": "exp001-audit-agree-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "the machine and the owner agreed on whether the rule was present in 18 of 18 real summaries",
+    "kind": "json",
+    "source": "results/EXP-001-pilot10-reanalysed/audit_tally.json",
+    "path": "total.machine_agrees_rule_present",
+    "expected": 18
+  },
+  {
+    "id": "exp001-audit-agree-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "the machine and the owner agreed on whether the rule was present in 18 of 18 real summaries",
+    "kind": "json",
+    "source": "results/EXP-001-pilot10-reanalysed/audit_tally.json",
+    "path": "total.summaries_judged",
+    "expected": 18
+  },
+  {
+    "id": "exp001-audit-beh-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "behaviour followed the owner's call in 18 of 18",
+    "kind": "json",
+    "source": "results/EXP-001-pilot10-reanalysed/audit_tally.json",
+    "path": "total.behaviour_follows_owner_call",
+    "expected": 18
+  },
+  {
+    "id": "exp001-audit-beh-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "behaviour followed the owner's call in 18 of 18",
+    "kind": "json",
+    "source": "results/EXP-001-pilot10-reanalysed/audit_tally.json",
+    "path": "total.behaviour_judged",
+    "expected": 18
+  },
+  {
+    "id": "exp001-audit-echo-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "the machine flagged 9 of 10 echoes the owner identified",
+    "kind": "json",
+    "source": "results/EXP-001-pilot10-reanalysed/audit_tally.json",
+    "path": "total.echo_flagged_by_machine",
+    "expected": 9
+  },
+  {
+    "id": "exp001-audit-echo-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "the machine flagged 9 of 10 echoes the owner identified",
+    "kind": "json",
+    "source": "results/EXP-001-pilot10-reanalysed/audit_tally.json",
+    "path": "total.echo_called_by_owner",
+    "expected": 10
+  },
+  {
+    "id": "exp001-audit-verbatim-groq",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "only 1 of the 18 real summaries",
+    "kind": "json",
+    "source": "results/EXP-001-pilot10-reanalysed/audit_tally.json",
+    "path": "per_model.openai/gpt-oss-120b.calls.verbatim",
+    "expected": 1
+  },
+  {
+    "id": "exp001-audit-total-calls",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "all 30 pilot summaries",
+    "kind": "json",
+    "source": "results/EXP-001-pilot10-reanalysed/audit_tally.json",
+    "path": "n_calls",
+    "expected": 30
+  },
+  {
+    "id": "exp001-pilot-correction-k",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "re-analysed, behaviour followed survival in 8 of 8 Groq pilot episodes and the channel name survived in 3 of 8",
+    "kind": "json",
+    "source": "results/EXP-001-pilot10-reanalysed/summary.json",
+    "path": "cells[model=openai/gpt-oss-120b,label=treatment(llm_summary)].fate_matches_grade.k",
+    "expected": 8
+  },
+  {
+    "id": "exp001-pilot-correction-n",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "re-analysed, behaviour followed survival in 8 of 8 Groq pilot episodes and the channel name survived in 3 of 8",
+    "kind": "json",
+    "source": "results/EXP-001-pilot10-reanalysed/summary.json",
+    "path": "cells[model=openai/gpt-oss-120b,label=treatment(llm_summary)].fate_matches_grade.n",
+    "expected": 8
+  },
+  {
+    "id": "exp001-pilot-correction-sk",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "re-analysed, behaviour followed survival in 8 of 8 Groq pilot episodes and the channel name survived in 3 of 8",
+    "kind": "json",
+    "source": "results/EXP-001-pilot10-reanalysed/summary.json",
+    "path": "cells[model=openai/gpt-oss-120b,label=treatment(llm_summary)].verbatim_survival.k_kept",
+    "expected": 3
+  },
+  {
+    "id": "exp001-pilot-correction-sn",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "re-analysed, behaviour followed survival in 8 of 8 Groq pilot episodes and the channel name survived in 3 of 8",
+    "kind": "json",
+    "source": "results/EXP-001-pilot10-reanalysed/summary.json",
+    "path": "cells[model=openai/gpt-oss-120b,label=treatment(llm_summary)].verbatim_survival.n",
+    "expected": 8
   }
 ]

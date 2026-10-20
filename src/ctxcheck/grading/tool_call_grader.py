@@ -46,8 +46,19 @@ class GradeResult:
     call_id: str | None = None
 
 
+# every dash-like character a model may emit in place of an ASCII hyphen (U+2011 non-breaking
+# hyphen is the common one: NFKC does not fold it to "-")
+_DASHES = dict.fromkeys(
+    [0x2010, 0x2011, 0x2012, 0x2013, 0x2014, 0x2015, 0x2212, 0xFE58, 0xFE63, 0xFF0D], "-"
+)
+
+
+def fold_dashes(text: str) -> str:
+    return text.translate(_DASHES)
+
+
 def normalize(text: str) -> str:
-    s = unicodedata.normalize("NFKC", text)
+    s = fold_dashes(unicodedata.normalize("NFKC", text))
     s = re.sub(r"\s+", " ", s).strip().strip(_QUOTES).strip()
     return s.casefold()
 
