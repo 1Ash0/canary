@@ -276,6 +276,11 @@ a.dot { cursor: pointer; }
 .lab-view { grid-column: 5 / -1; min-width: 0; }
 .lab-label { display: flex; justify-content: space-between; gap: var(--space-sm); font-family: var(--type-label-family); font-size: var(--type-label-size); color: var(--ink-2); padding: 0; margin-bottom: var(--space-xs); }
 .lab-label output { color: var(--ink); font-variant-numeric: tabular-nums; }
+.lab-real { margin-top: var(--space-md); }
+.lab-real .note { margin: 0; }
+.lab-recorded { list-style: none; margin: var(--space-xs) 0 0; padding: 0; font-size: var(--type-small-size); color: var(--ink-2); }
+.lab-recorded li { padding-block: var(--space-xs); border-top: var(--line-hair) solid var(--hairline); }
+.lab-recorded a { color: var(--ink); }
 .lab-seg { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-xs); }
 .lab-seg legend { width: 100%; }
 .lab-seg[hidden] { display: none; }

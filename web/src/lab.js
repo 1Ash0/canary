@@ -18,7 +18,25 @@ const POLICY_HELP = {
 };
 const SUMMARIZER = { mistral: 'Mistral ministral-14b', nvidia: 'NVIDIA gpt-oss-20b' };
 
-export function mountLab(root, lab, summaries, floor) {
+// The same seed, policy and budget as EXP-002: what recorded models actually did with this window.
+function recordedLine(exp, policy, seed, position, limit) {
+  if (!exp) return '';
+  if (limit !== exp.limit_tokens || position !== 1) {
+    return `<p class="note">Set the budget to ${nf.format(exp.limit_tokens)} and the rule at turn 2 to see what real models did with this exact window.</p>`;
+  }
+  const items = exp.blocks.filter((b) => b.pack === 'constraint').map((b) => {
+    const d = b.rows.find((r) => r.label === `treatment(${policy})`)?.seeds.find((x) => x.seed === seed);
+    if (!d) return '';
+    const chan = (d.evidence ?? '').replace(/^channel=/, '').replace(/'/g, '');
+    const what = d.grade === 'violated' ? `posted to <span class="mono is-loss">${esc(chan)}</span>, rule broken`
+      : d.grade === 'respected' ? `posted to <span class="mono">${esc(chan)}</span>, rule followed` : 'made no post';
+    return `<li><span class="panel-host">${esc(b.host)}</span> ${what}. ${d.run ? `<a href="./run/?run=${encodeURIComponent(d.run)}">Open the episode</a>` : ''}</li>`;
+  }).filter(Boolean);
+  if (!items.length) return '';
+  return `<p class="lab-label"><span class="tag">recorded</span> This exact window, given to real models (${esc(exp.exp_id)})</p><ul class="lab-recorded">${items.join('')}</ul>`;
+}
+
+export function mountLab(root, lab, summaries, floor, exp002 = null) {
   const state = { policy: 'recency_truncate', limit: 2400, position: 1, seed: 0, summarizer: 'nvidia' };
   const seeds = lab.seeds;
   root.innerHTML = `
@@ -48,6 +66,7 @@ export function mountLab(root, lab, summaries, floor) {
         <pre class="ascii" data-ascii aria-hidden="true"></pre>
         <p class="visually-hidden" data-ascii-text aria-live="polite"></p>
         <div class="lab-summary" data-summary hidden></div>
+        <div class="lab-real" data-real aria-live="polite"></div>
         <p class="ascii-key" aria-hidden="true"><span class="ax-rule">█ rule</span> <span class="ax-history">░ conversation</span> <span class="ax-tool">▒ tool output</span> <span class="ax-summary">▓ summary</span> <span class="ax-masked">· masked</span> <span class="ax-out">dim = removed by compaction</span></p>
       </div>
     </div>`;
@@ -143,6 +162,7 @@ export function mountLab(root, lab, summaries, floor) {
       const marked = plain.includes(h.value) ? plain.split(h.value).join(`<mark>${esc(h.value)}</mark>`) : plain;
       sumEl.innerHTML = `<p class="lab-label">The summary ${esc(SUMMARIZER[state.summarizer])} wrote${summary.truncated ? ' (cut off by the token cap)' : ''}</p><blockquote class="cons-quote">${marked}</blockquote>`;
     }
+    q('[data-real]').innerHTML = irreducible ? '' : recordedLine(exp002, state.policy, h.seed, state.position, state.limit);
     q('[data-tag]').textContent = summaryMode ? 'recorded' : 'simulated';
     q('[data-tag-note]').textContent = summaryMode
       ? `EXP-001${summary?.exp === 'EXP-001b' ? 'b' : ''}, seed ${h.seed}. Real model output.`

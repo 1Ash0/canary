@@ -32,11 +32,11 @@ try {
 // view ships only the hero.
 const sections = [
   ['[data-lab]', async (el) => {
-    const [{ mountLab }, lab, summaries, exp] = await Promise.all([
+    const [{ mountLab }, lab, summaries, exp, exp002] = await Promise.all([
       import('./lab.js'), loadJson('./data/lab/constraint.json'), loadJson('./data/lab/summaries.json'),
-      loadExperiment('./', 'exp001')]);
+      loadExperiment('./', 'exp001'), loadExperiment('./', 'exp002').catch(() => null)]);
     const floors = exp.models.filter((m) => m.usable).map((m) => m.floor);
-    mountLab(el, lab, summaries, { k: floors.reduce((a, f) => a + f.k, 0), n: floors.reduce((a, f) => a + f.n, 0) });
+    mountLab(el, lab, summaries, { k: floors.reduce((a, f) => a + f.k, 0), n: floors.reduce((a, f) => a + f.n, 0) }, exp002);
   }],
   ['[data-compare]', async (el) => {
     const [{ mountCompare }, pair] = await Promise.all([import('./compare.js'), loadExperiment('./', 'exp001_pair')]);
