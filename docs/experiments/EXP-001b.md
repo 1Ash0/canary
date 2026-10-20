@@ -1,7 +1,7 @@
 # EXP-001b — EXP-001 for reasoning models, with a summary cap their reasoning cannot eat
 
 Status: **frozen before any run** (this file is committed before the first EXP-001b call; the commit hash is recorded below in a follow-up commit).
-Frozen at commit: ______
+Frozen at commit: b5cc18f
 Epistemic tag of results: `measured` (recorded model output only)
 
 ## Why this exists
