@@ -66,7 +66,7 @@ Common fields: `schema_version`, `run_id`, `seq` (monotonic int), `ts`, `type`.
 | `canary_probe` | canary_id, probe_message_id, grade (violated/respected), evidence |
 | `run_end` | status, totals |
 
-Additions decided in LEARNING U1b (2026-10-20): `step`, `limit_tokens`, `tools_tokens_est` as above. **Canary fate (kept / changed / gone) is a derived view**, computed by replaying `canary_planted` + `compaction` + the summary text (verbatim check). It becomes an event only if a judge model is added. Pairing ids for control vs treatment are deferred to M4 (additive).
+Additions decided in LEARNING U1b (2026-10-20): `step`, `limit_tokens`, `tools_tokens_est` as above. **Canary fate is a derived view** (`src/ctxcheck/fates.py`), computed by replaying the trace. v0 rule, decided 2026-10-20: a planted fact is `kept` if its text appears verbatim in a message still in the window at the end, otherwise `gone`. Case and punctuation matter, so a paraphrase counts as gone (this undercounts survival; state it wherever the number is shown). `changed` is reserved for a labelled judge model and becomes an event only then (ADR-002). Pairing ids for control vs treatment are deferred to M4 (additive).
 
 Rules:
 - **Event sourcing.** The log is the source of truth. Any view (token ledger, strata, loss diff) is *derived* by replaying events. (This is the DDIA log-as-truth idea; learn it in unit U2.)
