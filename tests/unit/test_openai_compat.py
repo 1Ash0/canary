@@ -240,4 +240,4 @@ def test_reasoning_effort_is_forwarded_only_when_set() -> None:
     hi = [msg("user", "hi")]
     body = build_request("m", 100, "max_tokens", hi, [], {"reasoning_effort": "low"})
     assert body["reasoning_effort"] == "low"
-    assert "reasoning_effort" not in build_request("m", 100, "max_tokens", [msg("user", "hi")], [], {})
+    assert "reasoning_effort" not in build_request("m", 100, "max_tokens", hi, [], {})
