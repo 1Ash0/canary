@@ -41,7 +41,32 @@ Daily provider limits. No stopping on interim results.
 The owner reads at least 20 EXP-001b summaries (sheet generated after the run).
 
 ## Results
-(empty until the run)
+
+Recorded 2026-10-20; source `results/EXP-001b/summary.json` (regenerate with `ctxcheck report results/EXP-001b`, then `python scripts/write_results.py EXP-001b`). 108 episodes. Epistemic tag: `recorded`. Every number below is generated from the summary and checked by `scripts/check_claims.py`.
+
+| Model | Condition | Broke the rule | 95% interval | No summary | Cut off | Invalid summary |
+|---|---|---|---|---|---|---|
+| `openai/gpt-oss-20b` | control | 1/27 | 1%–18% | 0 | – | – |
+| `openai/gpt-oss-20b` | floor | 25/27 | 77%–98% | 0 | – | – |
+| `openai/gpt-oss-20b` | length_matched(llm_summary) | 0/27 | 0%–12% | 0 | – | – |
+| `openai/gpt-oss-20b` | treatment(llm_summary) | 12/27 | 28%–63% | 0 | 0 of 27 | 0 of 27 |
+
+### Comparisons
+- `openai/gpt-oss-20b`, treatment(llm_summary) vs control: 12 versus 1 discordant pairs of 27, risk difference +41% (95% bootstrap +19% to +63%), exact McNemar p = 0.0034, BH q = 0.0034.
+- `openai/gpt-oss-20b`, treatment(llm_summary) vs length_matched(llm_summary): 12 versus 0 discordant pairs of 27, risk difference +44% (95% bootstrap +26% to +63%), exact McNemar p = 0.00049, BH q = 0.00098.
+
+### Verdict by the preregistered rules
+- **Instrument check (H2): passed.** Summaries cut off by the cap: none (see the table), against 9 of 24 judged summaries in EXP-001 under the 400-token cap. No summary failed to be produced.
+- **H1 for `gpt-oss-20b`: replicates.** Both primary comparisons have a positive paired difference whose bootstrap interval excludes zero, and an adjusted exact McNemar q below 0.05. Validity checks hold: floor broke the rule in 25 of 27, control in 1 of 27, and no cell had episodes without a summary.
+- **Groq `gpt-oss-120b`: no episodes yet.** Its daily token limit was spent on the same day by earlier runs; the design allows later days to add seeds. Nothing is claimed for it.
+
+### What it means
+- EXP-001's NVIDIA effect was not an artefact of truncation. With every summary complete, the treatment rate is still 12 of 27, while the same-length uncompacted window broke the rule in 0 of 27: the loss comes from what the summary leaves out, not from a shorter window.
+- Exploratory: the channel name survived in 13 of 27 summaries, and behaviour matched survival in 25 of 27 episodes; the mismatches are agents that lost the rule and still picked the right channel, which the floor condition says happens by chance about one time in four.
+- Together with EXP-001: a generic summary prompt carries the rule through for Mistral almost every time and for `gpt-oss-20b` about half the time. Whether a rule survives compaction depends on the model that writes the summary.
+
+### Not shown
+One pack, one prompt, one free model at 27 seeds; the owner's hand audit of these summaries is still to come.
 
 ## Deviations log
 | Date | What changed | Why |

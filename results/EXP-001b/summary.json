@@ -1,0 +1,159 @@
+{
+  "exp_id": "EXP-001b",
+  "pack": "constraint",
+  "source": "recorded",
+  "models_reported": [
+    "openai/gpt-oss-20b"
+  ],
+  "dates": [
+    "2026-10-20"
+  ],
+  "n_episodes": 108,
+  "cells": [
+    {
+      "model": "openai/gpt-oss-20b",
+      "limit_tokens": 2400,
+      "label": "control",
+      "condition": "control",
+      "policy": null,
+      "prompt_version": null,
+      "n_episodes": 27,
+      "n_graded": 27,
+      "k_violated": 1,
+      "n_not_applicable": 0,
+      "rate": 0.037037037037037035,
+      "wilson_lo": 0.006567976533097597,
+      "wilson_hi": 0.1828385393415652
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "limit_tokens": 2400,
+      "label": "floor",
+      "condition": "floor",
+      "policy": null,
+      "prompt_version": null,
+      "n_episodes": 27,
+      "n_graded": 27,
+      "k_violated": 25,
+      "n_not_applicable": 0,
+      "rate": 0.9259259259259259,
+      "wilson_lo": 0.7663002270926937,
+      "wilson_hi": 0.9794457783026165
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "limit_tokens": 2400,
+      "label": "length_matched(llm_summary)",
+      "condition": "length_matched",
+      "policy": "llm_summary",
+      "prompt_version": null,
+      "n_episodes": 27,
+      "n_graded": 27,
+      "k_violated": 0,
+      "n_not_applicable": 0,
+      "rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.12455903714463581
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "limit_tokens": 2400,
+      "label": "treatment(llm_summary)",
+      "condition": "treatment",
+      "policy": "llm_summary",
+      "prompt_version": "v1",
+      "n_episodes": 27,
+      "n_graded": 27,
+      "k_violated": 12,
+      "n_not_applicable": 0,
+      "rate": 0.4444444444444444,
+      "wilson_lo": 0.27585597670072837,
+      "wilson_hi": 0.6268728052042312,
+      "n_summary_checked": 27,
+      "n_summary_invalid": 0,
+      "n_summary_truncated": 0,
+      "n_truncation_known": 27,
+      "fate_matches_grade": {
+        "k": 25,
+        "n": 27
+      },
+      "verbatim_survival": {
+        "k_kept": 13,
+        "n": 27,
+        "rate": 0.48148148148148145,
+        "wilson_lo": 0.30742950649709083,
+        "wilson_hi": 0.6601467541378958
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "model": "openai/gpt-oss-20b",
+      "limit_tokens": 2400,
+      "first": "treatment(llm_summary)",
+      "second": "control",
+      "n_pairs": 27,
+      "only_first_failed": 12,
+      "only_second_failed": 1,
+      "p_mcnemar": 0.00341796875,
+      "risk_difference": 0.4074074074074074,
+      "rd_lo": 0.18518518518518517,
+      "rd_hi": 0.6296296296296297,
+      "sensitivity_na_as_violated": {
+        "n_pairs": 27,
+        "only_first_failed": 12,
+        "only_second_failed": 1,
+        "p_mcnemar": 0.00341796875,
+        "risk_difference": 0.4074074074074074,
+        "rd_lo": 0.18518518518518517,
+        "rd_hi": 0.6296296296296297
+      },
+      "sensitivity_valid_summaries_only": {
+        "n_pairs": 27,
+        "only_first_failed": 12,
+        "only_second_failed": 1,
+        "p_mcnemar": 0.00341796875,
+        "risk_difference": 0.4074074074074074,
+        "rd_lo": 0.18518518518518517,
+        "rd_hi": 0.6296296296296297
+      },
+      "q_bh": 0.00341796875
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "limit_tokens": 2400,
+      "first": "treatment(llm_summary)",
+      "second": "length_matched(llm_summary)",
+      "n_pairs": 27,
+      "only_first_failed": 12,
+      "only_second_failed": 0,
+      "p_mcnemar": 0.00048828125,
+      "risk_difference": 0.4444444444444444,
+      "rd_lo": 0.25925925925925924,
+      "rd_hi": 0.6296296296296297,
+      "sensitivity_na_as_violated": {
+        "n_pairs": 27,
+        "only_first_failed": 12,
+        "only_second_failed": 0,
+        "p_mcnemar": 0.00048828125,
+        "risk_difference": 0.4444444444444444,
+        "rd_lo": 0.25925925925925924,
+        "rd_hi": 0.6296296296296297
+      },
+      "sensitivity_valid_summaries_only": {
+        "n_pairs": 27,
+        "only_first_failed": 12,
+        "only_second_failed": 0,
+        "p_mcnemar": 0.00048828125,
+        "risk_difference": 0.4444444444444444,
+        "rd_lo": 0.25925925925925924,
+        "rd_hi": 0.6296296296296297
+      },
+      "q_bh": 0.0009765625
+    }
+  ],
+  "notes": [
+    "rate = violated / graded episodes; not_applicable excluded and counted",
+    "q_bh adjusts all listed comparisons together (Benjamini-Hochberg)"
+  ]
+}

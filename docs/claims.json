@@ -1653,5 +1653,284 @@
     "source": "results/EXP-001/summary.json",
     "path": "cells[model=openai/gpt-oss-20b,label=treatment(llm_summary)].n_episodes",
     "expected": 27
+  },
+  {
+    "id": "cross-exp001b-truncation",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "against 9 of 24 judged summaries in EXP-001",
+    "kind": "json",
+    "source": "results/EXP-001/audit_tally_nvidia.json",
+    "path": "per_model.openai/gpt-oss-20b.truncated",
+    "expected": 9
+  },
+  {
+    "id": "cross-exp001b-truncation-n",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "against 9 of 24 judged summaries in EXP-001",
+    "kind": "json",
+    "source": "results/EXP-001/audit_tally_nvidia.json",
+    "path": "per_model.openai/gpt-oss-20b.summaries_judged",
+    "expected": 24
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|control-k_violated",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "| `openai/gpt-oss-20b` | control | 1/27 | 1%\u201318% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=control,limit_tokens=2400].k_violated",
+    "expected": 1
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|control-n_graded",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "| `openai/gpt-oss-20b` | control | 1/27 | 1%\u201318% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=control,limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|control-n_not_applicable",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "| `openai/gpt-oss-20b` | control | 1/27 | 1%\u201318% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=control,limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|floor-k_violated",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "| `openai/gpt-oss-20b` | floor | 25/27 | 77%\u201398% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=floor,limit_tokens=2400].k_violated",
+    "expected": 25
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|floor-n_graded",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "| `openai/gpt-oss-20b` | floor | 25/27 | 77%\u201398% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=floor,limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|floor-n_not_applicable",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "| `openai/gpt-oss-20b` | floor | 25/27 | 77%\u201398% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=floor,limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|length_matched(llm_summary)-k_violated",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "| `openai/gpt-oss-20b` | length_matched(llm_summary) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=length_matched(llm_summary),limit_tokens=2400].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|length_matched(llm_summary)-n_graded",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "| `openai/gpt-oss-20b` | length_matched(llm_summary) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=length_matched(llm_summary),limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|length_matched(llm_summary)-n_not_applicable",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "| `openai/gpt-oss-20b` | length_matched(llm_summary) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=length_matched(llm_summary),limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|treatment(llm_summary)-k_violated",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "| `openai/gpt-oss-20b` | treatment(llm_summary) | 12/27 | 28%\u201363% | 0 | 0 of 27 | 0 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=treatment(llm_summary),limit_tokens=2400].k_violated",
+    "expected": 12
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|treatment(llm_summary)-n_graded",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "| `openai/gpt-oss-20b` | treatment(llm_summary) | 12/27 | 28%\u201363% | 0 | 0 of 27 | 0 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=treatment(llm_summary),limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|treatment(llm_summary)-n_not_applicable",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "| `openai/gpt-oss-20b` | treatment(llm_summary) | 12/27 | 28%\u201363% | 0 | 0 of 27 | 0 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=treatment(llm_summary),limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|treatment(llm_summary)-trunc",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "| `openai/gpt-oss-20b` | treatment(llm_summary) | 12/27 | 28%\u201363% | 0 | 0 of 27 | 0 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,label=treatment(llm_summary),limit_tokens=2400].n_summary_truncated",
+    "expected": 0
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|treatment(llm_summary)|control-only_first_failed",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "`openai/gpt-oss-20b`, treatment(llm_summary) vs control: 12 versus 1 discordant pairs of 27, risk difference +41% (95% bootstrap +19% to +63%), exact McNemar p = 0.0034, BH q = 0.0034",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,first=treatment(llm_summary),second=control].only_first_failed",
+    "expected": 12
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|treatment(llm_summary)|control-only_second_failed",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "`openai/gpt-oss-20b`, treatment(llm_summary) vs control: 12 versus 1 discordant pairs of 27, risk difference +41% (95% bootstrap +19% to +63%), exact McNemar p = 0.0034, BH q = 0.0034",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,first=treatment(llm_summary),second=control].only_second_failed",
+    "expected": 1
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|treatment(llm_summary)|control-n_pairs",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "`openai/gpt-oss-20b`, treatment(llm_summary) vs control: 12 versus 1 discordant pairs of 27, risk difference +41% (95% bootstrap +19% to +63%), exact McNemar p = 0.0034, BH q = 0.0034",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,first=treatment(llm_summary),second=control].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|treatment(llm_summary)|control-p_mcnemar",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "`openai/gpt-oss-20b`, treatment(llm_summary) vs control: 12 versus 1 discordant pairs of 27, risk difference +41% (95% bootstrap +19% to +63%), exact McNemar p = 0.0034, BH q = 0.0034",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,first=treatment(llm_summary),second=control].p_mcnemar",
+    "expected": 0.00341796875
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|treatment(llm_summary)|control-q_bh",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "`openai/gpt-oss-20b`, treatment(llm_summary) vs control: 12 versus 1 discordant pairs of 27, risk difference +41% (95% bootstrap +19% to +63%), exact McNemar p = 0.0034, BH q = 0.0034",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,first=treatment(llm_summary),second=control].q_bh",
+    "expected": 0.00341796875
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|treatment(llm_summary)|control-risk_difference",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "`openai/gpt-oss-20b`, treatment(llm_summary) vs control: 12 versus 1 discordant pairs of 27, risk difference +41% (95% bootstrap +19% to +63%), exact McNemar p = 0.0034, BH q = 0.0034",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,first=treatment(llm_summary),second=control].risk_difference",
+    "expected": 0.4074074074074074
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|treatment(llm_summary)|control-rd_lo",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "`openai/gpt-oss-20b`, treatment(llm_summary) vs control: 12 versus 1 discordant pairs of 27, risk difference +41% (95% bootstrap +19% to +63%), exact McNemar p = 0.0034, BH q = 0.0034",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,first=treatment(llm_summary),second=control].rd_lo",
+    "expected": 0.18518518518518517
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|treatment(llm_summary)|control-rd_hi",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "`openai/gpt-oss-20b`, treatment(llm_summary) vs control: 12 versus 1 discordant pairs of 27, risk difference +41% (95% bootstrap +19% to +63%), exact McNemar p = 0.0034, BH q = 0.0034",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,first=treatment(llm_summary),second=control].rd_hi",
+    "expected": 0.6296296296296297
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|treatment(llm_summary)|length_matched(llm_summary)-only_first_failed",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "`openai/gpt-oss-20b`, treatment(llm_summary) vs length_matched(llm_summary): 12 versus 0 discordant pairs of 27, risk difference +44% (95% bootstrap +26% to +63%), exact McNemar p = 0.00049, BH q = 0.00098",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,first=treatment(llm_summary),second=length_matched(llm_summary)].only_first_failed",
+    "expected": 12
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|treatment(llm_summary)|length_matched(llm_summary)-only_second_failed",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "`openai/gpt-oss-20b`, treatment(llm_summary) vs length_matched(llm_summary): 12 versus 0 discordant pairs of 27, risk difference +44% (95% bootstrap +26% to +63%), exact McNemar p = 0.00049, BH q = 0.00098",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,first=treatment(llm_summary),second=length_matched(llm_summary)].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|treatment(llm_summary)|length_matched(llm_summary)-n_pairs",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "`openai/gpt-oss-20b`, treatment(llm_summary) vs length_matched(llm_summary): 12 versus 0 discordant pairs of 27, risk difference +44% (95% bootstrap +26% to +63%), exact McNemar p = 0.00049, BH q = 0.00098",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,first=treatment(llm_summary),second=length_matched(llm_summary)].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|treatment(llm_summary)|length_matched(llm_summary)-p_mcnemar",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "`openai/gpt-oss-20b`, treatment(llm_summary) vs length_matched(llm_summary): 12 versus 0 discordant pairs of 27, risk difference +44% (95% bootstrap +26% to +63%), exact McNemar p = 0.00049, BH q = 0.00098",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,first=treatment(llm_summary),second=length_matched(llm_summary)].p_mcnemar",
+    "expected": 0.00048828125
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|treatment(llm_summary)|length_matched(llm_summary)-q_bh",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "`openai/gpt-oss-20b`, treatment(llm_summary) vs length_matched(llm_summary): 12 versus 0 discordant pairs of 27, risk difference +44% (95% bootstrap +26% to +63%), exact McNemar p = 0.00049, BH q = 0.00098",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,first=treatment(llm_summary),second=length_matched(llm_summary)].q_bh",
+    "expected": 0.0009765625
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|treatment(llm_summary)|length_matched(llm_summary)-risk_difference",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "`openai/gpt-oss-20b`, treatment(llm_summary) vs length_matched(llm_summary): 12 versus 0 discordant pairs of 27, risk difference +44% (95% bootstrap +26% to +63%), exact McNemar p = 0.00049, BH q = 0.00098",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,first=treatment(llm_summary),second=length_matched(llm_summary)].risk_difference",
+    "expected": 0.4444444444444444
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|treatment(llm_summary)|length_matched(llm_summary)-rd_lo",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "`openai/gpt-oss-20b`, treatment(llm_summary) vs length_matched(llm_summary): 12 versus 0 discordant pairs of 27, risk difference +44% (95% bootstrap +26% to +63%), exact McNemar p = 0.00049, BH q = 0.00098",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,first=treatment(llm_summary),second=length_matched(llm_summary)].rd_lo",
+    "expected": 0.25925925925925924
+  },
+  {
+    "id": "exp-001b-gpt-oss-20b|treatment(llm_summary)|length_matched(llm_summary)-rd_hi",
+    "file": "docs/experiments/EXP-001b.md",
+    "text": "`openai/gpt-oss-20b`, treatment(llm_summary) vs length_matched(llm_summary): 12 versus 0 discordant pairs of 27, risk difference +44% (95% bootstrap +26% to +63%), exact McNemar p = 0.00049, BH q = 0.00098",
+    "kind": "json",
+    "source": "results/EXP-001b/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,first=treatment(llm_summary),second=length_matched(llm_summary)].rd_hi",
+    "expected": 0.6296296296296297
   }
 ]
