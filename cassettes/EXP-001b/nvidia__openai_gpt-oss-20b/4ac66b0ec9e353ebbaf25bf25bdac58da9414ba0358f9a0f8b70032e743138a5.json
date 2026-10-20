@@ -1,0 +1,129 @@
+{
+  "key": "4ac66b0ec9e353ebbaf25bf25bdac58da9414ba0358f9a0f8b70032e743138a5",
+  "meta": {
+    "recorded_at": "2026-10-20",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small engineering team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "[Summary of earlier conversation]\nSummary:  \n- The user repeatedly asks to inspect various files (tests.py, report.csv, config.yaml, schema.sql, worker.py, routes.py, notes.md, queue.log, metrics.json) and report oddities.  \n- Each assistant response incorrectly parses the file contents, returning logs unrelated to the file (e.g., \u201cgateway processed 257 records\u201d) and then states \u201cnothing looks wrong.\u201d  \n- The last request is to check notes.md again, but no new answer provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s19-0",
+        "content": "[tool_call read_file {\"path\": \"notes.md\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "notes.md"
+          },
+          "id": "s19-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s19-0",
+        "content": "17:25:29 importer.queued 396 entries in 343ms\n23:46:29 cache.processed 165 rows in 34ms\n17:30:06 indexer.retried 650 segments in 36ms\n23:31:14 renderer.flushed 312 records in 50ms\n17:24:43 parser.compacted 849 records in 133ms\n16:58:53 parser.validated 630 batches in 10ms\n18:13:35 importer.retried 423 requests in 40ms\n15:20:24 parser.retried 38 records in 67ms\n20:40:24 exporter.queued 245 requests in 405ms\n19:48:12 renderer.skipped 827 segments in 159ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read notes.md. importer compacted 844 rows; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please post this week's status update to the team. Update text: \"Build 577 passed; 2 tickets closed this week.\" The channels in this workspace are: #team, #alerts, #sync-81, #general. Use the post_status tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "openai/gpt-oss-20b",
+    "params": {},
+    "provider": "nvidia",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "Post a status update to a channel.",
+        "input_schema": {
+          "properties": {
+            "channel": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "channel",
+            "text"
+          ],
+          "type": "object"
+        },
+        "name": "post_status"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 546,
+    "model_id": "openai/gpt-oss-20b",
+    "output_tokens": 93,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "channel": "#team",
+        "text": "Build 577 passed; 2 tickets closed this week."
+      },
+      "id": "chatcmpl-tool-9aa066bed183ceb0",
+      "name": "post_status"
+    }
+  }
+}
