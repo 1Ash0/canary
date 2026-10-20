@@ -102,7 +102,8 @@ def run_experiment(
     episodes = out_dir / "episodes.jsonl"
     done = {r["key"]: r for r in read_rows(episodes)}
     report = RunReport()
-    for spec in plan.cells():
+    for cell in plan.cells():
+        spec = replace(cell, provider=provider_name, model=model)
         if spec.key in done:
             report.skipped += 1
             continue

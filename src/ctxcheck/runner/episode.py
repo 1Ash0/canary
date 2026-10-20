@@ -44,6 +44,9 @@ class EpisodeSpec:
     lines: int = 10
     canary_turn: int = 1
     params: tuple[tuple[str, Any], ...] = ()
+    # which model answers: part of the cell, so two models never share a key or a result row
+    provider: str = ""
+    model: str = ""
 
     def __post_init__(self) -> None:
         if self.condition not in CONDITIONS:

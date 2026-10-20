@@ -280,3 +280,19 @@ def test_different_window_limits_are_separate_cells(tmp_path) -> None:
     assert limits == [1800, 3000]
     treat = {c["limit_tokens"]: c for c in result["cells"] if c["condition"] == "treatment"}
     assert treat[1800]["rate"] >= treat[3000]["rate"]  # a tighter window loses more
+
+
+def test_two_models_have_separate_cells_and_neither_skips_the_other(tmp_path) -> None:
+    p = plan(seeds=(1, 2))
+    for model in ("model-a", "model-b"):
+        report = run_experiment(p, SimulatedAgent(seed=1), provider_name="sim", model=model,
+                                out_dir=tmp_path / "res", runs_dir=tmp_path / "runs",
+                                source="simulated")
+        assert (report.ran, report.skipped) == (8, 0)  # the second model is not "already done"
+    rows = read_rows(tmp_path / "res" / "episodes.jsonl")
+    assert len(rows) == 16 and len({r["key"] for r in rows}) == 16
+    assert {r["model_requested"] for r in rows} == {"model-a", "model-b"}
+    again = run_experiment(p, SimulatedAgent(seed=1), provider_name="sim", model="model-a",
+                           out_dir=tmp_path / "res", runs_dir=tmp_path / "runs",
+                           source="simulated")
+    assert (again.ran, again.skipped) == (0, 8)  # resume is still per model
