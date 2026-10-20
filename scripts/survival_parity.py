@@ -2,9 +2,9 @@
 alone on the same seed, with no model?
 
 For every treatment episode of a deterministic policy, the same seeded history is compacted by the
-same policy code with a stub reply (as in `ctxcheck survival`), and the fate at the probe is compared
-with the fate the recorded trace shows. A mismatch means the harness behaved differently live than
-offline: a bug, and EXP-002 says nothing is reported until it is found.
+same policy code with a stub reply (as in `ctxcheck survival`), and the fate at the probe is
+compared with the fate the recorded trace shows. A mismatch means the harness behaved differently
+live than offline: a bug, and EXP-002 says nothing is reported until it is found.
 
     python scripts/survival_parity.py EXP-002      # writes results/EXP-002/survival_parity.json
 """
