@@ -1,1 +1,22 @@
-# canaries/ — CanaryPack protocol + constraint pack, identifier pack (M4)
+"""Canary packs. A new pack is one module with `build(seed, plant=...)`, registered here."""
+
+from __future__ import annotations
+
+from collections.abc import Callable
+
+from ctxcheck.canaries import constraint, identifier
+from ctxcheck.canaries.base import Built, trim_to_length, window_tokens_before_probe
+
+PACKS: dict[str, Callable[..., Built]] = {
+    "constraint": constraint.build,
+    "identifier": identifier.build,
+}
+
+
+def build_pack(name: str, seed: int, **options: object) -> Built:
+    if name not in PACKS:
+        raise ValueError(f"unknown pack {name!r}; known: {', '.join(sorted(PACKS))}")
+    return PACKS[name](seed, **options)
+
+
+__all__ = ["PACKS", "Built", "build_pack", "trim_to_length", "window_tokens_before_probe"]

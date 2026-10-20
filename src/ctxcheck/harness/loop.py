@@ -15,7 +15,7 @@ from datetime import UTC, datetime
 from typing import Any
 
 from ctxcheck.harness.tools import Tool, dispatch
-from ctxcheck.harness.types import Message, ModelResponse, Origin, Role
+from ctxcheck.harness.types import Message, ModelResponse, Origin, Role, ToolCall
 from ctxcheck.policies.base import Policy, PolicyContext, PolicyError
 from ctxcheck.providers.base import Provider
 from ctxcheck.schema import (
@@ -33,10 +33,23 @@ from ctxcheck.tokens import count
 
 
 @dataclass(frozen=True)
+class Scripted:
+    """What the agent already did in a turn, replayed into the window without calling a model.
+
+    Experiments script the history before the probe: it is recorded context, not something the
+    model under test is asked to produce, so an episode costs about one live call, not one per turn.
+    """
+
+    exchanges: tuple[tuple[ToolCall, str], ...] = ()  # (the call the agent made, its output)
+    reply: str = "Done."
+
+
+@dataclass(frozen=True)
 class Turn:
     text: str
     origin: Origin = "user"
     canary: tuple[str, str, str] | None = None  # (canary_id, canary_type, value)
+    scripted: Scripted | None = None  # None means the model answers this turn live
 
     def __post_init__(self) -> None:
         if self.canary and self.canary[2] not in self.text:
@@ -156,7 +169,8 @@ def run(
 
     emit(RunStartEvent, type="run_start", scenario_id=scenario.scenario_id, seed=seed,
          policy=policy.name if policy else "none", provider=provider_name, model=model,
-         params=params, limit_tokens=limit_tokens, tools_tokens_est=tools_tokens)
+         params={**params, "scripted_turns": sum(t.scripted is not None for t in scenario.turns)},
+         limit_tokens=limit_tokens, tools_tokens_est=tools_tokens)
     add("system", "user", scenario.system, step=1)
 
     calls = 0
@@ -166,6 +180,20 @@ def run(
             cid, ctype, value = turn.canary
             emit(CanaryPlantedEvent, type="canary_planted", canary_id=cid, canary_type=ctype,
                  message_id=planted.id, value=value)
+        if turn.scripted is not None:
+            for n, (past_call, output) in enumerate(turn.scripted.exchanges):
+                call_id = f"s{step}-{n}"
+                scripted_call = ToolCall(call_id, past_call.name, past_call.args)
+                args_json = json.dumps(scripted_call.args, sort_keys=True)
+                add("assistant", "assistant", f"[tool_call {scripted_call.name} {args_json}]",
+                    step, call_id=call_id, tool_call=scripted_call)
+                emit(ToolCallEvent, type="tool_call", call_id=call_id, name=scripted_call.name,
+                     args=scripted_call.args)
+                emit(ToolResultEvent, type="tool_result", call_id=call_id, result=output,
+                     is_error=False)
+                add("tool", "tool", output, step, call_id=call_id)
+            add("assistant", "assistant", turn.scripted.reply, step)
+            continue  # no compaction or model call: the window is only checked at a live call
         turn_calls = 0
         while True:
             try:
