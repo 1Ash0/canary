@@ -25,7 +25,8 @@ def go(tmp_path: Path, p: ExperimentPlan, agent=None, **kw):
 
 
 def spec(condition: str, **kw) -> EpisodeSpec:
-    policy = kw.pop("policy", "llm_summary" if condition == "treatment" else None)
+    has_policy = condition in ("treatment", "length_matched")
+    policy = kw.pop("policy", "llm_summary" if has_policy else None)
     return EpisodeSpec("EXP-T", "constraint", condition, 1, 0, policy=policy, **kw)
 
 
@@ -38,6 +39,8 @@ def episode(tmp_path: Path, condition: str, agent=None, matched=None, **kw):
 def test_a_treatment_policy_is_required_only_for_the_treatment() -> None:
     with pytest.raises(ValueError, match="policy"):
         EpisodeSpec("E", "constraint", "treatment", 1, 0)
+    with pytest.raises(ValueError, match="policy"):
+        EpisodeSpec("E", "constraint", "length_matched", 1, 0)
     with pytest.raises(ValueError, match="policy"):
         EpisodeSpec("E", "constraint", "control", 1, 0, policy="head_tail")
     with pytest.raises(ValueError, match="unknown condition"):
@@ -94,7 +97,7 @@ def test_head_tail_keeps_the_early_canary_that_recency_loses(tmp_path) -> None:
 
 def test_length_matched_is_not_compacted_but_is_as_short_as_the_treatment(tmp_path) -> None:
     t = episode(tmp_path, "treatment", policy="recency_truncate")
-    lm = episode(tmp_path, "length_matched", matched=t.window_at_probe)
+    lm = episode(tmp_path, "length_matched", policy="recency_truncate", matched=t.window_at_probe)
     assert not lm.compacted and lm.window_at_probe <= t.window_at_probe
     assert t.window_at_probe - lm.window_at_probe < 700  # within about one filler turn
     assert lm.grade == "respected"  # the canary is intact in a window of the same size
@@ -205,7 +208,7 @@ def test_analysis_reports_rates_intervals_and_paired_comparisons(tmp_path) -> No
     assert cells["treatment"]["rate"] > cells["length_matched"]["rate"]
     assert cells["treatment"]["verbatim_survival"]["k_kept"] == 0
     comp = {(c["first"], c["second"]): c for c in result["comparisons"]}
-    t_vs_c = comp[("treatment", "control")]
+    t_vs_c = comp[("treatment(llm_summary)", "control")]
     assert t_vs_c["only_first_failed"] > 0 and t_vs_c["only_second_failed"] == 0
     assert t_vs_c["risk_difference"] > 0 and 0 <= t_vs_c["rd_lo"] <= t_vs_c["rd_hi"] <= 1
     assert 0 < t_vs_c["p_mcnemar"] <= 1 and t_vs_c["q_bh"] >= t_vs_c["p_mcnemar"]
@@ -236,3 +239,44 @@ def test_not_applicable_episodes_are_counted_and_have_a_sensitivity_analysis() -
     assert comp["n_pairs"] == 4 and comp["sensitivity_na_as_violated"]["n_pairs"] == 6
     assert comp["sensitivity_na_as_violated"]["only_first_failed"] == 6
     json.dumps(out)  # the result is plain JSON
+
+
+# --- several policies in one experiment ---------------------------------------------------------
+
+def test_two_policies_share_floor_and_control_but_not_length_matched(tmp_path) -> None:
+    for policy in ("recency_truncate", "head_tail"):
+        go(tmp_path, plan(policy=policy, seeds=(1, 2, 3)), agent=SimulatedAgent(seed=4))
+    rows = read_rows(tmp_path / "res" / "episodes.jsonl")
+    by_condition = {c: [r for r in rows if r["condition"] == c] for c in
+                    ("floor", "control", "treatment", "length_matched")}
+    assert len(by_condition["floor"]) == len(by_condition["control"]) == 3  # run once, reused
+    assert len(by_condition["treatment"]) == len(by_condition["length_matched"]) == 6
+    sizes = {(r["policy"], r["seed"]): r["window_at_probe"] for r in by_condition["length_matched"]}
+    assert len(sizes) == 6  # each policy's twin was sized from its own treatment
+
+
+def test_analysis_compares_policies_with_each_other_and_with_the_controls(tmp_path) -> None:
+    for policy in ("recency_truncate", "head_tail"):
+        go(tmp_path, plan(policy=policy, seeds=tuple(range(1, 11))),
+           agent=SimulatedAgent(p_follow=1.0, seed=4))
+    result = analyse(read_rows(tmp_path / "res" / "episodes.jsonl"),
+                     primary=[("treatment(recency_truncate)", "treatment(head_tail)")])
+    labels = {c["label"] for c in result["cells"]}
+    assert {"treatment(recency_truncate)", "treatment(head_tail)", "control", "floor",
+            "length_matched(head_tail)"} <= labels
+    (comp,) = result["comparisons"]
+    assert comp["first"] == "treatment(recency_truncate)" and comp["risk_difference"] > 0
+    assert comp["only_second_failed"] == 0  # head_tail keeps the rule that recency drops
+    default = analyse(read_rows(tmp_path / "res" / "episodes.jsonl"))
+    assert len(default["comparisons"]) == 4  # two policies x (control, length_matched twin)
+
+
+def test_different_window_limits_are_separate_cells(tmp_path) -> None:
+    for limit in (1800, 3000):
+        go(tmp_path, plan(policy="recency_truncate", seeds=(1, 2, 3), limit_tokens=limit),
+           agent=SimulatedAgent(p_follow=1.0, seed=4))
+    result = analyse(read_rows(tmp_path / "res" / "episodes.jsonl"))
+    limits = sorted({c["limit_tokens"] for c in result["cells"]})
+    assert limits == [1800, 3000]
+    treat = {c["limit_tokens"]: c for c in result["cells"] if c["condition"] == "treatment"}
+    assert treat[1800]["rate"] >= treat[3000]["rate"]  # a tighter window loses more

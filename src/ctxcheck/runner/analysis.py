@@ -14,7 +14,21 @@ from typing import Any
 
 from ctxcheck.stats import benjamini_hochberg, mcnemar_exact, paired_bootstrap_rd, wilson_interval
 
-DEFAULT_PRIMARY = (("treatment", "control"), ("treatment", "length_matched"))
+
+def label_of(row: dict[str, Any]) -> str:
+    """`control`, or `treatment(llm_summary)`: policy rows are told apart by their policy."""
+    policy = row.get("policy")
+    return row["condition"] if policy is None else f"{row['condition']}({policy})"
+
+
+def default_primary(labels: set[str]) -> list[tuple[str, str]]:
+    """Each treatment against the full-context control and against its own length-matched twin."""
+    pairs: list[tuple[str, str]] = []
+    for label in sorted(labels):
+        if label.startswith("treatment"):
+            pairs.append((label, "control"))
+            pairs.append((label, label.replace("treatment", "length_matched", 1)))
+    return [(a, b) for a, b in pairs if a in labels and b in labels]
 
 
 def _cell(rows: Sequence[dict[str, Any]]) -> dict[str, Any]:
@@ -67,42 +81,52 @@ def _compare(pairs: list[tuple[bool, bool]], seed: int) -> dict[str, Any]:
 
 def analyse(
     rows: Sequence[dict[str, Any]],
-    primary: Sequence[tuple[str, str]] = DEFAULT_PRIMARY,
+    primary: Sequence[tuple[str, str]] | None = None,
     bootstrap_seed: int = 0,
 ) -> dict[str, Any]:
+    """Cells per (model, window limit, condition/policy) and paired comparisons within each group.
+
+    `primary` names the comparisons to run as pairs of labels (see `label_of`); by default every
+    treatment is compared with `control` and with its length-matched twin.
+    """
     if not rows:
         raise ValueError("no episodes to analyse")
     sources = {r["source"] for r in rows}
     if len(sources) != 1:
         raise ValueError(f"refusing to mix sources {sorted(sources)}: simulated is never measured")
 
-    by_cell: dict[tuple, list[dict]] = defaultdict(list)
+    groups: dict[tuple, list[dict]] = defaultdict(list)
     for r in rows:
-        by_cell[(r["model_requested"], r["condition"])].append(r)
-    cells = [{"model": m, "condition": c, "policy": rs[0]["policy"],
-              "prompt_version": rs[0]["prompt_version"], **_cell(rs)}
-             for (m, c), rs in sorted(by_cell.items())]
+        groups[(r["model_requested"], r.get("limit_tokens"))].append(r)
 
+    cells: list[dict[str, Any]] = []
     comparisons: list[dict[str, Any]] = []
-    for model in sorted({r["model_requested"] for r in rows}):
-        keyed = {c: {(r["seed"], r["trial"]): r for r in rows
-                     if r["model_requested"] == model and r["condition"] == c}
-                 for c in ("floor", "control", "length_matched", "treatment")}
-        for first, second in primary:
+    for (model, limit), group in sorted(groups.items(), key=lambda kv: (kv[0][0], kv[0][1] or 0)):
+        by_label: dict[str, list[dict]] = defaultdict(list)
+        for r in group:
+            by_label[label_of(r)].append(r)
+        for label, rs in sorted(by_label.items()):
+            cells.append({"model": model, "limit_tokens": limit, "label": label,
+                          "condition": rs[0]["condition"], "policy": rs[0]["policy"],
+                          "prompt_version": rs[0]["prompt_version"], **_cell(rs)})
+        keyed = {label: {(r["seed"], r["trial"]): r for r in rs} for label, rs in by_label.items()}
+        for first, second in primary if primary is not None else default_primary(set(keyed)):
+            if first not in keyed or second not in keyed:
+                continue
             main = _compare(_pairs(keyed[first], keyed[second], False), bootstrap_seed)
             sens = _compare(_pairs(keyed[first], keyed[second], True), bootstrap_seed)
-            comparisons.append({"model": model, "first": first, "second": second, **main,
-                                "sensitivity_na_as_violated": sens})
+            comparisons.append({"model": model, "limit_tokens": limit, "first": first,
+                                "second": second, **main, "sensitivity_na_as_violated": sens})
     qs = benjamini_hochberg([c["p_mcnemar"] for c in comparisons])
     for c, q in zip(comparisons, qs, strict=True):
         c["q_bh"] = q
 
-    first = rows[0]
+    first_row = rows[0]
     return {
-        "exp_id": first["exp_id"], "pack": first["pack"], "source": next(iter(sources)),
+        "exp_id": first_row["exp_id"], "pack": first_row["pack"], "source": next(iter(sources)),
         "models_reported": sorted({r["model_id_reported"] for r in rows}),
         "dates": sorted({r["date"] for r in rows}),
         "n_episodes": len(rows), "cells": cells, "comparisons": comparisons,
         "notes": ["rate = violated / graded episodes; not_applicable excluded and counted",
-                  "q_bh adjusts the primary comparisons together (Benjamini-Hochberg)"],
+                  "q_bh adjusts all listed comparisons together (Benjamini-Hochberg)"],
     }

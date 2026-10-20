@@ -13,6 +13,7 @@ from dataclasses import asdict, dataclass, field, replace
 from pathlib import Path
 from typing import Any
 
+from ctxcheck.canaries import build_pack, window_tokens_before_probe
 from ctxcheck.harness.budget import BudgetError
 from ctxcheck.providers.base import Provider
 from ctxcheck.providers.cassette import CassetteMiss
@@ -41,10 +42,11 @@ class ExperimentPlan:
         for seed in self.seeds:
             for trial in range(self.trials):
                 for condition in order:
+                    has_policy = condition in ("treatment", "length_matched")
                     yield EpisodeSpec(
                         self.exp_id, self.pack, condition, seed, trial,
-                        policy=self.policy if condition == "treatment" else None,
-                        policy_options=self.policy_options if condition == "treatment" else (),
+                        policy=self.policy if has_policy else None,
+                        policy_options=self.policy_options if has_policy else (),
                         limit_tokens=self.limit_tokens, n_filler=self.n_filler, lines=self.lines,
                         canary_turn=self.canary_turn, params=self.params)
 
@@ -53,6 +55,21 @@ class ExperimentPlan:
         extra = 1 if self.policy == "llm_summary" and "treatment" in self.conditions else 0
         per_pair = len(self.conditions) + extra
         return len(self.seeds) * self.trials * per_pair
+
+
+def estimate_tokens(plan: ExperimentPlan) -> tuple[int, int]:
+    """Rough (input, output) tokens for the whole plan, from a sample episode. Upper-bound style."""
+    sample = build_pack(plan.pack, plan.seeds[0], n_filler=plan.n_filler, lines=plan.lines,
+                        canary_turn=plan.canary_turn)
+    full = window_tokens_before_probe(sample)
+    per_seed = 0
+    for c in plan.conditions:
+        per_seed += full if c in ("floor", "control") else plan.limit_tokens
+    if plan.policy == "llm_summary" and "treatment" in plan.conditions:
+        per_seed += full  # the summary call reads the whole history
+    n = len(plan.seeds) * plan.trials
+    out_tokens = n * (len(plan.conditions) * 80 + (400 if plan.policy == "llm_summary" else 0))
+    return n * per_seed, out_tokens
 
 
 @dataclass
@@ -91,8 +108,7 @@ def run_experiment(
             continue
         matched = None
         if spec.condition == "length_matched":
-            twin = replace(spec, condition="treatment", policy=plan.policy,
-                           policy_options=plan.policy_options)
+            twin = replace(spec, condition="treatment")
             if twin.key not in done:
                 log(f"skip {spec.key}: its treatment episode has no result yet")
                 continue

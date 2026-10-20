@@ -31,7 +31,7 @@ def _stub_probe_reply(tool: str, args: dict[str, Any]) -> ModelResponse:
 def survival_grid(
     pack: str = "constraint",
     policies: Sequence[str] = DEFAULT_POLICIES,
-    positions: Sequence[int] = (0, 3, 6, 9, 12, 15, 17),
+    positions: Sequence[int] = (0, 1, 3, 6, 9, 12, 15, 17),
     budgets: Sequence[int] = (1200, 1800, 2400, 3000, 3600),
     seeds: int = 20,
     n_filler: int = 18,

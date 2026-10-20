@@ -1,0 +1,199 @@
+[
+  {
+    "id": "survival-recency-first-turn-gone",
+    "file": "README.md",
+    "text": "0 of 20 histories at 3,600 tokens",
+    "kind": "json",
+    "source": "results/survival/grid.json",
+    "path": "cells[policy=recency_truncate,position=0,budget=3600].k_kept",
+    "expected": 0
+  },
+  {
+    "id": "survival-recency-first-turn-n",
+    "file": "README.md",
+    "text": "0 of 20 histories at 3,600 tokens",
+    "kind": "json",
+    "source": "results/survival/grid.json",
+    "path": "cells[policy=recency_truncate,position=0,budget=3600].n",
+    "expected": 20
+  },
+  {
+    "id": "survival-head-tail-first-turn-kept",
+    "file": "README.md",
+    "text": "(20 of 20 at the same budget)",
+    "kind": "json",
+    "source": "results/survival/grid.json",
+    "path": "cells[policy=head_tail,position=0,budget=3600].k_kept",
+    "expected": 20
+  },
+  {
+    "id": "survival-filler-turns",
+    "file": "README.md",
+    "text": "18-turn history",
+    "kind": "json",
+    "source": "results/survival/grid.json",
+    "path": "n_filler_turns",
+    "expected": 18
+  },
+  {
+    "id": "exp001-plan-27-seeds",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "**135 model calls and about 457k tokens per model**",
+    "kind": "dryrun",
+    "pack": "constraint",
+    "policy": "llm_summary",
+    "seeds": 27,
+    "expected": {
+      "calls": 135,
+      "tokens_k": 457
+    }
+  },
+  {
+    "id": "exp001-plan-10-seeds",
+    "file": "docs/experiments/EXP-001.md",
+    "text": "10 seeds: 50 calls, about 169k tokens",
+    "kind": "dryrun",
+    "pack": "constraint",
+    "policy": "llm_summary",
+    "seeds": 10,
+    "expected": {
+      "calls": 50,
+      "tokens_k": 169
+    }
+  },
+  {
+    "id": "exp002-recency-t1-2400",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`recency_truncate` kept it in 0 of 20 histories",
+    "kind": "json",
+    "source": "results/survival/grid.json",
+    "path": "cells[policy=recency_truncate,position=1,budget=2400].k_kept",
+    "expected": 0
+  },
+  {
+    "id": "exp002-headtail-t1-2400",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`head_tail` in 20 of 20",
+    "kind": "json",
+    "source": "results/survival/grid.json",
+    "path": "cells[policy=head_tail,position=1,budget=2400].k_kept",
+    "expected": 20
+  },
+  {
+    "id": "exp002-mask-t1-2400",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`observation_mask` in 20 of 20",
+    "kind": "json",
+    "source": "results/survival/grid.json",
+    "path": "cells[policy=observation_mask,position=1,budget=2400].k_kept",
+    "expected": 20
+  },
+  {
+    "id": "exp002-mask-t1-1800",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`observation_mask` kept it in 0 of 20 because",
+    "kind": "json",
+    "source": "results/survival/grid.json",
+    "path": "cells[policy=observation_mask,position=1,budget=1800].k_kept",
+    "expected": 0
+  },
+  {
+    "id": "exp003-headtail-t0-1200",
+    "file": "docs/experiments/EXP-003.md",
+    "text": "(20 of 20 at 1200 tokens)",
+    "kind": "json",
+    "source": "results/survival/grid.json",
+    "path": "cells[policy=head_tail,position=0,budget=1200].k_kept",
+    "expected": 20
+  },
+  {
+    "id": "exp003-headtail-t1-1200",
+    "file": "docs/experiments/EXP-003.md",
+    "text": "it loses it at 1200 (0 of 20)",
+    "kind": "json",
+    "source": "results/survival/grid.json",
+    "path": "cells[policy=head_tail,position=1,budget=1200].k_kept",
+    "expected": 0
+  },
+  {
+    "id": "exp003-headtail-t1-1800",
+    "file": "docs/experiments/EXP-003.md",
+    "text": "keeps it from 1800 up",
+    "kind": "json",
+    "source": "results/survival/grid.json",
+    "path": "cells[policy=head_tail,position=1,budget=1800].k_kept",
+    "expected": 20
+  },
+  {
+    "id": "exp003-recency-t6-3600",
+    "file": "docs/experiments/EXP-003.md",
+    "text": "(turn 9: 3600; turn 12: 2400; turn 15: 1800; turn 17: 1200)",
+    "kind": "json",
+    "source": "results/survival/grid.json",
+    "path": "cells[policy=recency_truncate,position=6,budget=3600].k_kept",
+    "expected": 0
+  },
+  {
+    "id": "exp003-recency-t9-3600",
+    "file": "docs/experiments/EXP-003.md",
+    "text": "(turn 9: 3600; turn 12: 2400; turn 15: 1800; turn 17: 1200)",
+    "kind": "json",
+    "source": "results/survival/grid.json",
+    "path": "cells[policy=recency_truncate,position=9,budget=3600].k_kept",
+    "expected": 20
+  },
+  {
+    "id": "exp003-recency-t9-3000",
+    "file": "docs/experiments/EXP-003.md",
+    "text": "(turn 9: 3600; turn 12: 2400; turn 15: 1800; turn 17: 1200)",
+    "kind": "json",
+    "source": "results/survival/grid.json",
+    "path": "cells[policy=recency_truncate,position=9,budget=3000].k_kept",
+    "expected": 0
+  },
+  {
+    "id": "exp003-recency-t12-2400",
+    "file": "docs/experiments/EXP-003.md",
+    "text": "(turn 9: 3600; turn 12: 2400; turn 15: 1800; turn 17: 1200)",
+    "kind": "json",
+    "source": "results/survival/grid.json",
+    "path": "cells[policy=recency_truncate,position=12,budget=2400].k_kept",
+    "expected": 20
+  },
+  {
+    "id": "exp003-recency-t12-1800",
+    "file": "docs/experiments/EXP-003.md",
+    "text": "(turn 9: 3600; turn 12: 2400; turn 15: 1800; turn 17: 1200)",
+    "kind": "json",
+    "source": "results/survival/grid.json",
+    "path": "cells[policy=recency_truncate,position=12,budget=1800].k_kept",
+    "expected": 0
+  },
+  {
+    "id": "exp003-recency-t15-1800",
+    "file": "docs/experiments/EXP-003.md",
+    "text": "(turn 9: 3600; turn 12: 2400; turn 15: 1800; turn 17: 1200)",
+    "kind": "json",
+    "source": "results/survival/grid.json",
+    "path": "cells[policy=recency_truncate,position=15,budget=1800].k_kept",
+    "expected": 20
+  },
+  {
+    "id": "exp003-recency-t15-1200",
+    "file": "docs/experiments/EXP-003.md",
+    "text": "(turn 9: 3600; turn 12: 2400; turn 15: 1800; turn 17: 1200)",
+    "kind": "json",
+    "source": "results/survival/grid.json",
+    "path": "cells[policy=recency_truncate,position=15,budget=1200].k_kept",
+    "expected": 0
+  },
+  {
+    "id": "exp003-recency-t17-1200",
+    "file": "docs/experiments/EXP-003.md",
+    "text": "(turn 9: 3600; turn 12: 2400; turn 15: 1800; turn 17: 1200)",
+    "kind": "json",
+    "source": "results/survival/grid.json",
+    "path": "cells[policy=recency_truncate,position=17,budget=1200].k_kept",
+    "expected": 20
+  }
+]

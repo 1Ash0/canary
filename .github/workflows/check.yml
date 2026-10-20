@@ -22,13 +22,15 @@ jobs:
         run: uv sync --dev
 
       - name: Secrets scan
+        # same patterns as `make check`; also covers recordings, which hold model output
         run: |
           if grep -rn \
             -e "sk-ant-api" \
+            -e "sk-[a-zA-Z0-9]\{20\}" \
             -e "ANTHROPIC_API_KEY\s*=\s*['\"]" \
             -e "OPENAI_API_KEY\s*=\s*['\"]" \
-            src/ tests/ scripts/ ; then
-            echo "ERROR: possible API key literal in source"
+            src/ tests/ scripts/ cassettes/ results/ runs/ 2>/dev/null ; then
+            echo "ERROR: possible API key literal"
             exit 1
           fi
           echo "secrets scan: ok"
@@ -41,3 +43,26 @@ jobs:
 
       - name: Tests (offline)
         run: uv run pytest tests/ -q
+
+      - name: Claims match artifacts
+        run: uv run python scripts/check_claims.py
+
+      - name: Exported data and schema are not stale
+        run: |
+          uv run python scripts/export_web_data.py
+          git diff --exit-code -- web/public/data
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Design tests and contrast
+        run: |
+          npm ci --prefix design
+          npm test --prefix design
+          node design/scripts/contrast.mjs
+
+      - name: Build the site
+        run: |
+          npm ci --prefix web
+          npm run build --prefix web

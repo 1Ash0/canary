@@ -16,7 +16,7 @@ from typing import Any
 
 import typer
 
-from ctxcheck.canaries import PACKS, build_pack, window_tokens_before_probe
+from ctxcheck.canaries import PACKS
 from ctxcheck.harness.budget import (
     Budget,
     BudgetError,
@@ -37,7 +37,7 @@ from ctxcheck.providers.cassette import CassetteProvider
 from ctxcheck.providers.presets import PRESETS, from_preset
 from ctxcheck.providers.simulated import MODEL_ID, SimulatedAgent
 from ctxcheck.runner.analysis import analyse
-from ctxcheck.runner.experiment import ExperimentPlan, read_rows, run_experiment
+from ctxcheck.runner.experiment import ExperimentPlan, estimate_tokens, read_rows, run_experiment
 from ctxcheck.runner.survival import survival_grid
 
 app = typer.Typer(
@@ -190,21 +190,6 @@ def _parse_options(opts: list[str]) -> tuple[tuple[str, Any], ...]:
     return tuple(out)
 
 
-def _estimate(plan_: ExperimentPlan) -> tuple[int, int]:
-    """Rough (input, output) tokens for the whole plan, from a sample episode. Upper-bound style."""
-    sample = build_pack(plan_.pack, plan_.seeds[0], n_filler=plan_.n_filler, lines=plan_.lines,
-                        canary_turn=plan_.canary_turn)
-    full = window_tokens_before_probe(sample)
-    per_seed = 0
-    for c in plan_.conditions:
-        per_seed += full if c in ("floor", "control") else plan_.limit_tokens
-    if plan_.policy == "llm_summary" and "treatment" in plan_.conditions:
-        per_seed += full  # the summary call reads the whole history
-    n = len(plan_.seeds) * plan_.trials
-    out_tokens = n * (len(plan_.conditions) * 80 + (400 if plan_.policy == "llm_summary" else 0))
-    return n * per_seed, out_tokens
-
-
 @app.command()
 def run(
     exp: str = typer.Option(..., help="Experiment id, e.g. EXP-001 (preregister it first)"),
@@ -237,7 +222,7 @@ def run(
     plan_ = ExperimentPlan(exp, pack, policy, tuple(range(1, seeds + 1)), trials,
                            policy_options=_parse_options(opt), limit_tokens=limit_tokens)
     name, model_id = ("simulated", MODEL_ID) if simulated else (preset, model)
-    tin, tout = _estimate(plan_)
+    tin, tout = estimate_tokens(plan_)
     calls = plan_.calls_upper_bound()
     typer.echo(f"{exp}: {pack} x {policy}, {seeds} seeds x {trials} trial(s) -> "
                f"<= {calls} model calls, ~{tin + tout} tokens"
@@ -302,7 +287,7 @@ def report(
                f"dates: {', '.join(summary['dates'])}  episodes: {summary['n_episodes']}")
     for c in summary["cells"]:
         if "rate" in c:
-            typer.echo(f"  {c['condition']:<15} violated {c['k_violated']}/{c['n_graded']} = "
+            typer.echo(f"  {c['label']:<30} violated {c['k_violated']}/{c['n_graded']} = "
                        f"{c['rate']:.0%}  [{c['wilson_lo']:.0%}, {c['wilson_hi']:.0%}]"
                        f"  n/a {c['n_not_applicable']}")
     for c in summary["comparisons"]:

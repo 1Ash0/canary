@@ -48,8 +48,10 @@ class EpisodeSpec:
     def __post_init__(self) -> None:
         if self.condition not in CONDITIONS:
             raise ValueError(f"unknown condition {self.condition!r}")
-        if (self.condition == "treatment") != (self.policy is not None):
-            raise ValueError("a policy is required for the treatment condition and only then")
+        needs_policy = self.condition in ("treatment", "length_matched")
+        if needs_policy != (self.policy is not None):
+            # length_matched is sized from one policy's treatment, so it names that policy too
+            raise ValueError("a policy is required for treatment and length_matched, and only then")
 
     @property
     def key(self) -> str:
@@ -70,6 +72,7 @@ class EpisodeRow:
     prompt_version: str | None
     seed: int
     trial: int
+    limit_tokens: int
     provider: str
     model_requested: str
     model_id_reported: str
@@ -166,7 +169,8 @@ def run_episode(
     return EpisodeRow(
         exp_id=spec.exp_id, key=spec.key, pack=spec.pack, condition=spec.condition,
         policy=spec.policy, prompt_version=getattr(policy, "prompt_version", None),
-        seed=spec.seed, trial=spec.trial, provider=provider_name, model_requested=model,
+        seed=spec.seed, trial=spec.trial, limit_tokens=spec.limit_tokens,
+        provider=provider_name, model_requested=model,
         model_id_reported=calls[-1].model_id_reported if calls else "none",
         grade=graded.grade, evidence=graded.evidence, canary_fate=fate,
         compacted=compaction is not None,

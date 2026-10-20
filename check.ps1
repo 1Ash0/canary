@@ -5,8 +5,9 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
 Write-Host "==> secrets scan"
-$found = Get-ChildItem -Recurse -Include "*.py" src, tests, scripts |
-    Select-String -Pattern "sk-ant-api|ANTHROPIC_API_KEY\s*=\s*['""]|OPENAI_API_KEY\s*=\s*['""]"
+$dirs = "src", "tests", "scripts", "cassettes", "results", "runs" | Where-Object { Test-Path $_ }
+$found = Get-ChildItem -Recurse -File $dirs |
+    Select-String -Pattern "sk-ant-api|sk-[a-zA-Z0-9]{20}|ANTHROPIC_API_KEY\s*=\s*['""]|OPENAI_API_KEY\s*=\s*['""]"
 if ($found) {
     Write-Error "Possible API key in source: $found"
     exit 1
@@ -23,6 +24,10 @@ if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 Write-Host "==> tests (offline)"
 uv run pytest tests/ -q
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+Write-Host "==> claims match artifacts"
+uv run python scripts/check_claims.py
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 Write-Host "`nAll checks passed."
