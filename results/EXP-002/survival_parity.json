@@ -1,0 +1,79 @@
+{
+  "epistemic": "deterministic vs recorded",
+  "exp_id": "EXP-002",
+  "groups": [
+    {
+      "model": "ministral-14b-latest",
+      "pack": "constraint",
+      "policy": "head_tail",
+      "n": 27,
+      "agree": 27,
+      "kept_offline": 27
+    },
+    {
+      "model": "ministral-14b-latest",
+      "pack": "constraint",
+      "policy": "observation_mask",
+      "n": 27,
+      "agree": 27,
+      "kept_offline": 27
+    },
+    {
+      "model": "ministral-14b-latest",
+      "pack": "constraint",
+      "policy": "recency_truncate",
+      "n": 27,
+      "agree": 27,
+      "kept_offline": 0
+    },
+    {
+      "model": "ministral-14b-latest",
+      "pack": "identifier",
+      "policy": "head_tail",
+      "n": 27,
+      "agree": 27,
+      "kept_offline": 27
+    },
+    {
+      "model": "ministral-14b-latest",
+      "pack": "identifier",
+      "policy": "observation_mask",
+      "n": 27,
+      "agree": 27,
+      "kept_offline": 27
+    },
+    {
+      "model": "ministral-14b-latest",
+      "pack": "identifier",
+      "policy": "recency_truncate",
+      "n": 27,
+      "agree": 27,
+      "kept_offline": 0
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "pack": "constraint",
+      "policy": "head_tail",
+      "n": 27,
+      "agree": 27,
+      "kept_offline": 27
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "pack": "constraint",
+      "policy": "observation_mask",
+      "n": 27,
+      "agree": 27,
+      "kept_offline": 27
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "pack": "constraint",
+      "policy": "recency_truncate",
+      "n": 27,
+      "agree": 27,
+      "kept_offline": 0
+    }
+  ],
+  "mismatches": []
+}

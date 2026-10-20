@@ -1932,5 +1932,3002 @@
     "source": "results/EXP-001b/summary.json",
     "path": "comparisons[model=openai/gpt-oss-20b,first=treatment(llm_summary),second=length_matched(llm_summary)].rd_hi",
     "expected": 0.6296296296296297
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|control-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | control | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=control,limit_tokens=2400].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|control-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | control | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=control,limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|control-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | control | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=control,limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|floor-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | floor | 26/27 | 82%\u201399% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=floor,limit_tokens=2400].k_violated",
+    "expected": 26
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|floor-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | floor | 26/27 | 82%\u201399% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=floor,limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|floor-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | floor | 26/27 | 82%\u201399% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=floor,limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|length_matched(head_tail)-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | length_matched(head_tail) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=length_matched(head_tail),limit_tokens=2400].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|length_matched(head_tail)-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | length_matched(head_tail) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=length_matched(head_tail),limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|length_matched(head_tail)-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | length_matched(head_tail) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=length_matched(head_tail),limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|length_matched(llm_summary)-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | length_matched(llm_summary) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=length_matched(llm_summary),limit_tokens=2400].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|length_matched(llm_summary)-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | length_matched(llm_summary) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=length_matched(llm_summary),limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|length_matched(llm_summary)-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | length_matched(llm_summary) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=length_matched(llm_summary),limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|length_matched(observation_mask)-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | length_matched(observation_mask) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=length_matched(observation_mask),limit_tokens=2400].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|length_matched(observation_mask)-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | length_matched(observation_mask) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=length_matched(observation_mask),limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|length_matched(observation_mask)-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | length_matched(observation_mask) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=length_matched(observation_mask),limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|length_matched(recency_truncate)-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | length_matched(recency_truncate) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=length_matched(recency_truncate),limit_tokens=2400].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|length_matched(recency_truncate)-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | length_matched(recency_truncate) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=length_matched(recency_truncate),limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|length_matched(recency_truncate)-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | length_matched(recency_truncate) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=length_matched(recency_truncate),limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(head_tail)-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | treatment(head_tail) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=treatment(head_tail),limit_tokens=2400].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(head_tail)-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | treatment(head_tail) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=treatment(head_tail),limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(head_tail)-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | treatment(head_tail) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=treatment(head_tail),limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | treatment(llm_summary) | 3/27 | 4%\u201328% | 0 | 0 of 27 | 0 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=treatment(llm_summary),limit_tokens=2400].k_violated",
+    "expected": 3
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | treatment(llm_summary) | 3/27 | 4%\u201328% | 0 | 0 of 27 | 0 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=treatment(llm_summary),limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | treatment(llm_summary) | 3/27 | 4%\u201328% | 0 | 0 of 27 | 0 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=treatment(llm_summary),limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)-trunc",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | treatment(llm_summary) | 3/27 | 4%\u201328% | 0 | 0 of 27 | 0 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=treatment(llm_summary),limit_tokens=2400].n_summary_truncated",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(observation_mask)-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | treatment(observation_mask) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=treatment(observation_mask),limit_tokens=2400].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(observation_mask)-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | treatment(observation_mask) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=treatment(observation_mask),limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(observation_mask)-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | treatment(observation_mask) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=treatment(observation_mask),limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | treatment(recency_truncate) | 25/27 | 77%\u201398% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=treatment(recency_truncate),limit_tokens=2400].k_violated",
+    "expected": 25
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | treatment(recency_truncate) | 25/27 | 77%\u201398% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=treatment(recency_truncate),limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (constraint) | treatment(recency_truncate) | 25/27 | 77%\u201398% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=constraint,label=treatment(recency_truncate),limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|control-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | control | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=control,limit_tokens=2400].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|control-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | control | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=control,limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|control-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | control | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=control,limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|floor-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | floor | 27/27 | 88%\u2013100% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=floor,limit_tokens=2400].k_violated",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|floor-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | floor | 27/27 | 88%\u2013100% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=floor,limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|floor-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | floor | 27/27 | 88%\u2013100% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=floor,limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|length_matched(head_tail)-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | length_matched(head_tail) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=length_matched(head_tail),limit_tokens=2400].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|length_matched(head_tail)-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | length_matched(head_tail) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=length_matched(head_tail),limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|length_matched(head_tail)-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | length_matched(head_tail) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=length_matched(head_tail),limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|length_matched(llm_summary)-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | length_matched(llm_summary) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=length_matched(llm_summary),limit_tokens=2400].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|length_matched(llm_summary)-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | length_matched(llm_summary) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=length_matched(llm_summary),limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|length_matched(llm_summary)-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | length_matched(llm_summary) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=length_matched(llm_summary),limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|length_matched(observation_mask)-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | length_matched(observation_mask) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=length_matched(observation_mask),limit_tokens=2400].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|length_matched(observation_mask)-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | length_matched(observation_mask) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=length_matched(observation_mask),limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|length_matched(observation_mask)-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | length_matched(observation_mask) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=length_matched(observation_mask),limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|length_matched(recency_truncate)-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | length_matched(recency_truncate) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=length_matched(recency_truncate),limit_tokens=2400].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|length_matched(recency_truncate)-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | length_matched(recency_truncate) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=length_matched(recency_truncate),limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|length_matched(recency_truncate)-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | length_matched(recency_truncate) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=length_matched(recency_truncate),limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(head_tail)-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | treatment(head_tail) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=treatment(head_tail),limit_tokens=2400].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(head_tail)-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | treatment(head_tail) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=treatment(head_tail),limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(head_tail)-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | treatment(head_tail) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=treatment(head_tail),limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | treatment(llm_summary) | 0/27 | 0%\u201312% | 0 | 0 of 27 | 0 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=treatment(llm_summary),limit_tokens=2400].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | treatment(llm_summary) | 0/27 | 0%\u201312% | 0 | 0 of 27 | 0 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=treatment(llm_summary),limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | treatment(llm_summary) | 0/27 | 0%\u201312% | 0 | 0 of 27 | 0 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=treatment(llm_summary),limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)-trunc",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | treatment(llm_summary) | 0/27 | 0%\u201312% | 0 | 0 of 27 | 0 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=treatment(llm_summary),limit_tokens=2400].n_summary_truncated",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(observation_mask)-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | treatment(observation_mask) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=treatment(observation_mask),limit_tokens=2400].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(observation_mask)-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | treatment(observation_mask) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=treatment(observation_mask),limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(observation_mask)-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | treatment(observation_mask) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=treatment(observation_mask),limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | treatment(recency_truncate) | 27/27 | 88%\u2013100% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=treatment(recency_truncate),limit_tokens=2400].k_violated",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | treatment(recency_truncate) | 27/27 | 88%\u2013100% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=treatment(recency_truncate),limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `ministral-14b-latest` (identifier) | treatment(recency_truncate) | 27/27 | 88%\u2013100% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=identifier,label=treatment(recency_truncate),limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|control-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | control | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=control,limit_tokens=2400].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|control-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | control | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=control,limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|control-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | control | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=control,limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|floor-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | floor | 23/26 | 71%\u201396% | 1 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=floor,limit_tokens=2400].k_violated",
+    "expected": 23
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|floor-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | floor | 23/26 | 71%\u201396% | 1 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=floor,limit_tokens=2400].n_graded",
+    "expected": 26
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|floor-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | floor | 23/26 | 71%\u201396% | 1 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=floor,limit_tokens=2400].n_not_applicable",
+    "expected": 1
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|length_matched(head_tail)-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | length_matched(head_tail) | 1/27 | 1%\u201318% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=length_matched(head_tail),limit_tokens=2400].k_violated",
+    "expected": 1
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|length_matched(head_tail)-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | length_matched(head_tail) | 1/27 | 1%\u201318% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=length_matched(head_tail),limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|length_matched(head_tail)-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | length_matched(head_tail) | 1/27 | 1%\u201318% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=length_matched(head_tail),limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|length_matched(llm_summary)-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | length_matched(llm_summary) | 0/26 | 0%\u201313% | 1 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=length_matched(llm_summary),limit_tokens=2400].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|length_matched(llm_summary)-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | length_matched(llm_summary) | 0/26 | 0%\u201313% | 1 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=length_matched(llm_summary),limit_tokens=2400].n_graded",
+    "expected": 26
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|length_matched(llm_summary)-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | length_matched(llm_summary) | 0/26 | 0%\u201313% | 1 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=length_matched(llm_summary),limit_tokens=2400].n_not_applicable",
+    "expected": 1
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|length_matched(observation_mask)-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | length_matched(observation_mask) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=length_matched(observation_mask),limit_tokens=2400].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|length_matched(observation_mask)-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | length_matched(observation_mask) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=length_matched(observation_mask),limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|length_matched(observation_mask)-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | length_matched(observation_mask) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=length_matched(observation_mask),limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|length_matched(recency_truncate)-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | length_matched(recency_truncate) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=length_matched(recency_truncate),limit_tokens=2400].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|length_matched(recency_truncate)-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | length_matched(recency_truncate) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=length_matched(recency_truncate),limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|length_matched(recency_truncate)-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | length_matched(recency_truncate) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=length_matched(recency_truncate),limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(head_tail)-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | treatment(head_tail) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=treatment(head_tail),limit_tokens=2400].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(head_tail)-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | treatment(head_tail) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=treatment(head_tail),limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(head_tail)-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | treatment(head_tail) | 0/27 | 0%\u201312% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=treatment(head_tail),limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | treatment(llm_summary) | 11/25 | 27%\u201363% | 2 | 0 of 27 | 1 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=treatment(llm_summary),limit_tokens=2400].k_violated",
+    "expected": 11
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | treatment(llm_summary) | 11/25 | 27%\u201363% | 2 | 0 of 27 | 1 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=treatment(llm_summary),limit_tokens=2400].n_graded",
+    "expected": 25
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | treatment(llm_summary) | 11/25 | 27%\u201363% | 2 | 0 of 27 | 1 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=treatment(llm_summary),limit_tokens=2400].n_not_applicable",
+    "expected": 2
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)-trunc",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | treatment(llm_summary) | 11/25 | 27%\u201363% | 2 | 0 of 27 | 1 of 27 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=treatment(llm_summary),limit_tokens=2400].n_summary_truncated",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(observation_mask)-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | treatment(observation_mask) | 2/27 | 2%\u201323% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=treatment(observation_mask),limit_tokens=2400].k_violated",
+    "expected": 2
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(observation_mask)-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | treatment(observation_mask) | 2/27 | 2%\u201323% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=treatment(observation_mask),limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(observation_mask)-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | treatment(observation_mask) | 2/27 | 2%\u201323% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=treatment(observation_mask),limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)-k_violated",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | treatment(recency_truncate) | 23/27 | 68%\u201394% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=treatment(recency_truncate),limit_tokens=2400].k_violated",
+    "expected": 23
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)-n_graded",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | treatment(recency_truncate) | 23/27 | 68%\u201394% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=treatment(recency_truncate),limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)-n_not_applicable",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "| `openai/gpt-oss-20b` (constraint) | treatment(recency_truncate) | 23/27 | 68%\u201394% | 0 | \u2013 | \u2013 |",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "cells[model=openai/gpt-oss-20b,pack=constraint,label=treatment(recency_truncate),limit_tokens=2400].n_not_applicable",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)|treatment(head_tail)-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(recency_truncate) vs treatment(head_tail): 25 versus 0 discordant pairs of 27, risk difference +93% (95% bootstrap +81% to +100%), exact McNemar p = 6e-08, BH q = 1.8e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(recency_truncate),second=treatment(head_tail)].only_first_failed",
+    "expected": 25
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)|treatment(head_tail)-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(recency_truncate) vs treatment(head_tail): 25 versus 0 discordant pairs of 27, risk difference +93% (95% bootstrap +81% to +100%), exact McNemar p = 6e-08, BH q = 1.8e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(recency_truncate),second=treatment(head_tail)].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)|treatment(head_tail)-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(recency_truncate) vs treatment(head_tail): 25 versus 0 discordant pairs of 27, risk difference +93% (95% bootstrap +81% to +100%), exact McNemar p = 6e-08, BH q = 1.8e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(recency_truncate),second=treatment(head_tail)].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)|treatment(head_tail)-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(recency_truncate) vs treatment(head_tail): 25 versus 0 discordant pairs of 27, risk difference +93% (95% bootstrap +81% to +100%), exact McNemar p = 6e-08, BH q = 1.8e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(recency_truncate),second=treatment(head_tail)].p_mcnemar",
+    "expected": 5.960464477539063e-08
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)|treatment(head_tail)-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(recency_truncate) vs treatment(head_tail): 25 versus 0 discordant pairs of 27, risk difference +93% (95% bootstrap +81% to +100%), exact McNemar p = 6e-08, BH q = 1.8e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(recency_truncate),second=treatment(head_tail)].q_bh",
+    "expected": 1.7881393432617188e-07
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)|treatment(head_tail)-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(recency_truncate) vs treatment(head_tail): 25 versus 0 discordant pairs of 27, risk difference +93% (95% bootstrap +81% to +100%), exact McNemar p = 6e-08, BH q = 1.8e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(recency_truncate),second=treatment(head_tail)].risk_difference",
+    "expected": 0.9259259259259259
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)|treatment(head_tail)-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(recency_truncate) vs treatment(head_tail): 25 versus 0 discordant pairs of 27, risk difference +93% (95% bootstrap +81% to +100%), exact McNemar p = 6e-08, BH q = 1.8e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(recency_truncate),second=treatment(head_tail)].rd_lo",
+    "expected": 0.8148148148148148
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)|treatment(head_tail)-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(recency_truncate) vs treatment(head_tail): 25 versus 0 discordant pairs of 27, risk difference +93% (95% bootstrap +81% to +100%), exact McNemar p = 6e-08, BH q = 1.8e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(recency_truncate),second=treatment(head_tail)].rd_hi",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)|treatment(head_tail)-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(llm_summary) vs treatment(head_tail): 3 versus 0 discordant pairs of 27, risk difference +11% (95% bootstrap +0% to +22%), exact McNemar p = 0.25, BH q = 0.38",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(llm_summary),second=treatment(head_tail)].only_first_failed",
+    "expected": 3
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)|treatment(head_tail)-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(llm_summary) vs treatment(head_tail): 3 versus 0 discordant pairs of 27, risk difference +11% (95% bootstrap +0% to +22%), exact McNemar p = 0.25, BH q = 0.38",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(llm_summary),second=treatment(head_tail)].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)|treatment(head_tail)-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(llm_summary) vs treatment(head_tail): 3 versus 0 discordant pairs of 27, risk difference +11% (95% bootstrap +0% to +22%), exact McNemar p = 0.25, BH q = 0.38",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(llm_summary),second=treatment(head_tail)].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)|treatment(head_tail)-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(llm_summary) vs treatment(head_tail): 3 versus 0 discordant pairs of 27, risk difference +11% (95% bootstrap +0% to +22%), exact McNemar p = 0.25, BH q = 0.38",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(llm_summary),second=treatment(head_tail)].p_mcnemar",
+    "expected": 0.25
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)|treatment(head_tail)-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(llm_summary) vs treatment(head_tail): 3 versus 0 discordant pairs of 27, risk difference +11% (95% bootstrap +0% to +22%), exact McNemar p = 0.25, BH q = 0.38",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(llm_summary),second=treatment(head_tail)].q_bh",
+    "expected": 0.375
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)|treatment(head_tail)-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(llm_summary) vs treatment(head_tail): 3 versus 0 discordant pairs of 27, risk difference +11% (95% bootstrap +0% to +22%), exact McNemar p = 0.25, BH q = 0.38",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(llm_summary),second=treatment(head_tail)].risk_difference",
+    "expected": 0.1111111111111111
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)|treatment(head_tail)-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(llm_summary) vs treatment(head_tail): 3 versus 0 discordant pairs of 27, risk difference +11% (95% bootstrap +0% to +22%), exact McNemar p = 0.25, BH q = 0.38",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(llm_summary),second=treatment(head_tail)].rd_lo",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)|treatment(head_tail)-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(llm_summary) vs treatment(head_tail): 3 versus 0 discordant pairs of 27, risk difference +11% (95% bootstrap +0% to +22%), exact McNemar p = 0.25, BH q = 0.38",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(llm_summary),second=treatment(head_tail)].rd_hi",
+    "expected": 0.2222222222222222
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(observation_mask)|control-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(observation_mask) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(observation_mask),second=control].only_first_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(observation_mask)|control-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(observation_mask) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(observation_mask),second=control].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(observation_mask)|control-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(observation_mask) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(observation_mask),second=control].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(observation_mask)|control-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(observation_mask) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(observation_mask),second=control].p_mcnemar",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(observation_mask)|control-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(observation_mask) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(observation_mask),second=control].q_bh",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(observation_mask)|control-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(observation_mask) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(observation_mask),second=control].risk_difference",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(observation_mask)|control-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(observation_mask) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(observation_mask),second=control].rd_lo",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(observation_mask)|control-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(observation_mask) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(observation_mask),second=control].rd_hi",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(head_tail)|control-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(head_tail) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(head_tail),second=control].only_first_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(head_tail)|control-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(head_tail) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(head_tail),second=control].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(head_tail)|control-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(head_tail) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(head_tail),second=control].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(head_tail)|control-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(head_tail) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(head_tail),second=control].p_mcnemar",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(head_tail)|control-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(head_tail) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(head_tail),second=control].q_bh",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(head_tail)|control-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(head_tail) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(head_tail),second=control].risk_difference",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(head_tail)|control-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(head_tail) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(head_tail),second=control].rd_lo",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(head_tail)|control-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(head_tail) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(head_tail),second=control].rd_hi",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(head_tail)|length_matched(head_tail)-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(head_tail) vs length_matched(head_tail): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(head_tail),second=length_matched(head_tail)].only_first_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(head_tail)|length_matched(head_tail)-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(head_tail) vs length_matched(head_tail): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(head_tail),second=length_matched(head_tail)].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(head_tail)|length_matched(head_tail)-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(head_tail) vs length_matched(head_tail): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(head_tail),second=length_matched(head_tail)].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(head_tail)|length_matched(head_tail)-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(head_tail) vs length_matched(head_tail): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(head_tail),second=length_matched(head_tail)].p_mcnemar",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(head_tail)|length_matched(head_tail)-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(head_tail) vs length_matched(head_tail): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(head_tail),second=length_matched(head_tail)].q_bh",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(head_tail)|length_matched(head_tail)-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(head_tail) vs length_matched(head_tail): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(head_tail),second=length_matched(head_tail)].risk_difference",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(head_tail)|length_matched(head_tail)-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(head_tail) vs length_matched(head_tail): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(head_tail),second=length_matched(head_tail)].rd_lo",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(head_tail)|length_matched(head_tail)-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(head_tail) vs length_matched(head_tail): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(head_tail),second=length_matched(head_tail)].rd_hi",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)|control-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(llm_summary) vs control: 3 versus 0 discordant pairs of 27, risk difference +11% (95% bootstrap +0% to +22%), exact McNemar p = 0.25, BH q = 0.44",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(llm_summary),second=control].only_first_failed",
+    "expected": 3
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)|control-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(llm_summary) vs control: 3 versus 0 discordant pairs of 27, risk difference +11% (95% bootstrap +0% to +22%), exact McNemar p = 0.25, BH q = 0.44",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(llm_summary),second=control].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)|control-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(llm_summary) vs control: 3 versus 0 discordant pairs of 27, risk difference +11% (95% bootstrap +0% to +22%), exact McNemar p = 0.25, BH q = 0.44",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(llm_summary),second=control].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)|control-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(llm_summary) vs control: 3 versus 0 discordant pairs of 27, risk difference +11% (95% bootstrap +0% to +22%), exact McNemar p = 0.25, BH q = 0.44",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(llm_summary),second=control].p_mcnemar",
+    "expected": 0.25
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)|control-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(llm_summary) vs control: 3 versus 0 discordant pairs of 27, risk difference +11% (95% bootstrap +0% to +22%), exact McNemar p = 0.25, BH q = 0.44",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(llm_summary),second=control].q_bh",
+    "expected": 0.4375
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)|control-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(llm_summary) vs control: 3 versus 0 discordant pairs of 27, risk difference +11% (95% bootstrap +0% to +22%), exact McNemar p = 0.25, BH q = 0.44",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(llm_summary),second=control].risk_difference",
+    "expected": 0.1111111111111111
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)|control-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(llm_summary) vs control: 3 versus 0 discordant pairs of 27, risk difference +11% (95% bootstrap +0% to +22%), exact McNemar p = 0.25, BH q = 0.44",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(llm_summary),second=control].rd_lo",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)|control-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(llm_summary) vs control: 3 versus 0 discordant pairs of 27, risk difference +11% (95% bootstrap +0% to +22%), exact McNemar p = 0.25, BH q = 0.44",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(llm_summary),second=control].rd_hi",
+    "expected": 0.2222222222222222
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)|length_matched(llm_summary)-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(llm_summary) vs length_matched(llm_summary): 3 versus 0 discordant pairs of 27, risk difference +11% (95% bootstrap +0% to +22%), exact McNemar p = 0.25, BH q = 0.44",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(llm_summary),second=length_matched(llm_summary)].only_first_failed",
+    "expected": 3
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)|length_matched(llm_summary)-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(llm_summary) vs length_matched(llm_summary): 3 versus 0 discordant pairs of 27, risk difference +11% (95% bootstrap +0% to +22%), exact McNemar p = 0.25, BH q = 0.44",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(llm_summary),second=length_matched(llm_summary)].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)|length_matched(llm_summary)-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(llm_summary) vs length_matched(llm_summary): 3 versus 0 discordant pairs of 27, risk difference +11% (95% bootstrap +0% to +22%), exact McNemar p = 0.25, BH q = 0.44",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(llm_summary),second=length_matched(llm_summary)].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)|length_matched(llm_summary)-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(llm_summary) vs length_matched(llm_summary): 3 versus 0 discordant pairs of 27, risk difference +11% (95% bootstrap +0% to +22%), exact McNemar p = 0.25, BH q = 0.44",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(llm_summary),second=length_matched(llm_summary)].p_mcnemar",
+    "expected": 0.25
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)|length_matched(llm_summary)-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(llm_summary) vs length_matched(llm_summary): 3 versus 0 discordant pairs of 27, risk difference +11% (95% bootstrap +0% to +22%), exact McNemar p = 0.25, BH q = 0.44",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(llm_summary),second=length_matched(llm_summary)].q_bh",
+    "expected": 0.4375
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)|length_matched(llm_summary)-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(llm_summary) vs length_matched(llm_summary): 3 versus 0 discordant pairs of 27, risk difference +11% (95% bootstrap +0% to +22%), exact McNemar p = 0.25, BH q = 0.44",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(llm_summary),second=length_matched(llm_summary)].risk_difference",
+    "expected": 0.1111111111111111
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)|length_matched(llm_summary)-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(llm_summary) vs length_matched(llm_summary): 3 versus 0 discordant pairs of 27, risk difference +11% (95% bootstrap +0% to +22%), exact McNemar p = 0.25, BH q = 0.44",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(llm_summary),second=length_matched(llm_summary)].rd_lo",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(llm_summary)|length_matched(llm_summary)-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(llm_summary) vs length_matched(llm_summary): 3 versus 0 discordant pairs of 27, risk difference +11% (95% bootstrap +0% to +22%), exact McNemar p = 0.25, BH q = 0.44",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(llm_summary),second=length_matched(llm_summary)].rd_hi",
+    "expected": 0.2222222222222222
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(observation_mask)|length_matched(observation_mask)-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(observation_mask) vs length_matched(observation_mask): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(observation_mask),second=length_matched(observation_mask)].only_first_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(observation_mask)|length_matched(observation_mask)-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(observation_mask) vs length_matched(observation_mask): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(observation_mask),second=length_matched(observation_mask)].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(observation_mask)|length_matched(observation_mask)-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(observation_mask) vs length_matched(observation_mask): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(observation_mask),second=length_matched(observation_mask)].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(observation_mask)|length_matched(observation_mask)-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(observation_mask) vs length_matched(observation_mask): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(observation_mask),second=length_matched(observation_mask)].p_mcnemar",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(observation_mask)|length_matched(observation_mask)-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(observation_mask) vs length_matched(observation_mask): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(observation_mask),second=length_matched(observation_mask)].q_bh",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(observation_mask)|length_matched(observation_mask)-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(observation_mask) vs length_matched(observation_mask): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(observation_mask),second=length_matched(observation_mask)].risk_difference",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(observation_mask)|length_matched(observation_mask)-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(observation_mask) vs length_matched(observation_mask): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(observation_mask),second=length_matched(observation_mask)].rd_lo",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(observation_mask)|length_matched(observation_mask)-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(observation_mask) vs length_matched(observation_mask): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(observation_mask),second=length_matched(observation_mask)].rd_hi",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)|control-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(recency_truncate) vs control: 25 versus 0 discordant pairs of 27, risk difference +93% (95% bootstrap +81% to +100%), exact McNemar p = 6e-08, BH q = 2.1e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(recency_truncate),second=control].only_first_failed",
+    "expected": 25
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)|control-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(recency_truncate) vs control: 25 versus 0 discordant pairs of 27, risk difference +93% (95% bootstrap +81% to +100%), exact McNemar p = 6e-08, BH q = 2.1e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(recency_truncate),second=control].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)|control-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(recency_truncate) vs control: 25 versus 0 discordant pairs of 27, risk difference +93% (95% bootstrap +81% to +100%), exact McNemar p = 6e-08, BH q = 2.1e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(recency_truncate),second=control].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)|control-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(recency_truncate) vs control: 25 versus 0 discordant pairs of 27, risk difference +93% (95% bootstrap +81% to +100%), exact McNemar p = 6e-08, BH q = 2.1e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(recency_truncate),second=control].p_mcnemar",
+    "expected": 5.960464477539063e-08
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)|control-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(recency_truncate) vs control: 25 versus 0 discordant pairs of 27, risk difference +93% (95% bootstrap +81% to +100%), exact McNemar p = 6e-08, BH q = 2.1e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(recency_truncate),second=control].q_bh",
+    "expected": 2.086162567138672e-07
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)|control-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(recency_truncate) vs control: 25 versus 0 discordant pairs of 27, risk difference +93% (95% bootstrap +81% to +100%), exact McNemar p = 6e-08, BH q = 2.1e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(recency_truncate),second=control].risk_difference",
+    "expected": 0.9259259259259259
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)|control-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(recency_truncate) vs control: 25 versus 0 discordant pairs of 27, risk difference +93% (95% bootstrap +81% to +100%), exact McNemar p = 6e-08, BH q = 2.1e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(recency_truncate),second=control].rd_lo",
+    "expected": 0.8148148148148148
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)|control-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(recency_truncate) vs control: 25 versus 0 discordant pairs of 27, risk difference +93% (95% bootstrap +81% to +100%), exact McNemar p = 6e-08, BH q = 2.1e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(recency_truncate),second=control].rd_hi",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)|length_matched(recency_truncate)-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(recency_truncate) vs length_matched(recency_truncate): 25 versus 0 discordant pairs of 27, risk difference +93% (95% bootstrap +81% to +100%), exact McNemar p = 6e-08, BH q = 2.1e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(recency_truncate),second=length_matched(recency_truncate)].only_first_failed",
+    "expected": 25
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)|length_matched(recency_truncate)-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(recency_truncate) vs length_matched(recency_truncate): 25 versus 0 discordant pairs of 27, risk difference +93% (95% bootstrap +81% to +100%), exact McNemar p = 6e-08, BH q = 2.1e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(recency_truncate),second=length_matched(recency_truncate)].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)|length_matched(recency_truncate)-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(recency_truncate) vs length_matched(recency_truncate): 25 versus 0 discordant pairs of 27, risk difference +93% (95% bootstrap +81% to +100%), exact McNemar p = 6e-08, BH q = 2.1e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(recency_truncate),second=length_matched(recency_truncate)].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)|length_matched(recency_truncate)-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(recency_truncate) vs length_matched(recency_truncate): 25 versus 0 discordant pairs of 27, risk difference +93% (95% bootstrap +81% to +100%), exact McNemar p = 6e-08, BH q = 2.1e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(recency_truncate),second=length_matched(recency_truncate)].p_mcnemar",
+    "expected": 5.960464477539063e-08
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)|length_matched(recency_truncate)-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(recency_truncate) vs length_matched(recency_truncate): 25 versus 0 discordant pairs of 27, risk difference +93% (95% bootstrap +81% to +100%), exact McNemar p = 6e-08, BH q = 2.1e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(recency_truncate),second=length_matched(recency_truncate)].q_bh",
+    "expected": 2.086162567138672e-07
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)|length_matched(recency_truncate)-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(recency_truncate) vs length_matched(recency_truncate): 25 versus 0 discordant pairs of 27, risk difference +93% (95% bootstrap +81% to +100%), exact McNemar p = 6e-08, BH q = 2.1e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(recency_truncate),second=length_matched(recency_truncate)].risk_difference",
+    "expected": 0.9259259259259259
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)|length_matched(recency_truncate)-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(recency_truncate) vs length_matched(recency_truncate): 25 versus 0 discordant pairs of 27, risk difference +93% (95% bootstrap +81% to +100%), exact McNemar p = 6e-08, BH q = 2.1e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(recency_truncate),second=length_matched(recency_truncate)].rd_lo",
+    "expected": 0.8148148148148148
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|constraint|treatment(recency_truncate)|length_matched(recency_truncate)-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (constraint), treatment(recency_truncate) vs length_matched(recency_truncate): 25 versus 0 discordant pairs of 27, risk difference +93% (95% bootstrap +81% to +100%), exact McNemar p = 6e-08, BH q = 2.1e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=constraint,first=treatment(recency_truncate),second=length_matched(recency_truncate)].rd_hi",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)|treatment(head_tail)-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(recency_truncate) vs treatment(head_tail): 27 versus 0 discordant pairs of 27, risk difference +100% (95% bootstrap +100% to +100%), exact McNemar p = 1.5e-08, BH q = 4.5e-08",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(recency_truncate),second=treatment(head_tail)].only_first_failed",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)|treatment(head_tail)-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(recency_truncate) vs treatment(head_tail): 27 versus 0 discordant pairs of 27, risk difference +100% (95% bootstrap +100% to +100%), exact McNemar p = 1.5e-08, BH q = 4.5e-08",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(recency_truncate),second=treatment(head_tail)].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)|treatment(head_tail)-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(recency_truncate) vs treatment(head_tail): 27 versus 0 discordant pairs of 27, risk difference +100% (95% bootstrap +100% to +100%), exact McNemar p = 1.5e-08, BH q = 4.5e-08",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(recency_truncate),second=treatment(head_tail)].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)|treatment(head_tail)-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(recency_truncate) vs treatment(head_tail): 27 versus 0 discordant pairs of 27, risk difference +100% (95% bootstrap +100% to +100%), exact McNemar p = 1.5e-08, BH q = 4.5e-08",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(recency_truncate),second=treatment(head_tail)].p_mcnemar",
+    "expected": 1.4901161193847656e-08
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)|treatment(head_tail)-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(recency_truncate) vs treatment(head_tail): 27 versus 0 discordant pairs of 27, risk difference +100% (95% bootstrap +100% to +100%), exact McNemar p = 1.5e-08, BH q = 4.5e-08",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(recency_truncate),second=treatment(head_tail)].q_bh",
+    "expected": 4.470348358154297e-08
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)|treatment(head_tail)-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(recency_truncate) vs treatment(head_tail): 27 versus 0 discordant pairs of 27, risk difference +100% (95% bootstrap +100% to +100%), exact McNemar p = 1.5e-08, BH q = 4.5e-08",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(recency_truncate),second=treatment(head_tail)].risk_difference",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)|treatment(head_tail)-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(recency_truncate) vs treatment(head_tail): 27 versus 0 discordant pairs of 27, risk difference +100% (95% bootstrap +100% to +100%), exact McNemar p = 1.5e-08, BH q = 4.5e-08",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(recency_truncate),second=treatment(head_tail)].rd_lo",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)|treatment(head_tail)-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(recency_truncate) vs treatment(head_tail): 27 versus 0 discordant pairs of 27, risk difference +100% (95% bootstrap +100% to +100%), exact McNemar p = 1.5e-08, BH q = 4.5e-08",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(recency_truncate),second=treatment(head_tail)].rd_hi",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)|treatment(head_tail)-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(llm_summary) vs treatment(head_tail): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(llm_summary),second=treatment(head_tail)].only_first_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)|treatment(head_tail)-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(llm_summary) vs treatment(head_tail): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(llm_summary),second=treatment(head_tail)].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)|treatment(head_tail)-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(llm_summary) vs treatment(head_tail): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(llm_summary),second=treatment(head_tail)].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)|treatment(head_tail)-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(llm_summary) vs treatment(head_tail): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(llm_summary),second=treatment(head_tail)].p_mcnemar",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)|treatment(head_tail)-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(llm_summary) vs treatment(head_tail): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(llm_summary),second=treatment(head_tail)].q_bh",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)|treatment(head_tail)-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(llm_summary) vs treatment(head_tail): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(llm_summary),second=treatment(head_tail)].risk_difference",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)|treatment(head_tail)-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(llm_summary) vs treatment(head_tail): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(llm_summary),second=treatment(head_tail)].rd_lo",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)|treatment(head_tail)-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(llm_summary) vs treatment(head_tail): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(llm_summary),second=treatment(head_tail)].rd_hi",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(observation_mask)|control-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(observation_mask) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(observation_mask),second=control].only_first_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(observation_mask)|control-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(observation_mask) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(observation_mask),second=control].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(observation_mask)|control-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(observation_mask) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(observation_mask),second=control].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(observation_mask)|control-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(observation_mask) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(observation_mask),second=control].p_mcnemar",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(observation_mask)|control-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(observation_mask) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(observation_mask),second=control].q_bh",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(observation_mask)|control-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(observation_mask) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(observation_mask),second=control].risk_difference",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(observation_mask)|control-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(observation_mask) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(observation_mask),second=control].rd_lo",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(observation_mask)|control-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(observation_mask) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(observation_mask),second=control].rd_hi",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(head_tail)|control-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(head_tail) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(head_tail),second=control].only_first_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(head_tail)|control-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(head_tail) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(head_tail),second=control].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(head_tail)|control-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(head_tail) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(head_tail),second=control].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(head_tail)|control-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(head_tail) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(head_tail),second=control].p_mcnemar",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(head_tail)|control-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(head_tail) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(head_tail),second=control].q_bh",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(head_tail)|control-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(head_tail) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(head_tail),second=control].risk_difference",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(head_tail)|control-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(head_tail) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(head_tail),second=control].rd_lo",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(head_tail)|control-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(head_tail) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(head_tail),second=control].rd_hi",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(head_tail)|length_matched(head_tail)-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(head_tail) vs length_matched(head_tail): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(head_tail),second=length_matched(head_tail)].only_first_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(head_tail)|length_matched(head_tail)-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(head_tail) vs length_matched(head_tail): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(head_tail),second=length_matched(head_tail)].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(head_tail)|length_matched(head_tail)-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(head_tail) vs length_matched(head_tail): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(head_tail),second=length_matched(head_tail)].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(head_tail)|length_matched(head_tail)-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(head_tail) vs length_matched(head_tail): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(head_tail),second=length_matched(head_tail)].p_mcnemar",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(head_tail)|length_matched(head_tail)-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(head_tail) vs length_matched(head_tail): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(head_tail),second=length_matched(head_tail)].q_bh",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(head_tail)|length_matched(head_tail)-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(head_tail) vs length_matched(head_tail): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(head_tail),second=length_matched(head_tail)].risk_difference",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(head_tail)|length_matched(head_tail)-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(head_tail) vs length_matched(head_tail): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(head_tail),second=length_matched(head_tail)].rd_lo",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(head_tail)|length_matched(head_tail)-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(head_tail) vs length_matched(head_tail): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(head_tail),second=length_matched(head_tail)].rd_hi",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)|control-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(llm_summary) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(llm_summary),second=control].only_first_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)|control-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(llm_summary) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(llm_summary),second=control].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)|control-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(llm_summary) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(llm_summary),second=control].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)|control-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(llm_summary) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(llm_summary),second=control].p_mcnemar",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)|control-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(llm_summary) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(llm_summary),second=control].q_bh",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)|control-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(llm_summary) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(llm_summary),second=control].risk_difference",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)|control-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(llm_summary) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(llm_summary),second=control].rd_lo",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)|control-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(llm_summary) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(llm_summary),second=control].rd_hi",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)|length_matched(llm_summary)-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(llm_summary) vs length_matched(llm_summary): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(llm_summary),second=length_matched(llm_summary)].only_first_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)|length_matched(llm_summary)-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(llm_summary) vs length_matched(llm_summary): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(llm_summary),second=length_matched(llm_summary)].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)|length_matched(llm_summary)-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(llm_summary) vs length_matched(llm_summary): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(llm_summary),second=length_matched(llm_summary)].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)|length_matched(llm_summary)-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(llm_summary) vs length_matched(llm_summary): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(llm_summary),second=length_matched(llm_summary)].p_mcnemar",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)|length_matched(llm_summary)-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(llm_summary) vs length_matched(llm_summary): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(llm_summary),second=length_matched(llm_summary)].q_bh",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)|length_matched(llm_summary)-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(llm_summary) vs length_matched(llm_summary): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(llm_summary),second=length_matched(llm_summary)].risk_difference",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)|length_matched(llm_summary)-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(llm_summary) vs length_matched(llm_summary): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(llm_summary),second=length_matched(llm_summary)].rd_lo",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(llm_summary)|length_matched(llm_summary)-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(llm_summary) vs length_matched(llm_summary): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(llm_summary),second=length_matched(llm_summary)].rd_hi",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(observation_mask)|length_matched(observation_mask)-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(observation_mask) vs length_matched(observation_mask): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(observation_mask),second=length_matched(observation_mask)].only_first_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(observation_mask)|length_matched(observation_mask)-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(observation_mask) vs length_matched(observation_mask): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(observation_mask),second=length_matched(observation_mask)].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(observation_mask)|length_matched(observation_mask)-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(observation_mask) vs length_matched(observation_mask): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(observation_mask),second=length_matched(observation_mask)].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(observation_mask)|length_matched(observation_mask)-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(observation_mask) vs length_matched(observation_mask): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(observation_mask),second=length_matched(observation_mask)].p_mcnemar",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(observation_mask)|length_matched(observation_mask)-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(observation_mask) vs length_matched(observation_mask): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(observation_mask),second=length_matched(observation_mask)].q_bh",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(observation_mask)|length_matched(observation_mask)-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(observation_mask) vs length_matched(observation_mask): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(observation_mask),second=length_matched(observation_mask)].risk_difference",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(observation_mask)|length_matched(observation_mask)-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(observation_mask) vs length_matched(observation_mask): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(observation_mask),second=length_matched(observation_mask)].rd_lo",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(observation_mask)|length_matched(observation_mask)-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(observation_mask) vs length_matched(observation_mask): 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(observation_mask),second=length_matched(observation_mask)].rd_hi",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)|control-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(recency_truncate) vs control: 27 versus 0 discordant pairs of 27, risk difference +100% (95% bootstrap +100% to +100%), exact McNemar p = 1.5e-08, BH q = 5.2e-08",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(recency_truncate),second=control].only_first_failed",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)|control-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(recency_truncate) vs control: 27 versus 0 discordant pairs of 27, risk difference +100% (95% bootstrap +100% to +100%), exact McNemar p = 1.5e-08, BH q = 5.2e-08",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(recency_truncate),second=control].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)|control-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(recency_truncate) vs control: 27 versus 0 discordant pairs of 27, risk difference +100% (95% bootstrap +100% to +100%), exact McNemar p = 1.5e-08, BH q = 5.2e-08",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(recency_truncate),second=control].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)|control-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(recency_truncate) vs control: 27 versus 0 discordant pairs of 27, risk difference +100% (95% bootstrap +100% to +100%), exact McNemar p = 1.5e-08, BH q = 5.2e-08",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(recency_truncate),second=control].p_mcnemar",
+    "expected": 1.4901161193847656e-08
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)|control-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(recency_truncate) vs control: 27 versus 0 discordant pairs of 27, risk difference +100% (95% bootstrap +100% to +100%), exact McNemar p = 1.5e-08, BH q = 5.2e-08",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(recency_truncate),second=control].q_bh",
+    "expected": 5.21540641784668e-08
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)|control-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(recency_truncate) vs control: 27 versus 0 discordant pairs of 27, risk difference +100% (95% bootstrap +100% to +100%), exact McNemar p = 1.5e-08, BH q = 5.2e-08",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(recency_truncate),second=control].risk_difference",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)|control-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(recency_truncate) vs control: 27 versus 0 discordant pairs of 27, risk difference +100% (95% bootstrap +100% to +100%), exact McNemar p = 1.5e-08, BH q = 5.2e-08",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(recency_truncate),second=control].rd_lo",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)|control-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(recency_truncate) vs control: 27 versus 0 discordant pairs of 27, risk difference +100% (95% bootstrap +100% to +100%), exact McNemar p = 1.5e-08, BH q = 5.2e-08",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(recency_truncate),second=control].rd_hi",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)|length_matched(recency_truncate)-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(recency_truncate) vs length_matched(recency_truncate): 27 versus 0 discordant pairs of 27, risk difference +100% (95% bootstrap +100% to +100%), exact McNemar p = 1.5e-08, BH q = 5.2e-08",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(recency_truncate),second=length_matched(recency_truncate)].only_first_failed",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)|length_matched(recency_truncate)-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(recency_truncate) vs length_matched(recency_truncate): 27 versus 0 discordant pairs of 27, risk difference +100% (95% bootstrap +100% to +100%), exact McNemar p = 1.5e-08, BH q = 5.2e-08",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(recency_truncate),second=length_matched(recency_truncate)].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)|length_matched(recency_truncate)-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(recency_truncate) vs length_matched(recency_truncate): 27 versus 0 discordant pairs of 27, risk difference +100% (95% bootstrap +100% to +100%), exact McNemar p = 1.5e-08, BH q = 5.2e-08",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(recency_truncate),second=length_matched(recency_truncate)].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)|length_matched(recency_truncate)-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(recency_truncate) vs length_matched(recency_truncate): 27 versus 0 discordant pairs of 27, risk difference +100% (95% bootstrap +100% to +100%), exact McNemar p = 1.5e-08, BH q = 5.2e-08",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(recency_truncate),second=length_matched(recency_truncate)].p_mcnemar",
+    "expected": 1.4901161193847656e-08
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)|length_matched(recency_truncate)-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(recency_truncate) vs length_matched(recency_truncate): 27 versus 0 discordant pairs of 27, risk difference +100% (95% bootstrap +100% to +100%), exact McNemar p = 1.5e-08, BH q = 5.2e-08",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(recency_truncate),second=length_matched(recency_truncate)].q_bh",
+    "expected": 5.21540641784668e-08
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)|length_matched(recency_truncate)-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(recency_truncate) vs length_matched(recency_truncate): 27 versus 0 discordant pairs of 27, risk difference +100% (95% bootstrap +100% to +100%), exact McNemar p = 1.5e-08, BH q = 5.2e-08",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(recency_truncate),second=length_matched(recency_truncate)].risk_difference",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)|length_matched(recency_truncate)-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(recency_truncate) vs length_matched(recency_truncate): 27 versus 0 discordant pairs of 27, risk difference +100% (95% bootstrap +100% to +100%), exact McNemar p = 1.5e-08, BH q = 5.2e-08",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(recency_truncate),second=length_matched(recency_truncate)].rd_lo",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-ministral-14b-latest|identifier|treatment(recency_truncate)|length_matched(recency_truncate)-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`ministral-14b-latest` (identifier), treatment(recency_truncate) vs length_matched(recency_truncate): 27 versus 0 discordant pairs of 27, risk difference +100% (95% bootstrap +100% to +100%), exact McNemar p = 1.5e-08, BH q = 5.2e-08",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=ministral-14b-latest,pack=identifier,first=treatment(recency_truncate),second=length_matched(recency_truncate)].rd_hi",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)|treatment(head_tail)-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(recency_truncate) vs treatment(head_tail): 23 versus 0 discordant pairs of 27, risk difference +85% (95% bootstrap +70% to +96%), exact McNemar p = 2.4e-07, BH q = 7.2e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(recency_truncate),second=treatment(head_tail)].only_first_failed",
+    "expected": 23
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)|treatment(head_tail)-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(recency_truncate) vs treatment(head_tail): 23 versus 0 discordant pairs of 27, risk difference +85% (95% bootstrap +70% to +96%), exact McNemar p = 2.4e-07, BH q = 7.2e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(recency_truncate),second=treatment(head_tail)].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)|treatment(head_tail)-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(recency_truncate) vs treatment(head_tail): 23 versus 0 discordant pairs of 27, risk difference +85% (95% bootstrap +70% to +96%), exact McNemar p = 2.4e-07, BH q = 7.2e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(recency_truncate),second=treatment(head_tail)].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)|treatment(head_tail)-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(recency_truncate) vs treatment(head_tail): 23 versus 0 discordant pairs of 27, risk difference +85% (95% bootstrap +70% to +96%), exact McNemar p = 2.4e-07, BH q = 7.2e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(recency_truncate),second=treatment(head_tail)].p_mcnemar",
+    "expected": 2.384185791015625e-07
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)|treatment(head_tail)-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(recency_truncate) vs treatment(head_tail): 23 versus 0 discordant pairs of 27, risk difference +85% (95% bootstrap +70% to +96%), exact McNemar p = 2.4e-07, BH q = 7.2e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(recency_truncate),second=treatment(head_tail)].q_bh",
+    "expected": 7.152557373046875e-07
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)|treatment(head_tail)-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(recency_truncate) vs treatment(head_tail): 23 versus 0 discordant pairs of 27, risk difference +85% (95% bootstrap +70% to +96%), exact McNemar p = 2.4e-07, BH q = 7.2e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(recency_truncate),second=treatment(head_tail)].risk_difference",
+    "expected": 0.8518518518518519
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)|treatment(head_tail)-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(recency_truncate) vs treatment(head_tail): 23 versus 0 discordant pairs of 27, risk difference +85% (95% bootstrap +70% to +96%), exact McNemar p = 2.4e-07, BH q = 7.2e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(recency_truncate),second=treatment(head_tail)].rd_lo",
+    "expected": 0.7037037037037037
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)|treatment(head_tail)-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(recency_truncate) vs treatment(head_tail): 23 versus 0 discordant pairs of 27, risk difference +85% (95% bootstrap +70% to +96%), exact McNemar p = 2.4e-07, BH q = 7.2e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(recency_truncate),second=treatment(head_tail)].rd_hi",
+    "expected": 0.9629629629629629
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)|treatment(head_tail)-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(llm_summary) vs treatment(head_tail): 11 versus 0 discordant pairs of 25, risk difference +44% (95% bootstrap +24% to +64%), exact McNemar p = 0.00098, BH q = 0.0015",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(llm_summary),second=treatment(head_tail)].only_first_failed",
+    "expected": 11
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)|treatment(head_tail)-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(llm_summary) vs treatment(head_tail): 11 versus 0 discordant pairs of 25, risk difference +44% (95% bootstrap +24% to +64%), exact McNemar p = 0.00098, BH q = 0.0015",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(llm_summary),second=treatment(head_tail)].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)|treatment(head_tail)-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(llm_summary) vs treatment(head_tail): 11 versus 0 discordant pairs of 25, risk difference +44% (95% bootstrap +24% to +64%), exact McNemar p = 0.00098, BH q = 0.0015",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(llm_summary),second=treatment(head_tail)].n_pairs",
+    "expected": 25
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)|treatment(head_tail)-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(llm_summary) vs treatment(head_tail): 11 versus 0 discordant pairs of 25, risk difference +44% (95% bootstrap +24% to +64%), exact McNemar p = 0.00098, BH q = 0.0015",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(llm_summary),second=treatment(head_tail)].p_mcnemar",
+    "expected": 0.0009765625
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)|treatment(head_tail)-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(llm_summary) vs treatment(head_tail): 11 versus 0 discordant pairs of 25, risk difference +44% (95% bootstrap +24% to +64%), exact McNemar p = 0.00098, BH q = 0.0015",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(llm_summary),second=treatment(head_tail)].q_bh",
+    "expected": 0.00146484375
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)|treatment(head_tail)-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(llm_summary) vs treatment(head_tail): 11 versus 0 discordant pairs of 25, risk difference +44% (95% bootstrap +24% to +64%), exact McNemar p = 0.00098, BH q = 0.0015",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(llm_summary),second=treatment(head_tail)].risk_difference",
+    "expected": 0.44
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)|treatment(head_tail)-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(llm_summary) vs treatment(head_tail): 11 versus 0 discordant pairs of 25, risk difference +44% (95% bootstrap +24% to +64%), exact McNemar p = 0.00098, BH q = 0.0015",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(llm_summary),second=treatment(head_tail)].rd_lo",
+    "expected": 0.24
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)|treatment(head_tail)-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(llm_summary) vs treatment(head_tail): 11 versus 0 discordant pairs of 25, risk difference +44% (95% bootstrap +24% to +64%), exact McNemar p = 0.00098, BH q = 0.0015",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(llm_summary),second=treatment(head_tail)].rd_hi",
+    "expected": 0.64
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(observation_mask)|control-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(observation_mask) vs control: 2 versus 0 discordant pairs of 27, risk difference +7% (95% bootstrap +0% to +19%), exact McNemar p = 0.5, BH q = 0.5",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(observation_mask),second=control].only_first_failed",
+    "expected": 2
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(observation_mask)|control-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(observation_mask) vs control: 2 versus 0 discordant pairs of 27, risk difference +7% (95% bootstrap +0% to +19%), exact McNemar p = 0.5, BH q = 0.5",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(observation_mask),second=control].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(observation_mask)|control-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(observation_mask) vs control: 2 versus 0 discordant pairs of 27, risk difference +7% (95% bootstrap +0% to +19%), exact McNemar p = 0.5, BH q = 0.5",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(observation_mask),second=control].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(observation_mask)|control-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(observation_mask) vs control: 2 versus 0 discordant pairs of 27, risk difference +7% (95% bootstrap +0% to +19%), exact McNemar p = 0.5, BH q = 0.5",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(observation_mask),second=control].p_mcnemar",
+    "expected": 0.5
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(observation_mask)|control-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(observation_mask) vs control: 2 versus 0 discordant pairs of 27, risk difference +7% (95% bootstrap +0% to +19%), exact McNemar p = 0.5, BH q = 0.5",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(observation_mask),second=control].q_bh",
+    "expected": 0.5
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(observation_mask)|control-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(observation_mask) vs control: 2 versus 0 discordant pairs of 27, risk difference +7% (95% bootstrap +0% to +19%), exact McNemar p = 0.5, BH q = 0.5",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(observation_mask),second=control].risk_difference",
+    "expected": 0.07407407407407407
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(observation_mask)|control-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(observation_mask) vs control: 2 versus 0 discordant pairs of 27, risk difference +7% (95% bootstrap +0% to +19%), exact McNemar p = 0.5, BH q = 0.5",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(observation_mask),second=control].rd_lo",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(observation_mask)|control-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(observation_mask) vs control: 2 versus 0 discordant pairs of 27, risk difference +7% (95% bootstrap +0% to +19%), exact McNemar p = 0.5, BH q = 0.5",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(observation_mask),second=control].rd_hi",
+    "expected": 0.18518518518518517
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(head_tail)|control-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(head_tail) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(head_tail),second=control].only_first_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(head_tail)|control-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(head_tail) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(head_tail),second=control].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(head_tail)|control-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(head_tail) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(head_tail),second=control].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(head_tail)|control-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(head_tail) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(head_tail),second=control].p_mcnemar",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(head_tail)|control-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(head_tail) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(head_tail),second=control].q_bh",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(head_tail)|control-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(head_tail) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(head_tail),second=control].risk_difference",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(head_tail)|control-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(head_tail) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(head_tail),second=control].rd_lo",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(head_tail)|control-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(head_tail) vs control: 0 versus 0 discordant pairs of 27, risk difference +0% (95% bootstrap +0% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(head_tail),second=control].rd_hi",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(head_tail)|length_matched(head_tail)-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(head_tail) vs length_matched(head_tail): 0 versus 1 discordant pairs of 27, risk difference -4% (95% bootstrap -11% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(head_tail),second=length_matched(head_tail)].only_first_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(head_tail)|length_matched(head_tail)-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(head_tail) vs length_matched(head_tail): 0 versus 1 discordant pairs of 27, risk difference -4% (95% bootstrap -11% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(head_tail),second=length_matched(head_tail)].only_second_failed",
+    "expected": 1
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(head_tail)|length_matched(head_tail)-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(head_tail) vs length_matched(head_tail): 0 versus 1 discordant pairs of 27, risk difference -4% (95% bootstrap -11% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(head_tail),second=length_matched(head_tail)].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(head_tail)|length_matched(head_tail)-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(head_tail) vs length_matched(head_tail): 0 versus 1 discordant pairs of 27, risk difference -4% (95% bootstrap -11% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(head_tail),second=length_matched(head_tail)].p_mcnemar",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(head_tail)|length_matched(head_tail)-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(head_tail) vs length_matched(head_tail): 0 versus 1 discordant pairs of 27, risk difference -4% (95% bootstrap -11% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(head_tail),second=length_matched(head_tail)].q_bh",
+    "expected": 1.0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(head_tail)|length_matched(head_tail)-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(head_tail) vs length_matched(head_tail): 0 versus 1 discordant pairs of 27, risk difference -4% (95% bootstrap -11% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(head_tail),second=length_matched(head_tail)].risk_difference",
+    "expected": -0.037037037037037035
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(head_tail)|length_matched(head_tail)-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(head_tail) vs length_matched(head_tail): 0 versus 1 discordant pairs of 27, risk difference -4% (95% bootstrap -11% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(head_tail),second=length_matched(head_tail)].rd_lo",
+    "expected": -0.1111111111111111
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(head_tail)|length_matched(head_tail)-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(head_tail) vs length_matched(head_tail): 0 versus 1 discordant pairs of 27, risk difference -4% (95% bootstrap -11% to +0%), exact McNemar p = 1, BH q = 1",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(head_tail),second=length_matched(head_tail)].rd_hi",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)|control-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(llm_summary) vs control: 11 versus 0 discordant pairs of 25, risk difference +44% (95% bootstrap +24% to +64%), exact McNemar p = 0.00098, BH q = 0.0023",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(llm_summary),second=control].only_first_failed",
+    "expected": 11
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)|control-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(llm_summary) vs control: 11 versus 0 discordant pairs of 25, risk difference +44% (95% bootstrap +24% to +64%), exact McNemar p = 0.00098, BH q = 0.0023",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(llm_summary),second=control].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)|control-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(llm_summary) vs control: 11 versus 0 discordant pairs of 25, risk difference +44% (95% bootstrap +24% to +64%), exact McNemar p = 0.00098, BH q = 0.0023",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(llm_summary),second=control].n_pairs",
+    "expected": 25
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)|control-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(llm_summary) vs control: 11 versus 0 discordant pairs of 25, risk difference +44% (95% bootstrap +24% to +64%), exact McNemar p = 0.00098, BH q = 0.0023",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(llm_summary),second=control].p_mcnemar",
+    "expected": 0.0009765625
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)|control-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(llm_summary) vs control: 11 versus 0 discordant pairs of 25, risk difference +44% (95% bootstrap +24% to +64%), exact McNemar p = 0.00098, BH q = 0.0023",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(llm_summary),second=control].q_bh",
+    "expected": 0.0022786458333333335
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)|control-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(llm_summary) vs control: 11 versus 0 discordant pairs of 25, risk difference +44% (95% bootstrap +24% to +64%), exact McNemar p = 0.00098, BH q = 0.0023",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(llm_summary),second=control].risk_difference",
+    "expected": 0.44
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)|control-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(llm_summary) vs control: 11 versus 0 discordant pairs of 25, risk difference +44% (95% bootstrap +24% to +64%), exact McNemar p = 0.00098, BH q = 0.0023",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(llm_summary),second=control].rd_lo",
+    "expected": 0.24
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)|control-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(llm_summary) vs control: 11 versus 0 discordant pairs of 25, risk difference +44% (95% bootstrap +24% to +64%), exact McNemar p = 0.00098, BH q = 0.0023",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(llm_summary),second=control].rd_hi",
+    "expected": 0.64
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)|length_matched(llm_summary)-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(llm_summary) vs length_matched(llm_summary): 10 versus 0 discordant pairs of 24, risk difference +42% (95% bootstrap +21% to +62%), exact McNemar p = 0.002, BH q = 0.0034",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(llm_summary),second=length_matched(llm_summary)].only_first_failed",
+    "expected": 10
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)|length_matched(llm_summary)-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(llm_summary) vs length_matched(llm_summary): 10 versus 0 discordant pairs of 24, risk difference +42% (95% bootstrap +21% to +62%), exact McNemar p = 0.002, BH q = 0.0034",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(llm_summary),second=length_matched(llm_summary)].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)|length_matched(llm_summary)-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(llm_summary) vs length_matched(llm_summary): 10 versus 0 discordant pairs of 24, risk difference +42% (95% bootstrap +21% to +62%), exact McNemar p = 0.002, BH q = 0.0034",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(llm_summary),second=length_matched(llm_summary)].n_pairs",
+    "expected": 24
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)|length_matched(llm_summary)-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(llm_summary) vs length_matched(llm_summary): 10 versus 0 discordant pairs of 24, risk difference +42% (95% bootstrap +21% to +62%), exact McNemar p = 0.002, BH q = 0.0034",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(llm_summary),second=length_matched(llm_summary)].p_mcnemar",
+    "expected": 0.001953125
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)|length_matched(llm_summary)-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(llm_summary) vs length_matched(llm_summary): 10 versus 0 discordant pairs of 24, risk difference +42% (95% bootstrap +21% to +62%), exact McNemar p = 0.002, BH q = 0.0034",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(llm_summary),second=length_matched(llm_summary)].q_bh",
+    "expected": 0.00341796875
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)|length_matched(llm_summary)-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(llm_summary) vs length_matched(llm_summary): 10 versus 0 discordant pairs of 24, risk difference +42% (95% bootstrap +21% to +62%), exact McNemar p = 0.002, BH q = 0.0034",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(llm_summary),second=length_matched(llm_summary)].risk_difference",
+    "expected": 0.4166666666666667
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)|length_matched(llm_summary)-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(llm_summary) vs length_matched(llm_summary): 10 versus 0 discordant pairs of 24, risk difference +42% (95% bootstrap +21% to +62%), exact McNemar p = 0.002, BH q = 0.0034",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(llm_summary),second=length_matched(llm_summary)].rd_lo",
+    "expected": 0.20833333333333334
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(llm_summary)|length_matched(llm_summary)-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(llm_summary) vs length_matched(llm_summary): 10 versus 0 discordant pairs of 24, risk difference +42% (95% bootstrap +21% to +62%), exact McNemar p = 0.002, BH q = 0.0034",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(llm_summary),second=length_matched(llm_summary)].rd_hi",
+    "expected": 0.625
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(observation_mask)|length_matched(observation_mask)-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(observation_mask) vs length_matched(observation_mask): 2 versus 0 discordant pairs of 27, risk difference +7% (95% bootstrap +0% to +19%), exact McNemar p = 0.5, BH q = 0.7",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(observation_mask),second=length_matched(observation_mask)].only_first_failed",
+    "expected": 2
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(observation_mask)|length_matched(observation_mask)-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(observation_mask) vs length_matched(observation_mask): 2 versus 0 discordant pairs of 27, risk difference +7% (95% bootstrap +0% to +19%), exact McNemar p = 0.5, BH q = 0.7",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(observation_mask),second=length_matched(observation_mask)].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(observation_mask)|length_matched(observation_mask)-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(observation_mask) vs length_matched(observation_mask): 2 versus 0 discordant pairs of 27, risk difference +7% (95% bootstrap +0% to +19%), exact McNemar p = 0.5, BH q = 0.7",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(observation_mask),second=length_matched(observation_mask)].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(observation_mask)|length_matched(observation_mask)-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(observation_mask) vs length_matched(observation_mask): 2 versus 0 discordant pairs of 27, risk difference +7% (95% bootstrap +0% to +19%), exact McNemar p = 0.5, BH q = 0.7",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(observation_mask),second=length_matched(observation_mask)].p_mcnemar",
+    "expected": 0.5
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(observation_mask)|length_matched(observation_mask)-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(observation_mask) vs length_matched(observation_mask): 2 versus 0 discordant pairs of 27, risk difference +7% (95% bootstrap +0% to +19%), exact McNemar p = 0.5, BH q = 0.7",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(observation_mask),second=length_matched(observation_mask)].q_bh",
+    "expected": 0.7
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(observation_mask)|length_matched(observation_mask)-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(observation_mask) vs length_matched(observation_mask): 2 versus 0 discordant pairs of 27, risk difference +7% (95% bootstrap +0% to +19%), exact McNemar p = 0.5, BH q = 0.7",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(observation_mask),second=length_matched(observation_mask)].risk_difference",
+    "expected": 0.07407407407407407
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(observation_mask)|length_matched(observation_mask)-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(observation_mask) vs length_matched(observation_mask): 2 versus 0 discordant pairs of 27, risk difference +7% (95% bootstrap +0% to +19%), exact McNemar p = 0.5, BH q = 0.7",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(observation_mask),second=length_matched(observation_mask)].rd_lo",
+    "expected": 0.0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(observation_mask)|length_matched(observation_mask)-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(observation_mask) vs length_matched(observation_mask): 2 versus 0 discordant pairs of 27, risk difference +7% (95% bootstrap +0% to +19%), exact McNemar p = 0.5, BH q = 0.7",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(observation_mask),second=length_matched(observation_mask)].rd_hi",
+    "expected": 0.18518518518518517
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)|control-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(recency_truncate) vs control: 23 versus 0 discordant pairs of 27, risk difference +85% (95% bootstrap +70% to +96%), exact McNemar p = 2.4e-07, BH q = 8.3e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(recency_truncate),second=control].only_first_failed",
+    "expected": 23
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)|control-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(recency_truncate) vs control: 23 versus 0 discordant pairs of 27, risk difference +85% (95% bootstrap +70% to +96%), exact McNemar p = 2.4e-07, BH q = 8.3e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(recency_truncate),second=control].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)|control-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(recency_truncate) vs control: 23 versus 0 discordant pairs of 27, risk difference +85% (95% bootstrap +70% to +96%), exact McNemar p = 2.4e-07, BH q = 8.3e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(recency_truncate),second=control].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)|control-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(recency_truncate) vs control: 23 versus 0 discordant pairs of 27, risk difference +85% (95% bootstrap +70% to +96%), exact McNemar p = 2.4e-07, BH q = 8.3e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(recency_truncate),second=control].p_mcnemar",
+    "expected": 2.384185791015625e-07
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)|control-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(recency_truncate) vs control: 23 versus 0 discordant pairs of 27, risk difference +85% (95% bootstrap +70% to +96%), exact McNemar p = 2.4e-07, BH q = 8.3e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(recency_truncate),second=control].q_bh",
+    "expected": 8.344650268554688e-07
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)|control-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(recency_truncate) vs control: 23 versus 0 discordant pairs of 27, risk difference +85% (95% bootstrap +70% to +96%), exact McNemar p = 2.4e-07, BH q = 8.3e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(recency_truncate),second=control].risk_difference",
+    "expected": 0.8518518518518519
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)|control-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(recency_truncate) vs control: 23 versus 0 discordant pairs of 27, risk difference +85% (95% bootstrap +70% to +96%), exact McNemar p = 2.4e-07, BH q = 8.3e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(recency_truncate),second=control].rd_lo",
+    "expected": 0.7037037037037037
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)|control-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(recency_truncate) vs control: 23 versus 0 discordant pairs of 27, risk difference +85% (95% bootstrap +70% to +96%), exact McNemar p = 2.4e-07, BH q = 8.3e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(recency_truncate),second=control].rd_hi",
+    "expected": 0.9629629629629629
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)|length_matched(recency_truncate)-only_first_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(recency_truncate) vs length_matched(recency_truncate): 23 versus 0 discordant pairs of 27, risk difference +85% (95% bootstrap +70% to +96%), exact McNemar p = 2.4e-07, BH q = 8.3e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(recency_truncate),second=length_matched(recency_truncate)].only_first_failed",
+    "expected": 23
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)|length_matched(recency_truncate)-only_second_failed",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(recency_truncate) vs length_matched(recency_truncate): 23 versus 0 discordant pairs of 27, risk difference +85% (95% bootstrap +70% to +96%), exact McNemar p = 2.4e-07, BH q = 8.3e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(recency_truncate),second=length_matched(recency_truncate)].only_second_failed",
+    "expected": 0
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)|length_matched(recency_truncate)-n_pairs",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(recency_truncate) vs length_matched(recency_truncate): 23 versus 0 discordant pairs of 27, risk difference +85% (95% bootstrap +70% to +96%), exact McNemar p = 2.4e-07, BH q = 8.3e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(recency_truncate),second=length_matched(recency_truncate)].n_pairs",
+    "expected": 27
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)|length_matched(recency_truncate)-p_mcnemar",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(recency_truncate) vs length_matched(recency_truncate): 23 versus 0 discordant pairs of 27, risk difference +85% (95% bootstrap +70% to +96%), exact McNemar p = 2.4e-07, BH q = 8.3e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(recency_truncate),second=length_matched(recency_truncate)].p_mcnemar",
+    "expected": 2.384185791015625e-07
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)|length_matched(recency_truncate)-q_bh",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(recency_truncate) vs length_matched(recency_truncate): 23 versus 0 discordant pairs of 27, risk difference +85% (95% bootstrap +70% to +96%), exact McNemar p = 2.4e-07, BH q = 8.3e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(recency_truncate),second=length_matched(recency_truncate)].q_bh",
+    "expected": 8.344650268554688e-07
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)|length_matched(recency_truncate)-risk_difference",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(recency_truncate) vs length_matched(recency_truncate): 23 versus 0 discordant pairs of 27, risk difference +85% (95% bootstrap +70% to +96%), exact McNemar p = 2.4e-07, BH q = 8.3e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(recency_truncate),second=length_matched(recency_truncate)].risk_difference",
+    "expected": 0.8518518518518519
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)|length_matched(recency_truncate)-rd_lo",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(recency_truncate) vs length_matched(recency_truncate): 23 versus 0 discordant pairs of 27, risk difference +85% (95% bootstrap +70% to +96%), exact McNemar p = 2.4e-07, BH q = 8.3e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(recency_truncate),second=length_matched(recency_truncate)].rd_lo",
+    "expected": 0.7037037037037037
+  },
+  {
+    "id": "exp-002-gpt-oss-20b|constraint|treatment(recency_truncate)|length_matched(recency_truncate)-rd_hi",
+    "file": "docs/experiments/EXP-002.md",
+    "text": "`openai/gpt-oss-20b` (constraint), treatment(recency_truncate) vs length_matched(recency_truncate): 23 versus 0 discordant pairs of 27, risk difference +85% (95% bootstrap +70% to +96%), exact McNemar p = 2.4e-07, BH q = 8.3e-07",
+    "kind": "json",
+    "source": "results/EXP-002/summary.json",
+    "path": "comparisons[model=openai/gpt-oss-20b,pack=constraint,first=treatment(recency_truncate),second=length_matched(recency_truncate)].rd_hi",
+    "expected": 0.9629629629629629
   }
 ]

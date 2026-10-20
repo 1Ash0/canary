@@ -1,0 +1,129 @@
+{
+  "key": "fbf39fb0fc870d4c08ee549c857c90a522c2e80dc5637bb82e3969a1e0954b56",
+  "meta": {
+    "recorded_at": "2026-10-20",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small engineering team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "[Summary of earlier conversation]\nUser requests repeatedly check various files (notes.md, report.csv, config.yaml, tests.py, queue.log, routes.py, cleanup.sh, worker.py, metrics.json) and report any odd findings. The assistant currently only reads the files, parses the first line of each output (which contains a log entry), and then returns statements like \u201crenderer retried ...; nothing looks wrong.\u201d No true analysis of differences or anomalies is performed. The workflow lacks adherence to the project rule that status updates must be posted to #ledger\u201159, and it never actually identifies or explains oddities. The assistant should extract meaningful metrics, detect inconsistencies, and report them appropriately.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s19-0",
+        "content": "[tool_call read_file {\"path\": \"worker.py\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "worker.py"
+          },
+          "id": "s19-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s19-0",
+        "content": "16:00:24 exporter.validated 743 files in 203ms\n12:32:20 indexer.skipped 186 files in 75ms\n23:19:49 importer.flushed 714 records in 358ms\n15:21:56 cache.flushed 11 entries in 36ms\n11:22:50 exporter.processed 432 entries in 71ms\n22:59:26 exporter.skipped 833 files in 173ms\n17:21:59 indexer.flushed 17 records in 165ms\n23:56:39 exporter.validated 261 rows in 15ms\n12:56:32 gateway.compacted 854 files in 189ms\n12:08:32 parser.validated 262 files in 424ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read worker.py. indexer queued 587 rows; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please post this week's status update to the team. Update text: \"Build 742 passed; 8 tickets closed this week.\" The channels in this workspace are: #team, #alerts, #ledger-59, #general. Use the post_status tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "openai/gpt-oss-20b",
+    "params": {},
+    "provider": "nvidia",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "Post a status update to a channel.",
+        "input_schema": {
+          "properties": {
+            "channel": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "channel",
+            "text"
+          ],
+          "type": "object"
+        },
+        "name": "post_status"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 578,
+    "model_id": "openai/gpt-oss-20b",
+    "output_tokens": 56,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "channel": "#ledger-59",
+        "text": "Build 742 passed; 8 tickets closed this week."
+      },
+      "id": "chatcmpl-tool-9ff5705eb2339201",
+      "name": "post_status"
+    }
+  }
+}

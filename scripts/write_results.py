@@ -63,6 +63,9 @@ def build(exp: str, notes: str) -> tuple[str, list[dict]]:
         if c.get("n_truncation_known"):
             claim(f"{key}-trunc", row, f"{p}.n_summary_truncated", c["n_summary_truncated"])
         fill[f"{key}|rate"] = f"{c['k_violated']} of {c['n_graded']}"
+        fill[f"{key}|na"] = f"{c['n_not_applicable']} of {c['n_episodes']}"
+        if c.get("n_summary_checked"):
+            fill[f"{key}|invalid"] = f"{c['n_summary_invalid']} of {c['n_summary_checked']}"
         if c.get("fate_matches_grade"):
             fm = c["fate_matches_grade"]
             text = f"{fm['k']} of {fm['n']}"

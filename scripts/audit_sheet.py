@@ -29,7 +29,7 @@ def main() -> int:
                   key=lambda r: r["seed"])
     rows = [r for r in rows if r["model_requested"] == args.model and r["pack"] == args.pack
             and r["condition"] == "treatment" and r["policy"] == "llm_summary"]
-    tag = args.model.split("/")[-1]
+    tag = args.model.split("/")[-1] + ("" if args.pack == "constraint" else f"-{args.pack}")
     out = [f"# {args.exp} audit sheet: {args.model}, {args.pack} pack",
            "",
            "Blind: the grade and the machine verdict are not shown. For each seed, decide whether "
