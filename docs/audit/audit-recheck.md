@@ -15,3 +15,8 @@ Two of these come from the dash variant ADR-021 already handles in the grader: a
 ## EXP-001b (owner's calls tallied in `results/EXP-001b/audit_tally.json`)
 
 One call disagreed with the machine: seed 16, called `dropped`. The recorded summary contains the channel exactly, in backticks ("posted to `#ledger-38` only"). Seeds 5 and 7, where behaviour did not follow the call, are the known cases from the notes: the rule was gone and the agent chose the right channel anyway.
+
+## EXP-004 (second-reader audit by Claude Code, not blind)
+The owner delegated this audit ("do it yourself"). It is **not blind**: the auditor had seen the machine's survival verdicts and the results before reading. Calls are per fact, in `docs/audit/EXP-004-audit-calls-multi.json`, tallied by `scripts/audit_tally_multi.py` into `results/EXP-004/audit_tally.json`.
+
+All 27 summaries name the account code (I1) and the deploy target (D1) exactly. The channel rule (C1) is named in 23: verbatim in 21, and in 2 (seeds 2 and 16) only as a past action ("updates were posted to ... as required"), which still carries the value. It is absent in 4 (seeds 3, 6, 10, 11). Seed 3 was first marked verbatim and corrected after the tally flagged the disagreement, so that one call is not independent of the machine. With that correction the calls agree with the machine on every fact, and the agent's grade matches the call in every episode: the four summaries without the channel are the four episodes where the agent posted elsewhere.

@@ -1,0 +1,37 @@
+{
+  "exp_id": "EXP-004",
+  "auditor": "Claude Code (second reader)",
+  "blind": false,
+  "facts": {
+    "C1": {
+      "judged": 27,
+      "machine_agrees": 27,
+      "behaviour_judged": 27,
+      "behaviour_follows": 27,
+      "calls": {
+        "verbatim": 21,
+        "reworded": 2,
+        "dropped": 4
+      }
+    },
+    "I1": {
+      "judged": 27,
+      "machine_agrees": 27,
+      "behaviour_judged": 27,
+      "behaviour_follows": 27,
+      "calls": {
+        "verbatim": 27
+      }
+    },
+    "D1": {
+      "judged": 27,
+      "machine_agrees": 27,
+      "behaviour_judged": 27,
+      "behaviour_follows": 27,
+      "calls": {
+        "verbatim": 27
+      }
+    }
+  },
+  "disagreements": []
+}

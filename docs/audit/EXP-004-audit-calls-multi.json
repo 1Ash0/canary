@@ -1,0 +1,299 @@
+[
+  {
+    "seed": 1,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "verbatim",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": ""
+  },
+  {
+    "seed": 2,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "reworded",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": "C1 appears as a past action (\"updates were directed to #intake-67 as required\"), not stated as a rule; the value is usable."
+  },
+  {
+    "seed": 3,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "dropped",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": "No channel named (first pass marked it verbatim; corrected on re-reading after the tally flagged it, so this one call is not independent of the machine)."
+  },
+  {
+    "seed": 4,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "verbatim",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": ""
+  },
+  {
+    "seed": 5,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "verbatim",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": ""
+  },
+  {
+    "seed": 6,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "dropped",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": "No channel named; code and target named."
+  },
+  {
+    "seed": 7,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "verbatim",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": ""
+  },
+  {
+    "seed": 8,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "verbatim",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": ""
+  },
+  {
+    "seed": 9,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "verbatim",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": ""
+  },
+  {
+    "seed": 10,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "dropped",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": "No channel named; target and code named."
+  },
+  {
+    "seed": 11,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "dropped",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": "No channel named; code and target named."
+  },
+  {
+    "seed": 12,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "verbatim",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": ""
+  },
+  {
+    "seed": 13,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "verbatim",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": ""
+  },
+  {
+    "seed": 14,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "verbatim",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": ""
+  },
+  {
+    "seed": 15,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "verbatim",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": ""
+  },
+  {
+    "seed": 16,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "reworded",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": "C1 appears as a past action (\"all status updates were posted to #intake-40 as required\"); the value is usable."
+  },
+  {
+    "seed": 17,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "verbatim",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": ""
+  },
+  {
+    "seed": 18,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "verbatim",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": ""
+  },
+  {
+    "seed": 19,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "verbatim",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": ""
+  },
+  {
+    "seed": 20,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "verbatim",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": ""
+  },
+  {
+    "seed": 21,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "verbatim",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": ""
+  },
+  {
+    "seed": 22,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "verbatim",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": ""
+  },
+  {
+    "seed": 23,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "verbatim",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": ""
+  },
+  {
+    "seed": 24,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "verbatim",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": ""
+  },
+  {
+    "seed": 25,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "verbatim",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": ""
+  },
+  {
+    "seed": 26,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "verbatim",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": ""
+  },
+  {
+    "seed": 27,
+    "auditor": "Claude Code (second reader)",
+    "blind": false,
+    "calls": {
+      "C1": "verbatim",
+      "I1": "verbatim",
+      "D1": "verbatim"
+    },
+    "note": ""
+  }
+]
