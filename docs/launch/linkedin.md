@@ -9,7 +9,7 @@ Files (rendered by `node design/scripts/render-video.mjs --format portrait|squar
 Every number in the posts below is checked against `results/EXP-004/summary.json` by `scripts/check_claims.py`. The strategy notes are common practice, not measured facts; nothing here claims a reach or engagement number.
 
 ## The strategy in one paragraph
-One idea per post, told as a surprise with a receipt: "each compaction loses a different fact, and the agent fails on exactly that one", backed by a video of a real recorded run and a 27-seed table. The first two lines must earn the "see more" click on their own; the video must make sense muted; the post ends on a question practitioners can answer from their own stack, because comments from builders are what carries a post to more builders. The link goes in the first comment, not the post. Then a short sequence of follow-ups, each one new finding, not a repeat.
+One idea per post, told as a surprise with a receipt: "each compaction loses a different fact, and the agent fails on exactly that one", backed by a video of a real recorded run and a 27-seed table. The first two lines must earn the "see more" click on their own; the video must make sense muted; the post ends on a question practitioners can answer from their own stack, because comments from builders are what carries a post to more builders. The link goes in the first comment, not the post. One post: anything more lives in the replies and the repository.
 
 ## The post (main)
 
@@ -38,7 +38,7 @@ Which compaction does your agent use, and have you checked what it drops?
 - **No link in the post body** (link posts are commonly reported to be shown less; this is practice, not a measured fact here). It goes in the first comment.
 - **Four hashtags**, all specific. No tagging people who are not involved.
 
-### Alternative hooks (pick one; test another in a later post)
+### Alternative hooks (pick one before posting)
 - "Context compaction did not make my agent forget everything. It made it forget exactly one thing, and I could predict which."
 - "'Keep the head and the tail' is the most common way to trim an agent's context. It lost the middle fact 27 times out of 27."
 - "I tested what an AI agent forgets when its context is compacted. The answer depends on where the fact sat."
@@ -61,11 +61,12 @@ How it was measured: three facts planted at turns 2, 9 and 16 of a scripted hist
 - **"How do I test my own policy?"** The repo runs offline from recordings; adding a policy is one class, and `ctxcheck run` gives you the same table.
 - **"n=27 is small."** Agreed, and every rate in the repo carries its 95% interval; the large effects here (27 of 27 against 0 of 27) are not close calls, the small ones are labelled inconclusive.
 
-## Follow-up sequence (one a week, each a new finding)
-1. **The two summarisers** (EXP-001/001b): same history, one model's summary kept the rule and the other's did not. Use the comparison page as a short screen recording or a 3-slide carousel.
-2. **"Masking is not free"** (EXP-004 deviation): masking old tool output kept everything, until the request itself pushed it over budget and its fallback dropped the oldest turns. A good honest-failure post.
-3. **"How I keep myself honest"**: preregistration, a blind audit where the machine beat me 5 times, numbers checked against the data in CI. Process posts land well with engineers.
-4. **Open invitation:** "send me your compaction policy and I will run it through the same 27 seeds".
+## One post, so make it complete
+There is no follow-up, so this post and its first comment carry everything:
+- **Alternative hooks are for choosing, not testing:** pick the one you like best before posting; there is no second post to try another.
+- **The first comment is the whole methods section** and the only link; pin it.
+- **Your replies are the follow-ups.** The findings you would otherwise post later go into answers when they fit: the two summarisers (one model's summary kept the rule and the other's did not), masking losing the rule once the request pushed it over budget, and the blind audit where the machine's check was right where you disagreed. Each makes a reply worth reading, and replies keep the post alive.
+- **Make the repo the place people continue:** the README already leads with the findings; anyone who wants more goes there, not to a next post.
 
 ## What to watch after posting
 Comments from practitioners, profile visits, repository stars and clones in the following days. Reactions alone say little; a comment that asks a technical question is the signal that the post reached the right people.
