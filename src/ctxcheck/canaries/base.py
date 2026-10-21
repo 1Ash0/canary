@@ -101,21 +101,19 @@ def trim_to_length(
 ) -> tuple[Built, int]:
     """Drop the oldest filler turns until the pre-probe window is no longer than the target.
 
-    Never drops the planted turn, the neutral stand-in or the probe. Returns the trimmed episode
+    Never drops a planted turn, a neutral stand-in or the probe. Returns the trimmed episode
     and its actual length, which is at most the target unless even zero filler is too long.
     """
     turns = list(built.scenario.turns)
-    planted_at = next((i for i, t in enumerate(turns) if t.canary or t.text == _NEUTRAL_MARK), -1)
+    # every planted turn (or its neutral stand-in) is kept, however many a pack plants
+    keep = lambda t: bool(t.canary) or t.text == _NEUTRAL_MARK  # noqa: E731
     candidate = built
     while True:
         size = window_tokens_before_probe(candidate, count_fn)
-        droppable = [i for i, t in enumerate(turns[:-1]) if i != planted_at and t.scripted]
+        droppable = [i for i, t in enumerate(turns[:-1]) if not keep(t) and t.scripted]
         if size <= target_tokens or not droppable:
             return candidate, size
-        drop = droppable[0]
-        turns.pop(drop)
-        if drop < planted_at:
-            planted_at -= 1
+        turns.pop(droppable[0])
         candidate = replace(candidate, scenario=replace(built.scenario, turns=list(turns)),
                             probe_step=len(turns))
 

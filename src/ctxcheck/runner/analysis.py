@@ -54,6 +54,11 @@ def _cell(rows: Sequence[dict[str, Any]]) -> dict[str, Any]:
     if judged:  # exploratory: does behaviour follow what the summary kept?
         agree = sum((r["canary_fate"] == "kept") == (r["grade"] == "respected") for r in judged)
         out["fate_matches_grade"] = {"k": agree, "n": len(judged)}
+    with_fates = [r for r in rows if r.get("fates")]
+    if with_fates:  # multi packs: how often each planted fact was still in the window
+        ids = sorted({cid for r in with_fates for cid in r["fates"]})
+        out["fates_kept"] = {cid: {"k": sum(r["fates"].get(cid) == "kept" for r in with_fates),
+                                   "n": len(with_fates)} for cid in ids}
     compacted = [r for r in rows if r.get("canary_fate") is not None]
     if compacted:
         kept = sum(r["canary_fate"] == "kept" for r in compacted)

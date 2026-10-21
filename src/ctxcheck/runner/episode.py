@@ -99,6 +99,14 @@ class EpisodeRow:
     summary_valid: bool | None = None
     # True when the summary call stopped at the token cap (schema 0.4); None if unknown
     summary_truncated: bool | None = None
+    # every planted fact's survival at the probe, by canary id (multi packs plant several)
+    fates: dict[str, str] | None = None
+
+
+def all_fates(events: list[TraceEvent], probe_id: str) -> dict[str, str]:
+    """Survival at the probe of every fact the trace planted, not only the graded one."""
+    ids = [e.canary_id for e in events if e.type == "canary_planted"]
+    return {cid: survival_at_probe(events, cid, probe_id) for cid in ids}
 
 
 def summary_truncation(events: list[TraceEvent]) -> bool | None:
@@ -200,4 +208,5 @@ def run_episode(
         trace_path=str((runs_dir / f"{spec.exp_id}-{spec.key}.jsonl").as_posix()),
         params=dict(spec.params), summary_valid=summary_validity(events),
         summary_truncated=summary_truncation(events),
+        fates=all_fates(events, probe_msg.message_id) if planted_and_compacted else None,
     )

@@ -4,12 +4,13 @@ from __future__ import annotations
 
 from collections.abc import Callable
 
-from ctxcheck.canaries import constraint, identifier
+from ctxcheck.canaries import constraint, identifier, multi
 from ctxcheck.canaries.base import Built, trim_to_length, window_tokens_before_probe
 
 PACKS: dict[str, Callable[..., Built]] = {
     "constraint": constraint.build,
     "identifier": identifier.build,
+    **multi.BUILDERS,  # multi_channel, multi_code, multi_deploy: one history, three facts
 }
 
 
