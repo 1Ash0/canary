@@ -8155,7 +8155,7 @@
   {
     "id": "cross-linkedin-ht-code-k",
     "file": "docs/launch/linkedin.md",
-    "text": "got the account code wrong in 27 of 27 runs",
+    "text": "wrong account code in 27 of 27 runs",
     "kind": "json",
     "source": "results/EXP-004/summary.json",
     "path": "cells[model=ministral-14b-latest,pack=multi_code,label=treatment(head_tail),limit_tokens=2400].k_violated",
@@ -8164,7 +8164,7 @@
   {
     "id": "cross-linkedin-ht-code-n",
     "file": "docs/launch/linkedin.md",
-    "text": "got the account code wrong in 27 of 27 runs",
+    "text": "wrong account code in 27 of 27 runs",
     "kind": "json",
     "source": "results/EXP-004/summary.json",
     "path": "cells[model=ministral-14b-latest,pack=multi_code,label=treatment(head_tail),limit_tokens=2400].n_graded",
@@ -8173,7 +8173,7 @@
   {
     "id": "cross-linkedin-mask-code-k",
     "file": "docs/launch/linkedin.md",
-    "text": "masking old tool output got it right in all 27",
+    "text": "right in all 27",
     "kind": "json",
     "source": "results/EXP-004/summary.json",
     "path": "cells[model=ministral-14b-latest,pack=multi_code,label=treatment(observation_mask),limit_tokens=2400].k_violated",
@@ -8182,10 +8182,28 @@
   {
     "id": "cross-linkedin-mask-code-n",
     "file": "docs/launch/linkedin.md",
-    "text": "masking old tool output got it right in all 27",
+    "text": "right in all 27",
     "kind": "json",
     "source": "results/EXP-004/summary.json",
     "path": "cells[model=ministral-14b-latest,pack=multi_code,label=treatment(observation_mask),limit_tokens=2400].n_graded",
     "expected": 27
+  },
+  {
+    "id": "cross-linkedin-sum-c1-kept",
+    "file": "docs/launch/linkedin.md",
+    "text": "the channel rule in 23 of 27",
+    "kind": "json",
+    "source": "results/EXP-004/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=multi_channel,label=treatment(llm_summary),limit_tokens=2400].fates_kept.C1.k",
+    "expected": 23
+  },
+  {
+    "id": "cross-linkedin-sum-c1-wrong",
+    "file": "docs/launch/linkedin.md",
+    "text": "failed exactly on the 4 it dropped",
+    "kind": "json",
+    "source": "results/EXP-004/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=multi_channel,label=treatment(llm_summary),limit_tokens=2400].k_violated",
+    "expected": 4
   }
 ]
