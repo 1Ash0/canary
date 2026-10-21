@@ -8151,5 +8151,41 @@
     "source": "results/EXP-004/summary.json",
     "path": "comparisons[model=ministral-14b-latest,pack=multi_deploy,first=treatment(recency_truncate),second=length_matched(recency_truncate)].rd_hi",
     "expected": 0.0
+  },
+  {
+    "id": "cross-linkedin-ht-code-k",
+    "file": "docs/launch/linkedin.md",
+    "text": "got the account code wrong in 27 of 27 runs",
+    "kind": "json",
+    "source": "results/EXP-004/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=multi_code,label=treatment(head_tail),limit_tokens=2400].k_violated",
+    "expected": 27
+  },
+  {
+    "id": "cross-linkedin-ht-code-n",
+    "file": "docs/launch/linkedin.md",
+    "text": "got the account code wrong in 27 of 27 runs",
+    "kind": "json",
+    "source": "results/EXP-004/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=multi_code,label=treatment(head_tail),limit_tokens=2400].n_graded",
+    "expected": 27
+  },
+  {
+    "id": "cross-linkedin-mask-code-k",
+    "file": "docs/launch/linkedin.md",
+    "text": "masking old tool output got it right in all 27",
+    "kind": "json",
+    "source": "results/EXP-004/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=multi_code,label=treatment(observation_mask),limit_tokens=2400].k_violated",
+    "expected": 0
+  },
+  {
+    "id": "cross-linkedin-mask-code-n",
+    "file": "docs/launch/linkedin.md",
+    "text": "masking old tool output got it right in all 27",
+    "kind": "json",
+    "source": "results/EXP-004/summary.json",
+    "path": "cells[model=ministral-14b-latest,pack=multi_code,label=treatment(observation_mask),limit_tokens=2400].n_graded",
+    "expected": 27
   }
 ]

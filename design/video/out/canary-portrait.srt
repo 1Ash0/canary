@@ -1,0 +1,27 @@
+1
+00:00:00,000 --> 00:00:03,600
+We hid 3 facts in an AI agent's context.
+
+2
+00:00:03,700 --> 00:00:06,652
+Then the context filled up, past its budget.
+
+3
+00:00:06,952 --> 00:00:10,302
+The harness kept the head and the tail, and cut the middle.
+
+4
+00:00:10,502 --> 00:00:13,102
+2 of the 3 facts were cut.
+
+5
+00:00:13,302 --> 00:00:17,502
+Asked for the account code, the agent filed the invoice under "overage".
+
+6
+00:00:17,802 --> 00:00:27,302
+Same history, 27 seeds, four ways to make room. Each loses a different fact.
+
+7
+00:00:27,502 --> 00:00:31,002
+The agent fails on exactly the fact that was cut.

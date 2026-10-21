@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Canary video render page</title>
+  <!-- Render page for the video (ADR-016): one continuous frame, driven only by window.seek(t).
+       ?format=portrait (1080x1350, LinkedIn feed) or ?format=square (1080x1080). -->
+  <link rel="stylesheet" href="../themes/canary/tokens.css">
+  <link rel="stylesheet" href="../scene/strata.css">
+  <link rel="stylesheet" href="./video.css">
+</head>
+<body>
+  <main class="frame" data-frame>
+    <p class="cap" data-cap></p>
+    <div class="stage" data-stage></div>
+    <div class="readout" data-readout></div>
+    <div class="facts" data-facts></div>
+    <div class="call" data-call></div>
+    <div class="matrix" data-matrix></div>
+    <p class="source" data-source></p>
+  </main>
+  <script type="module" src="./video.js"></script>
+</body>
+</html>
