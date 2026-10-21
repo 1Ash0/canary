@@ -2,7 +2,6 @@
 // The site reads as four chapters (lab, compare, results, method); each page ends by pointing at the
 // next one, so the pages form one argument rather than a set of tabs. The shared episode (?seed=,
 // ?a=, ?b=, ?canary=) travels with the chapter links, so a choice made on one page carries on.
-// No repository link yet: the repo has no remote. Add one when it is published.
 export const CHAPTERS = [
   { key: 'lab', href: 'lab/', label: 'Lab', title: 'You are the harness', line: 'Compact a real history yourself and watch what survives.' },
   { key: 'compare', href: 'compare/', label: 'Compare', title: 'Two ways to make room', line: 'The same recorded history, compacted two ways, and what each agent did next.' },
@@ -29,6 +28,7 @@ export function shell(base, current) {
     <nav aria-label="Primary">
       ${CHAPTERS.map((c) => link(`${base}${c.href}${c.key === 'about' ? '' : q}`, c.label, c.key)).join('')}
       ${link(`${base}run/`, 'Recorder', 'run')}
+      <a href="https://github.com/1Ash0/canary">GitHub</a>
     </nav>`;
   const at = CHAPTERS.findIndex((c) => c.key === current);
   const next = at >= 0 ? CHAPTERS[at + 1] : current === 'home' ? CHAPTERS[0] : null;
@@ -41,7 +41,7 @@ export function shell(base, current) {
   }
   document.querySelector('[data-footer]').innerHTML = `
     <span><span translate="no">canary</span> · the <code translate="no">ctxcheck</code> toolkit</span>
-    <span>MIT licence</span>`;
+    <span><a href="https://github.com/1Ash0/canary">Source on GitHub</a> · MIT licence</span>`;
 }
 
 export function fail(el, error) {

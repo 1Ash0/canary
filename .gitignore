@@ -67,3 +67,9 @@ Thumbs.db
 run_exp*.log
 runs/.usage.json
 runs/.usage*.json
+
+# generated QA screenshots (design/scripts/check-*.mjs write them), local tooling, run logs, papers
+design/web-qa/
+.claude/
+run_*.log
+*.pdf

@@ -40,6 +40,7 @@ Every number traces to a file under `runs/` or `results/` and says whether it is
 ## Run it
 
 ```bash
+git clone https://github.com/1Ash0/canary.git && cd canary
 uv sync --dev
 make check                              # lint, types, offline tests, secrets scan, claims check
 uv run ctxcheck survival                # the deterministic survival grid (no model, no key)

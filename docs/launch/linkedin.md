@@ -22,7 +22,7 @@ Which compaction does your agent stack use, and have you checked what it drops?
 
 ## First comment (post it yourself, right after)
 
-How it was measured: three facts planted at turns 2, 9 and 16 of a scripted history; one request per fact, graded by the tool call the agent makes; a "never told" condition gives the guessing rate; survival of each fact is checked mechanically in the window the agent saw. Limits: one model, one budget, synthetic facts, one compaction. Code, recordings and the full write-up: (repository link once it is public).
+How it was measured: three facts planted at turns 2, 9 and 16 of a scripted history; one request per fact, graded by the tool call the agent makes; a "never told" condition gives the guessing rate; survival of each fact is checked mechanically in the window the agent saw. Limits: one model, one budget, synthetic facts, one compaction. Code, recordings and the full write-up: https://github.com/1Ash0/canary
 
 ## Notes for posting
 - Upload the video natively (not a link): LinkedIn plays native video inline, muted, with captions.

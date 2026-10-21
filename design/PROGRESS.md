@@ -117,3 +117,7 @@ Critique findings and what changed:
 - **D5 renderer:** `design/video/index.html` + `video.js`: `window.seek(t)` is a pure function of time and the data (the site's `strata.js`/`timeline.js` on the recorded run, the EXP-004 table from `experiments/exp004.json`). `design/scripts/render-video.mjs` serves the repo, captures every frame with Playwright and pipes it to ffmpeg (H.264 CRF 17, yuv420p, faststart, silent AAC). `--check` hashes the frame at 11.37 s from two separate loads (after visiting another time first): identical.
 - **D6/D7 story and critique:** seven caption beats (hook, fill, seam, fates, the recorded call, the table, the conclusion). Three critique rounds on contact sheets and full-size strips: (1) the chart's labels were site-sized and illegible at phone scale, so it is drawn at half size and scaled 2x; the readout wrapped and collided with the table; a dead beat at the transition; (2) an ambiguous "it" in a caption; (3) the square cut's caption ran into the chart and the chart's seam label overlapped a fact label (square zoom 1.8x), and the table's columns collided, then wrapped in portrait (column widths, no wrap).
 - **Out:** `design/video/out/canary-portrait.mp4` (1080x1350, 31 s), `canary-square.mp4`, `.srt` captions, covers, contact sheets. Post copy and notes: `docs/launch/linkedin.md` (numbers checked by `check_claims.py`).
+
+
+## Published, 2026-10-21
+Pushed to https://github.com/1Ash0/canary. The header and footer link to it; the earlier notes above saying there is no remote are history.
