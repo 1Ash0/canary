@@ -153,6 +153,22 @@ h2 { font-size: var(--type-h1-size); font-weight: var(--type-h1-weight); line-he
 .compare-head h2 { grid-column: 1 / span 5; margin: 0; }
 .compare-head .lede { grid-column: 7 / -1; margin: 0; }
 .compare-stage { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gutter); }
+/* marks stay small but answer a 24 px area (WCAG 2.5.8): the hit area grows, the drawing does not */
+.dot { position: relative; }
+a.dot::after, button.dot::after, span.dot[tabindex]::after { content: ''; position: absolute; inset: calc(-1 * var(--space-xs)); }
+/* policy grid cells as buttons into the Lab */
+.cell-pick { all: unset; box-sizing: border-box; display: block; width: 100%; cursor: pointer; }
+.cell-pick:hover .v { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.cell-pick:focus-visible { outline: var(--line-mark) solid var(--accent); outline-offset: var(--line-mark); }
+.lab-compare { all: unset; cursor: pointer; font-size: var(--type-small-size); color: var(--ink); border-bottom: var(--line-hair) solid var(--ink-3); }
+.lab-compare:hover { border-bottom-color: var(--ink); }
+.lab-compare:focus-visible { outline: var(--line-mark) solid var(--accent); outline-offset: var(--line-mark); }
+
+/* consequence: which episode, then the request */
+.cons-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-md); margin: 0 0 var(--space-lg); padding-bottom: var(--space-sm); border-bottom: var(--line-hair) solid var(--hairline); }
+.cons-bar .lab-label { margin: 0; color: var(--ink); }
+.cons-request { margin: 0 0 var(--space-2xl); padding-left: var(--space-md); border-left: var(--line-mark) solid var(--hairline); max-width: var(--measure); font-family: var(--type-data-family); font-size: var(--type-small-size); color: var(--ink); }
+
 /* comparison: pick a pair, a side, a seed */
 .compare-controls { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-md); margin-top: var(--space-lg); }
 .seed-step { display: flex; align-items: center; gap: var(--space-sm); }

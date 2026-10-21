@@ -101,3 +101,14 @@ The reason for the pause is gone: M1 to M4 are built and EXP-001 has recorded da
 D4b approved 2026-10-20. Design is unblocked (2026-10-21): next is D8 core above (real results on `/`, recorded run in `/run/`). D5 is the deterministic renderer: its page calls `scene/timeline.js` `frameAt` through `window.seek(t)`; exit test: SHA-256 of frame t=11.37 identical across random-order renders.
 
 Dev server: `canary-design` in `.claude/launch.json` (Vite, root `design/`). If an edit doesn't show up, restart it: the watcher missed one change on 2026-10-20.
+
+## Landing round-out, 2026-10-21 (after a design critique)
+Critique findings and what changed:
+- **One example only** → a shared episode (canary, seed, two recorded choices) drives the hero, the comparison and the consequence, kept in the URL.
+- **Four names for one policy** (Lab, grid, survival page, results) → one vocabulary from `episode.js`: drop oldest, keep head and tail, mask tool output, model summary.
+- **Dead ends between sections** → the grid's cells load that policy and budget into the Lab; the Lab's "Compare this history" loads its seed and policy into the comparison; results marks load into the comparison; the consequence has its own seed stepper.
+- **One canary only** → the comparison switches between the channel rule and the account code; presets are offered only where both sides were recorded.
+- **The test's request was invisible** → the consequence quotes it.
+- **Locked sliders in summary mode, unexplained** → the help line says why.
+- **Marks under 24 px** → hit areas grow to 24 px without changing the drawing.
+- Lab histories extended from 10 to all 27 seeds, so every Lab seed has recorded counterparts.

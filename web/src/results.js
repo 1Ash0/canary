@@ -50,8 +50,8 @@ function compare(c, verb) {
 }
 
 // EXP-002's channel-rule treatment rows are the episodes the comparison above can show.
-const sideOf = (exp, b, r) => (exp.exp_id === 'EXP-002' && b.pack === 'constraint' && r.label.startsWith('treatment(')
-  ? `${b.host.toLowerCase()}.${r.label.slice(10, -1)}` : null);
+const sideOf = (exp, b, r) => (exp.exp_id === 'EXP-002' && r.label.startsWith('treatment(')
+  ? `${b.pack}:${b.host.toLowerCase()}.${r.label.slice(10, -1)}` : null);
 
 function block(b, exp, i) {
   const verb = VERB[b.pack] ?? VERB.constraint;
@@ -131,8 +131,11 @@ function animate(root, ep) {
       const d = e.target.closest('.dot[data-side]');
       if (!d || !ep || !d.getAttribute('href') || e.metaKey || e.ctrlKey || e.shiftKey) return;
       e.preventDefault();  // modified clicks still open the recorder; a plain click compares
-      const { a } = ep.get();
-      ep.set({ seed: +d.dataset.seed, b: d.dataset.side, ...(a === d.dataset.side ? { a: ep.get().b } : {}) });
+      const [canary, side] = d.dataset.side.split(':');
+      const cur = ep.get();
+      // keep panel one when it belongs to the same canary; otherwise that canary's default pair
+      const keepA = cur.canary === canary && cur.a !== side;
+      ep.set({ canary, seed: +d.dataset.seed, b: side, ...(keepA ? { a: cur.a } : cur.a === side ? { a: cur.b } : { a: null }) });
       document.querySelector('#compare').scrollIntoView({ behavior: matchMedia(REDUCE).matches ? 'auto' : 'smooth' });
     });
     onEnterOnce(b, (tl) => {

@@ -4,7 +4,7 @@
 // (SITE_RULES §4.3): the columns rise, the tool calls type in line by line, and "behaviour changed"
 // lands once on the seam spring. A later pick swaps the columns without replaying that entrance.
 import { onEnterOnce, springEase, ms, gsap, REDUCE } from './motion-kit.js';
-import { POLICY_NAME } from './episode.js';
+import { POLICY_NAME, CANARY } from './episode.js';
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -14,15 +14,29 @@ function quote(text, channel) {
   return channel && plain.includes(channel) ? plain.split(channel).join(`<mark>${esc(channel)}</mark>`) : plain;
 }
 
-// The agent's reply after the request: "[tool_call post_status {json}]" in the transcript.
+// The agent's reply after the request: "[tool_call name {json}]" in the transcript.
 function callOf(run) {
   const probeStep = run.steps.length;
   const reply = run.transcript.find((m) => m.role === 'assistant' && m.step === probeStep && m.text.startsWith('[tool_call'));
   if (!reply) return null;
-  try { return JSON.parse(reply.text.slice(reply.text.indexOf('{'), reply.text.lastIndexOf('}') + 1)); } catch { return null; }
+  const name = reply.text.slice('[tool_call '.length).split(' ')[0];
+  try { return { name, args: JSON.parse(reply.text.slice(reply.text.indexOf('{'), reply.text.lastIndexOf('}') + 1)) }; } catch { return null; }
+}
+
+// The argument the grader reads is the one that carries the planted value (channel, account_code).
+const GRADED = { constraint: 'channel', identifier: 'account_code' };
+
+function callMarkup(call, canary, broke) {
+  const lines = Object.entries(call.args).map(([k, v], i, all) => {
+    const val = `"${esc(v)}"`;
+    const shown = k === GRADED[canary] ? `<span class="${broke ? 'is-loss' : 'is-ok'}">${val}</span>` : val;
+    return `<span class="cons-line" data-line>  ${esc(k)}=${shown}${i < all.length - 1 ? ',' : ''}</span>`;
+  });
+  return `<pre class="cons-call"><code><span class="cons-line" data-line>${esc(call.name)}(</span>${lines.join('')}<span class="cons-line" data-line>)</span></code></pre>`;
 }
 
 function column(side, run, outcome, rule) {
+  const K = CANARY[side.canary];
   const lost = run.canaries[0].fate === 'gone';
   const call = callOf(run);
   const broke = outcome.grade === 'violated';
@@ -30,12 +44,12 @@ function column(side, run, outcome, rule) {
   const held = side.policy === 'llm_summary' && summary
     ? `<p class="cons-label">Its summary of the earlier turns</p>
        <blockquote class="cons-quote">${quote(summary.text, rule)}</blockquote>
-       <p class="cons-check">${lost ? 'Names no channel.' : `Names <span class="mono">${esc(rule)}</span>.`}</p>`
+       <p class="cons-check">${lost ? `Names no ${K.value}.` : `Names <span class="mono">${esc(rule)}</span>.`}</p>`
     : `<p class="cons-label">What ${esc(POLICY_NAME[side.policy])} left in the window</p>
-       <p class="cons-check">${lost ? 'The rule\'s turn was cut. Nothing in the window names the channel.' : `The rule's turn is still there, word for word: <span class="mono">${esc(rule)}</span>.`}</p>`;
+       <p class="cons-check">${lost ? `The planted turn was cut. Nothing in the window names the ${K.value}.` : `The planted turn is still there, word for word: <span class="mono">${esc(rule)}</span>.`}</p>`;
   const verdict = outcome.grade === 'not_applicable'
     ? 'no post'
-    : broke ? `behaviour changed ↓ <span class="dim">the rule said ${esc(rule)}</span>` : 'rule followed';
+    : broke ? `behaviour changed ↓ <span class="dim">it should have used ${esc(rule)}</span>` : K.good;
   return `
     <article class="cons-col${lost ? ' is-lost' : ''}" data-cons-col>
       <header class="cons-head">
@@ -44,8 +58,7 @@ function column(side, run, outcome, rule) {
       </header>
       ${held}
       <p class="cons-label">The tool call it emitted next</p>
-      ${call ? `<pre class="cons-call"><code><span class="cons-line" data-line>post_status(</span><span class="cons-line" data-line>  channel=<span class="${broke ? 'is-loss' : 'is-ok'}">"${esc(call.channel)}"</span>,</span><span class="cons-line" data-line>  text="${esc(call.text ?? '')}"</span><span class="cons-line" data-line>)</span></code></pre>`
-        : '<p class="cons-check">It made no post.</p>'}
+      ${call ? callMarkup(call, side.canary, broke) : '<p class="cons-check">It made no tool call.</p>'}
       <p class="cons-verdict ${broke ? 'is-loss' : ''}" data-verdict>${verdict}</p>
       <p class="note"><a href="./run/?run=${encodeURIComponent(outcome.run)}">Open this episode in the recorder</a></p>
     </article>`;
@@ -63,8 +76,19 @@ export function mountConsequence(root, ep, loadRun) {
     const runs = await Promise.all(outcomes.map((o) => getRun(o.run)));
     if (mine !== token) return;
     const rule = runs[0].canaries[0].text;
+    const request = runs[0].transcript.find((m) => m.role === 'user' && m.origin === 'user' && m.step === runs[0].steps.length);
+    const [A, B] = keys.map((k) => ep.side(k));
     root.innerHTML = `
-      <p class="exp-intro">Then each agent was asked to post this week's status. The request lists four channels, the right one among them, and says nothing about the rule.</p>
+      <div class="cons-bar">
+        <p class="lab-label">${esc(CANARY[state.canary].name)} · seed ${state.seed} · ${esc(A.name)} and ${esc(B.name)}</p>
+        <div class="seed-step" role="group" aria-label="Seed">
+          <button type="button" class="replay" data-cons-step="-1" aria-label="Previous seed">←</button>
+          <button type="button" class="replay" data-cons-step="1" aria-label="Next seed">→</button>
+          <a class="link-quiet" href="#compare">change the pair</a>
+        </div>
+      </div>
+      <p class="exp-intro">Then each agent got the same request. It says nothing about what was planted:</p>
+      ${request ? `<blockquote class="cons-request">${esc(request.text)}</blockquote>` : ''}
       <div class="cons-grid">${keys.map((k, i) => column(ep.side(k), runs[i], outcomes[i], rule)).join('')}</div>
       <p class="caveat"><span class="tag">recorded</span> EXP-002, seed ${state.seed}, treatment condition, prompt v1 for summaries. Sources: <span class="mono">${esc(runs.map((r) => r.meta.source).join(', '))}</span>.</p>`;
     if (entered && !matchMedia(REDUCE).matches) {
@@ -74,6 +98,12 @@ export function mountConsequence(root, ep, loadRun) {
   }
 
   ep.on(draw);
+  root.addEventListener('click', (e) => {
+    const step = e.target.closest('[data-cons-step]');
+    if (!step) return;
+    const i = ep.seeds.indexOf(ep.get().seed) + +step.dataset.consStep;
+    ep.set({ seed: ep.seeds[(i + ep.seeds.length) % ep.seeds.length] });
+  });
   return draw(ep.get()).then(() => {
     onEnterOnce(root, (tl) => {
       entered = true;

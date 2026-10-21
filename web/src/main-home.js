@@ -45,6 +45,8 @@ try {
 // One shared episode for the comparison, the consequence and the results (episode.js), built on
 // first use from EXP-002's file.
 let episodes = null;
+let labApi = null;
+const goTo = (sel) => document.querySelector(sel).scrollIntoView({ behavior: matchMedia(REDUCE).matches ? 'auto' : 'smooth' });
 const getEpisodes = () => (episodes ??= Promise.all([import('./episode.js'), loadExperiment('./', 'exp002')])
   .then(([{ createEpisodes }, exp]) => createEpisodes(exp)));
 
@@ -54,7 +56,12 @@ const sections = [
       import('./lab.js'), loadJson('./data/lab/constraint.json'), loadJson('./data/lab/summaries.json'),
       loadExperiment('./', 'exp001'), loadExperiment('./', 'exp002').catch(() => null)]);
     const floors = exp.models.filter((m) => m.usable).map((m) => m.floor);
-    mountLab(el, lab, summaries, { k: floors.reduce((a, f) => a + f.k, 0), n: floors.reduce((a, f) => a + f.n, 0) }, exp002);
+    // "Compare this history": the same seed and policy, as recorded for both models, below
+    const toCompare = exp002 ? async (seed, policy) => {
+      (await getEpisodes()).set({ canary: 'constraint', seed, a: `mistral.${policy}`, b: `nvidia.${policy}` });
+      goTo('#compare');
+    } : null;
+    labApi = mountLab(el, lab, summaries, { k: floors.reduce((a, f) => a + f.k, 0), n: floors.reduce((a, f) => a + f.n, 0) }, exp002, toCompare);
   }],
   ['[data-compare]', async (el) => {
     const [{ mountCompare }, ep] = await Promise.all([import('./compare.js'), getEpisodes()]);
@@ -73,7 +80,11 @@ const sections = [
   }],
   ['[data-survival-mini]', async (el) => {
     const [{ mountSurvivalMini }, grid] = await Promise.all([import('./survival-mini.js'), loadJson('./data/survival/grid.json')]);
-    mountSurvivalMini(el, grid);
+    mountSurvivalMini(el, grid, 1, (policy, budget) => {
+      if (!labApi) return;
+      labApi.set({ policy, limit: budget, position: 1 });
+      goTo('#lab');
+    });
   }],
 ];
 // A section's code and data are fetched when it comes within half a screen of the viewport, not at

@@ -4,12 +4,12 @@
 // policy shows the recorded summary for the chosen seed. Nothing here autoplays.
 import { assemble, compact, tokensOf } from '../../design/scene/policies.js';
 import { asciiTurns, asciiGauge, asciiSeam } from '../../design/scene/ascii.js';
+import { POLICY_NAME } from './episode.js';
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const nf = new Intl.NumberFormat('en-US');
-const POLICY_LABEL = {
-  recency_truncate: 'Recency', head_tail: 'Head + tail', observation_mask: 'Mask outputs', llm_summary: 'Summary',
-};
+const cap = (t) => t[0].toUpperCase() + t.slice(1);
+const POLICY_LABEL = Object.fromEntries(Object.entries(POLICY_NAME).map(([k, v]) => [k, cap(v)]));
 const POLICY_HELP = {
   recency_truncate: 'Drops the oldest turns until the window fits.',
   head_tail: 'Keeps the start and the newest turns, drops the middle.',
@@ -36,7 +36,7 @@ function recordedLine(exp, policy, seed, position, limit) {
   return `<p class="lab-label"><span class="tag">recorded</span> This exact window, given to real models (${esc(exp.exp_id)})</p><ul class="lab-recorded">${items.join('')}</ul>`;
 }
 
-export function mountLab(root, lab, summaries, floor, exp002 = null) {
+export function mountLab(root, lab, summaries, floor, exp002 = null, onCompare = null) {
   const state = { policy: 'recency_truncate', limit: 2400, position: 1, seed: 0, summarizer: 'nvidia' };
   const seeds = lab.seeds;
   root.innerHTML = `
@@ -58,6 +58,7 @@ export function mountLab(root, lab, summaries, floor, exp002 = null) {
         <div class="lab-row">
           <button type="button" class="replay" data-seed>Another history</button>
           <span class="note" data-seed-label></span>
+          ${onCompare ? '<button type="button" class="link-quiet lab-compare" data-to-compare>Compare this history below ↓</button>' : ''}
         </div>
         <p class="lab-tag"><span class="tag" data-tag></span> <span class="note" data-tag-note></span></p>
       </div>
@@ -82,7 +83,8 @@ export function mountLab(root, lab, summaries, floor, exp002 = null) {
     q('[data-limit]').disabled = q('[data-pos]').disabled = summaryMode;
     q('[data-out-limit]').textContent = `${nf.format(state.limit)} tokens`;
     q('[data-out-pos]').textContent = String(state.position + 1);
-    q('[data-help]').textContent = POLICY_HELP[state.policy];
+    q('[data-help]').textContent = POLICY_HELP[state.policy] + (summaryMode
+      ? ' They were recorded at a budget of 2,400 with the rule at turn 2, so both sliders are fixed here.' : '');
     q('[data-summarizer]').hidden = !summaryMode;
     q('[data-seed-label]').textContent = `history ${h.seed} of ${seeds.length}`;
 
@@ -174,5 +176,14 @@ export function mountLab(root, lab, summaries, floor, exp002 = null) {
   q('[data-limit]').addEventListener('input', (e) => { state.limit = +e.target.value; render(); });
   q('[data-pos]').addEventListener('input', (e) => { state.position = +e.target.value; render(); });
   q('[data-seed]').addEventListener('click', () => { state.seed = (state.seed + 1) % seeds.length; render(); });
+  q('[data-to-compare]')?.addEventListener('click', () => onCompare(seeds[state.seed].seed, state.policy));
   render();
+  // the policy grid below hands a policy and budget to the Lab
+  return {
+    set(patch) {
+      Object.assign(state, patch);
+      root.querySelectorAll('input[name="lab-policy"]').forEach((el) => { el.checked = el.value === state.policy; });
+      render();
+    },
+  };
 }

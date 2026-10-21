@@ -350,8 +350,8 @@ def main() -> None:
           {"epistemic": "simulated",
            "description": "Real seeded histories with exact token counts; "
            "the browser runs a JS port of the Python policies, checked against them in the design "
-           "tests.", "seeds": [lab_history(s) for s in range(1, 11)]})
-    write(OUT / "lab" / "summaries.json", lab_summaries(range(1, 11)))
+           "tests.", "seeds": [lab_history(s) for s in range(1, 28)]})
+    write(OUT / "lab" / "summaries.json", lab_summaries(range(1, 28)))
     write(ROOT / "design" / "tests" / "fixtures" / "lab-parity.json",
           parity_cases(range(1, 6), (0, 1, 5, 9, 14, 17), (900, 1300, 1800, 2400, 3000, 3600)))
 

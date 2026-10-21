@@ -1,9 +1,10 @@
 // Renders the mechanical survival grid as one accessible table per policy. Values come only from the
 // exported grid JSON. A cell where the rule never survived says "gone ↓" in words, never colour alone.
+// the same names as the rest of the site (episode.js), capitalised for headings
 const NAMES = {
-  recency_truncate: 'Recency truncate',
-  head_tail: 'Head and tail',
-  observation_mask: 'Observation mask',
+  recency_truncate: 'Drop oldest',
+  head_tail: 'Keep head and tail',
+  observation_mask: 'Mask tool output',
 };
 const BLURB = {
   recency_truncate: 'Drops the oldest turns first. Anything planted early is the first to go.',

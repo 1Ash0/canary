@@ -7,7 +7,7 @@ import { renderStrata, formatTokens, totalOf } from '../../design/scene/strata.j
 import { buildSchedule, timeForStep, frameAt, bind, apply } from '../../design/scene/timeline.js';
 import { gsap, ScrollTrigger, MOTION } from './motion-kit.js';
 import { motion } from './data.js';
-import { POLICY_NAME, PRESETS } from './episode.js';
+import { POLICY_NAME, CANARY } from './episode.js';
 
 const PIN = `(min-width: 1024px) and (min-height: 680px) and ${MOTION}`;
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -36,8 +36,10 @@ const cap = (t) => t[0].toUpperCase() + t.slice(1);
 
 function fateSentence(side, fate, name) {
   name = cap(name);
+  const what = CANARY[side.canary].value;
   if (side.policy === 'llm_summary') {
-    return fate === 'kept' ? `${name}'s summary keeps the channel.` : `${name}'s summary never names it.`;
+    const who = name === 'Model summary' ? 'The model summary' : `${name}'s summary`;
+    return fate === 'kept' ? `${who} keeps the ${what}.` : `${who} never names it.`;
   }
   return fate === 'kept' ? `${name} keeps the rule's turn, word for word.` : `${name} cuts the rule's turn.`;
 }
@@ -47,10 +49,10 @@ function strip(ep, key, seed, which) {
   const broke = side.seeds.filter((d) => d.grade === 'violated').length;
   const graded = side.seeds.filter((d) => d.grade !== 'not_applicable').length;
   return `<div class="panel-strip">
-    <p class="lab-label">This choice on every seed: ${broke} of ${graded} broke the rule</p>
+    <p class="lab-label">This choice on every seed: ${broke} of ${graded} ${CANARY[side.canary].bad}</p>
     <div class="dots dots-mini" role="group" aria-label="${esc(side.name)}: one mark per seed; choose one to compare it">${side.seeds.map((d) => {
       const cls = d.grade === 'violated' ? 'is-broke' : d.grade === 'respected' ? 'is-ok' : 'is-na';
-      const what = d.grade === 'violated' ? 'broke the rule' : d.grade === 'respected' ? 'followed it' : 'not graded';
+      const what = d.grade === 'violated' ? CANARY[side.canary].bad : d.grade === 'respected' ? CANARY[side.canary].good : 'not graded';
       return `<button type="button" class="dot ${cls}${d.seed === seed ? ' is-current' : ''}" data-seed="${d.seed}" data-which="${which}" aria-pressed="${d.seed === seed}" aria-label="seed ${d.seed}: ${what}"></button>`;
     }).join('')}</div>
   </div>`;
@@ -58,16 +60,17 @@ function strip(ep, key, seed, which) {
 
 function picker(ep, key, which) {
   return `<label class="panel-pick"><span class="visually-hidden">Panel ${which === 'a' ? 'one' : 'two'}</span>
-    <select data-pick="${which}">${ep.sides.map((s) => `<option value="${s.key}"${s.key === key ? ' selected' : ''}>${esc(s.name)}</option>`).join('')}</select></label>`;
+    <select data-pick="${which}">${ep.sides().map((s) => `<option value="${s.key}"${s.key === key ? ' selected' : ''}>${esc(s.name)}</option>`).join('')}</select></label>`;
 }
 
 export function mountCompare(root, ep, loadRun) {
   const head = root.querySelector('.compare-head');
   head.insertAdjacentHTML('beforeend', `
     <div class="compare-controls">
-      <div class="lab-seg" role="radiogroup" aria-label="Pairs to compare" data-presets>
-        ${PRESETS.map((p, i) => `<label><input type="radio" name="cmp-preset" value="${i}"><span>${esc(p.label)}</span></label>`).join('')}
+      <div class="lab-seg" role="radiogroup" aria-label="What the agent was told" data-canaries>
+        ${ep.canaries.map((c) => `<label><input type="radio" name="cmp-canary" value="${c}"><span>${CANARY[c].name}</span></label>`).join('')}
       </div>
+      <div class="lab-seg" role="radiogroup" aria-label="Pairs to compare" data-presets></div>
       <div class="seed-step" role="group" aria-label="Seed">
         <button type="button" class="replay" data-seed-step="-1" aria-label="Previous seed">←</button>
         <span class="mono" data-seed-label aria-live="polite"></span>
@@ -115,21 +118,22 @@ export function mountCompare(root, ep, loadRun) {
     if (mine !== token) return;  // a newer pick arrived while these loaded
     const [A, B] = keys.map((k) => ep.side(k));
     const name = namer(A, B);
-    const channel = runs[0].canaries[0].text;
+    const rule = runs[0].transcript.find((m) => m.origin === 'canary')?.text ?? runs[0].canaries[0].text;
 
     root.querySelector('[data-compare-lede]').textContent =
-      `Seed ${state.seed} of EXP-002, recorded twice: the same ${runs[0].steps.length - 1} scripted turns, the same rule, ` +
+      `${CANARY[state.canary].name}, seed ${state.seed} of EXP-002, recorded twice: the same ${runs[0].steps.length - 1} scripted turns, the same rule, ` +
       `the same request. ${A.policy === B.policy ? 'Only the model that writes the summary changes.' : 'Only how the harness makes room changes.'} ` +
       (pinned ? 'Scroll to compact, or pick another pair or seed.' : 'Pick another pair or seed to compare.');
     root.querySelector('[data-seed-label]').textContent = `seed ${state.seed}`;
-    const preset = PRESETS.findIndex((p) => p.a === state.a && p.b === state.b);
-    root.querySelectorAll('input[name="cmp-preset"]').forEach((el) => { el.checked = +el.value === preset; });
+    const presets = ep.presets();
+    root.querySelector('[data-presets]').innerHTML = presets.map((p, i) => `<label><input type="radio" name="cmp-preset" value="${i}"${p.a === state.a && p.b === state.b ? ' checked' : ''}><span>${esc(p.label)}</span></label>`).join('');
+    root.querySelectorAll('input[name="cmp-canary"]').forEach((el) => { el.checked = el.value === state.canary; });
 
     const mech = A.policy === B.policy
       ? BOTH[A.policy]
       : `${cap(POLICY_NAME[A.policy])} ${MECHANISM[A.policy]}; ${POLICY_NAME[B.policy]} ${MECHANISM[B.policy]}.`;
     const notes = [
-      `Turn 2 sets the rule: post status updates to ${channel} and nowhere else. Both runs carry the same history toward the limit.`,
+      `Turn 2 plants it: “${rule}” Both runs carry the same history toward the limit.`,
       `The next request needs a model call and the window is over budget, so the harness makes room. ${mech} That cut is the seam.`,
       `${fateSentence(A, runs[0].canaries[0].fate, name(A))} ${fateSentence(B, runs[1].canaries[0].fate, name(B))}`,
     ];
@@ -168,7 +172,8 @@ export function mountCompare(root, ep, loadRun) {
   // one delegated listener each, so redrawn panels need no rebinding
   root.addEventListener('change', (e) => {
     if (e.target.matches('[data-pick]')) ep.set({ [e.target.dataset.pick]: e.target.value });
-    if (e.target.name === 'cmp-preset') { const p = PRESETS[+e.target.value]; ep.set({ a: p.a, b: p.b }); }
+    if (e.target.name === 'cmp-preset') { const p = ep.presets()[+e.target.value]; ep.set({ a: p.a, b: p.b }); }
+    if (e.target.name === 'cmp-canary') ep.set({ canary: e.target.value });
   });
   root.addEventListener('click', (e) => {
     const dot = e.target.closest('[data-seed]');
