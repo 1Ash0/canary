@@ -10,7 +10,7 @@ const playerEl = $('[data-player]');
 playerEl.innerHTML = playerMarkup;
 
 const params = new URLSearchParams(location.search);
-const runId = params.get('run') ?? 'exp001-s19-nvidia';
+const runId = params.get('run') ?? 'exp004-s19-mistral-head_tail-multi_code';
 
 const esc = (x) => String(x).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const kindOf = (m, run) => (m.role === 'system' ? 'system' : m.origin === 'canary' ? 'rule' : m.origin === 'summary' ? 'summary'

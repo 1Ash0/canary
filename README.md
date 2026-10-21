@@ -1,6 +1,6 @@
 # Canary
 
-**See what compaction forgets.** A flight recorder and canary lab for agent context compaction. The Python package and CLI are called `ctxcheck`.
+**See what compaction forgets.** Live: https://canary-brown.vercel.app. A flight recorder and canary lab for agent context compaction. The Python package and CLI are called `ctxcheck`.
 
 When an agent's context fills up, the harness compacts it, and the agent carries on with a summary. One published benchmark found that a single compaction step took rule violations from 0% to 30% pooled across seven models, and as high as 59% on the worst two. In that benchmark, nothing crashed: the agent kept working, confidently, without a rule it had been given. *(Chen, [arXiv 2606.22528](https://arxiv.org/abs/2606.22528) v2, abstract. Reported by the paper. On our harness the effect appears with one of two free models; see below.)*
 
@@ -29,7 +29,7 @@ Every number, every deviation from the plan, and everything that went wrong is i
 | Four policies: `recency_truncate`, `head_tail`, `observation_mask`, `llm_summary` (versioned prompt), with property tests for the five invariants | Progressive compaction (history is scripted and compacted once, at the probe) |
 | Canary packs: `constraint`, `identifier`, and `multi_*` (three facts at three depths, one graded per request), a tool-call grader tested on both sides, four conditions per seed, a resumable runner, exact McNemar, paired bootstrap, Benjamini-Hochberg, a summary-validity flag | EXP-003 (dose-response: the window budget): draft only |
 | A **deterministic** survival grid: what each policy keeps (real policy code on seeded histories, no model) | The owner's blind audits of the EXP-001b and EXP-002 summaries (sheets in `docs/audit/`) |
-| A static site in four linked chapters: a Lab (one rule or three facts) where you compact a real history yourself and see what a real model did with that window; a comparison of any two recorded ways of making room on the same seed, with the tool call each agent made; results for every experiment, each mark opening its episode; the method. Plus a recorder with a text view and transcript | A public URL (deploy is the owner's decision) |
+| A static site in four linked chapters: a Lab (one rule or three facts) where you compact a real history yourself and see what a real model did with that window; a comparison of any two recorded ways of making room on the same seed, with the tool call each agent made; results for every experiment, each mark opening its episode; the method. Plus a recorder with a text view and transcript | (deployed: https://canary-brown.vercel.app) |
 
 ### What the survival grid shows
 

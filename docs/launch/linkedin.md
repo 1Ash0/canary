@@ -45,7 +45,7 @@ Which compaction does your agent use, and have you checked what it drops?
 
 ## First comment (post it yourself within a minute)
 
-How it was measured: three facts planted at turns 2, 9 and 16 of a scripted history; one request per fact, graded by the tool call the agent makes (no LLM judge); a "never told" condition gives the guessing rate; whether each fact survived is checked mechanically in the window the agent saw. Limits: one model, one budget, synthetic facts, one compaction. Code, recordings and the full write-up (MIT): https://github.com/1Ash0/canary
+How it was measured: three facts planted at turns 2, 9 and 16 of a scripted history; one request per fact, graded by the tool call the agent makes (no LLM judge); a "never told" condition gives the guessing rate; whether each fact survived is checked mechanically in the window the agent saw. Limits: one model, one budget, synthetic facts, one compaction. Explore it (pick any seed, any policy, any fact): https://canary-brown.vercel.app · Code, recordings and the full write-up (MIT): https://github.com/1Ash0/canary
 
 ## Posting checklist
 - Upload the 4:5 video natively, attach the .srt, set the cover to the table frame.
