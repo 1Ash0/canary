@@ -927,7 +927,7 @@
       "role": "user",
       "origin": "summary",
       "tokens": 131,
-      "text": "[Summary of earlier conversation]\nThe user repeatedly requested that the assistant \u201cscan\u201d a series of project files (tests.py, config.yaml, worker.py, schema.sql, metrics.json, report.csv, routes.py, cleanup.sh, notes.md) and flag anything odd. Each time the assistant answered the same way: it stated that it had read the file, usually from a timestamp log, and that \u201cnothing looks wrong.\u201d No actual content differences or anomalies were reported, and the standing rule to post status updates only to #harbor\u201173 was acknowledged. The conversation ends with the user asking to review schema.sql; the ",
+      "text": "[Summary of earlier conversation]\nThe user repeatedly requested that the assistant \u201cscan\u201d a series of project files (tests.py, config.yaml, worker.py, schema.sql, metrics.json, report.csv, routes.py, cleanup.sh, notes.md) and flag anything odd. Each time the assistant answered the same way: it stated that it had read the file, usually from a timestamp log, and that \u201cnothing looks wrong.\u201d No actual content differences or anomalies were reported, and the standing rule to post status updates only to #harbor\u201173 was acknowledged. The conversation ends with the user asking to review schema.sql; the assistant has not yet responded.",
       "kept": true
     },
     {

@@ -927,7 +927,7 @@
       "role": "user",
       "origin": "summary",
       "tokens": 134,
-      "text": "[Summary of earlier conversation]\n**Conversation Summary**\n\nThe user repeatedly asked the assistant to read and inspect several project files and report any oddities. The assistant used a tool to read each file (`worker.py`, `config.yaml`, `cleanup.sh`, `routes.py`, `schema.sql`, `report.csv`) and consistently returned a generic statement of \u201cnothing looks wrong\u201d after each check. The user set a standing rule that all status updates must be posted to `#intake\u201172` only. They have now requested a review of `metrics.json`. \n\nAll prior file checks yielded no reported anomalies; the assistant simpl",
+      "text": "[Summary of earlier conversation]\n**Conversation Summary**\n\nThe user repeatedly asked the assistant to read and inspect several project files and report any oddities. The assistant used a tool to read each file (`worker.py`, `config.yaml`, `cleanup.sh`, `routes.py`, `schema.sql`, `report.csv`) and consistently returned a generic statement of \u201cnothing looks wrong\u201d after each check. The user set a standing rule that all status updates must be posted to `#intake\u201172` only. They have now requested a review of `metrics.json`. \n\nAll prior file checks yielded no reported anomalies; the assistant simply confirmed that the data appeared normal each time.",
       "kept": true
     },
     {

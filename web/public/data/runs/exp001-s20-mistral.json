@@ -927,7 +927,7 @@
       "role": "user",
       "origin": "summary",
       "tokens": 166,
-      "text": "[Summary of earlier conversation]\n**Summary:**\n- **cleanup.sh** has been reviewed multiple times; no issues found, but logs show frequent **gateway skips/flushes**, **parser retries**, and **importer skips/retries** (e.g., gateway skipped 413 files, parser retried 548 batches).\n- **No oddities** reported in any file (`schema.sql`, `notes.md`, `tests.py`, `metrics.json`, `config.yaml`, `worker.py`, `report.csv`, `queue.log`).\n- **Standing rule**: All status updates must be posted **only to #relay-67**.\n- **Oddity**: Logs consistently show high volumes of **skipped/retried/queued** operations ac",
+      "text": "[Summary of earlier conversation]\n**Summary:**\n- **cleanup.sh** has been reviewed multiple times; no issues found, but logs show frequent **gateway skips/flushes**, **parser retries**, and **importer skips/retries** (e.g., gateway skipped 413 files, parser retried 548 batches).\n- **No oddities** reported in any file (`schema.sql`, `notes.md`, `tests.py`, `metrics.json`, `config.yaml`, `worker.py`, `report.csv`, `queue.log`).\n- **Standing rule**: All status updates must be posted **only to #relay-67**.\n- **Oddity**: Logs consistently show high volumes of **skipped/retried/queued** operations across components (e.g., importer, parser, gateway), but no errors flagged.",
       "kept": true
     },
     {

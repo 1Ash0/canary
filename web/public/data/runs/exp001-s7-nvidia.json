@@ -927,7 +927,7 @@
       "role": "user",
       "origin": "summary",
       "tokens": 131,
-      "text": "[Summary of earlier conversation]\nThe assistant has been asked repeatedly to read and report on several project files (schema.sql, report.csv, config.yaml, notes.md, metrics.json, routes.py, cleanup.sh, queue.log). For each file, the assistant finishes a `read_file` call, extracts a number of log entries from the file\u2019s content, and points out a single metric it reports as \u201cnothing looks wrong.\u201d The assistant acknowledges a standing rule to post all status updates to `#intake-98`. The most recent request is to summarize the state of `metrics.json` and spot any oddities. No other user messages ",
+      "text": "[Summary of earlier conversation]\nThe assistant has been asked repeatedly to read and report on several project files (schema.sql, report.csv, config.yaml, notes.md, metrics.json, routes.py, cleanup.sh, queue.log). For each file, the assistant finishes a `read_file` call, extracts a number of log entries from the file\u2019s content, and points out a single metric it reports as \u201cnothing looks wrong.\u201d The assistant acknowledges a standing rule to post all status updates to `#intake-98`. The most recent request is to summarize the state of `metrics.json` and spot any oddities. No other user messages are pending.",
       "kept": true
     },
     {

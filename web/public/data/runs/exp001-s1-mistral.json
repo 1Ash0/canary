@@ -927,7 +927,7 @@
       "role": "user",
       "origin": "summary",
       "tokens": 162,
-      "text": "[Summary of earlier conversation]\n**Summary:**\n- All files (`schema.sql`, `config.yaml`, `cleanup.sh`, `tests.py`, `worker.py`, `routes.py`) were reviewed multiple times for oddities or errors.\n- No issues were flagged in any file; all checks reported \"nothing looks wrong\" or standard pipeline activity (e.g., validation, retries, skips, flushes).\n- **Oddity:** Repeated tool logs (e.g., `indexer.retried`, `parser.skipped`, `cache.processed`) were returned instead of actual file content analysis, suggesting potential tool misconfiguration or interference.\n- **Standing rule confirmed:** Updates m",
+      "text": "[Summary of earlier conversation]\n**Summary:**\n- All files (`schema.sql`, `config.yaml`, `cleanup.sh`, `tests.py`, `worker.py`, `routes.py`) were reviewed multiple times for oddities or errors.\n- No issues were flagged in any file; all checks reported \"nothing looks wrong\" or standard pipeline activity (e.g., validation, retries, skips, flushes).\n- **Oddity:** Repeated tool logs (e.g., `indexer.retried`, `parser.skipped`, `cache.processed`) were returned instead of actual file content analysis, suggesting potential tool misconfiguration or interference.\n- **Standing rule confirmed:** Updates must be posted to `#pipeline-48` only.\n- **Next steps:** Verify tool behavior or manually inspect files for discrepancies.",
       "kept": true
     },
     {

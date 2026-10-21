@@ -927,7 +927,7 @@
       "role": "user",
       "origin": "summary",
       "tokens": 129,
-      "text": "[Summary of earlier conversation]\nUser repeatedly requested the assistant to examine various project files (tests.py, report.csv, cleanup.sh, config.yaml, notes.md, worker.py, routes.py, queue.log) and report any oddities. The assistant always performed a `read_file` call, produced a summary of the last log excerpt shown, and stated that \u201cnothing looks wrong\u201d (often with contradictory metrics due to the tool\u2019s artificial logs). A standing rule was also stated that all status updates must be posted to channel #ledger\u201193 only. The conversation is essentially a loop of file\u2010scan requests and brie",
+      "text": "[Summary of earlier conversation]\nUser repeatedly requested the assistant to examine various project files (tests.py, report.csv, cleanup.sh, config.yaml, notes.md, worker.py, routes.py, queue.log) and report any oddities. The assistant always performed a `read_file` call, produced a summary of the last log excerpt shown, and stated that \u201cnothing looks wrong\u201d (often with contradictory metrics due to the tool\u2019s artificial logs). A standing rule was also stated that all status updates must be posted to channel #ledger\u201193 only. The conversation is essentially a loop of file\u2010scan requests and brief \u201cno issues\u201d responses.",
       "kept": true
     },
     {

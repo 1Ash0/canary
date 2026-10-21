@@ -11,6 +11,17 @@ const deep = Number(new URLSearchParams(location.search).get('step'));
 
 // Hero choreography: the claim rises line by line; the run starts as the first line lands; the lede
 // and action follow. One moving picture at a time: the copy settles before the bars get busy.
+// The hero plays the shared episode's second panel when the URL names one (a shared link opens on
+// that run), else EXP-002 seed 19 with gpt-oss-20b's summary: the run the comparison starts on.
+function heroRunId() {
+  const q = new URLSearchParams(location.search);
+  const seed = Number(q.get('seed') ?? 19);
+  const [tag, policy] = (q.get('b') ?? 'nvidia.llm_summary').split('.');
+  const ok = Number.isInteger(seed) && seed >= 1 && seed <= 27 && /^(mistral|nvidia)$/.test(tag)
+    && /^(recency_truncate|head_tail|observation_mask|llm_summary)$/.test(policy ?? '');
+  return ok ? `exp002-s${seed}-${tag}-${policy}-constraint` : 'exp002-s19-nvidia-llm_summary-constraint';
+}
+
 let player = null;
 const startPlayer = () => player?.start({ step: deep });
 const heroRise = document.querySelectorAll('[data-hero-rise]');
@@ -20,7 +31,8 @@ gsap.matchMedia().add({ motion: MOTION, reduce: REDUCE }, (ctx) => {
 });
 
 try {
-  const run = await loadRun('./', 'exp001-s19-nvidia');
+  const run = await loadRun('./', heroRunId());
+  document.querySelector('[data-hero-recorder]')?.setAttribute('href', `./run/?run=${run.meta.run_id}`);
   player = mountPlayer({ root: playerEl, run, height: { wide: 340, compact: 440 } });
   splitHeading($('[data-split]'), { onFirstLine: startPlayer });
 } catch (e) {
@@ -30,6 +42,12 @@ try {
 
 // Below the fold: each section's module and data load on demand (ADR-022 point 5), so the first
 // view ships only the hero.
+// One shared episode for the comparison, the consequence and the results (episode.js), built on
+// first use from EXP-002's file.
+let episodes = null;
+const getEpisodes = () => (episodes ??= Promise.all([import('./episode.js'), loadExperiment('./', 'exp002')])
+  .then(([{ createEpisodes }, exp]) => createEpisodes(exp)));
+
 const sections = [
   ['[data-lab]', async (el) => {
     const [{ mountLab }, lab, summaries, exp, exp002] = await Promise.all([
@@ -39,20 +57,19 @@ const sections = [
     mountLab(el, lab, summaries, { k: floors.reduce((a, f) => a + f.k, 0), n: floors.reduce((a, f) => a + f.n, 0) }, exp002);
   }],
   ['[data-compare]', async (el) => {
-    const [{ mountCompare }, pair] = await Promise.all([import('./compare.js'), loadExperiment('./', 'exp001_pair')]);
-    const runs = await Promise.all(pair.sides.map((s) => loadRun('./', s.run)));
-    mountCompare(el, pair, runs);
+    const [{ mountCompare }, ep] = await Promise.all([import('./compare.js'), getEpisodes()]);
+    await mountCompare(el, ep, loadRun).ready;
   }],
   ['[data-consequence]', async (el) => {
-    const [{ mountConsequence }, pair] = await Promise.all([import('./consequence.js'), loadExperiment('./', 'exp001_pair')]);
-    mountConsequence(el, pair);
+    const [{ mountConsequence }, ep] = await Promise.all([import('./consequence.js'), getEpisodes()]);
+    await mountConsequence(el, ep, loadRun);
   }],
   ['[data-results]', async (el) => {
     // later experiments are optional: a missing file drops its tab, never the section
     const soft = (id) => loadExperiment('./', id).catch(() => null);
     const [{ mountResults }, exp001, exp001b, exp002] = await Promise.all([
       import('./results.js'), loadExperiment('./', 'exp001'), soft('exp001b'), soft('exp002')]);
-    mountResults(el, { exp001, exp001b, exp002 });
+    mountResults(el, { exp001, exp001b, exp002 }, exp002 ? await getEpisodes() : null);
   }],
   ['[data-survival-mini]', async (el) => {
     const [{ mountSurvivalMini }, grid] = await Promise.all([import('./survival-mini.js'), loadJson('./data/survival/grid.json')]);

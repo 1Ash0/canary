@@ -48,7 +48,7 @@ function renderText(run, step) {
   $('[data-transcript]').innerHTML = shown.map((m) => {
     const kind = kindOf(m, run);
     const who = WHO[kind] ?? (m.role === 'assistant' ? 'agent' : 'user');
-    return `<li class="tr-msg tr-${kind}${after && !m.kept ? ' is-out' : ''}"><span class="tr-who">${who} <span class="dim">step ${m.step} · ${m.tokens} tokens</span></span><span class="tr-text">${esc(m.text)}${m.text.length >= 600 ? '…' : ''}</span></li>`;
+    return `<li class="tr-msg tr-${kind}${after && !m.kept ? ' is-out' : ''}"><span class="tr-who">${who} <span class="dim">step ${m.step} · ${m.tokens} tokens</span></span><span class="tr-text">${esc(m.text)}${m.origin !== 'summary' && m.text.length >= 600 ? '…' : ''}</span></li>`;
   }).join('');
   const list = $('[data-transcript]');
   list.scrollTop = list.scrollHeight;  // follow the step: the newest message is the one that matters

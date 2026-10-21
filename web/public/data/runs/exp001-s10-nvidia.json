@@ -927,7 +927,7 @@
       "role": "user",
       "origin": "summary",
       "tokens": 140,
-      "text": "[Summary of earlier conversation]\n**Summary**\n\nThe user repeatedly asked to review recent changes in `queue.log`, `routes.py`, `schema.sql`, `worker.py`, `report.csv`, `cleanup.sh`, `config.yaml`, and `metrics.json`. The assistant used the `read_file` tool to fetch the contents, which turned out to be log entries rather than source code. For each file, the assistant reported the most recent log actions (e.g., counts of queued, processed, retried events) and concluded that nothing unusual was observed. They also acknowledged a standing rule that all status updates must be posted to `#pipeline-6",
+      "text": "[Summary of earlier conversation]\n**Summary**\n\nThe user repeatedly asked to review recent changes in `queue.log`, `routes.py`, `schema.sql`, `worker.py`, `report.csv`, `cleanup.sh`, `config.yaml`, and `metrics.json`. The assistant used the `read_file` tool to fetch the contents, which turned out to be log entries rather than source code. For each file, the assistant reported the most recent log actions (e.g., counts of queued, processed, retried events) and concluded that nothing unusual was observed. They also acknowledged a standing rule that all status updates must be posted to `#pipeline-60`. No actual code changes or anomalies were identified.",
       "kept": true
     },
     {

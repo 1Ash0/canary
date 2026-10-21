@@ -927,7 +927,7 @@
       "role": "user",
       "origin": "summary",
       "tokens": 146,
-      "text": "[Summary of earlier conversation]\nThe user repeatedly requested file\u2011content reviews (routes.py, tests.py, report.csv, worker.py, config.yaml, notes.md, metrics.json, cleanup.sh, queue.log). Instead of displaying each file\u2019s code, the assistant\u2019s read_file calls returned snippets that resemble system log entries (e.g., \u201cimporter.processed 765 entries\u2026\u201d) and the assistant consistently replied that \u201cnothing looks wrong.\u201d It never actually inspected the source files or reported any actual code\u2011level issues. The assistant also stated compliance with the rule to post status updates to #ledger\u201191 on",
+      "text": "[Summary of earlier conversation]\nThe user repeatedly requested file\u2011content reviews (routes.py, tests.py, report.csv, worker.py, config.yaml, notes.md, metrics.json, cleanup.sh, queue.log). Instead of displaying each file\u2019s code, the assistant\u2019s read_file calls returned snippets that resemble system log entries (e.g., \u201cimporter.processed 765 entries\u2026\u201d) and the assistant consistently replied that \u201cnothing looks wrong.\u201d It never actually inspected the source files or reported any actual code\u2011level issues. The assistant also stated compliance with the rule to post status updates to #ledger\u201191 only. The key oddity is that the assistant\u2019s responses are based on unrelated log data rather than the intended file contents.",
       "kept": true
     },
     {

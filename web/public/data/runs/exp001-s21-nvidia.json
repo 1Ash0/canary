@@ -927,7 +927,7 @@
       "role": "user",
       "origin": "summary",
       "tokens": 131,
-      "text": "[Summary of earlier conversation]\nThe user repeatedly requested the assistant to read various project files (schema.sql, report.csv, metrics.json, notes.md, queue.log, worker.py, routes.py, config.yaml, cleanup.sh) and report any oddities. The assistant always performed the read via a tool call, then responded with a brief statement like \u201cI read [file]. \u2026; nothing looks wrong.\u201d At no point did the assistant identify or flag any real anomalies. The user also set a standing rule to post status updates only to #harbor\u201120. The conversation ends with another request to inspect config.yaml. No actua",
+      "text": "[Summary of earlier conversation]\nThe user repeatedly requested the assistant to read various project files (schema.sql, report.csv, metrics.json, notes.md, queue.log, worker.py, routes.py, config.yaml, cleanup.sh) and report any oddities. The assistant always performed the read via a tool call, then responded with a brief statement like \u201cI read [file]. \u2026; nothing looks wrong.\u201d At no point did the assistant identify or flag any real anomalies. The user also set a standing rule to post status updates only to #harbor\u201120. The conversation ends with another request to inspect config.yaml. No actual oddities were reported.",
       "kept": true
     },
     {

@@ -15,20 +15,20 @@ const VERB = {
   identifier: { bad: 'used a wrong code', good: 'used the exact code', kept: 'kept the code', lost: 'lost the code' },
 };
 
-function dots(seeds, name, verb) {
+function dots(seeds, name, verb, side = null) {
   if (!seeds?.length) return '';
   return `<div class="dots" role="list" aria-label="${esc(name)}: one mark per seed">${seeds.map((d) => {
     const cls = d.grade === 'violated' ? 'is-broke' : d.grade === 'respected' ? 'is-ok' : 'is-na';
     const what = d.grade === 'violated' ? verb.bad : d.grade === 'respected' ? verb.good : 'not graded (no summary, or no post)';
     const ev = d.evidence && d.grade !== 'not_applicable' ? ` (${d.evidence.replace(/'/g, '')})` : '';
     const fate = d.fate ? `; the window ${d.fate === 'kept' ? verb.kept : verb.lost}` : '';
-    const info = `seed ${d.seed}: ${what}${ev}${fate}${d.truncated ? '; summary cut off' : ''}`;
-    const attrs = `class="dot ${cls}" role="listitem" data-info="${esc(info)}" aria-label="${esc(info)}"`;
+    const info = `seed ${d.seed}: ${what}${ev}${fate}${d.truncated ? '; summary cut off' : ''}${side && d.run ? '. Click to compare it above' : ''}`;
+    const attrs = `class="dot ${cls}" role="listitem" data-seed="${d.seed}"${side ? ` data-side="${side}"` : ''} data-info="${esc(info)}" aria-label="${esc(info)}"`;
     return d.run ? `<a ${attrs} href="./run/?run=${encodeURIComponent(d.run)}"></a>` : `<span ${attrs} tabindex="0"></span>`;
   }).join('')}</div>`;
 }
 
-function row(r, verb) {
+function row(r, verb, side = null) {
   if (r.rate == null) return '';
   return `<div class="cell" data-res-row>
     <div class="cell-name">${esc(r.name)}</div>
@@ -40,7 +40,7 @@ function row(r, verb) {
       <circle class="rate${r.k / r.n >= 0.5 ? ' is-high' : ''}" data-dot cx="${x(r.rate)}" cy="50%" r="4"/>
     </svg>
     <div class="cell-val" data-val>${pct(r.rate)} <span class="note">[${pct(r.lo)}, ${pct(r.hi)}]</span></div>
-    ${dots(r.seeds, r.name, verb)}
+    ${dots(r.seeds, r.name, verb, side)}
   </div>`;
 }
 
@@ -48,6 +48,10 @@ function compare(c, verb) {
   if (c.rd == null) return '';
   return `<li><strong>${esc(c.first)}</strong> against <strong>${esc(c.second)}</strong>: ${c.only_first} seeds ${verb.bad} only under the first, ${c.only_second} only under the second, of ${c.n} pairs. Exact test p = ${pfmt(c.p)}, adjusted q = ${pfmt(c.q)}.</li>`;
 }
+
+// EXP-002's channel-rule treatment rows are the episodes the comparison above can show.
+const sideOf = (exp, b, r) => (exp.exp_id === 'EXP-002' && b.pack === 'constraint' && r.label.startsWith('treatment(')
+  ? `${b.host.toLowerCase()}.${r.label.slice(10, -1)}` : null);
 
 function block(b, exp, i) {
   const verb = VERB[b.pack] ?? VERB.constraint;
@@ -57,7 +61,7 @@ function block(b, exp, i) {
   return `<div class="res-model" data-res-model>
     <h3 class="res-name"><span class="panel-host">${esc(b.host)}</span> <span class="mono">${esc(b.model)}</span>${multiPack ? ` <span class="tag">${esc(b.pack)} canary</span>` : ''}</h3>
     <div class="cells" role="group" aria-label="${esc(b.host)}: ${verb.bad}, by condition">
-      ${b.rows.map((r) => row(r, verb)).join('')}
+      ${b.rows.map((r) => row(r, verb, sideOf(exp, b, r))).join('')}
       <div class="cell axis-row"><div class="axis-labels" aria-hidden="true"><span>0%</span><span>50%</span><span>100%</span></div></div>
     </div>
     <p class="dot-info" data-dot-info aria-live="polite">${i === 0 ? `Hover or tab through the marks: one per seed. Filled marks ${verb.bad}, dashed ones were not graded; treatment marks open that episode in the recorder.` : ''}</p>
@@ -110,12 +114,27 @@ function panel(id, exp) {
     ${v.foot(exp)}`;
 }
 
-function animate(root) {
+function animate(root, ep) {
   for (const b of root.querySelectorAll('[data-res-model]')) {
     const info = b.querySelector('[data-dot-info]');
     const show = (e) => { const d = e.target.closest('.dot'); if (d) info.textContent = d.dataset.info; };
-    b.addEventListener('pointerover', show);
-    b.addEventListener('focusin', show);
+    // the same seed lights up in every row of this block: one history, every condition
+    const mark = (e) => {
+      const d = e.target.closest('.dot');
+      b.querySelectorAll('.dot.is-seed').forEach((x) => x.classList.remove('is-seed'));
+      if (d) b.querySelectorAll(`.dot[data-seed="${d.dataset.seed}"]`).forEach((x) => x.classList.add('is-seed'));
+    };
+    b.addEventListener('pointerover', (e) => { show(e); mark(e); });
+    b.addEventListener('focusin', (e) => { show(e); mark(e); });
+    b.addEventListener('pointerleave', () => b.querySelectorAll('.dot.is-seed').forEach((x) => x.classList.remove('is-seed')));
+    b.addEventListener('click', (e) => {
+      const d = e.target.closest('.dot[data-side]');
+      if (!d || !ep || !d.getAttribute('href') || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      e.preventDefault();  // modified clicks still open the recorder; a plain click compares
+      const { a } = ep.get();
+      ep.set({ seed: +d.dataset.seed, b: d.dataset.side, ...(a === d.dataset.side ? { a: ep.get().b } : {}) });
+      document.querySelector('#compare').scrollIntoView({ behavior: matchMedia(REDUCE).matches ? 'auto' : 'smooth' });
+    });
     onEnterOnce(b, (tl) => {
       tl.from(b.querySelectorAll('[data-res-row]'), { autoAlpha: 0, y: 8, duration: ms('base'), stagger: 0.08, ease: 'power2.out' });
       tl.from(b.querySelectorAll('[data-whisk]'), { scaleX: 0, duration: ms('slow'), ease: 'power3.out', stagger: 0.08 }, 0.2);
@@ -129,7 +148,7 @@ function animate(root) {
 }
 
 // exps: { exp001, exp001b?, exp002? } — tabs only for the experiments that have data.
-export function mountResults(root, exps) {
+export function mountResults(root, exps, ep = null) {
   const ids = Object.keys(VIEWS).filter((id) => exps[id]);
   root.innerHTML = `
     <div class="res-tabs" role="tablist" aria-label="Experiments">${ids.map((id, i) => `
@@ -151,7 +170,7 @@ export function mountResults(root, exps) {
     for (const p of root.querySelectorAll('[data-res-panel]')) {
       const on = p.dataset.resPanel === id;
       p.hidden = !on;
-      if (on && !filled.has(id)) { p.innerHTML = panel(id, exps[id]); filled.add(id); animate(p); }
+      if (on && !filled.has(id)) { p.innerHTML = panel(id, exps[id]); filled.add(id); animate(p, ep); }
       else if (on && !matchMedia(REDUCE).matches) gsap.from(p, { autoAlpha: 0, y: 6, duration: ms('base'), ease: 'power2.out' });
     }
   };

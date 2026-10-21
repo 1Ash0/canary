@@ -927,7 +927,7 @@
       "role": "user",
       "origin": "summary",
       "tokens": 234,
-      "text": "[Summary of earlier conversation]\n**Summary:**\n- **Reviewed files:** `config.yaml`, `routes.py`, `queue.log`, `cleanup.sh`, `metrics.json`, `report.csv`, `worker.py`, `notes.md`, `tests.py`\u2014all scans found no issues.\n- **Key observations:**\n  - **Exporter** frequently skipped/retried batches (e.g., `exporter.skipped 324`, `exporter.retried 626`).\n  - **Gateway** had high retry/skip rates (e.g., `gateway.retried 875`, `gateway.skipped 638`).\n  - **Parser** and **importer** showed repeated retries/skips (e.g., `parser.retried 731`, `importer.retried 510`).\n  - **Cache** and **indexer** had occas",
+      "text": "[Summary of earlier conversation]\n**Summary:**\n- **Reviewed files:** `config.yaml`, `routes.py`, `queue.log`, `cleanup.sh`, `metrics.json`, `report.csv`, `worker.py`, `notes.md`, `tests.py`\u2014all scans found no issues.\n- **Key observations:**\n  - **Exporter** frequently skipped/retried batches (e.g., `exporter.skipped 324`, `exporter.retried 626`).\n  - **Gateway** had high retry/skip rates (e.g., `gateway.retried 875`, `gateway.skipped 638`).\n  - **Parser** and **importer** showed repeated retries/skips (e.g., `parser.retried 731`, `importer.retried 510`).\n  - **Cache** and **indexer** had occasional retries/skips but no major anomalies.\n- **Standing rule:** All status updates must be posted to `#ledger-38` only.\n- **No critical errors found**, but **exporter/gateway/parser/importer** components warrant closer inspection for performance or configuration issues.",
       "kept": true
     },
     {

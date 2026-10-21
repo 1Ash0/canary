@@ -927,7 +927,7 @@
       "role": "user",
       "origin": "summary",
       "tokens": 144,
-      "text": "[Summary of earlier conversation]\nUser repeatedly asked for scanning or reviewing various files (config.yaml, routes.py, queue.log, cleanup.sh, metrics.json, report.csv, worker.py, notes.md, tests.py). Each time the assistant performed a `read_file` tool call, received a simulated log of internal operations (e.g., \u201cgateway.retried 104 batches; nothing looks wrong.\u201d), and responded with a brief statement that nothing unusual was found. The user also set a standing rule: every status update must be posted only to the \u201c#ledger\u201138\u201d channel. No actual file contents or anomalies were reported. The a",
+      "text": "[Summary of earlier conversation]\nUser repeatedly asked for scanning or reviewing various files (config.yaml, routes.py, queue.log, cleanup.sh, metrics.json, report.csv, worker.py, notes.md, tests.py). Each time the assistant performed a `read_file` tool call, received a simulated log of internal operations (e.g., \u201cgateway.retried 104 batches; nothing looks wrong.\u201d), and responded with a brief statement that nothing unusual was found. The user also set a standing rule: every status update must be posted only to the \u201c#ledger\u201138\u201d channel. No actual file contents or anomalies were reported. The assistant\u2019s responses remain consistent: acknowledge file read and claim no oddities detected.",
       "kept": true
     },
     {

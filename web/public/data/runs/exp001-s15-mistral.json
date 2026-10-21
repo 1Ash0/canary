@@ -927,7 +927,7 @@
       "role": "user",
       "origin": "summary",
       "tokens": 211,
-      "text": "[Summary of earlier conversation]\n**Summary:**\n- **worker.py:** Reviewed; no issues found (e.g., `indexer.skipped 668 requests`).\n- **cleanup.sh:** Reviewed multiple times; no issues found (e.g., `exporter.skipped 853 entries`, `gateway.retried 81 rows`).\n- **notes.md:** Reviewed; no issues found (e.g., `exporter.flushed 45 requests`).\n- **metrics.json:** Reviewed multiple times; no issues found (e.g., `indexer.retried 100 batches`, `importer.skipped 533 records`).\n- **report.csv:** Reviewed multiple times; no issues found (e.g., `scheduler.skipped 396 rows`).\n- **schema.sql, config.yaml, test",
+      "text": "[Summary of earlier conversation]\n**Summary:**\n- **worker.py:** Reviewed; no issues found (e.g., `indexer.skipped 668 requests`).\n- **cleanup.sh:** Reviewed multiple times; no issues found (e.g., `exporter.skipped 853 entries`, `gateway.retried 81 rows`).\n- **notes.md:** Reviewed; no issues found (e.g., `exporter.flushed 45 requests`).\n- **metrics.json:** Reviewed multiple times; no issues found (e.g., `indexer.retried 100 batches`, `importer.skipped 533 records`).\n- **report.csv:** Reviewed multiple times; no issues found (e.g., `scheduler.skipped 396 rows`).\n- **schema.sql, config.yaml, tests.py:** Reviewed; no issues found.\n- **Standing rule:** All status updates must be posted to **#relay-85** only.\n- **Oddities:** None reported in any file; all metrics/logs appear consistent with expected behavior.",
       "kept": true
     },
     {
