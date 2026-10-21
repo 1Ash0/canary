@@ -14,10 +14,11 @@ If you build or tune an agent harness and have to decide how its context gets co
 
 ## Where it stands
 
-**The machinery is built and tested offline, and three preregistered experiments have run live on free models.**
+**The machinery is built and tested offline, and four preregistered experiments have run live on free models.**
 - **EXP-001** (does one summary make the agent break a rule?): split by the model writing the summary. NVIDIA's `gpt-oss-20b` shows the published effect, Mistral's `ministral-14b-latest` shows none; Groq's re-run is unfinished and Gemini's summaries failed the validity check. **No cross-model replication is claimed.** The owner's hand audit found behaviour followed what the summary kept. [`docs/experiments/EXP-001.md`](docs/experiments/EXP-001.md)
 - **EXP-001b** (the `gpt-oss-20b` result with its confound removed: its reasoning had been eating the summary's token cap): the effect replicates with no summary cut off, and a length-matched control shows a shorter window alone does not explain it. [`docs/experiments/EXP-001b.md`](docs/experiments/EXP-001b.md)
 - **EXP-002** (four policies, two canaries, same seeds): dropping the oldest turns loses an early rule and the agent guesses; keeping head and tail, or masking tool output, leaves it as good as full context; a model summary sits in between and depends on the model. [`docs/experiments/EXP-002.md`](docs/experiments/EXP-002.md)
+- **EXP-004** (three facts at three depths of one history, one request per fact): which policy is safe depends on where the fact sits. Dropping the oldest turns loses the early rule, keeping head and tail loses the middle and late facts, and each time the agent fails on exactly the fact that was lost. EXP-002's safe-looking head-and-tail was a property of a rule planted at turn 2. [`docs/experiments/EXP-004.md`](docs/experiments/EXP-004.md)
 
 Every number, every deviation from the plan, and everything that went wrong is in those Results sections, generated from `results/` and checked by `scripts/check_claims.py`.
 
@@ -26,9 +27,9 @@ Every number, every deviation from the plan, and everything that went wrong is i
 | Trace schema 0.4, token ledger and per-fact fates, derived by replaying a trace | Groq at the planned 27 seeds (EXP-001 and EXP-001b) |
 | Agent loop with a budget check, two provider adapters (Anthropic, OpenAI-compatible), record/replay cassettes, a budget guard that refuses anything not provably free, live runs on free Groq, Gemini, Mistral and NVIDIA models | A summary result that holds across models, or a prompt that keeps the rule |
 | Four policies: `recency_truncate`, `head_tail`, `observation_mask`, `llm_summary` (versioned prompt), with property tests for the five invariants | Progressive compaction (history is scripted and compacted once, at the probe) |
-| Two canary packs (`constraint`, `identifier`), a tool-call grader tested on both sides, four conditions per seed, a resumable runner, exact McNemar, paired bootstrap, Benjamini-Hochberg, a summary-validity flag | EXP-003 (dose-response: where the rule is planted): draft only |
+| Canary packs: `constraint`, `identifier`, and `multi_*` (three facts at three depths, one graded per request), a tool-call grader tested on both sides, four conditions per seed, a resumable runner, exact McNemar, paired bootstrap, Benjamini-Hochberg, a summary-validity flag | EXP-003 (dose-response: the window budget): draft only |
 | A **deterministic** survival grid: what each policy keeps (real policy code on seeded histories, no model) | The owner's blind audits of the EXP-001b and EXP-002 summaries (sheets in `docs/audit/`) |
-| A static site: a Lab where you compact a real history yourself and see what real models did with that window, the same seed under two summarizers (scroll-scrubbed), results for all three experiments with one mark per seed that opens its episode, a recorder with a text view and transcript, a survival page, about | A public URL (deploy is the owner's decision) |
+| A static site in four linked chapters: a Lab (one rule or three facts) where you compact a real history yourself and see what a real model did with that window; a comparison of any two recorded ways of making room on the same seed, with the tool call each agent made; results for every experiment, each mark opening its episode; the method. Plus a recorder with a text view and transcript | A public URL (deploy is the owner's decision) |
 
 ### What the survival grid shows
 
