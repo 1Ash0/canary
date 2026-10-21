@@ -43,7 +43,9 @@ def survival_grid(
                 kept = n = 0
                 for seed in range(1, seeds + 1):
                     built = build_pack(pack, seed, n_filler=n_filler, canary_turn=position)
-                    args = {p: "x" for p in built.tools[-1].spec.input_schema["properties"]}
+                    # the tool the request asks for (multi packs offer three terminal tools)
+                    tool = next(t for t in built.tools if t.spec.name == built.spec.tool_name)
+                    args = {p: "x" for p in tool.spec.input_schema["properties"]}
                     events = run(built.scenario,
                                  ScriptedProvider([_stub_probe_reply(built.spec.tool_name, args)]),
                                  built.tools, limit_tokens=budget, policy=make_policy(policy),

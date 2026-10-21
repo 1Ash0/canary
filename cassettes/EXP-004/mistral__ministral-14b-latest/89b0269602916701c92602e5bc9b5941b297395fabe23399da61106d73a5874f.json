@@ -1,0 +1,167 @@
+{
+  "key": "89b0269602916701c92602e5bc9b5941b297395fabe23399da61106d73a5874f",
+  "meta": {
+    "recorded_at": "2026-10-21",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small engineering team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "[Summary of earlier conversation]\nThe **system reviewed multiple files** (`metrics.json`, `routes.py`, `tests.py`, `report.csv`, `queue.log`, `cleanup.sh`, `schema.sql`) and found **no anomalies**\u2014all operations (e.g., parsing, compacting, validating, retries) were within expected ranges. **No errors or oddities** were flagged.\n\n**Key rules enforced**:\n- Status updates must be posted to **#relay-61** only.\n- Deploys go to **preview-ap-2** exclusively.\n- Billing code: **CD-9202-YH**.\n\n**No further issues** detected in the latest scans.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s21-0",
+        "content": "[tool_call read_file {\"path\": \"report.csv\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "report.csv"
+          },
+          "id": "s21-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s21-0",
+        "content": "20:17:14 importer.flushed 619 entries in 211ms\n14:39:29 parser.processed 649 entries in 77ms\n20:39:43 importer.retried 41 segments in 464ms\n23:39:29 parser.skipped 747 batches in 302ms\n17:41:34 gateway.queued 804 batches in 158ms\n22:39:57 cache.processed 493 records in 447ms\n15:17:21 parser.flushed 163 rows in 331ms\n14:51:44 cache.queued 585 records in 120ms\n18:57:20 gateway.retried 152 records in 241ms\n17:21:01 cache.flushed 703 requests in 103ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read report.csv. exporter skipped 248 batches; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please post this week's status update to the team. Update text: \"Build 475 passed; 8 tickets closed this week.\" The channels in this workspace are: #general, #team, #releases, #relay-61. Use the post_status tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "ministral-14b-latest",
+    "params": {},
+    "provider": "mistral",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "Post a status update to a channel.",
+        "input_schema": {
+          "properties": {
+            "channel": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "channel",
+            "text"
+          ],
+          "type": "object"
+        },
+        "name": "post_status"
+      },
+      {
+        "description": "File an invoice against a billing account.",
+        "input_schema": {
+          "properties": {
+            "account_code": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "account_code",
+            "amount"
+          ],
+          "type": "object"
+        },
+        "name": "file_invoice"
+      },
+      {
+        "description": "Deploy a build to a target environment.",
+        "input_schema": {
+          "properties": {
+            "build": {
+              "type": "string"
+            },
+            "target": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "target",
+            "build"
+          ],
+          "type": "object"
+        },
+        "name": "deploy"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 764,
+    "model_id": "ministral-14b-latest",
+    "output_tokens": 34,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "channel": "#relay-61",
+        "text": "Build 475 passed; 8 tickets closed this week."
+      },
+      "id": "SjMGRNMG3",
+      "name": "post_status"
+    }
+  }
+}

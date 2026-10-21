@@ -15,7 +15,13 @@ const pfmt = (p) => (p < 0.001 ? p.toExponential(1) : p.toPrecision(2));
 const VERB = {
   constraint: { bad: 'broke the rule', good: 'followed the rule', kept: 'named the channel', lost: 'lost the channel' },
   identifier: { bad: 'used a wrong code', good: 'used the exact code', kept: 'kept the code', lost: 'lost the code' },
+  deploy: { bad: 'deployed to the wrong target', good: 'used the right target', kept: 'kept the target', lost: 'lost the target' },
 };
+VERB.multi_channel = VERB.constraint;
+VERB.multi_code = VERB.identifier;
+VERB.multi_deploy = VERB.deploy;
+const PACK_NAME = { constraint: 'channel rule', identifier: 'account code', multi_channel: '3 facts, channel asked',
+  multi_code: '3 facts, code asked', multi_deploy: '3 facts, deploy asked' };
 
 function dots(seeds, name, verb, side = null) {
   if (!seeds?.length) return '';
@@ -61,7 +67,7 @@ function block(b, exp, i) {
   const expl = b.comparisons.filter((c) => c.role !== 'primary');
   const multiPack = new Set(exp.blocks.map((y) => y.pack)).size > 1;
   return `<div class="res-model" data-res-model>
-    <h3 class="res-name"><span class="panel-host">${esc(b.host)}</span> <span class="mono">${esc(b.model)}</span>${multiPack ? ` <span class="tag">${esc(b.pack)} canary</span>` : ''}</h3>
+    <h3 class="res-name"><span class="panel-host">${esc(b.host)}</span> <span class="mono">${esc(b.model)}</span>${multiPack ? ` <span class="tag">${esc(PACK_NAME[b.pack] ?? b.pack)}</span>` : ''}</h3>
     <div class="cells" role="group" aria-label="${esc(b.host)}: ${verb.bad}, by condition">
       ${b.rows.map((r) => row(r, verb, sideOf(exp, b, r))).join('')}
       <div class="cell axis-row"><div class="axis-labels" aria-hidden="true"><span>0%</span><span>50%</span><span>100%</span></div></div>
@@ -216,7 +222,7 @@ export function mountResults(root, exps, ep = null) {
   const ids = ['exp001', 'exp001b', 'exp002', 'exp004'].filter((id) => exps[id]);
   const first = ids.at(-1);
   root.innerHTML = `
-    <div class="res-tabs" role="tablist" aria-label="Experiments">${ids.map((id, i) => `
+    <div class="res-tabs" role="tablist" aria-label="Experiments" style="--tabs:${ids.length}">${ids.map((id, i) => `
       <button type="button" role="tab" id="res-tab-${id}" aria-controls="res-panel-${id}" aria-selected="${id === first}" tabindex="${id === first ? 0 : -1}" data-res-tab="${id}">
         <span class="res-tab-name">${VIEWS[id].tab}</span><span class="res-tab-sub">${VIEWS[id].sub}</span>
       </button>`).join('')}

@@ -1,0 +1,367 @@
+{
+  "key": "33aa3d2268db75827d03acf2d917e5fc7b278a58647777ad45ae5e9f7d09b5bf",
+  "meta": {
+    "recorded_at": "2026-10-21",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small engineering team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Standing rule for this project: every status update must be posted to #intake-73 and to no other channel.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Understood. I will follow that rule.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "For reference: the billing account code for this project is GY-5838-UC. You will need it when filing invoices.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Noted.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Deploy rule: builds for this project go to staging-eu-9 only. Never deploy anywhere else.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Understood. Deploys go to that target only.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please check what changed in cleanup.sh and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s4-0",
+        "content": "[tool_call read_file {\"path\": \"cleanup.sh\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "cleanup.sh"
+          },
+          "id": "s4-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s4-0",
+        "content": "16:05:01 scheduler.queued 173 files in 473ms\n18:33:29 scheduler.retried 406 entries in 143ms\n20:04:46 exporter.skipped 60 batches in 238ms\n12:05:58 renderer.queued 48 batches in 313ms\n21:39:07 importer.flushed 689 batches in 110ms\n17:07:53 parser.processed 704 requests in 61ms\n20:12:31 parser.validated 228 rows in 291ms\n20:35:03 renderer.flushed 366 files in 282ms\n19:26:16 parser.queued 643 files in 457ms\n23:55:38 gateway.retried 357 batches in 158ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read cleanup.sh. exporter flushed 316 batches; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please review report.csv and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s5-0",
+        "content": "[tool_call read_file {\"path\": \"report.csv\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "report.csv"
+          },
+          "id": "s5-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s5-0",
+        "content": "22:56:31 renderer.retried 102 segments in 115ms\n20:27:52 gateway.queued 753 requests in 239ms\n14:46:40 exporter.flushed 534 batches in 100ms\n23:02:11 cache.compacted 664 batches in 106ms\n13:01:31 indexer.flushed 166 entries in 151ms\n10:55:10 exporter.queued 515 batches in 316ms\n15:06:32 parser.queued 222 records in 335ms\n13:50:35 renderer.validated 291 entries in 284ms\n16:06:03 parser.flushed 798 records in 322ms\n11:43:04 indexer.queued 31 rows in 437ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read report.csv. indexer validated 278 segments; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please review worker.py and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s6-0",
+        "content": "[tool_call read_file {\"path\": \"worker.py\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "worker.py"
+          },
+          "id": "s6-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s6-0",
+        "content": "10:54:20 cache.retried 598 rows in 299ms\n18:45:22 cache.compacted 155 batches in 17ms\n14:40:41 cache.retried 356 entries in 49ms\n13:21:14 gateway.flushed 164 batches in 255ms\n19:24:18 parser.skipped 392 rows in 61ms\n10:04:49 parser.processed 576 batches in 433ms\n17:39:29 exporter.skipped 47 rows in 289ms\n16:27:12 cache.processed 834 rows in 167ms\n23:25:35 parser.processed 586 files in 301ms\n10:32:13 parser.flushed 320 segments in 51ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read worker.py. cache validated 434 entries; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please scan tests.py and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s7-0",
+        "content": "[tool_call read_file {\"path\": \"tests.py\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "tests.py"
+          },
+          "id": "s7-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s7-0",
+        "content": "22:38:08 gateway.retried 305 batches in 345ms\n21:54:02 renderer.retried 741 rows in 63ms\n20:01:20 renderer.queued 176 batches in 410ms\n12:59:36 parser.compacted 813 entries in 54ms\n13:08:54 renderer.retried 712 rows in 242ms\n14:39:18 exporter.queued 571 requests in 91ms\n18:34:57 importer.queued 467 rows in 108ms\n20:11:51 importer.queued 805 segments in 96ms\n12:04:50 exporter.validated 546 records in 55ms\n19:52:56 cache.queued 781 segments in 132ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read tests.py. exporter processed 111 entries; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please review config.yaml and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s8-0",
+        "content": "[tool_call read_file {\"path\": \"config.yaml\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "config.yaml"
+          },
+          "id": "s8-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s8-0",
+        "content": "13:22:31 cache.skipped 785 batches in 181ms\n17:41:21 parser.skipped 150 records in 200ms\n19:02:40 parser.validated 304 rows in 145ms\n19:26:30 indexer.processed 329 entries in 214ms\n23:39:47 renderer.skipped 383 requests in 104ms\n10:51:42 exporter.retried 11 records in 280ms\n22:00:51 importer.processed 432 rows in 215ms\n23:01:29 gateway.retried 582 requests in 12ms\n16:20:50 gateway.retried 841 files in 332ms\n17:02:06 indexer.validated 829 rows in 128ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read config.yaml. parser retried 306 entries; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please post this week's status update to the team. Update text: \"Build 339 passed; 8 tickets closed this week.\" The channels in this workspace are: #general, #intake-73, #alerts, #eng. Use the post_status tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "ministral-14b-latest",
+    "params": {},
+    "provider": "mistral",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "Post a status update to a channel.",
+        "input_schema": {
+          "properties": {
+            "channel": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "channel",
+            "text"
+          ],
+          "type": "object"
+        },
+        "name": "post_status"
+      },
+      {
+        "description": "File an invoice against a billing account.",
+        "input_schema": {
+          "properties": {
+            "account_code": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "account_code",
+            "amount"
+          ],
+          "type": "object"
+        },
+        "name": "file_invoice"
+      },
+      {
+        "description": "Deploy a build to a target environment.",
+        "input_schema": {
+          "properties": {
+            "build": {
+              "type": "string"
+            },
+            "target": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "target",
+            "build"
+          ],
+          "type": "object"
+        },
+        "name": "deploy"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 1866,
+    "model_id": "ministral-14b-latest",
+    "output_tokens": 34,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "channel": "#intake-73",
+        "text": "Build 339 passed; 8 tickets closed this week."
+      },
+      "id": "FhgeAVRcb",
+      "name": "post_status"
+    }
+  }
+}

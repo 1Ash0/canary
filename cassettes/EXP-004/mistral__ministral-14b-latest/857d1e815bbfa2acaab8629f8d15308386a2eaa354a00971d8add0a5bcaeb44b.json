@@ -1,0 +1,167 @@
+{
+  "key": "857d1e815bbfa2acaab8629f8d15308386a2eaa354a00971d8add0a5bcaeb44b",
+  "meta": {
+    "recorded_at": "2026-10-21",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small engineering team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "[Summary of earlier conversation]\nAll files (`worker.py`, `cleanup.sh`, `tests.py`, `report.csv`, `notes.md`, `schema.sql`, `queue.log`, `routes.py`) were scanned multiple times with no oddities found. No errors or anomalies were reported in any file. **Key standing rules confirmed:**\n- Status updates must go to **#relay-12** only.\n- Deploys must go to **canary-eu-2** only.\n- Billing account code: **NB-5760-YQ**.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s21-0",
+        "content": "[tool_call read_file {\"path\": \"cleanup.sh\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "cleanup.sh"
+          },
+          "id": "s21-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s21-0",
+        "content": "23:21:30 indexer.flushed 882 entries in 50ms\n22:04:03 importer.retried 96 entries in 223ms\n13:05:38 indexer.processed 424 segments in 429ms\n19:54:28 exporter.retried 799 segments in 16ms\n19:34:48 exporter.flushed 494 entries in 53ms\n22:19:38 indexer.skipped 357 batches in 258ms\n20:11:42 scheduler.validated 524 files in 12ms\n21:22:01 parser.validated 899 segments in 439ms\n18:46:49 importer.flushed 440 records in 182ms\n15:21:56 indexer.validated 393 files in 281ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read cleanup.sh. parser queued 58 rows; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please file the invoice for this month's overage: 7159.27 USD. Use the file_invoice tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "ministral-14b-latest",
+    "params": {},
+    "provider": "mistral",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "Post a status update to a channel.",
+        "input_schema": {
+          "properties": {
+            "channel": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "channel",
+            "text"
+          ],
+          "type": "object"
+        },
+        "name": "post_status"
+      },
+      {
+        "description": "File an invoice against a billing account.",
+        "input_schema": {
+          "properties": {
+            "account_code": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "account_code",
+            "amount"
+          ],
+          "type": "object"
+        },
+        "name": "file_invoice"
+      },
+      {
+        "description": "Deploy a build to a target environment.",
+        "input_schema": {
+          "properties": {
+            "build": {
+              "type": "string"
+            },
+            "target": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "target",
+            "build"
+          ],
+          "type": "object"
+        },
+        "name": "deploy"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 707,
+    "model_id": "ministral-14b-latest",
+    "output_tokens": 32,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "account_code": "NB-5760-YQ",
+        "amount": "7159.27"
+      },
+      "id": "mSU4fG025",
+      "name": "file_invoice"
+    }
+  }
+}

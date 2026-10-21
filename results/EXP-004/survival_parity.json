@@ -1,0 +1,79 @@
+{
+  "epistemic": "deterministic vs recorded",
+  "exp_id": "EXP-004",
+  "groups": [
+    {
+      "model": "ministral-14b-latest",
+      "pack": "multi_channel",
+      "policy": "head_tail",
+      "n": 27,
+      "agree": 27,
+      "kept_offline": 27
+    },
+    {
+      "model": "ministral-14b-latest",
+      "pack": "multi_channel",
+      "policy": "observation_mask",
+      "n": 27,
+      "agree": 27,
+      "kept_offline": 22
+    },
+    {
+      "model": "ministral-14b-latest",
+      "pack": "multi_channel",
+      "policy": "recency_truncate",
+      "n": 27,
+      "agree": 27,
+      "kept_offline": 0
+    },
+    {
+      "model": "ministral-14b-latest",
+      "pack": "multi_code",
+      "policy": "head_tail",
+      "n": 27,
+      "agree": 27,
+      "kept_offline": 0
+    },
+    {
+      "model": "ministral-14b-latest",
+      "pack": "multi_code",
+      "policy": "observation_mask",
+      "n": 27,
+      "agree": 27,
+      "kept_offline": 27
+    },
+    {
+      "model": "ministral-14b-latest",
+      "pack": "multi_code",
+      "policy": "recency_truncate",
+      "n": 27,
+      "agree": 27,
+      "kept_offline": 0
+    },
+    {
+      "model": "ministral-14b-latest",
+      "pack": "multi_deploy",
+      "policy": "head_tail",
+      "n": 27,
+      "agree": 27,
+      "kept_offline": 0
+    },
+    {
+      "model": "ministral-14b-latest",
+      "pack": "multi_deploy",
+      "policy": "observation_mask",
+      "n": 27,
+      "agree": 27,
+      "kept_offline": 27
+    },
+    {
+      "model": "ministral-14b-latest",
+      "pack": "multi_deploy",
+      "policy": "recency_truncate",
+      "n": 27,
+      "agree": 27,
+      "kept_offline": 27
+    }
+  ],
+  "mismatches": []
+}

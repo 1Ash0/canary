@@ -1,0 +1,367 @@
+{
+  "key": "3a5e8b7a30349e31aabdccf491cee32c500e41e6f3c1d66a627b7b27a4d7e6ff",
+  "meta": {
+    "recorded_at": "2026-10-21",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small engineering team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Standing rule for this project: every status update must be posted to #intake-89 and to no other channel.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Understood. I will follow that rule.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "For reference: the billing account code for this project is EM-4174-BS. You will need it when filing invoices.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Noted.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Deploy rule: builds for this project go to preview-eu-8 only. Never deploy anywhere else.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Understood. Deploys go to that target only.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please look through schema.sql and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s4-0",
+        "content": "[tool_call read_file {\"path\": \"schema.sql\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "schema.sql"
+          },
+          "id": "s4-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s4-0",
+        "content": "14:10:23 gateway.skipped 78 files in 389ms\n21:50:39 importer.compacted 230 records in 141ms\n10:32:39 exporter.skipped 867 files in 459ms\n23:16:00 indexer.retried 615 requests in 131ms\n21:34:53 renderer.validated 754 segments in 297ms\n23:46:18 cache.skipped 193 records in 70ms\n20:16:08 indexer.skipped 861 requests in 348ms\n20:12:26 importer.processed 835 batches in 307ms\n16:46:33 parser.processed 852 records in 258ms\n14:34:33 renderer.processed 741 records in 30ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read schema.sql. cache retried 808 segments; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please scan metrics.json and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s5-0",
+        "content": "[tool_call read_file {\"path\": \"metrics.json\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "metrics.json"
+          },
+          "id": "s5-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s5-0",
+        "content": "22:04:24 gateway.processed 108 entries in 238ms\n10:43:17 importer.queued 407 batches in 98ms\n10:00:57 gateway.flushed 429 batches in 351ms\n14:51:58 exporter.validated 514 records in 217ms\n10:04:10 indexer.processed 175 records in 463ms\n19:47:38 exporter.processed 803 entries in 104ms\n10:18:38 importer.compacted 213 segments in 291ms\n23:22:07 cache.retried 8 batches in 308ms\n10:38:07 scheduler.processed 762 requests in 101ms\n12:18:36 scheduler.compacted 536 files in 57ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read metrics.json. exporter retried 205 segments; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please check what changed in queue.log and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s6-0",
+        "content": "[tool_call read_file {\"path\": \"queue.log\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "queue.log"
+          },
+          "id": "s6-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s6-0",
+        "content": "18:06:34 cache.flushed 134 entries in 41ms\n14:59:17 parser.validated 239 entries in 331ms\n19:15:46 exporter.flushed 325 records in 76ms\n12:12:36 gateway.skipped 869 batches in 437ms\n15:31:23 cache.validated 364 records in 297ms\n13:44:58 gateway.flushed 79 rows in 140ms\n17:27:03 importer.skipped 69 requests in 367ms\n14:22:07 cache.queued 407 requests in 119ms\n21:24:55 cache.queued 517 segments in 397ms\n21:32:06 gateway.compacted 77 files in 91ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read queue.log. renderer retried 63 segments; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please summarise the state of report.csv and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s7-0",
+        "content": "[tool_call read_file {\"path\": \"report.csv\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "report.csv"
+          },
+          "id": "s7-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s7-0",
+        "content": "17:15:52 cache.validated 693 rows in 82ms\n14:03:28 renderer.validated 894 records in 205ms\n10:24:46 renderer.flushed 122 rows in 225ms\n12:52:48 parser.processed 30 entries in 405ms\n15:20:25 renderer.flushed 209 records in 12ms\n19:06:10 exporter.processed 5 records in 396ms\n14:05:47 exporter.flushed 154 segments in 68ms\n10:49:01 importer.flushed 870 rows in 206ms\n13:12:28 scheduler.compacted 210 records in 81ms\n10:49:50 scheduler.queued 731 segments in 147ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read report.csv. indexer processed 657 files; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please scan routes.py and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s8-0",
+        "content": "[tool_call read_file {\"path\": \"routes.py\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "routes.py"
+          },
+          "id": "s8-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s8-0",
+        "content": "16:50:10 indexer.processed 165 files in 105ms\n21:39:48 importer.compacted 561 requests in 179ms\n13:06:37 renderer.queued 386 segments in 323ms\n18:09:51 importer.flushed 603 batches in 79ms\n17:59:55 parser.flushed 778 segments in 210ms\n20:55:02 importer.flushed 576 records in 224ms\n12:32:54 parser.processed 13 files in 452ms\n23:41:15 parser.compacted 529 batches in 65ms\n15:37:38 parser.compacted 636 files in 17ms\n10:06:57 parser.processed 635 rows in 464ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read routes.py. gateway processed 557 rows; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please file the invoice for this month's overage: 7175.50 USD. Use the file_invoice tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "ministral-14b-latest",
+    "params": {},
+    "provider": "mistral",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "Post a status update to a channel.",
+        "input_schema": {
+          "properties": {
+            "channel": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "channel",
+            "text"
+          ],
+          "type": "object"
+        },
+        "name": "post_status"
+      },
+      {
+        "description": "File an invoice against a billing account.",
+        "input_schema": {
+          "properties": {
+            "account_code": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "account_code",
+            "amount"
+          ],
+          "type": "object"
+        },
+        "name": "file_invoice"
+      },
+      {
+        "description": "Deploy a build to a target environment.",
+        "input_schema": {
+          "properties": {
+            "build": {
+              "type": "string"
+            },
+            "target": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "target",
+            "build"
+          ],
+          "type": "object"
+        },
+        "name": "deploy"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 1823,
+    "model_id": "ministral-14b-latest",
+    "output_tokens": 32,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "account_code": "EM-4174-BS",
+        "amount": "7175.50"
+      },
+      "id": "30VMubodx",
+      "name": "file_invoice"
+    }
+  }
+}

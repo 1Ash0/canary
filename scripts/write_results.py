@@ -66,6 +66,8 @@ def build(exp: str, notes: str) -> tuple[str, list[dict]]:
         fill[f"{key}|na"] = f"{c['n_not_applicable']} of {c['n_episodes']}"
         if c.get("n_summary_checked"):
             fill[f"{key}|invalid"] = f"{c['n_summary_invalid']} of {c['n_summary_checked']}"
+        for cid, kept in (c.get("fates_kept") or {}).items():  # multi packs: each fact's survival
+            fill[f"{key}|kept_{cid}"] = f"{kept['k']} of {kept['n']}"
         if c.get("fate_matches_grade"):
             fm = c["fate_matches_grade"]
             text = f"{fm['k']} of {fm['n']}"

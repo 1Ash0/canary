@@ -1,0 +1,831 @@
+{
+  "key": "36605d8837af0ecda1d201728962c69ad1ada614e8b975f1019483488c66bc97",
+  "meta": {
+    "recorded_at": "2026-10-21",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small engineering team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read routes.py. scheduler queued 730 segments; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Standing rule for this project: every status update must be posted to #triage-34 and to no other channel.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Understood. I will follow that rule.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please look through notes.md and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s3-0",
+        "content": "[tool_call read_file {\"path\": \"notes.md\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "notes.md"
+          },
+          "id": "s3-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s3-0",
+        "content": "[tool output omitted: 163 tokens]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read notes.md. indexer skipped 177 segments; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please review metrics.json and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s4-0",
+        "content": "[tool_call read_file {\"path\": \"metrics.json\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "metrics.json"
+          },
+          "id": "s4-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s4-0",
+        "content": "[tool output omitted: 161 tokens]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read metrics.json. parser skipped 491 records; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please scan queue.log and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s5-0",
+        "content": "[tool_call read_file {\"path\": \"queue.log\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "queue.log"
+          },
+          "id": "s5-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s5-0",
+        "content": "[tool output omitted: 162 tokens]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read queue.log. renderer processed 199 records; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please review cleanup.sh and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s6-0",
+        "content": "[tool_call read_file {\"path\": \"cleanup.sh\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "cleanup.sh"
+          },
+          "id": "s6-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s6-0",
+        "content": "[tool output omitted: 159 tokens]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read cleanup.sh. cache flushed 467 requests; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please summarise the state of notes.md and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s7-0",
+        "content": "[tool_call read_file {\"path\": \"notes.md\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "notes.md"
+          },
+          "id": "s7-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s7-0",
+        "content": "[tool output omitted: 161 tokens]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read notes.md. renderer compacted 780 segments; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please scan notes.md and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s8-0",
+        "content": "[tool_call read_file {\"path\": \"notes.md\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "notes.md"
+          },
+          "id": "s8-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s8-0",
+        "content": "[tool output omitted: 160 tokens]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read notes.md. renderer processed 765 files; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "For reference: the billing account code for this project is RG-2867-OV. You will need it when filing invoices.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Noted.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please look through config.yaml and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s10-0",
+        "content": "[tool_call read_file {\"path\": \"config.yaml\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "config.yaml"
+          },
+          "id": "s10-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s10-0",
+        "content": "[tool output omitted: 162 tokens]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read config.yaml. cache compacted 204 files; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please scan cleanup.sh and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s11-0",
+        "content": "[tool_call read_file {\"path\": \"cleanup.sh\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "cleanup.sh"
+          },
+          "id": "s11-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s11-0",
+        "content": "[tool output omitted: 162 tokens]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read cleanup.sh. importer flushed 275 requests; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please look through cleanup.sh and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s12-0",
+        "content": "[tool_call read_file {\"path\": \"cleanup.sh\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "cleanup.sh"
+          },
+          "id": "s12-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s12-0",
+        "content": "[tool output omitted: 159 tokens]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read cleanup.sh. importer retried 456 rows; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please review metrics.json and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s13-0",
+        "content": "[tool_call read_file {\"path\": \"metrics.json\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "metrics.json"
+          },
+          "id": "s13-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s13-0",
+        "content": "[tool output omitted: 162 tokens]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read metrics.json. indexer validated 19 requests; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please look through cleanup.sh and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s14-0",
+        "content": "[tool_call read_file {\"path\": \"cleanup.sh\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "cleanup.sh"
+          },
+          "id": "s14-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s14-0",
+        "content": "[tool output omitted: 161 tokens]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read cleanup.sh. indexer retried 84 records; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please review tests.py and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s15-0",
+        "content": "[tool_call read_file {\"path\": \"tests.py\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "tests.py"
+          },
+          "id": "s15-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s15-0",
+        "content": "[tool output omitted: 160 tokens]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read tests.py. renderer retried 254 segments; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Deploy rule: builds for this project go to canary-us-6 only. Never deploy anywhere else.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Understood. Deploys go to that target only.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please review tests.py and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s17-0",
+        "content": "[tool_call read_file {\"path\": \"tests.py\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "tests.py"
+          },
+          "id": "s17-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s17-0",
+        "content": "[tool output omitted: 161 tokens]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read tests.py. renderer validated 202 segments; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please check what changed in cleanup.sh and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s18-0",
+        "content": "[tool_call read_file {\"path\": \"cleanup.sh\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "cleanup.sh"
+          },
+          "id": "s18-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s18-0",
+        "content": "[tool output omitted: 161 tokens]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read cleanup.sh. renderer compacted 58 segments; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please check what changed in cleanup.sh and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s19-0",
+        "content": "[tool_call read_file {\"path\": \"cleanup.sh\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "cleanup.sh"
+          },
+          "id": "s19-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s19-0",
+        "content": "[tool output omitted: 160 tokens]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read cleanup.sh. renderer retried 540 records; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please check what changed in notes.md and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s20-0",
+        "content": "[tool_call read_file {\"path\": \"notes.md\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "notes.md"
+          },
+          "id": "s20-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s20-0",
+        "content": "20:54:54 exporter.validated 314 files in 235ms\n21:19:53 renderer.validated 537 records in 476ms\n15:03:09 indexer.queued 23 entries in 44ms\n20:31:46 importer.compacted 635 files in 152ms\n19:34:51 gateway.skipped 371 rows in 280ms\n23:43:21 cache.queued 808 entries in 34ms\n21:00:22 gateway.processed 369 requests in 230ms\n18:52:41 scheduler.validated 253 segments in 366ms\n16:50:13 cache.queued 456 records in 424ms\n20:42:12 parser.queued 219 files in 286ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read notes.md. cache processed 205 files; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please check what changed in worker.py and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s21-0",
+        "content": "[tool_call read_file {\"path\": \"worker.py\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "worker.py"
+          },
+          "id": "s21-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s21-0",
+        "content": "18:39:32 cache.compacted 523 batches in 190ms\n18:50:02 indexer.validated 827 rows in 320ms\n18:43:28 exporter.processed 474 segments in 232ms\n16:51:23 parser.queued 119 records in 34ms\n15:39:05 importer.retried 344 entries in 262ms\n20:13:36 exporter.skipped 719 batches in 24ms\n21:55:55 parser.processed 353 requests in 410ms\n21:59:24 importer.processed 407 entries in 306ms\n13:19:40 renderer.queued 230 entries in 154ms\n11:35:52 gateway.retried 870 files in 413ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read worker.py. gateway flushed 226 requests; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please deploy build 876. The available targets are: dev-1, canary-us-6, sandbox-3, prod-eu-1. Use the deploy tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "ministral-14b-latest",
+    "params": {},
+    "provider": "mistral",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "Post a status update to a channel.",
+        "input_schema": {
+          "properties": {
+            "channel": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "channel",
+            "text"
+          ],
+          "type": "object"
+        },
+        "name": "post_status"
+      },
+      {
+        "description": "File an invoice against a billing account.",
+        "input_schema": {
+          "properties": {
+            "account_code": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "account_code",
+            "amount"
+          ],
+          "type": "object"
+        },
+        "name": "file_invoice"
+      },
+      {
+        "description": "Deploy a build to a target environment.",
+        "input_schema": {
+          "properties": {
+            "build": {
+              "type": "string"
+            },
+            "target": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "target",
+            "build"
+          ],
+          "type": "object"
+        },
+        "name": "deploy"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 1880,
+    "model_id": "ministral-14b-latest",
+    "output_tokens": 22,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "build": "876",
+        "target": "canary-us-6"
+      },
+      "id": "7q7iHdNnJ",
+      "name": "deploy"
+    }
+  }
+}

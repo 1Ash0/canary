@@ -30,7 +30,9 @@ ROOT = Path(__file__).resolve().parent.parent
 
 def offline_fate(pack: str, seed: int, policy: str, params: dict[str, Any], limit: int) -> str:
     built = build_pack(pack, seed)
-    args = {p: "x" for p in built.tools[-1].spec.input_schema["properties"]}
+    # the tool the request asks for (multi packs offer three terminal tools)
+    tool = next(t for t in built.tools if t.spec.name == built.spec.tool_name)
+    args = {p: "x" for p in tool.spec.input_schema["properties"]}
     events = run(built.scenario,
                  ScriptedProvider([_stub_probe_reply(built.spec.tool_name, args)]),
                  built.tools, limit_tokens=limit, policy=make_policy(policy, **params),

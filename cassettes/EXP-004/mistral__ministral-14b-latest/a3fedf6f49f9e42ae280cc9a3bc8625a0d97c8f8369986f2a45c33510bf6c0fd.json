@@ -1,0 +1,367 @@
+{
+  "key": "a3fedf6f49f9e42ae280cc9a3bc8625a0d97c8f8369986f2a45c33510bf6c0fd",
+  "meta": {
+    "recorded_at": "2026-10-21",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small engineering team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Standing rule for this project: every status update must be posted to #relay-91 and to no other channel.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Understood. I will follow that rule.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "For reference: the billing account code for this project is NK-1163-BK. You will need it when filing invoices.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Noted.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Deploy rule: builds for this project go to canary-ap-4 only. Never deploy anywhere else.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Understood. Deploys go to that target only.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please summarise the state of tests.py and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s4-0",
+        "content": "[tool_call read_file {\"path\": \"tests.py\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "tests.py"
+          },
+          "id": "s4-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s4-0",
+        "content": "13:58:42 gateway.retried 408 files in 219ms\n14:54:18 indexer.retried 786 rows in 470ms\n22:49:46 parser.validated 310 batches in 123ms\n21:20:25 exporter.compacted 67 records in 380ms\n10:51:56 indexer.validated 667 records in 364ms\n15:33:17 indexer.skipped 554 records in 16ms\n10:13:05 indexer.queued 827 files in 39ms\n12:25:17 parser.retried 819 rows in 237ms\n23:59:23 parser.processed 315 rows in 162ms\n20:31:33 renderer.skipped 610 files in 347ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read tests.py. renderer flushed 214 batches; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please look through notes.md and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s5-0",
+        "content": "[tool_call read_file {\"path\": \"notes.md\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "notes.md"
+          },
+          "id": "s5-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s5-0",
+        "content": "18:07:51 gateway.compacted 790 records in 116ms\n22:17:16 parser.skipped 57 requests in 469ms\n15:07:51 renderer.skipped 852 batches in 311ms\n16:55:16 cache.retried 185 batches in 3ms\n19:50:00 parser.queued 302 records in 87ms\n15:41:17 renderer.validated 499 segments in 199ms\n19:10:58 cache.skipped 149 entries in 420ms\n19:10:06 parser.flushed 205 segments in 49ms\n18:26:58 gateway.queued 735 requests in 12ms\n18:01:34 importer.queued 320 segments in 409ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read notes.md. gateway skipped 619 batches; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please scan report.csv and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s6-0",
+        "content": "[tool_call read_file {\"path\": \"report.csv\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "report.csv"
+          },
+          "id": "s6-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s6-0",
+        "content": "13:15:34 importer.compacted 698 batches in 104ms\n14:30:22 gateway.flushed 8 records in 116ms\n23:21:50 scheduler.flushed 700 entries in 144ms\n16:05:37 indexer.validated 318 files in 120ms\n12:07:55 importer.queued 26 records in 7ms\n20:02:30 importer.flushed 325 files in 443ms\n18:01:07 importer.skipped 456 records in 57ms\n14:23:04 importer.validated 375 records in 212ms\n12:16:56 cache.retried 404 segments in 472ms\n12:17:49 indexer.skipped 150 records in 373ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read report.csv. indexer flushed 603 records; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please review tests.py and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s7-0",
+        "content": "[tool_call read_file {\"path\": \"tests.py\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "tests.py"
+          },
+          "id": "s7-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s7-0",
+        "content": "12:10:30 indexer.processed 534 records in 225ms\n13:05:43 gateway.processed 183 segments in 155ms\n16:06:39 scheduler.flushed 245 entries in 151ms\n18:51:35 scheduler.processed 853 batches in 100ms\n19:37:12 gateway.validated 707 batches in 302ms\n18:39:53 renderer.queued 30 segments in 268ms\n16:41:25 exporter.skipped 129 requests in 266ms\n19:03:50 scheduler.skipped 144 files in 375ms\n15:06:48 parser.retried 210 entries in 254ms\n15:31:41 indexer.compacted 620 files in 194ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read tests.py. exporter processed 540 requests; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please check what changed in routes.py and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s8-0",
+        "content": "[tool_call read_file {\"path\": \"routes.py\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "routes.py"
+          },
+          "id": "s8-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s8-0",
+        "content": "15:21:13 importer.validated 349 files in 405ms\n20:01:02 exporter.flushed 321 rows in 182ms\n21:27:56 cache.processed 95 files in 16ms\n19:05:16 scheduler.queued 136 segments in 448ms\n23:54:26 gateway.queued 260 rows in 259ms\n10:59:40 renderer.retried 456 batches in 265ms\n11:07:52 scheduler.processed 258 batches in 259ms\n13:39:59 importer.skipped 328 rows in 411ms\n11:12:24 scheduler.queued 16 batches in 129ms\n23:19:06 indexer.retried 474 records in 344ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read routes.py. scheduler processed 60 requests; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please deploy build 112. The available targets are: dev-1, sandbox-3, canary-ap-4, qa-2. Use the deploy tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "ministral-14b-latest",
+    "params": {},
+    "provider": "mistral",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "Post a status update to a channel.",
+        "input_schema": {
+          "properties": {
+            "channel": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "channel",
+            "text"
+          ],
+          "type": "object"
+        },
+        "name": "post_status"
+      },
+      {
+        "description": "File an invoice against a billing account.",
+        "input_schema": {
+          "properties": {
+            "account_code": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "account_code",
+            "amount"
+          ],
+          "type": "object"
+        },
+        "name": "file_invoice"
+      },
+      {
+        "description": "Deploy a build to a target environment.",
+        "input_schema": {
+          "properties": {
+            "build": {
+              "type": "string"
+            },
+            "target": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "target",
+            "build"
+          ],
+          "type": "object"
+        },
+        "name": "deploy"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 1845,
+    "model_id": "ministral-14b-latest",
+    "output_tokens": 22,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "build": "112",
+        "target": "canary-ap-4"
+      },
+      "id": "MQG41YL2D",
+      "name": "deploy"
+    }
+  }
+}

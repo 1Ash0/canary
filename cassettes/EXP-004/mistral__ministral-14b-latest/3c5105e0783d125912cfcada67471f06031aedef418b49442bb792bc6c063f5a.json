@@ -1,0 +1,329 @@
+{
+  "key": "3c5105e0783d125912cfcada67471f06031aedef418b49442bb792bc6c063f5a",
+  "meta": {
+    "recorded_at": "2026-10-21",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small engineering team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Standing rule for this project: every status update must be posted to #triage-34 and to no other channel.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Understood. I will follow that rule.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "For reference: the billing account code for this project is RG-2867-OV. You will need it when filing invoices.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Noted.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Deploy rule: builds for this project go to canary-us-6 only. Never deploy anywhere else.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Understood. Deploys go to that target only.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please check what changed in cleanup.sh and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s4-0",
+        "content": "[tool_call read_file {\"path\": \"cleanup.sh\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "cleanup.sh"
+          },
+          "id": "s4-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s4-0",
+        "content": "11:52:24 renderer.queued 655 records in 478ms\n10:15:46 cache.validated 145 rows in 38ms\n10:20:46 gateway.flushed 898 rows in 331ms\n13:35:33 scheduler.flushed 451 segments in 450ms\n22:19:33 scheduler.retried 246 segments in 115ms\n13:45:16 gateway.skipped 212 batches in 440ms\n10:15:39 exporter.validated 282 entries in 185ms\n18:34:20 indexer.compacted 190 rows in 162ms\n16:39:08 indexer.skipped 653 requests in 377ms\n23:23:00 gateway.retried 561 records in 75ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read cleanup.sh. renderer compacted 58 segments; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please check what changed in cleanup.sh and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s5-0",
+        "content": "[tool_call read_file {\"path\": \"cleanup.sh\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "cleanup.sh"
+          },
+          "id": "s5-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s5-0",
+        "content": "15:49:03 parser.compacted 492 entries in 371ms\n20:39:45 indexer.processed 671 batches in 478ms\n21:31:49 exporter.retried 745 rows in 366ms\n17:38:31 importer.validated 473 batches in 83ms\n13:24:11 gateway.processed 46 entries in 241ms\n11:08:24 importer.processed 301 entries in 243ms\n13:58:26 scheduler.validated 14 files in 200ms\n14:29:01 parser.skipped 45 files in 52ms\n10:41:20 cache.queued 702 records in 67ms\n18:11:32 cache.queued 864 batches in 308ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read cleanup.sh. renderer retried 540 records; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please check what changed in notes.md and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s6-0",
+        "content": "[tool_call read_file {\"path\": \"notes.md\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "notes.md"
+          },
+          "id": "s6-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s6-0",
+        "content": "20:54:54 exporter.validated 314 files in 235ms\n21:19:53 renderer.validated 537 records in 476ms\n15:03:09 indexer.queued 23 entries in 44ms\n20:31:46 importer.compacted 635 files in 152ms\n19:34:51 gateway.skipped 371 rows in 280ms\n23:43:21 cache.queued 808 entries in 34ms\n21:00:22 gateway.processed 369 requests in 230ms\n18:52:41 scheduler.validated 253 segments in 366ms\n16:50:13 cache.queued 456 records in 424ms\n20:42:12 parser.queued 219 files in 286ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read notes.md. cache processed 205 files; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please check what changed in worker.py and tell me anything odd.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s7-0",
+        "content": "[tool_call read_file {\"path\": \"worker.py\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "worker.py"
+          },
+          "id": "s7-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s7-0",
+        "content": "18:39:32 cache.compacted 523 batches in 190ms\n18:50:02 indexer.validated 827 rows in 320ms\n18:43:28 exporter.processed 474 segments in 232ms\n16:51:23 parser.queued 119 records in 34ms\n15:39:05 importer.retried 344 entries in 262ms\n20:13:36 exporter.skipped 719 batches in 24ms\n21:55:55 parser.processed 353 requests in 410ms\n21:59:24 importer.processed 407 entries in 306ms\n13:19:40 renderer.queued 230 entries in 154ms\n11:35:52 gateway.retried 870 files in 413ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read worker.py. gateway flushed 226 requests; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please post this week's status update to the team. Update text: \"Build 805 passed; 3 tickets closed this week.\" The channels in this workspace are: #random, #eng, #triage-34, #team. Use the post_status tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "ministral-14b-latest",
+    "params": {},
+    "provider": "mistral",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "Post a status update to a channel.",
+        "input_schema": {
+          "properties": {
+            "channel": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "channel",
+            "text"
+          ],
+          "type": "object"
+        },
+        "name": "post_status"
+      },
+      {
+        "description": "File an invoice against a billing account.",
+        "input_schema": {
+          "properties": {
+            "account_code": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "account_code",
+            "amount"
+          ],
+          "type": "object"
+        },
+        "name": "file_invoice"
+      },
+      {
+        "description": "Deploy a build to a target environment.",
+        "input_schema": {
+          "properties": {
+            "build": {
+              "type": "string"
+            },
+            "target": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "target",
+            "build"
+          ],
+          "type": "object"
+        },
+        "name": "deploy"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 1592,
+    "model_id": "ministral-14b-latest",
+    "output_tokens": 34,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "channel": "#triage-34",
+        "text": "Build 805 passed; 3 tickets closed this week."
+      },
+      "id": "oW8KvcMQc",
+      "name": "post_status"
+    }
+  }
+}

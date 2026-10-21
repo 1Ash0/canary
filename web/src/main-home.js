@@ -11,15 +11,20 @@ const deep = Number(new URLSearchParams(location.search).get('step'));
 
 // Hero choreography: the claim rises line by line; the run starts as the first line lands; the lede
 // and action follow. One moving picture at a time: the copy settles before the bars get busy.
-// The hero plays the shared episode's second panel when the URL names one (a shared link opens on
-// that run), else EXP-002 seed 19 with gpt-oss-20b's summary: the run the comparison starts on.
+// The hero plays the shared link's episode when the URL names one, else EXP-004 seed 19 under "keep
+// head and tail": three facts planted, the first kept, the middle and late ones gone. EXP-002's run
+// is the fallback if that file is missing.
+const FALLBACK = 'exp002-s19-nvidia-llm_summary-constraint';
 function heroRunId() {
   const q = new URLSearchParams(location.search);
   const seed = Number(q.get('seed') ?? 19);
-  const [tag, policy] = (q.get('b') ?? 'nvidia.llm_summary').split('.');
+  const canary = q.get('canary') ?? 'multi_code';
+  const [tag, policy] = (q.get('b') ?? 'mistral.head_tail').split('.');
   const ok = Number.isInteger(seed) && seed >= 1 && seed <= 27 && /^(mistral|nvidia)$/.test(tag)
     && /^(recency_truncate|head_tail|observation_mask|llm_summary)$/.test(policy ?? '');
-  return ok ? `exp002-s${seed}-${tag}-${policy}-constraint` : 'exp002-s19-nvidia-llm_summary-constraint';
+  if (!ok) return 'exp004-s19-mistral-head_tail-multi_code';
+  if (/^multi_(channel|code|deploy)$/.test(canary)) return `exp004-s${seed}-${tag}-${policy}-${canary}`;
+  return `exp002-s${seed}-${tag}-${policy}-${canary === 'identifier' ? 'identifier' : 'constraint'}`;
 }
 
 let player = null;
@@ -31,7 +36,7 @@ gsap.matchMedia().add({ motion: MOTION, reduce: REDUCE }, (ctx) => {
 });
 
 try {
-  const run = await loadRun('./', heroRunId());
+  const run = await loadRun('./', heroRunId()).catch(() => loadRun('./', FALLBACK));
   document.querySelector('[data-hero-recorder]')?.setAttribute('href', `./run/?run=${run.meta.run_id}`);
   player = mountPlayer({ root: playerEl, run, height: { wide: 340, compact: 440 } });
   splitHeading($('[data-split]'), { onFirstLine: startPlayer });

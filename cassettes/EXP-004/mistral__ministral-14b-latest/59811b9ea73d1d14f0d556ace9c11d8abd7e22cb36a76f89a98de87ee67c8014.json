@@ -1,0 +1,167 @@
+{
+  "key": "59811b9ea73d1d14f0d556ace9c11d8abd7e22cb36a76f89a98de87ee67c8014",
+  "meta": {
+    "recorded_at": "2026-10-21",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small engineering team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "[Summary of earlier conversation]\n**Summary:**\n\n- **cleanup.sh**: No issues; importer compacted **693 rows**.\n- **tests.py**: Repeated scans found no issues; **exporter compacted 316 records** (last scan).\n- **metrics.json**: Repeated scans found no issues; **cache queued 141 segments** (last scan).\n- **notes.md, schema.sql, routes.py, queue.log, report.csv**: All scanned; no issues found.\n- **config.yaml**: No changes detected; **renderer skipped 441 rows** (last scan).\n- **Deploy rule**: Builds **only to canary-eu-8**.\n- **Billing**: Account code **VI-1611-HK** noted.\n- **Oddities**: No anomalies reported in any file; all scans returned \"nothing looks wrong.\"",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s21-0",
+        "content": "[tool_call read_file {\"path\": \"config.yaml\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "config.yaml"
+          },
+          "id": "s21-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s21-0",
+        "content": "21:22:17 renderer.retried 685 requests in 448ms\n10:24:34 parser.processed 714 records in 209ms\n13:17:54 importer.compacted 854 rows in 376ms\n15:52:07 indexer.queued 549 requests in 30ms\n13:23:15 cache.skipped 808 batches in 451ms\n16:44:53 gateway.queued 429 entries in 202ms\n11:31:51 renderer.flushed 780 batches in 323ms\n19:09:04 scheduler.skipped 384 files in 84ms\n17:55:29 renderer.skipped 194 requests in 33ms\n22:13:45 importer.validated 504 batches in 52ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read config.yaml. scheduler queued 61 segments; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please file the invoice for this month's overage: 1699.59 USD. Use the file_invoice tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "ministral-14b-latest",
+    "params": {},
+    "provider": "mistral",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "Post a status update to a channel.",
+        "input_schema": {
+          "properties": {
+            "channel": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "channel",
+            "text"
+          ],
+          "type": "object"
+        },
+        "name": "post_status"
+      },
+      {
+        "description": "File an invoice against a billing account.",
+        "input_schema": {
+          "properties": {
+            "account_code": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "account_code",
+            "amount"
+          ],
+          "type": "object"
+        },
+        "name": "file_invoice"
+      },
+      {
+        "description": "Deploy a build to a target environment.",
+        "input_schema": {
+          "properties": {
+            "build": {
+              "type": "string"
+            },
+            "target": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "target",
+            "build"
+          ],
+          "type": "object"
+        },
+        "name": "deploy"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 772,
+    "model_id": "ministral-14b-latest",
+    "output_tokens": 32,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "account_code": "VI-1611-HK",
+        "amount": "1699.59"
+      },
+      "id": "BxWwJO8L5",
+      "name": "file_invoice"
+    }
+  }
+}

@@ -3,9 +3,11 @@
 One seeded history carries a channel rule (C1, turn 2), a billing account code (I1, turn 9, the
 middle) and a deploy target (D1, turn 16, late). Three packs share that history and differ only in
 the final request: `multi_channel` asks for a status post, `multi_code` for an invoice and
-`multi_deploy` for a deploy. Every episode offers all three tools, so the window (and so what a
-policy keeps) is the same whichever fact is tested; only the graded call differs. The trace records
-all three facts, so each episode shows the fate of every fact, and the grade of one.
+`multi_deploy` for a deploy. Every episode offers all three tools, so the history and the tool specs
+are the same whichever fact is tested. The request itself is part of the window and differs in
+length (the channel request lists the channels), which can change what a policy keeps at a tight
+budget (EXP-004's deviations log). The trace records all three facts, so each episode shows the fate
+of every fact, and the grade of one.
 
 Why: with a single fact planted early, "keep the head" is safe by construction (EXP-002). Facts at
 three depths show where each policy actually loses information.

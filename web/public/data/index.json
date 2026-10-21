@@ -572,6 +572,2274 @@
       "group": "EXP-001b"
     },
     {
+      "id": "exp004-s1-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s1-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 1, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s2-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s2-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 2, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s3-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s3-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 3, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s4-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s4-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 4, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s5-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s5-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 5, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s6-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s6-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 6, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s7-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s7-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 7, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s8-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s8-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 8, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s9-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s9-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 9, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s10-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s10-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 10, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s11-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s11-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 11, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s12-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s12-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 12, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s13-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s13-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 13, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s14-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s14-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 14, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s15-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s15-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 15, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s16-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s16-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 16, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s17-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s17-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 17, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s18-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s18-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 18, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s19-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s19-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 19, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s20-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s20-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 20, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s21-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s21-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 21, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s22-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s22-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 22, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s23-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s23-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 23, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s24-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s24-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 24, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s25-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s25-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 25, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s26-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s26-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 26, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s27-mistral-recency_truncate-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s27-mistral-recency_truncate-multi_channel.json",
+      "title": "EXP-004 seed 27, ministral-14b-latest, recency_truncate, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s1-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s1-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 1, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s2-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s2-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 2, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s3-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s3-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 3, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s4-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s4-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 4, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s5-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s5-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 5, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s6-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s6-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 6, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s7-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s7-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 7, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s8-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s8-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 8, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s9-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s9-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 9, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s10-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s10-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 10, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s11-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s11-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 11, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s12-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s12-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 12, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s13-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s13-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 13, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s14-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s14-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 14, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s15-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s15-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 15, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s16-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s16-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 16, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s17-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s17-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 17, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s18-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s18-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 18, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s19-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s19-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 19, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s20-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s20-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 20, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s21-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s21-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 21, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s22-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s22-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 22, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s23-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s23-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 23, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s24-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s24-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 24, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s25-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s25-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 25, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s26-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s26-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 26, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s27-mistral-head_tail-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s27-mistral-head_tail-multi_channel.json",
+      "title": "EXP-004 seed 27, ministral-14b-latest, head_tail, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s1-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s1-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 1, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s2-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s2-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 2, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s3-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s3-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 3, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s4-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s4-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 4, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s5-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s5-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 5, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s6-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s6-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 6, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s7-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s7-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 7, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s8-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s8-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 8, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s9-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s9-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 9, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s10-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s10-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 10, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s11-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s11-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 11, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s12-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s12-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 12, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s13-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s13-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 13, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s14-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s14-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 14, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s15-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s15-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 15, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s16-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s16-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 16, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s17-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s17-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 17, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s18-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s18-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 18, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s19-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s19-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 19, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s20-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s20-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 20, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s21-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s21-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 21, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s22-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s22-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 22, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s23-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s23-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 23, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s24-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s24-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 24, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s25-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s25-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 25, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s26-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s26-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 26, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s27-mistral-observation_mask-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s27-mistral-observation_mask-multi_channel.json",
+      "title": "EXP-004 seed 27, ministral-14b-latest, observation_mask, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s1-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s1-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 1, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s2-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s2-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 2, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s3-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s3-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 3, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s4-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s4-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 4, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s5-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s5-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 5, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s6-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s6-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 6, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s7-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s7-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 7, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s8-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s8-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 8, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s9-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s9-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 9, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s10-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s10-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 10, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s11-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s11-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 11, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s12-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s12-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 12, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s13-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s13-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 13, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s14-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s14-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 14, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s15-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s15-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 15, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s16-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s16-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 16, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s17-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s17-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 17, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s18-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s18-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 18, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s19-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s19-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 19, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s20-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s20-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 20, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s21-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s21-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 21, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s22-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s22-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 22, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s23-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s23-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 23, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s24-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s24-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 24, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s25-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s25-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 25, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s26-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s26-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 26, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s27-mistral-llm_summary-multi_channel",
+      "label": "recorded",
+      "path": "runs/exp004-s27-mistral-llm_summary-multi_channel.json",
+      "title": "EXP-004 seed 27, ministral-14b-latest, llm_summary, multi_channel pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s1-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s1-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 1, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s2-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s2-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 2, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s3-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s3-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 3, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s4-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s4-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 4, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s5-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s5-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 5, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s6-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s6-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 6, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s7-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s7-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 7, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s8-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s8-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 8, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s9-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s9-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 9, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s10-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s10-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 10, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s11-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s11-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 11, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s12-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s12-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 12, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s13-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s13-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 13, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s14-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s14-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 14, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s15-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s15-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 15, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s16-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s16-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 16, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s17-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s17-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 17, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s18-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s18-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 18, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s19-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s19-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 19, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s20-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s20-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 20, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s21-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s21-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 21, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s22-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s22-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 22, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s23-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s23-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 23, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s24-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s24-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 24, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s25-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s25-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 25, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s26-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s26-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 26, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s27-mistral-recency_truncate-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s27-mistral-recency_truncate-multi_code.json",
+      "title": "EXP-004 seed 27, ministral-14b-latest, recency_truncate, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s1-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s1-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 1, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s2-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s2-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 2, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s3-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s3-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 3, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s4-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s4-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 4, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s5-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s5-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 5, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s6-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s6-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 6, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s7-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s7-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 7, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s8-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s8-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 8, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s9-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s9-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 9, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s10-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s10-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 10, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s11-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s11-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 11, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s12-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s12-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 12, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s13-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s13-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 13, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s14-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s14-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 14, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s15-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s15-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 15, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s16-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s16-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 16, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s17-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s17-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 17, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s18-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s18-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 18, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s19-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s19-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 19, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s20-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s20-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 20, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s21-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s21-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 21, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s22-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s22-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 22, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s23-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s23-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 23, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s24-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s24-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 24, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s25-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s25-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 25, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s26-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s26-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 26, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s27-mistral-head_tail-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s27-mistral-head_tail-multi_code.json",
+      "title": "EXP-004 seed 27, ministral-14b-latest, head_tail, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s1-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s1-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 1, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s2-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s2-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 2, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s3-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s3-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 3, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s4-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s4-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 4, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s5-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s5-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 5, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s6-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s6-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 6, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s7-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s7-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 7, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s8-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s8-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 8, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s9-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s9-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 9, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s10-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s10-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 10, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s11-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s11-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 11, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s12-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s12-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 12, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s13-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s13-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 13, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s14-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s14-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 14, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s15-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s15-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 15, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s16-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s16-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 16, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s17-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s17-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 17, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s18-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s18-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 18, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s19-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s19-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 19, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s20-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s20-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 20, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s21-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s21-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 21, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s22-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s22-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 22, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s23-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s23-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 23, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s24-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s24-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 24, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s25-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s25-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 25, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s26-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s26-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 26, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s27-mistral-observation_mask-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s27-mistral-observation_mask-multi_code.json",
+      "title": "EXP-004 seed 27, ministral-14b-latest, observation_mask, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s1-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s1-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 1, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s2-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s2-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 2, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s3-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s3-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 3, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s4-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s4-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 4, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s5-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s5-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 5, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s6-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s6-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 6, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s7-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s7-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 7, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s8-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s8-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 8, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s9-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s9-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 9, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s10-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s10-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 10, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s11-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s11-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 11, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s12-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s12-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 12, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s13-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s13-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 13, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s14-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s14-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 14, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s15-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s15-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 15, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s16-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s16-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 16, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s17-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s17-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 17, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s18-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s18-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 18, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s19-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s19-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 19, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s20-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s20-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 20, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s21-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s21-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 21, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s22-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s22-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 22, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s23-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s23-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 23, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s24-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s24-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 24, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s25-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s25-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 25, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s26-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s26-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 26, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s27-mistral-llm_summary-multi_code",
+      "label": "recorded",
+      "path": "runs/exp004-s27-mistral-llm_summary-multi_code.json",
+      "title": "EXP-004 seed 27, ministral-14b-latest, llm_summary, multi_code pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s1-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s1-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 1, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s2-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s2-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 2, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s3-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s3-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 3, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s4-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s4-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 4, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s5-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s5-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 5, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s6-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s6-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 6, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s7-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s7-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 7, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s8-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s8-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 8, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s9-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s9-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 9, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s10-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s10-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 10, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s11-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s11-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 11, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s12-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s12-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 12, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s13-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s13-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 13, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s14-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s14-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 14, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s15-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s15-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 15, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s16-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s16-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 16, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s17-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s17-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 17, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s18-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s18-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 18, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s19-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s19-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 19, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s20-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s20-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 20, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s21-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s21-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 21, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s22-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s22-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 22, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s23-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s23-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 23, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s24-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s24-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 24, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s25-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s25-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 25, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s26-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s26-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 26, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s27-mistral-recency_truncate-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s27-mistral-recency_truncate-multi_deploy.json",
+      "title": "EXP-004 seed 27, ministral-14b-latest, recency_truncate, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s1-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s1-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 1, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s2-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s2-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 2, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s3-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s3-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 3, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s4-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s4-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 4, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s5-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s5-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 5, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s6-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s6-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 6, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s7-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s7-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 7, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s8-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s8-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 8, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s9-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s9-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 9, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s10-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s10-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 10, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s11-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s11-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 11, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s12-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s12-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 12, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s13-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s13-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 13, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s14-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s14-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 14, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s15-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s15-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 15, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s16-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s16-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 16, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s17-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s17-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 17, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s18-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s18-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 18, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s19-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s19-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 19, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s20-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s20-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 20, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s21-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s21-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 21, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s22-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s22-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 22, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s23-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s23-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 23, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s24-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s24-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 24, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s25-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s25-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 25, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s26-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s26-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 26, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s27-mistral-head_tail-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s27-mistral-head_tail-multi_deploy.json",
+      "title": "EXP-004 seed 27, ministral-14b-latest, head_tail, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s1-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s1-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 1, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s2-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s2-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 2, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s3-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s3-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 3, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s4-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s4-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 4, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s5-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s5-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 5, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s6-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s6-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 6, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s7-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s7-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 7, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s8-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s8-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 8, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s9-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s9-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 9, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s10-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s10-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 10, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s11-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s11-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 11, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s12-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s12-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 12, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s13-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s13-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 13, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s14-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s14-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 14, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s15-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s15-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 15, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s16-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s16-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 16, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s17-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s17-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 17, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s18-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s18-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 18, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s19-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s19-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 19, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s20-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s20-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 20, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s21-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s21-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 21, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s22-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s22-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 22, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s23-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s23-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 23, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s24-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s24-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 24, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s25-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s25-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 25, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s26-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s26-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 26, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s27-mistral-observation_mask-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s27-mistral-observation_mask-multi_deploy.json",
+      "title": "EXP-004 seed 27, ministral-14b-latest, observation_mask, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s1-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s1-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 1, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s2-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s2-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 2, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s3-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s3-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 3, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s4-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s4-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 4, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s5-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s5-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 5, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s6-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s6-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 6, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s7-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s7-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 7, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s8-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s8-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 8, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s9-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s9-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 9, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s10-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s10-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 10, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s11-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s11-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 11, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s12-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s12-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 12, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s13-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s13-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 13, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s14-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s14-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 14, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s15-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s15-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 15, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s16-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s16-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 16, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s17-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s17-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 17, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s18-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s18-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 18, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s19-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s19-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 19, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s20-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s20-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 20, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s21-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s21-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 21, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s22-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s22-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 22, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s23-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s23-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 23, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s24-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s24-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 24, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s25-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s25-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 25, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s26-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s26-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 26, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
+      "id": "exp004-s27-mistral-llm_summary-multi_deploy",
+      "label": "recorded",
+      "path": "runs/exp004-s27-mistral-llm_summary-multi_deploy.json",
+      "title": "EXP-004 seed 27, ministral-14b-latest, llm_summary, multi_deploy pack",
+      "group": "EXP-004"
+    },
+    {
       "id": "exp002-s1-mistral-recency_truncate-constraint",
       "label": "recorded",
       "path": "runs/exp002-s1-mistral-recency_truncate-constraint.json",
@@ -2860,6 +5128,11 @@
       "id": "exp001b",
       "label": "recorded",
       "path": "experiments/exp001b.json"
+    },
+    {
+      "id": "exp004",
+      "label": "recorded",
+      "path": "experiments/exp004.json"
     },
     {
       "id": "exp002",

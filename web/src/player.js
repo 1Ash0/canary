@@ -2,7 +2,7 @@
 // timeline), and handles pause/replay, scrubbing, keyboard stepping and the ?step= deep link.
 // Reduced motion, or a deep link, shows a still state with no autoplay (SITE_RULES §4.5).
 import { gsap } from 'gsap';
-import { renderStrata, extraBottom, ORDER, LAYER_LABEL, formatTokens } from '../../design/scene/strata.js';
+import { renderStrata, extraBottom, ORDER, LAYER_LABEL, formatTokens, fateWords } from '../../design/scene/strata.js';
 import { buildSchedule, timeForStep, frameAt, bind, apply } from '../../design/scene/timeline.js';
 import { motion } from './data.js';
 
@@ -25,7 +25,7 @@ export function mountPlayer({ root, run, height = { wide: 376, compact: 460 }, a
   const list = q('[data-fates]');
   if (compact && list) {
     list.innerHTML = run.canaries.map((k) => {
-      const detail = k.fate === 'changed' ? `→ ${k.after_text}` : k.fate === 'gone' ? 'absent from the summary' : 'named in the summary';
+      const detail = k.fate === 'changed' ? `→ ${k.after_text}` : k.fate === 'gone' ? fateWords(run).gone : fateWords(run).kept;
       return `<li class="fate-${k.fate}" data-fate-item="${k.id}"><span class="cite">${k.id} · ${k.type.replace('_', ' ')}</span> ${k.text} <span data-part="fate"><span class="cite">${k.fate}${k.fate === 'gone' ? ' ↓' : ''}</span> <span class="dim">${detail}</span></span></li>`;
     }).join('');
     for (const li of list.querySelectorAll('[data-fate-item]')) fateItems.push({ id: li.dataset.fateItem, li, fate: li.querySelector('[data-part="fate"]') });

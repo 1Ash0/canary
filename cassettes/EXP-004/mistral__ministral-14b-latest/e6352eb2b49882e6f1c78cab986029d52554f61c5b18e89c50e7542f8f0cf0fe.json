@@ -1,0 +1,167 @@
+{
+  "key": "e6352eb2b49882e6f1c78cab986029d52554f61c5b18e89c50e7542f8f0cf0fe",
+  "meta": {
+    "recorded_at": "2026-10-21",
+    "versions": {
+      "ctxcheck": "0.1.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "python": "3.12.6"
+    }
+  },
+  "request": {
+    "messages": [
+      {
+        "call_id": null,
+        "content": "You are an assistant helping a small engineering team. Use the tools provided.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "system",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "[Summary of earlier conversation]\nAll files (`config.yaml`, `schema.sql`, `report.csv`, `worker.py`, `cleanup.sh`, `routes.py`, `notes.md`) were scanned multiple times with no oddities detected. No errors or anomalies were flagged in any file. The billing account code **XQ-7660-MD** was noted for invoicing. Deployment rule: **only staging-us-3** is allowed. All status updates must be posted to **#sync-94**.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      },
+      {
+        "call_id": "s21-0",
+        "content": "[tool_call read_file {\"path\": \"routes.py\"}]",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": {
+          "args": {
+            "path": "routes.py"
+          },
+          "id": "s21-0",
+          "name": "read_file"
+        }
+      },
+      {
+        "call_id": "s21-0",
+        "content": "17:40:09 renderer.retried 153 records in 284ms\n19:40:20 scheduler.queued 192 batches in 339ms\n17:52:48 exporter.processed 7 rows in 285ms\n11:54:46 renderer.flushed 297 requests in 406ms\n22:27:57 exporter.compacted 362 rows in 251ms\n12:40:11 scheduler.queued 4 requests in 117ms\n14:58:08 indexer.retried 797 batches in 178ms\n18:41:50 cache.flushed 43 rows in 388ms\n20:36:43 parser.skipped 559 batches in 97ms\n20:12:22 indexer.flushed 592 segments in 215ms",
+        "is_error": false,
+        "lead_in": "",
+        "role": "tool",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "I read routes.py. indexer skipped 492 files; nothing looks wrong.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "assistant",
+        "tool_call": null
+      },
+      {
+        "call_id": null,
+        "content": "Please deploy build 411. The available targets are: staging-us-3, dev-1, qa-2, prod-eu-1. Use the deploy tool.",
+        "is_error": false,
+        "lead_in": "",
+        "role": "user",
+        "tool_call": null
+      }
+    ],
+    "model": "ministral-14b-latest",
+    "params": {},
+    "provider": "mistral",
+    "tools": [
+      {
+        "description": "Read a file and return its contents.",
+        "input_schema": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "name": "read_file"
+      },
+      {
+        "description": "Post a status update to a channel.",
+        "input_schema": {
+          "properties": {
+            "channel": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "channel",
+            "text"
+          ],
+          "type": "object"
+        },
+        "name": "post_status"
+      },
+      {
+        "description": "File an invoice against a billing account.",
+        "input_schema": {
+          "properties": {
+            "account_code": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "account_code",
+            "amount"
+          ],
+          "type": "object"
+        },
+        "name": "file_invoice"
+      },
+      {
+        "description": "Deploy a build to a target environment.",
+        "input_schema": {
+          "properties": {
+            "build": {
+              "type": "string"
+            },
+            "target": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "target",
+            "build"
+          ],
+          "type": "object"
+        },
+        "name": "deploy"
+      }
+    ],
+    "trial_index": 0
+  },
+  "response": {
+    "cache_creation_input_tokens": null,
+    "cache_read_input_tokens": null,
+    "extra": {
+      "finish_reason": "tool_calls"
+    },
+    "input_tokens": 705,
+    "model_id": "ministral-14b-latest",
+    "output_tokens": 22,
+    "text": "",
+    "tool_call": {
+      "args": {
+        "build": "411",
+        "target": "staging-us-3"
+      },
+      "id": "hm5rq44XG",
+      "name": "deploy"
+    }
+  }
+}

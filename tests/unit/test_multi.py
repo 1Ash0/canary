@@ -30,7 +30,7 @@ def test_the_three_packs_share_one_history_and_differ_only_in_the_request() -> N
     assert a.scenario.turns[:-1] == b.scenario.turns[:-1] == c.scenario.turns[:-1]
     requests = {x.scenario.turns[-1].text for x in (a, b, c)}
     assert len(requests) == 3
-    assert [t.spec.name for t in a.tools] == [t.spec.name for t in c.tools]  # same window
+    assert [t.spec.name for t in a.tools] == [t.spec.name for t in c.tools]  # same tool specs
 
 
 @pytest.mark.parametrize("pack", PACKS)

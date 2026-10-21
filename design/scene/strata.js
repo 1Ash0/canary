@@ -40,7 +40,15 @@ export function layout(run, { width, height, compact = width < 560 }) {
   return { N, AT, compact, labelW, left, top, bottom, gap, span, maxX, limitX, labelX: maxX + 20, pitch, bar, scale, rowY, seamY, axisY, width, height };
 }
 
+// How a fact's fate is described depends on the policy: only a summary can "name" or omit a fact;
+// every other policy keeps the planted turn or cuts it. Runs without a policy (fixtures) say window.
+export function fateWords(run) {
+  const summary = run.meta?.policy === 'llm_summary';
+  return { kept: summary ? 'named in the summary' : 'still in the window', gone: summary ? 'absent from the summary' : 'cut from the window' };
+}
+
 export function renderStrata(run, opts) {
+  const W = fateWords(run);
   const L = layout(run, opts);
   const { AT, left, limitX, maxX, span, labelX, bar, scale, rowY, seamY, axisY, compact, width, height } = L;
   const base = [], seam = [], leads = [], marks = [], texts = [];
@@ -111,14 +119,14 @@ export function renderStrata(run, opts) {
       fx = px; fy = axisY + 42;
       leads.push(`<g data-drop="${k.id}"><line class="sx-drop" x1="${f1(px)}" y1="${f1(seamY + 1)}" x2="${f1(px)}" y2="${f1(fy - r - 3)}"/></g>`);
       if (compact) extra = text(fx + r + 5, fy + 4, `${k.id} gone ↓`, 'sx-label sx-loss');
-      callout(`${k.id}-fate`, fx + r, fy, `${k.id} · gone ↓`, 'absent from the summary', 'sx-loss', 'sx-lead-loss');
+      callout(`${k.id}-fate`, fx + r, fy, `${k.id} · gone ↓`, W.gone, 'sx-loss', 'sx-lead-loss');
     } else {
       // keep kept/changed markers (halo included) from touching, whatever the row pitch
       const rowsApart = Math.max(2, Math.ceil((2 * (r + 3) + 4) / L.pitch));
       const row = k.fate === 'kept' ? AT + 1 : Math.min(L.N, AT + 1 + rowsApart);
       fx = sumCenter; fy = rowY(row) + bar / 2;
       if (compact) extra = text(fx + r + 5, fy + 4, `${k.id} ${k.fate}`, 'sx-label sx-strong');
-      callout(`${k.id}-fate`, fx + r, fy, `${k.id} · ${k.fate}`, k.fate === 'changed' ? `→ ${k.after_text}` : 'named in the summary', '', k.fate === 'changed' ? 'sx-lead sx-dashed' : 'sx-lead');
+      callout(`${k.id}-fate`, fx + r, fy, `${k.id} · ${k.fate}`, k.fate === 'changed' ? `→ ${k.after_text}` : W.kept, '', k.fate === 'changed' ? 'sx-lead sx-dashed' : 'sx-lead');
     }
     // dx/dy: offset from the fate position back to the plant position; the marker travels it at compaction
     marks.push(`<g data-fate="${k.id}" data-kind="${k.fate}" data-dx="${f1(px - fx)}" data-dy="${f1(py - fy)}">${dot(fx, fy, k.fate)}${extra}</g>`);

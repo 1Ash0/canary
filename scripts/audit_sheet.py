@@ -70,14 +70,20 @@ def main() -> int:
     for r in rows:
         events = [json.loads(line) for line in
                   (ROOT / r["trace_path"]).read_text(encoding="utf-8").splitlines()]
-        planted = next(e for e in events if e["type"] == "canary_planted")
+        planted_all = [e for e in events if e["type"] == "canary_planted"]
+        planted = planted_all[0]
         summary = next((e for e in events if e["type"] == "message"
                         and e.get("origin") == "summary"), None)
         body = summary["content"].split("\n", 1)[1].strip() if summary else "(no summary)"
         # dash variants (U+2010 to U+2015, U+2212) shown as "-", so searching for the value works
         body = "".join("-" if 0x2010 <= ord(ch) <= 0x2015 or ch == "−" else ch
                        for ch in body)
-        out += [f"## Seed {r['seed']}", "", f"Planted value: `{planted['value']}`", "",
+        if len(planted_all) > 1:  # multi packs: one summary, three facts to judge
+            values = "Planted values (judge each): " + ", ".join(
+                f"{e['canary_id']} `{e['value']}`" for e in planted_all)
+        else:
+            values = f"Planted value: `{planted['value']}`"
+        out += [f"## Seed {r['seed']}", "", values, "",
                 *[f"> {line}" if line else ">" for line in body.splitlines()], "",
                 "call: ______  note: ______", ""]
         calls.append({"model": args.model, "seed": r["seed"], "call": "", "note": ""})
