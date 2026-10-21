@@ -121,3 +121,4 @@ Critique findings and what changed:
 
 ## Published, 2026-10-21
 Pushed to https://github.com/1Ash0/canary. The header and footer link to it; the earlier notes above saying there is no remote are history.
+- **Safe-zone cut (after the first post):** LinkedIn's full-screen phone viewer lays the author line over the top of a 4:5 video, the post text over the bottom and trims the sides. `--format safe` keeps everything inside the visible area: 120 px side margins, the caption below the author overlay, the source line under the caption, the chart at 1.7x so its labels stay apart. `design/video/out/canary-safe.mp4`.

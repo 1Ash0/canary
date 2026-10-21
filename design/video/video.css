@@ -41,3 +41,18 @@ html, body { margin: 0; background: var(--ground); }
 .square .mx-head { padding: 8px 0; font-size: 24px; }
 .square .mx-name { padding: 10px 0; font-size: 26px; }
 .square .mx-cell { padding: 8px 8px; font-size: 26px; line-height: 1.25; }
+/* safe: 120 px side margins, caption below LinkedIn's author overlay, nothing in the bottom 20% */
+.safe .cap { left: 120px; right: 120px; top: 236px; font-size: 48px; }
+.safe .cap .q { font-size: 43px; }
+.safe .stage { left: 120px; width: 840px; }
+.safe .readout, .safe .facts, .safe .call, .safe .matrix { left: 120px; right: 120px; }
+.safe .readout { font-size: 26px; gap: 40px; }
+.safe .fact { grid-template-columns: 60px 220px 250px 1fr; font-size: 25px; padding: 5px 0; }
+.safe .call { font-size: 26px; padding: 16px 20px; }
+.safe .call .note { font-size: 24px; }
+.safe .mx-row { grid-template-columns: 210px repeat(3, 1fr); column-gap: 12px; }
+.safe .mx-head { font-size: 22px; padding: 8px 0; }
+.safe .mx-name { font-size: 24px; padding: 10px 0; }
+.safe .mx-cell { font-size: 24px; padding: 8px 0; }
+.safe .source { left: 120px; right: 120px; top: 352px; bottom: auto; font-size: 21px; }
+.safe .cap { top: 226px; }

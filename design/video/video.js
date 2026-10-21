@@ -8,6 +8,9 @@ import { spring, clamp, ramp } from '../scene/motion.js';
 
 const q = new URLSearchParams(location.search);
 const SQUARE = q.get('format') === 'square';
+// "safe": 4:5 with everything inside the area LinkedIn's full-screen phone view leaves visible
+// (it lays the author line over the top, the post text over the bottom, and trims the sides)
+const SAFE = q.get('format') === 'safe';
 const DATA = q.get('data') ?? '../../web/public/data';
 const RUN = q.get('run') ?? 'exp004-s19-mistral-head_tail-multi_code';
 const $ = (s) => document.querySelector(s);
@@ -20,18 +23,22 @@ const S = tokens.motion.spring;
 const sp = (t, name) => spring(t, S[name].k, S[name].d);
 
 // layout per format (px at 1080 wide)
-const L = SQUARE
+const L = SAFE
+  ? { h: 1350, stageTop: 408, stageH: 470, readout: 900, facts: 950, call: 950, matrixTop: 650, shrink: 0.5, w: 840 }
+  : SQUARE
   ? { h: 1080, stageTop: 262, stageH: 470, readout: 742, facts: 806, call: 806, matrixTop: 452, shrink: 0.4 }
   : { h: 1350, stageTop: 300, stageH: 540, readout: 870, facts: 950, call: 950, matrixTop: 650, shrink: 0.52 };
 document.querySelector('[data-frame]').classList.toggle('square', SQUARE);
+document.querySelector('[data-frame]').classList.toggle('safe', SAFE);
+const W = L.w ?? 952;
 
 // ---- the recorded episode ------------------------------------------------------------------
 const stage = $('[data-stage]');
 stage.style.top = `${L.stageTop}px`;
 // drawn at half size and scaled 2x: the scene's labels are sized for the site, and a phone shows
 // this frame at about a third of 1080, so every label doubles (vector, so it stays crisp)
-const ZOOM = SQUARE ? 1.8 : 2;  // the square frame is shorter: a smaller zoom keeps the chart's rows apart
-stage.innerHTML = renderStrata(run, { width: 952 / ZOOM, height: L.stageH / ZOOM, compact: false });
+const ZOOM = SQUARE ? 1.8 : SAFE ? 1.7 : 2;  // the square frame is shorter: a smaller zoom keeps the chart's rows apart
+stage.innerHTML = renderStrata(run, { width: W / ZOOM, height: L.stageH / ZOOM, compact: false });
 const refs = bind(stage.querySelector('svg'));
 const schedule = buildSchedule(run, tokens.motion, { start: 0 });
 const SLOW = 1.25;            // the scene plays a quarter slower than on the site: captions need time

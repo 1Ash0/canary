@@ -1,7 +1,7 @@
 // Render the Canary video (D5, ADR-016): a static server over the repo, Playwright calls
 // window.seek(t) for every frame, ffmpeg encodes. Deterministic: the same inputs give the same
 // frames (checked with --check, which hashes one frame from two separate page loads).
-// Usage: node design/scripts/render-video.mjs [--format portrait|square] [--fps 30] [--check]
+// Usage: node design/scripts/render-video.mjs [--format portrait|square|safe] [--fps 30] [--check]
 //        [--sheet] -> design/video/out/canary-<format>.mp4 (+ contact sheet)
 import { createServer } from 'node:http';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
