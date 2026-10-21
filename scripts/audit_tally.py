@@ -35,6 +35,9 @@ for _tag, _pack in (("gpt-oss-20b", "constraint"), ("ministral-14b-latest", "con
                                 "results/EXP-002/episodes.jsonl",
                                 f"results/EXP-002/audit_tally_{_tag}.json",
                                 ["cassettes/EXP-002"])
+AUDITS["exp001b"] = ("docs/audit/EXP-001b-audit-calls-gpt-oss-20b.json",
+                     "results/EXP-001b/episodes.jsonl", "results/EXP-001b/audit_tally.json",
+                     ["cassettes/EXP-001b"])
 FILTERS = {k: {"policy": "llm_summary", "pack": "identifier" if k.endswith("identifier")
                else "constraint"} for k in AUDITS if k.startswith("exp002-")}
 PRESENT = {"verbatim", "reworded"}

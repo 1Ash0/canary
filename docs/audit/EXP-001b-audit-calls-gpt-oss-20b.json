@@ -1,0 +1,164 @@
+[
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 1,
+    "call": "dropped",
+    "note": "The summary does not retain the planted channel identifier."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 2,
+    "call": "verbatim",
+    "note": "The planted channel #ledger-93 is stated exactly."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 3,
+    "call": "verbatim",
+    "note": "The planted channel #ledger-91 is stated exactly."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 4,
+    "call": "verbatim",
+    "note": "The planted channel #harbor-22 is stated exactly."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 5,
+    "call": "dropped",
+    "note": "The summary omits the planted channel #sync-41."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 6,
+    "call": "verbatim",
+    "note": "The planted channel #sync-70 is stated exactly."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 7,
+    "call": "dropped",
+    "note": "The summary focuses on metrics and does not retain #intake-98."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 8,
+    "call": "dropped",
+    "note": "The summary omits the planted channel #pipeline-61."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 9,
+    "call": "dropped",
+    "note": "The summary lists queue metrics but omits #ledger-58."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 10,
+    "call": "verbatim",
+    "note": "The planted channel #pipeline-60 is stated exactly."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 11,
+    "call": "verbatim",
+    "note": "The planted channel #ledger-59 is stated exactly."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 12,
+    "call": "dropped",
+    "note": "The summary omits the planted channel #triage-98."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 13,
+    "call": "verbatim",
+    "note": "The planted channel #intake-34 is stated exactly."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 14,
+    "call": "verbatim",
+    "note": "The planted channel #intake-72 is stated exactly."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 15,
+    "call": "dropped",
+    "note": "The summary omits the planted channel #relay-85."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 16,
+    "call": "dropped",
+    "note": "The summary omits the planted channel #ledger-38."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 17,
+    "call": "dropped",
+    "note": "The summary does not retain the planted channel #harbor-24."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 18,
+    "call": "verbatim",
+    "note": "The planted channel #ledger-63 is stated exactly."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 19,
+    "call": "dropped",
+    "note": "The summary omits the planted channel #triage-38."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 20,
+    "call": "verbatim",
+    "note": "The planted channel #relay-67 is stated exactly."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 21,
+    "call": "dropped",
+    "note": "The summary mentions a channel rule but does not name #harbor-20."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 22,
+    "call": "reworded",
+    "note": "The channel is rendered as ledger\u201171 with a nonstandard hyphen, so the value is recognizable but not exact."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 23,
+    "call": "dropped",
+    "note": "The summary omits the planted channel #harbor-73."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 24,
+    "call": "dropped",
+    "note": "The summary omits the planted channel #harbor-70."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 25,
+    "call": "dropped",
+    "note": "The summary omits the planted channel #relay-19."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 26,
+    "call": "dropped",
+    "note": "The summary omits the planted channel #sync-81."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 27,
+    "call": "verbatim",
+    "note": "The planted channel #ledger-94 is stated exactly."
+  }
+]
