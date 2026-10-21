@@ -26,10 +26,19 @@ KIND = {"system": "system", "user": "history", "assistant": "history", "tool": "
 
 def _window(seed: int, position: int, pack: str = "constraint") -> tuple[list[Message], int, Any]:
     """The window as the policy sees it at the probe: system, every turn, then the probe."""
+    msgs, tools_tokens, built, _ = _window_with_facts(seed, position, pack)
+    return msgs, tools_tokens, built
+
+
+def _window_with_facts(seed: int, position: int, pack: str) -> tuple[list[Message], int, Any,
+                                                                     dict[int, str]]:
+    """As `_window`, plus which step plants which fact (multi packs plant three)."""
     built = build_pack(pack, seed, canary_turn=position)
     history = replace(built.scenario, turns=built.scenario.turns[:-1])
     events = run(history, ScriptedProvider([]), built.tools, limit_tokens=10**9, clock=lambda: "t")
     tools_tokens = events[0].tools_tokens_est  # type: ignore[union-attr]
+    step_of = {e.message_id: e.step for e in events if isinstance(e, MessageEvent)}
+    fact_at = {step_of[e.message_id]: e.canary_id for e in events if e.type == "canary_planted"}
     msgs = []
     for e in events:
         if isinstance(e, MessageEvent):
@@ -39,7 +48,7 @@ def _window(seed: int, position: int, pack: str = "constraint") -> tuple[list[Me
                                 tool_call=_marker() if call else None))
     probe = built.scenario.turns[-1].text
     msgs.append(Message("probe", "user", probe, "user", count(probe), len(built.scenario.turns)))
-    return msgs, tools_tokens, built
+    return msgs, tools_tokens, built, fact_at
 
 
 def _marker():
@@ -53,7 +62,7 @@ def _placeholder_tokens(m: Message) -> int:
 
 def lab_history(seed: int, pack: str = "constraint") -> dict[str, Any]:
     """One seed's history, grouped by turn so the browser can move the rule turn anywhere."""
-    msgs, tools_tokens, built = _window(seed, 1, pack)
+    msgs, tools_tokens, built, fact_at = _window_with_facts(seed, 1, pack)
     system, probe = msgs[0], msgs[-1]
     turns: dict[int, list[dict[str, Any]]] = {}
     for m in msgs[1:-1]:
@@ -62,26 +71,35 @@ def lab_history(seed: int, pack: str = "constraint") -> dict[str, Any]:
             "tokens": m.tokens_est, "call": m.tool_call is not None,
             "masked": _placeholder_tokens(m) if m.role == "tool" else None,
             "text": m.content[:160],
+            **({"fact": fact_at[m.step]} if m.step in fact_at else {}),
         })
-    ordered = [turns[k] for k in sorted(turns)]
-    rule_at = next(i for i, t in enumerate(ordered) if any(x["kind"] == "rule" for x in t))
-    rule_turn = ordered.pop(rule_at)
-    return {
+    steps = sorted(turns)
+    ordered = [turns[k] for k in steps]
+    fact_idx = [i for i, k in enumerate(steps) if k in fact_at]
+    out = {
         "seed": seed, "pack": pack, "tools_tokens": tools_tokens,
         "system": {"tokens": system.tokens_est, "text": system.content[:160]},
-        "rule": rule_turn, "filler": ordered,
         "probe": {"tokens": probe.tokens_est, "text": probe.content},
         "value": built.canary_value,
     }
+    if len(fact_idx) > 1:  # several facts at fixed depths: the browser puts each back at `at`
+        out["facts"] = [{"id": fact_at[steps[i]], "at": i, "turn": ordered[i]} for i in fact_idx]
+        out["filler"] = [t for i, t in enumerate(ordered) if i not in fact_idx]
+        out["rule"] = ordered[fact_idx[0]]
+    else:
+        out["rule"] = ordered.pop(fact_idx[0])
+        out["filler"] = ordered
+    return out
 
 
-def parity_cases(seeds: range, positions: tuple[int, ...], budgets: tuple[int, ...]) -> list[dict]:
+def parity_cases(seeds: range, positions: tuple[int, ...], budgets: tuple[int, ...],
+                 pack: str = "constraint") -> list[dict]:
     """What the Python policies keep for each (seed, position, budget, policy): indices into the
     window [system, *turn messages in order, probe], and which tool outputs were masked."""
     cases = []
     for seed in seeds:
         for position in positions:
-            msgs, tools_tokens, _ = _window(seed, position)
+            msgs, tools_tokens, _ = _window(seed, position, pack)
             index = {m.id: i for i, m in enumerate(msgs)}
             total = tools_tokens + sum(m.tokens_est for m in msgs)
             for limit in budgets:

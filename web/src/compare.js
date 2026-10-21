@@ -7,7 +7,7 @@ import { renderStrata, formatTokens, totalOf } from '../../design/scene/strata.j
 import { buildSchedule, timeForStep, frameAt, bind, apply } from '../../design/scene/timeline.js';
 import { gsap, ScrollTrigger, MOTION } from './motion-kit.js';
 import { motion, BASE } from './data.js';
-import { POLICY_NAME, CANARY } from './episode.js';
+import { POLICY_NAME, CANARY, factOf } from './episode.js';
 
 const PIN = `(min-width: 1024px) and (min-height: 680px) and ${MOTION}`;
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -94,8 +94,9 @@ export function mountCompare(root, ep, loadRun) {
       const row = panel.run.steps[Math.max(1, f.readout.step) - 1];
       panel.out('step').textContent = `${f.readout.step} / ${panel.run.steps.length}`;
       panel.out('tokens').textContent = `${formatTokens(totalOf(row))} / ${formatTokens(panel.run.meta.limit_tokens)}`;
-      const k = panel.run.canaries[0];
-      const settled = f.canaries[0]?.fateCallout > 0.5;
+      const k = factOf(panel.run, ep.get().canary);
+      const at = panel.run.canaries.indexOf(k);
+      const settled = f.canaries[at]?.fateCallout > 0.5;
       const fateEl = panel.out('fate');
       fateEl.textContent = settled ? (k.fate === 'gone' ? 'gone ↓' : 'kept') : 'in the window';
       fateEl.classList.toggle('is-gone', settled && k.fate === 'gone');
@@ -118,7 +119,9 @@ export function mountCompare(root, ep, loadRun) {
     if (mine !== token) return;  // a newer pick arrived while these loaded
     const [A, B] = keys.map((k) => ep.side(k));
     const name = namer(A, B);
-    const rule = runs[0].transcript.find((m) => m.origin === 'canary')?.text ?? runs[0].canaries[0].text;
+    const graded = factOf(runs[0], state.canary);
+    const rule = runs[0].transcript.find((m) => m.origin === 'canary' && m.text.includes(graded.text))?.text ?? graded.text;
+    const others = runs[0].canaries.length - 1;
 
     root.querySelector('[data-compare-lede]').textContent =
       `${CANARY[state.canary].name}, seed ${state.seed} of EXP-002, recorded twice: the same ${runs[0].steps.length - 1} scripted turns, the same rule, ` +
@@ -133,9 +136,9 @@ export function mountCompare(root, ep, loadRun) {
       ? BOTH[A.policy]
       : `${cap(POLICY_NAME[A.policy])} ${MECHANISM[A.policy]}; ${POLICY_NAME[B.policy]} ${MECHANISM[B.policy]}.`;
     const notes = [
-      `Turn 2 plants it: “${rule}” Both runs carry the same history toward the limit.`,
+      `Turn ${graded.planted_step} plants the fact this request tests: “${rule}”${others ? ` ${others} other facts sit elsewhere in the same history; the chart marks all of them.` : ''} Both runs carry the same history toward the limit.`,
       `The next request needs a model call and the window is over budget, so the harness makes room. ${mech} That cut is the seam.`,
-      `${fateSentence(A, runs[0].canaries[0].fate, name(A))} ${fateSentence(B, runs[1].canaries[0].fate, name(B))}`,
+      `${fateSentence(A, factOf(runs[0], state.canary).fate, name(A))} ${fateSentence(B, factOf(runs[1], state.canary).fate, name(B))}`,
     ];
     list.innerHTML = notes.map((n, i) => `<li data-note="${i}"><span class="note-n">${i + 1}</span><span>${esc(n)}</span></li>`).join('');
     noteEls = [...list.children];

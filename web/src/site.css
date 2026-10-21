@@ -469,3 +469,30 @@ a.dot { cursor: pointer; }
   .chapter-line { grid-column: 2; }
   .chapter-go { display: none; }
 }
+
+/* the Lab's three-fact verdict */
+.fact-list { list-style: none; margin: var(--space-xs) 0 0; padding: 0; font-size: var(--type-small-size); color: var(--ink-2); }
+.fact-list li { padding-block: var(--space-xxs); }
+.fact-list .mono { color: var(--ink); margin-right: var(--space-xs); }
+.lab-seg input:disabled + span { opacity: 0.4; cursor: not-allowed; }
+
+/* EXP-004: which fact each policy lost (a table; words carry the meaning, colour only repeats it) */
+.fact-matrix { width: 100%; border-collapse: collapse; margin: 0 0 var(--space-sm); font-size: var(--type-small-size); }
+.fact-matrix th, .fact-matrix td { border-top: var(--line-hair) solid var(--hairline); padding: 0; text-align: left; vertical-align: top; }
+.fact-matrix thead th { padding: var(--space-sm) var(--space-sm) var(--space-sm) 0; font-family: var(--type-label-family); font-size: var(--type-label-size); font-weight: 400; color: var(--ink); }
+.fact-matrix thead .dim, .fact-matrix th .dim { display: block; color: var(--ink-3); }
+.fact-matrix tbody th { padding: var(--space-md) var(--space-sm) var(--space-md) 0; font-weight: 400; color: var(--ink); white-space: nowrap; }
+.fm-cell { all: unset; box-sizing: border-box; display: grid; gap: var(--space-xxs); width: 100%; padding: var(--space-md) var(--space-sm); cursor: pointer; }
+.fm-cell:hover { background: var(--surface); }
+.fm-cell:focus-visible { outline: var(--line-mark) solid var(--accent); outline-offset: calc(-1 * var(--line-mark)); }
+.fm-surv { font-family: var(--type-label-family); font-size: var(--type-label-size); color: var(--ink); }
+.fm-surv .dim { color: var(--ink-3); }
+.fm-gone { color: var(--loss); }
+.fm-rate { font-family: var(--type-data-family); font-variant-numeric: tabular-nums; color: var(--ink-2); }
+.fm-floor td { padding: var(--space-md) var(--space-sm); }
+.fm-floor th, .fm-floor .fm-rate { color: var(--ink-3); }
+.fm-bar { width: 100%; height: 10px; overflow: visible; }
+.fm-bar .axis { stroke: var(--hairline); stroke-width: var(--line-hair); }
+.fm-bar .range { stroke: var(--ink); stroke-width: var(--line-mark); }
+.fm-bar .rate { fill: var(--ink); }
+.fm-bar .rate.is-high { fill: var(--loss); }

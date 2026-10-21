@@ -37,15 +37,39 @@ function recordedLine(exp, policy, seed, position, limit) {
   return `<p class="lab-label"><span class="tag">recorded</span> This exact window, given to real models (${esc(exp.exp_id)})</p><ul class="lab-recorded">${items.join('')}</ul>`;
 }
 
-export function mountLab(root, lab, summaries, floor, exp002 = null, onCompare = null) {
-  const state = { policy: 'recency_truncate', limit: 2400, position: 1, seed: 0, summarizer: 'nvidia' };
-  const seeds = lab.seeds;
+const FACT_NAME = { C1: 'channel rule', I1: 'account code', D1: 'deploy target' };
+const FACT_PACK = { C1: 'multi_channel', I1: 'multi_code', D1: 'multi_deploy' };
+
+function recordedThree(exp, policy, seed, limit) {
+  if (!exp) return '<p class="note">The recorded three-fact runs (EXP-004) are not in yet; the window above is the real policy code.</p>';
+  if (limit !== exp.limit_tokens) return `<p class="note">Set the budget to ${nf.format(exp.limit_tokens)} to see what a real model did with this exact window, fact by fact.</p>`;
+  const items = Object.entries(FACT_PACK).map(([fact, pack]) => {
+    const b = exp.blocks.find((x) => x.pack === pack);
+    const d = b?.rows.find((r) => r.label === `treatment(${policy})`)?.seeds.find((x) => x.seed === seed);
+    if (!d) return '';
+    const ok = d.grade === 'respected';
+    return `<li><span class="mono">${fact}</span> asked for the ${FACT_NAME[fact]}: ${d.grade === 'not_applicable' ? 'no call' : ok ? 'got it right' : '<span class="is-loss">got it wrong</span>'}. ${d.run ? `<a href="${BASE}run/?run=${encodeURIComponent(d.run)}">Open</a>` : ''}</li>`;
+  }).filter(Boolean);
+  if (!items.length) return '';
+  return `<p class="lab-label"><span class="tag">recorded</span> This exact window, given to Mistral three times, once per fact (${esc(exp.exp_id)})</p><ul class="lab-recorded">${items.join('')}</ul>`;
+}
+
+export function mountLab(root, lab, summaries, floor, exp002 = null, onCompare = null, multi = null, exp004 = null) {
+  const q0 = new URLSearchParams(location.search);
+  const state = { policy: 'recency_truncate', limit: 2400, position: 1, seed: 0, summarizer: 'nvidia',
+    mode: multi && (q0.get('facts') === '3' || (q0.get('canary') ?? '').startsWith('multi')) ? 'three' : 'one' };
+  const seedsOf = () => (state.mode === 'three' ? multi.seeds : lab.seeds);
   // a seed in the URL (from the comparison or a shared link) opens the Lab on that history
-  const asked = seeds.findIndex((h) => h.seed === Number(new URLSearchParams(location.search).get('seed')));
+  const asked = seedsOf().findIndex((h) => h.seed === Number(q0.get('seed')));
   if (asked >= 0) state.seed = asked;
   root.innerHTML = `
     <div class="lab">
       <div class="lab-controls">
+        ${multi ? `<fieldset class="lab-seg" role="radiogroup" aria-label="What the history holds" data-mode>
+          <legend class="lab-label">Planted</legend>
+          <label><input type="radio" name="lab-mode" value="one"${state.mode === 'one' ? ' checked' : ''}><span>One rule</span></label>
+          <label><input type="radio" name="lab-mode" value="three"${state.mode === 'three' ? ' checked' : ''}><span>Three facts</span></label>
+        </fieldset>` : ''}
         <fieldset class="lab-seg" role="radiogroup" aria-label="Compaction policy">
           <legend class="lab-label">Policy</legend>
           ${Object.entries(POLICY_LABEL).map(([k, v]) => `<label><input type="radio" name="lab-policy" value="${k}"${k === state.policy ? ' checked' : ''}><span>${v}</span></label>`).join('')}
@@ -53,7 +77,7 @@ export function mountLab(root, lab, summaries, floor, exp002 = null, onCompare =
         <p class="lab-help" data-help></p>
         <label class="lab-range"><span class="lab-label">Window budget <output data-out-limit></output></span>
           <input type="range" min="800" max="3800" step="100" value="${state.limit}" data-limit></label>
-        <label class="lab-range"><span class="lab-label">Rule planted at turn <output data-out-pos></output></span>
+        <label class="lab-range"><span class="lab-label"><span data-pos-label>Rule planted at turn</span> <output data-out-pos></output></span>
           <input type="range" min="0" max="18" step="1" value="${state.position}" data-pos></label>
         <fieldset class="lab-seg" data-summarizer hidden aria-label="Summarizer">
           <legend class="lab-label">Summarizer</legend>
@@ -62,7 +86,7 @@ export function mountLab(root, lab, summaries, floor, exp002 = null, onCompare =
         <div class="lab-row">
           <button type="button" class="replay" data-seed>Another history</button>
           <span class="note" data-seed-label></span>
-          ${onCompare ? '<button type="button" class="link-quiet lab-compare" data-to-compare>Compare this history below ↓</button>' : ''}
+          ${onCompare ? '<button type="button" class="link-quiet lab-compare" data-to-compare>Compare this history →</button>' : ''}
         </div>
         <p class="lab-tag"><span class="tag" data-tag></span> <span class="note" data-tag-note></span></p>
       </div>
@@ -79,22 +103,34 @@ export function mountLab(root, lab, summaries, floor, exp002 = null, onCompare =
   const lostStat = `when the rule was never given (the floor condition), agents posted to the wrong channel in ${floor.k} of ${floor.n} recorded episodes`;
 
   function render() {
+    const seeds = seedsOf();
+    const three = state.mode === 'three';
+    // three facts: no recorded summaries are shown here, so the summary policy is not offered
+    if (three && state.policy === 'llm_summary') state.policy = 'recency_truncate';
+    root.querySelectorAll('input[name="lab-policy"]').forEach((el) => {
+      el.disabled = three && el.value === 'llm_summary';
+      el.checked = el.value === state.policy;
+    });
+    state.seed = Math.min(state.seed, seeds.length - 1);
     const h = seeds[state.seed];
     const summaryMode = state.policy === 'llm_summary';
     // recorded summaries exist for one configuration only: rule at turn 2, budget 2,400
     if (summaryMode) { state.position = 1; state.limit = 2400; }
     q('[data-limit]').value = state.limit; q('[data-pos]').value = state.position;
-    q('[data-limit]').disabled = q('[data-pos]').disabled = summaryMode;
+    q('[data-limit]').disabled = summaryMode;
+    q('[data-pos]').disabled = summaryMode || three;
     q('[data-out-limit]').textContent = `${nf.format(state.limit)} tokens`;
-    q('[data-out-pos]').textContent = String(state.position + 1);
+    q('[data-out-pos]').textContent = three ? '2, 9 and 16' : String(state.position + 1);
+    q('[data-pos-label]').textContent = three ? 'Facts planted at turns' : 'Rule planted at turn';
     q('[data-help]').textContent = POLICY_HELP[state.policy] + (summaryMode
-      ? ' They were recorded at a budget of 2,400 with the rule at turn 2, so both sliders are fixed here.' : '');
+      ? ' They were recorded at a budget of 2,400 with the rule at turn 2, so both sliders are fixed here.'
+      : three ? ' Three facts sit at fixed depths: a channel rule, an account code and a deploy target.' : '');
     q('[data-summarizer]').hidden = !summaryMode;
     q('[data-seed-label]').textContent = `history ${h.seed} of ${seeds.length}`;
 
     const win = assemble(h, state.position);
     const before = h.tools_tokens + tokensOf(win);
-    let rows, after, compacted, ruleIn, verdictNote = '', summary = null, irreducible = false;
+    let rows, after, compacted, ruleIn, factsIn = {}, verdictNote = '', summary = null, irreducible = false;
     if (!summaryMode) {
       const res = compact(h, win, state.policy, state.limit);
       irreducible = res.irreducible;
@@ -102,6 +138,8 @@ export function mountLab(root, lab, summaries, floor, exp002 = null, onCompare =
       const keptIds = new Set(res.out.filter((m) => !m.maskedFrom).map((m) => m.id));
       const maskedIds = new Set(res.out.filter((m) => m.maskedFrom).map((m) => m.id));
       ruleIn = win.filter((m) => m.kind === 'rule').every((m) => keptIds.has(m.id));
+      factsIn = Object.fromEntries([...new Set(win.filter((m) => m.fact).map((m) => m.fact))]
+        .map((id) => [id, win.filter((m) => m.fact === id).every((m) => keptIds.has(m.id))]));
       rows = win.map((m) => ({
         ...m, state: maskedIds.has(m.id) ? 'masked' : keptIds.has(m.id) ? 'in' : 'out',
         tokens: maskedIds.has(m.id) ? res.out.find((o) => o.id === m.id).tokens : m.tokens,
@@ -139,6 +177,7 @@ export function mountLab(root, lab, summaries, floor, exp002 = null, onCompare =
       row.segments.push({ kind: r.kind, tokens: r.tokens, state: r.state === 'added' ? 'in' : r.state });
       if (r.kind === 'rule') row.cls = 'ax-rule-row';
       if (r.lost) row.lost = true;
+      if (r.fact && three) row.note = `${r.fact} ${FACT_NAME[r.fact]}`;
       if (r.kind === 'summary') { row.cls = 'ax-summary-row'; row.note = r.note; }
     }
     const span = Math.max(before, state.limit);
@@ -154,6 +193,11 @@ export function mountLab(root, lab, summaries, floor, exp002 = null, onCompare =
       verdict.innerHTML = '<p class="lab-big">Cannot fit.</p><p>The system prompt and the current request alone exceed this budget; no policy can help.</p>';
     } else if (!compacted) {
       verdict.innerHTML = `<p class="lab-big">Fits. Nothing compacted.</p><p>The window is under ${nf.format(state.limit)} tokens, so every turn stays.</p>`;
+    } else if (three) {
+      const ids = Object.keys(factsIn);
+      const n = ids.filter((id) => factsIn[id]).length;
+      verdict.innerHTML = `<p class="lab-big${n === ids.length ? ' is-ok' : ' is-loss'}">${n} of ${ids.length} facts still in the window${n < ids.length ? ' ↓' : '.'}</p>
+        <ul class="fact-list">${ids.map((id) => `<li><span class="mono">${id}</span> ${FACT_NAME[id]}: ${factsIn[id] ? 'kept' : '<span class="is-loss">gone ↓</span>'}</li>`).join('')}</ul>`;
     } else if (ruleIn) {
       verdict.innerHTML = `<p class="lab-big is-ok">Rule still in the window.</p><p>${summaryMode ? 'The summary carried it through.' : 'The agent can still follow it.'} ${verdictNote}</p>`;
     } else {
@@ -168,7 +212,8 @@ export function mountLab(root, lab, summaries, floor, exp002 = null, onCompare =
       const marked = plain.includes(h.value) ? plain.split(h.value).join(`<mark>${esc(h.value)}</mark>`) : plain;
       sumEl.innerHTML = `<p class="lab-label">The summary ${esc(SUMMARIZER[state.summarizer])} wrote${summary.truncated ? ' (cut off by the token cap)' : ''}</p><blockquote class="cons-quote">${marked}</blockquote>`;
     }
-    q('[data-real]').innerHTML = irreducible ? '' : recordedLine(exp002, state.policy, h.seed, state.position, state.limit);
+    q('[data-real]').innerHTML = irreducible ? '' : three ? recordedThree(exp004, state.policy, h.seed, state.limit)
+      : recordedLine(exp002, state.policy, h.seed, state.position, state.limit);
     q('[data-tag]').textContent = summaryMode ? 'recorded' : 'simulated';
     q('[data-tag-note]').textContent = summaryMode
       ? `${summary?.exp ?? 'EXP-002'}, seed ${h.seed}. Real model output.`
@@ -176,11 +221,12 @@ export function mountLab(root, lab, summaries, floor, exp002 = null, onCompare =
   }
 
   root.querySelectorAll('input[name="lab-policy"]').forEach((el) => el.addEventListener('change', () => { state.policy = el.value; render(); }));
+  root.querySelectorAll('input[name="lab-mode"]').forEach((el) => el.addEventListener('change', () => { state.mode = el.value; render(); }));
   root.querySelectorAll('input[name="lab-sum"]').forEach((el) => el.addEventListener('change', () => { state.summarizer = el.value; render(); }));
   q('[data-limit]').addEventListener('input', (e) => { state.limit = +e.target.value; render(); });
   q('[data-pos]').addEventListener('input', (e) => { state.position = +e.target.value; render(); });
-  q('[data-seed]').addEventListener('click', () => { state.seed = (state.seed + 1) % seeds.length; render(); });
-  q('[data-to-compare]')?.addEventListener('click', () => onCompare(seeds[state.seed].seed, state.policy));
+  q('[data-seed]').addEventListener('click', () => { state.seed = (state.seed + 1) % seedsOf().length; render(); });
+  q('[data-to-compare]')?.addEventListener('click', () => onCompare(seedsOf()[state.seed].seed, state.policy, state.mode));
   render();
   // the policy grid below hands a policy and budget to the Lab
   return {

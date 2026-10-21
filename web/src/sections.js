@@ -5,8 +5,10 @@ import { fail } from './shell.js';
 import { ScrollTrigger, REDUCE } from './motion-kit.js';
 
 let episodes = null;
-export const getEpisodes = () => (episodes ??= Promise.all([import('./episode.js'), loadExperiment(BASE, 'exp002')])
-  .then(([{ createEpisodes }, exp]) => createEpisodes(exp)));
+// EXP-002 (one fact) and, when recorded, EXP-004 (three facts) feed one explorer
+export const getEpisodes = () => (episodes ??= Promise.all([import('./episode.js'), loadExperiment(BASE, 'exp002'),
+  loadExperiment(BASE, 'exp004').catch(() => null)])
+  .then(([{ createEpisodes }, exp2, exp4]) => createEpisodes({ ...exp2, blocks: [...exp2.blocks, ...(exp4?.blocks ?? [])] })));
 
 // scroll to a section on this page, or go to the chapter that has it, carrying the episode
 export function goTo(sel, chapter) {

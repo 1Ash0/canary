@@ -10,6 +10,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 54,
+        "text": "Please post this week's status update to the team. Update text: \"Build 310 passed; 2 tickets closed this week.\" The channels in this workspace are: #eng, #pipeline-48, #general, #team. Use the post_status tool."
+      },
+      "value": "#pipeline-48",
       "rule": [
         {
           "role": "user",
@@ -17,7 +22,8 @@
           "tokens": 23,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #pipeline-48 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #pipeline-48 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -25,7 +31,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -641,12 +648,7 @@
             "text": "I read cleanup.sh. cache processed 676 files; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 54,
-        "text": "Please post this week's status update to the team. Update text: \"Build 310 passed; 2 tickets closed this week.\" The channels in this workspace are: #eng, #pipeline-48, #general, #team. Use the post_status tool."
-      },
-      "value": "#pipeline-48"
+      ]
     },
     {
       "seed": 2,
@@ -656,6 +658,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 55,
+        "text": "Please post this week's status update to the team. Update text: \"Build 361 passed; 4 tickets closed this week.\" The channels in this workspace are: #releases, #eng, #random, #ledger-93. Use the post_status tool."
+      },
+      "value": "#ledger-93",
       "rule": [
         {
           "role": "user",
@@ -663,7 +670,8 @@
           "tokens": 23,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #ledger-93 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #ledger-93 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -671,7 +679,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -1287,12 +1296,7 @@
             "text": "I read notes.md. parser compacted 222 records; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 55,
-        "text": "Please post this week's status update to the team. Update text: \"Build 361 passed; 4 tickets closed this week.\" The channels in this workspace are: #releases, #eng, #random, #ledger-93. Use the post_status tool."
-      },
-      "value": "#ledger-93"
+      ]
     },
     {
       "seed": 3,
@@ -1302,6 +1306,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 55,
+        "text": "Please post this week's status update to the team. Update text: \"Build 802 passed; 4 tickets closed this week.\" The channels in this workspace are: #team, #releases, #ledger-91, #eng. Use the post_status tool."
+      },
+      "value": "#ledger-91",
       "rule": [
         {
           "role": "user",
@@ -1309,7 +1318,8 @@
           "tokens": 23,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #ledger-91 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #ledger-91 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -1317,7 +1327,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -1933,12 +1944,7 @@
             "text": "I read notes.md. exporter queued 206 rows; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 55,
-        "text": "Please post this week's status update to the team. Update text: \"Build 802 passed; 4 tickets closed this week.\" The channels in this workspace are: #team, #releases, #ledger-91, #eng. Use the post_status tool."
-      },
-      "value": "#ledger-91"
+      ]
     },
     {
       "seed": 4,
@@ -1948,6 +1954,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 56,
+        "text": "Please post this week's status update to the team. Update text: \"Build 135 passed; 4 tickets closed this week.\" The channels in this workspace are: #releases, #harbor-22, #alerts, #general. Use the post_status tool."
+      },
+      "value": "#harbor-22",
       "rule": [
         {
           "role": "user",
@@ -1955,7 +1966,8 @@
           "tokens": 24,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #harbor-22 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #harbor-22 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -1963,7 +1975,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -2579,12 +2592,7 @@
             "text": "I read notes.md. importer compacted 817 entries; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 56,
-        "text": "Please post this week's status update to the team. Update text: \"Build 135 passed; 4 tickets closed this week.\" The channels in this workspace are: #releases, #harbor-22, #alerts, #general. Use the post_status tool."
-      },
-      "value": "#harbor-22"
+      ]
     },
     {
       "seed": 5,
@@ -2594,6 +2602,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 54,
+        "text": "Please post this week's status update to the team. Update text: \"Build 788 passed; 6 tickets closed this week.\" The channels in this workspace are: #random, #general, #sync-41, #alerts. Use the post_status tool."
+      },
+      "value": "#sync-41",
       "rule": [
         {
           "role": "user",
@@ -2601,7 +2614,8 @@
           "tokens": 23,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #sync-41 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #sync-41 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -2609,7 +2623,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -3225,12 +3240,7 @@
             "text": "I read worker.py. gateway validated 189 records; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 54,
-        "text": "Please post this week's status update to the team. Update text: \"Build 788 passed; 6 tickets closed this week.\" The channels in this workspace are: #random, #general, #sync-41, #alerts. Use the post_status tool."
-      },
-      "value": "#sync-41"
+      ]
     },
     {
       "seed": 6,
@@ -3240,6 +3250,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 54,
+        "text": "Please post this week's status update to the team. Update text: \"Build 366 passed; 5 tickets closed this week.\" The channels in this workspace are: #eng, #alerts, #sync-70, #team. Use the post_status tool."
+      },
+      "value": "#sync-70",
       "rule": [
         {
           "role": "user",
@@ -3247,7 +3262,8 @@
           "tokens": 23,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #sync-70 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #sync-70 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -3255,7 +3271,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -3871,12 +3888,7 @@
             "text": "I read routes.py. importer skipped 552 segments; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 54,
-        "text": "Please post this week's status update to the team. Update text: \"Build 366 passed; 5 tickets closed this week.\" The channels in this workspace are: #eng, #alerts, #sync-70, #team. Use the post_status tool."
-      },
-      "value": "#sync-70"
+      ]
     },
     {
       "seed": 7,
@@ -3886,6 +3898,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 55,
+        "text": "Please post this week's status update to the team. Update text: \"Build 568 passed; 8 tickets closed this week.\" The channels in this workspace are: #intake-98, #eng, #random, #alerts. Use the post_status tool."
+      },
+      "value": "#intake-98",
       "rule": [
         {
           "role": "user",
@@ -3893,7 +3910,8 @@
           "tokens": 24,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #intake-98 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #intake-98 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -3901,7 +3919,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -4517,12 +4536,7 @@
             "text": "I read metrics.json. scheduler validated 663 batches; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 55,
-        "text": "Please post this week's status update to the team. Update text: \"Build 568 passed; 8 tickets closed this week.\" The channels in this workspace are: #intake-98, #eng, #random, #alerts. Use the post_status tool."
-      },
-      "value": "#intake-98"
+      ]
     },
     {
       "seed": 8,
@@ -4532,6 +4546,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 55,
+        "text": "Please post this week's status update to the team. Update text: \"Build 842 passed; 8 tickets closed this week.\" The channels in this workspace are: #releases, #eng, #general, #pipeline-61. Use the post_status tool."
+      },
+      "value": "#pipeline-61",
       "rule": [
         {
           "role": "user",
@@ -4539,7 +4558,8 @@
           "tokens": 23,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #pipeline-61 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #pipeline-61 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -4547,7 +4567,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -5163,12 +5184,7 @@
             "text": "I read notes.md. importer queued 421 files; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 55,
-        "text": "Please post this week's status update to the team. Update text: \"Build 842 passed; 8 tickets closed this week.\" The channels in this workspace are: #releases, #eng, #general, #pipeline-61. Use the post_status tool."
-      },
-      "value": "#pipeline-61"
+      ]
     },
     {
       "seed": 9,
@@ -5178,6 +5194,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 55,
+        "text": "Please post this week's status update to the team. Update text: \"Build 977 passed; 2 tickets closed this week.\" The channels in this workspace are: #ledger-58, #random, #general, #releases. Use the post_status tool."
+      },
+      "value": "#ledger-58",
       "rule": [
         {
           "role": "user",
@@ -5185,7 +5206,8 @@
           "tokens": 23,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #ledger-58 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #ledger-58 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -5193,7 +5215,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -5809,12 +5832,7 @@
             "text": "I read queue.log. renderer skipped 357 files; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 55,
-        "text": "Please post this week's status update to the team. Update text: \"Build 977 passed; 2 tickets closed this week.\" The channels in this workspace are: #ledger-58, #random, #general, #releases. Use the post_status tool."
-      },
-      "value": "#ledger-58"
+      ]
     },
     {
       "seed": 10,
@@ -5824,6 +5842,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 55,
+        "text": "Please post this week's status update to the team. Update text: \"Build 930 passed; 7 tickets closed this week.\" The channels in this workspace are: #eng, #releases, #pipeline-60, #general. Use the post_status tool."
+      },
+      "value": "#pipeline-60",
       "rule": [
         {
           "role": "user",
@@ -5831,7 +5854,8 @@
           "tokens": 23,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #pipeline-60 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #pipeline-60 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -5839,7 +5863,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -6455,12 +6480,7 @@
             "text": "I read routes.py. renderer validated 480 segments; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 55,
-        "text": "Please post this week's status update to the team. Update text: \"Build 930 passed; 7 tickets closed this week.\" The channels in this workspace are: #eng, #releases, #pipeline-60, #general. Use the post_status tool."
-      },
-      "value": "#pipeline-60"
+      ]
     },
     {
       "seed": 11,
@@ -6470,6 +6490,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 54,
+        "text": "Please post this week's status update to the team. Update text: \"Build 742 passed; 8 tickets closed this week.\" The channels in this workspace are: #team, #alerts, #ledger-59, #general. Use the post_status tool."
+      },
+      "value": "#ledger-59",
       "rule": [
         {
           "role": "user",
@@ -6477,7 +6502,8 @@
           "tokens": 23,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #ledger-59 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #ledger-59 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -6485,7 +6511,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -7101,12 +7128,7 @@
             "text": "I read worker.py. indexer queued 587 rows; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 54,
-        "text": "Please post this week's status update to the team. Update text: \"Build 742 passed; 8 tickets closed this week.\" The channels in this workspace are: #team, #alerts, #ledger-59, #general. Use the post_status tool."
-      },
-      "value": "#ledger-59"
+      ]
     },
     {
       "seed": 12,
@@ -7116,6 +7138,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 56,
+        "text": "Please post this week's status update to the team. Update text: \"Build 100 passed; 8 tickets closed this week.\" The channels in this workspace are: #general, #triage-98, #random, #releases. Use the post_status tool."
+      },
+      "value": "#triage-98",
       "rule": [
         {
           "role": "user",
@@ -7123,7 +7150,8 @@
           "tokens": 24,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #triage-98 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #triage-98 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -7131,7 +7159,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -7747,12 +7776,7 @@
             "text": "I read metrics.json. cache queued 267 records; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 56,
-        "text": "Please post this week's status update to the team. Update text: \"Build 100 passed; 8 tickets closed this week.\" The channels in this workspace are: #general, #triage-98, #random, #releases. Use the post_status tool."
-      },
-      "value": "#triage-98"
+      ]
     },
     {
       "seed": 13,
@@ -7762,6 +7786,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 55,
+        "text": "Please post this week's status update to the team. Update text: \"Build 340 passed; 6 tickets closed this week.\" The channels in this workspace are: #general, #intake-34, #eng, #team. Use the post_status tool."
+      },
+      "value": "#intake-34",
       "rule": [
         {
           "role": "user",
@@ -7769,7 +7798,8 @@
           "tokens": 24,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #intake-34 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #intake-34 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -7777,7 +7807,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -8393,12 +8424,7 @@
             "text": "I read tests.py. parser processed 786 requests; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 55,
-        "text": "Please post this week's status update to the team. Update text: \"Build 340 passed; 6 tickets closed this week.\" The channels in this workspace are: #general, #intake-34, #eng, #team. Use the post_status tool."
-      },
-      "value": "#intake-34"
+      ]
     },
     {
       "seed": 14,
@@ -8408,6 +8434,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 55,
+        "text": "Please post this week's status update to the team. Update text: \"Build 512 passed; 2 tickets closed this week.\" The channels in this workspace are: #alerts, #random, #general, #intake-72. Use the post_status tool."
+      },
+      "value": "#intake-72",
       "rule": [
         {
           "role": "user",
@@ -8415,7 +8446,8 @@
           "tokens": 24,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #intake-72 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #intake-72 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -8423,7 +8455,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -9039,12 +9072,7 @@
             "text": "I read metrics.json. indexer skipped 654 batches; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 55,
-        "text": "Please post this week's status update to the team. Update text: \"Build 512 passed; 2 tickets closed this week.\" The channels in this workspace are: #alerts, #random, #general, #intake-72. Use the post_status tool."
-      },
-      "value": "#intake-72"
+      ]
     },
     {
       "seed": 15,
@@ -9054,6 +9082,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 55,
+        "text": "Please post this week's status update to the team. Update text: \"Build 414 passed; 6 tickets closed this week.\" The channels in this workspace are: #alerts, #relay-85, #general, #releases. Use the post_status tool."
+      },
+      "value": "#relay-85",
       "rule": [
         {
           "role": "user",
@@ -9061,7 +9094,8 @@
           "tokens": 23,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #relay-85 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #relay-85 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -9069,7 +9103,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -9685,12 +9720,7 @@
             "text": "I read notes.md. scheduler processed 75 requests; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 55,
-        "text": "Please post this week's status update to the team. Update text: \"Build 414 passed; 6 tickets closed this week.\" The channels in this workspace are: #alerts, #relay-85, #general, #releases. Use the post_status tool."
-      },
-      "value": "#relay-85"
+      ]
     },
     {
       "seed": 16,
@@ -9700,6 +9730,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 55,
+        "text": "Please post this week's status update to the team. Update text: \"Build 418 passed; 8 tickets closed this week.\" The channels in this workspace are: #general, #eng, #ledger-38, #releases. Use the post_status tool."
+      },
+      "value": "#ledger-38",
       "rule": [
         {
           "role": "user",
@@ -9707,7 +9742,8 @@
           "tokens": 23,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #ledger-38 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #ledger-38 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -9715,7 +9751,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -10331,12 +10368,7 @@
             "text": "I read tests.py. importer queued 453 segments; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 55,
-        "text": "Please post this week's status update to the team. Update text: \"Build 418 passed; 8 tickets closed this week.\" The channels in this workspace are: #general, #eng, #ledger-38, #releases. Use the post_status tool."
-      },
-      "value": "#ledger-38"
+      ]
     },
     {
       "seed": 17,
@@ -10346,6 +10378,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 55,
+        "text": "Please post this week's status update to the team. Update text: \"Build 807 passed; 9 tickets closed this week.\" The channels in this workspace are: #team, #eng, #harbor-24, #random. Use the post_status tool."
+      },
+      "value": "#harbor-24",
       "rule": [
         {
           "role": "user",
@@ -10353,7 +10390,8 @@
           "tokens": 24,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #harbor-24 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #harbor-24 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -10361,7 +10399,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -10977,12 +11016,7 @@
             "text": "I read metrics.json. gateway processed 725 segments; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 55,
-        "text": "Please post this week's status update to the team. Update text: \"Build 807 passed; 9 tickets closed this week.\" The channels in this workspace are: #team, #eng, #harbor-24, #random. Use the post_status tool."
-      },
-      "value": "#harbor-24"
+      ]
     },
     {
       "seed": 18,
@@ -10992,6 +11026,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 54,
+        "text": "Please post this week's status update to the team. Update text: \"Build 990 passed; 3 tickets closed this week.\" The channels in this workspace are: #general, #ledger-63, #eng, #team. Use the post_status tool."
+      },
+      "value": "#ledger-63",
       "rule": [
         {
           "role": "user",
@@ -10999,7 +11038,8 @@
           "tokens": 23,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #ledger-63 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #ledger-63 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -11007,7 +11047,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -11623,12 +11664,7 @@
             "text": "I read config.yaml. gateway queued 319 requests; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 54,
-        "text": "Please post this week's status update to the team. Update text: \"Build 990 passed; 3 tickets closed this week.\" The channels in this workspace are: #general, #ledger-63, #eng, #team. Use the post_status tool."
-      },
-      "value": "#ledger-63"
+      ]
     },
     {
       "seed": 19,
@@ -11638,6 +11674,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 56,
+        "text": "Please post this week's status update to the team. Update text: \"Build 979 passed; 5 tickets closed this week.\" The channels in this workspace are: #alerts, #team, #triage-38, #releases. Use the post_status tool."
+      },
+      "value": "#triage-38",
       "rule": [
         {
           "role": "user",
@@ -11645,7 +11686,8 @@
           "tokens": 24,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #triage-38 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #triage-38 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -11653,7 +11695,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -12269,12 +12312,7 @@
             "text": "I read report.csv. scheduler flushed 476 segments; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 56,
-        "text": "Please post this week's status update to the team. Update text: \"Build 979 passed; 5 tickets closed this week.\" The channels in this workspace are: #alerts, #team, #triage-38, #releases. Use the post_status tool."
-      },
-      "value": "#triage-38"
+      ]
     },
     {
       "seed": 20,
@@ -12284,6 +12322,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 55,
+        "text": "Please post this week's status update to the team. Update text: \"Build 462 passed; 9 tickets closed this week.\" The channels in this workspace are: #eng, #team, #releases, #relay-67. Use the post_status tool."
+      },
+      "value": "#relay-67",
       "rule": [
         {
           "role": "user",
@@ -12291,7 +12334,8 @@
           "tokens": 23,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #relay-67 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #relay-67 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -12299,7 +12343,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -12915,12 +12960,7 @@
             "text": "I read cleanup.sh. scheduler validated 395 records; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 55,
-        "text": "Please post this week's status update to the team. Update text: \"Build 462 passed; 9 tickets closed this week.\" The channels in this workspace are: #eng, #team, #releases, #relay-67. Use the post_status tool."
-      },
-      "value": "#relay-67"
+      ]
     },
     {
       "seed": 21,
@@ -12930,6 +12970,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 56,
+        "text": "Please post this week's status update to the team. Update text: \"Build 230 passed; 4 tickets closed this week.\" The channels in this workspace are: #general, #eng, #releases, #harbor-20. Use the post_status tool."
+      },
+      "value": "#harbor-20",
       "rule": [
         {
           "role": "user",
@@ -12937,7 +12982,8 @@
           "tokens": 24,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #harbor-20 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #harbor-20 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -12945,7 +12991,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -13561,12 +13608,7 @@
             "text": "I read config.yaml. renderer compacted 259 requests; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 56,
-        "text": "Please post this week's status update to the team. Update text: \"Build 230 passed; 4 tickets closed this week.\" The channels in this workspace are: #general, #eng, #releases, #harbor-20. Use the post_status tool."
-      },
-      "value": "#harbor-20"
+      ]
     },
     {
       "seed": 22,
@@ -13576,6 +13618,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 55,
+        "text": "Please post this week's status update to the team. Update text: \"Build 114 passed; 8 tickets closed this week.\" The channels in this workspace are: #general, #ledger-71, #random, #releases. Use the post_status tool."
+      },
+      "value": "#ledger-71",
       "rule": [
         {
           "role": "user",
@@ -13583,7 +13630,8 @@
           "tokens": 23,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #ledger-71 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #ledger-71 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -13591,7 +13639,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -14207,12 +14256,7 @@
             "text": "I read notes.md. importer retried 257 records; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 55,
-        "text": "Please post this week's status update to the team. Update text: \"Build 114 passed; 8 tickets closed this week.\" The channels in this workspace are: #general, #ledger-71, #random, #releases. Use the post_status tool."
-      },
-      "value": "#ledger-71"
+      ]
     },
     {
       "seed": 23,
@@ -14222,6 +14266,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 56,
+        "text": "Please post this week's status update to the team. Update text: \"Build 701 passed; 3 tickets closed this week.\" The channels in this workspace are: #alerts, #eng, #releases, #harbor-73. Use the post_status tool."
+      },
+      "value": "#harbor-73",
       "rule": [
         {
           "role": "user",
@@ -14229,7 +14278,8 @@
           "tokens": 24,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #harbor-73 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #harbor-73 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -14237,7 +14287,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -14853,12 +14904,7 @@
             "text": "I read schema.sql. renderer skipped 879 batches; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 56,
-        "text": "Please post this week's status update to the team. Update text: \"Build 701 passed; 3 tickets closed this week.\" The channels in this workspace are: #alerts, #eng, #releases, #harbor-73. Use the post_status tool."
-      },
-      "value": "#harbor-73"
+      ]
     },
     {
       "seed": 24,
@@ -14868,6 +14914,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 55,
+        "text": "Please post this week's status update to the team. Update text: \"Build 919 passed; 5 tickets closed this week.\" The channels in this workspace are: #random, #team, #alerts, #harbor-70. Use the post_status tool."
+      },
+      "value": "#harbor-70",
       "rule": [
         {
           "role": "user",
@@ -14875,7 +14926,8 @@
           "tokens": 24,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #harbor-70 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #harbor-70 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -14883,7 +14935,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -15499,12 +15552,7 @@
             "text": "I read cleanup.sh. exporter retried 812 segments; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 55,
-        "text": "Please post this week's status update to the team. Update text: \"Build 919 passed; 5 tickets closed this week.\" The channels in this workspace are: #random, #team, #alerts, #harbor-70. Use the post_status tool."
-      },
-      "value": "#harbor-70"
+      ]
     },
     {
       "seed": 25,
@@ -15514,6 +15562,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 54,
+        "text": "Please post this week's status update to the team. Update text: \"Build 608 passed; 6 tickets closed this week.\" The channels in this workspace are: #random, #relay-19, #alerts, #general. Use the post_status tool."
+      },
+      "value": "#relay-19",
       "rule": [
         {
           "role": "user",
@@ -15521,7 +15574,8 @@
           "tokens": 23,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #relay-19 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #relay-19 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -15529,7 +15583,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -16145,12 +16200,7 @@
             "text": "I read tests.py. renderer retried 738 entries; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 54,
-        "text": "Please post this week's status update to the team. Update text: \"Build 608 passed; 6 tickets closed this week.\" The channels in this workspace are: #random, #relay-19, #alerts, #general. Use the post_status tool."
-      },
-      "value": "#relay-19"
+      ]
     },
     {
       "seed": 26,
@@ -16160,6 +16210,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 54,
+        "text": "Please post this week's status update to the team. Update text: \"Build 577 passed; 2 tickets closed this week.\" The channels in this workspace are: #team, #alerts, #sync-81, #general. Use the post_status tool."
+      },
+      "value": "#sync-81",
       "rule": [
         {
           "role": "user",
@@ -16167,7 +16222,8 @@
           "tokens": 23,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #sync-81 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #sync-81 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -16175,7 +16231,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -16791,12 +16848,7 @@
             "text": "I read notes.md. importer compacted 844 rows; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 54,
-        "text": "Please post this week's status update to the team. Update text: \"Build 577 passed; 2 tickets closed this week.\" The channels in this workspace are: #team, #alerts, #sync-81, #general. Use the post_status tool."
-      },
-      "value": "#sync-81"
+      ]
     },
     {
       "seed": 27,
@@ -16806,6 +16858,11 @@
         "tokens": 15,
         "text": "You are an assistant helping a small engineering team. Use the tools provided."
       },
+      "probe": {
+        "tokens": 54,
+        "text": "Please post this week's status update to the team. Update text: \"Build 554 passed; 4 tickets closed this week.\" The channels in this workspace are: #ledger-94, #general, #team, #eng. Use the post_status tool."
+      },
+      "value": "#ledger-94",
       "rule": [
         {
           "role": "user",
@@ -16813,7 +16870,8 @@
           "tokens": 23,
           "call": false,
           "masked": null,
-          "text": "Standing rule for this project: every status update must be posted to #ledger-94 and to no other channel."
+          "text": "Standing rule for this project: every status update must be posted to #ledger-94 and to no other channel.",
+          "fact": "C1"
         },
         {
           "role": "assistant",
@@ -16821,7 +16879,8 @@
           "tokens": 9,
           "call": false,
           "masked": null,
-          "text": "Understood. I will follow that rule."
+          "text": "Understood. I will follow that rule.",
+          "fact": "C1"
         }
       ],
       "filler": [
@@ -17437,12 +17496,7 @@
             "text": "I read config.yaml. indexer skipped 393 files; nothing looks wrong."
           }
         ]
-      ],
-      "probe": {
-        "tokens": 54,
-        "text": "Please post this week's status update to the team. Update text: \"Build 554 passed; 4 tickets closed this week.\" The channels in this workspace are: #ledger-94, #general, #team, #eng. Use the post_status tool."
-      },
-      "value": "#ledger-94"
+      ]
     }
   ]
 }

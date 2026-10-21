@@ -148,6 +148,47 @@ def exp001b_results() -> dict[str, Any]:
                        "docs/experiments/EXP-001b.md"]}
 
 
+EXP004 = ROOT / "results" / "EXP-004"
+# the fact each multi pack's request grades, its depth, and how the site names it
+FACTS = [("multi_channel", "C1", 2, "channel rule"), ("multi_code", "I1", 9, "account code"),
+         ("multi_deploy", "D1", 16, "deploy target")]
+
+
+def exp004_results() -> dict[str, Any]:
+    """Three packs (one per graded fact) plus the policy x fact matrix: for each policy and fact,
+    how often the fact was still in the window and how often the agent failed on it, both from the
+    episodes whose request tests that fact."""
+    summary = json.loads((EXP004 / "summary.json").read_text(encoding="utf-8"))
+    spec = [{"model": "ministral-14b-latest", "pack": pack, "host": "Mistral", "rows": POLICY_ROWS,
+             "note": f"Request tests {cid}, the {name} planted at turn {turn}."}
+            for pack, cid, turn, name in FACTS]
+    blocks = [b for b in experiment_blocks(EXP004, "exp004", spec, detail=True) if b["rows"]]
+    matrix = []
+    for label, name in POLICY_ROWS:
+        if not label.startswith("treatment("):
+            continue
+        for pack, cid, turn, fact in FACTS:
+            c = next((x for x in summary["cells"] if x.get("pack") == pack
+                      and x["label"] == label), None)
+            if c is None or c.get("rate") is None:
+                continue
+            kept = (c.get("fates_kept") or {}).get(cid, {})
+            matrix.append({"policy": label[10:-1], "name": name, "fact": cid, "fact_name": fact,
+                           "turn": turn, "pack": pack, "kept": kept.get("k"),
+                           "kept_n": kept.get("n"),
+                           "k": c["k_violated"], "n": c["n_graded"], "rate": c["rate"],
+                           "lo": c["wilson_lo"], "hi": c["wilson_hi"]})
+    floor = {pack: next((x for x in summary["cells"] if x.get("pack") == pack
+                         and x["label"] == "floor"), None) for pack, *_ in FACTS}
+    return {"label": "recorded", "exp_id": "EXP-004", "dates": summary["dates"],
+            "limit_tokens": summary["cells"][0]["limit_tokens"], "blocks": blocks,
+            "matrix": matrix, "facts": [{"id": c, "turn": t, "name": n, "pack": p,
+                                         "floor_k": (floor[p] or {}).get("k_violated"),
+                                         "floor_n": (floor[p] or {}).get("n_graded")}
+                                        for p, c, t, n in FACTS],
+            "source": [rel(EXP004 / "summary.json"), "docs/experiments/EXP-004.md"]}
+
+
 def exp002_results() -> dict[str, Any]:
     summary = json.loads((EXP002 / "summary.json").read_text(encoding="utf-8"))
     spec = [{"model": "ministral-14b-latest", "pack": "constraint", "host": "Mistral",
@@ -348,6 +389,11 @@ def main() -> None:
         export_episode_runs(EXP001B, "exp001b", ["openai/gpt-oss-20b"], index)
         index["experiments"].append(
             {"id": "exp001b", "label": "recorded", "path": "experiments/exp001b.json"})
+    if (EXP004 / "summary.json").exists():
+        write(OUT / "experiments" / "exp004.json", exp004_results())
+        export_episode_runs(EXP004, "exp004", ["ministral-14b-latest"], index, detail=True)
+        index["experiments"].append(
+            {"id": "exp004", "label": "recorded", "path": "experiments/exp004.json"})
     if (EXP002 / "summary.json").exists():
         write(OUT / "experiments" / "exp002.json", exp002_results())
         export_episode_runs(EXP002, "exp002", list(TAGS), index, detail=True)
@@ -361,6 +407,13 @@ def main() -> None:
            "the browser runs a JS port of the Python policies, checked against them in the design "
            "tests.", "seeds": [lab_history(s) for s in range(1, 28)]})
     write(OUT / "lab" / "summaries.json", lab_summaries(range(1, 28)))
+    write(OUT / "lab" / "multi.json",
+          {"epistemic": "simulated",
+           "description": "Three facts at three depths of one seeded history (EXP-004's packs); "
+           "the browser runs the same JS port of the Python policies.",
+           "seeds": [lab_history(s, "multi_code") for s in range(1, 28)]})
+    write(ROOT / "design" / "tests" / "fixtures" / "lab-parity-multi.json",
+          parity_cases(range(1, 6), (1,), (900, 1300, 1800, 2400, 3000, 3600), pack="multi_code"))
     write(ROOT / "design" / "tests" / "fixtures" / "lab-parity.json",
           parity_cases(range(1, 6), (0, 1, 5, 9, 14, 17), (900, 1300, 1800, 2400, 3000, 3600)))
 

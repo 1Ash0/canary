@@ -79,7 +79,12 @@ export const POLICIES = { recency_truncate: recencyTruncate, head_tail: headTail
 // then the probe. Ids are positions, so results compare directly with the Python parity cases.
 export function assemble(history, position) {
   const turns = [...history.filler];
-  turns.splice(Math.min(position, turns.length), 0, history.rule);
+  if (history.facts) {
+    // several facts at fixed depths (multi packs): each goes back where it was planted
+    [...history.facts].sort((a, b) => a.at - b.at).forEach((f) => turns.splice(f.at, 0, f.turn));
+  } else {
+    turns.splice(Math.min(position, turns.length), 0, history.rule);
+  }
   const win = [{ role: 'system', kind: 'system', tokens: history.system.tokens, text: history.system.text }];
   turns.forEach((t, ti) => t.forEach((m) => win.push({ ...m, callId: m.role === 'tool' || m.call ? `c${ti}` : null, turn: ti })));
   win.push({ role: 'user', kind: 'probe', tokens: history.probe.tokens, text: history.probe.text });

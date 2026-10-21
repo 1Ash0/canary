@@ -37,3 +37,20 @@ test('the rule moves with the position and the window total does not change', ()
   assert.equal(new Set(totals).size, 1);
   assert.equal(assemble(h, 5).findIndex((m) => m.kind === 'rule') > assemble(h, 0).findIndex((m) => m.kind === 'rule'), true);
 });
+
+test('three facts at fixed depths: the same parity with the Python policies', () => {
+  const multi = read('../../web/public/data/lab/multi.json');
+  const mcases = read('./fixtures/lab-parity-multi.json');
+  const byS = Object.fromEntries(multi.seeds.map((h) => [h.seed, h]));
+  assert.ok(mcases.length >= 80);
+  for (const c of mcases) {
+    const h = byS[c.seed];
+    const { out } = compact(h, assemble(h, c.position), c.policy, c.limit);
+    const label = `multi seed ${c.seed} limit ${c.limit} ${c.policy}`;
+    assert.deepEqual(out.filter((m) => !m.maskedFrom).map((m) => m.id), c.kept.filter((i) => !c.masked.includes(i)), `kept: ${label}`);
+    assert.equal(h.tools_tokens + tokensOf(out), c.tokens_after, `tokens: ${label}`);
+  }
+  // all three facts are in the assembled window, at increasing depth
+  const facts = assemble(byS[1], 0).filter((m) => m.fact).map((m) => m.fact);
+  assert.deepEqual([...new Set(facts)], ['C1', 'I1', 'D1']);
+});

@@ -4,7 +4,7 @@
 // (SITE_RULES §4.3): the columns rise, the tool calls type in line by line, and "behaviour changed"
 // lands once on the seam spring. A later pick swaps the columns without replaying that entrance.
 import { onEnterOnce, springEase, ms, gsap, REDUCE } from './motion-kit.js';
-import { POLICY_NAME, CANARY } from './episode.js';
+import { POLICY_NAME, CANARY, factOf } from './episode.js';
 import { BASE } from './data.js';
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -25,7 +25,8 @@ function callOf(run) {
 }
 
 // The argument the grader reads is the one that carries the planted value (channel, account_code).
-const GRADED = { constraint: 'channel', identifier: 'account_code' };
+const GRADED = { constraint: 'channel', identifier: 'account_code', multi_channel: 'channel',
+  multi_code: 'account_code', multi_deploy: 'target' };
 
 function callMarkup(call, canary, broke) {
   const lines = Object.entries(call.args).map(([k, v], i, all) => {
@@ -38,7 +39,7 @@ function callMarkup(call, canary, broke) {
 
 function column(side, run, outcome, rule) {
   const K = CANARY[side.canary];
-  const lost = run.canaries[0].fate === 'gone';
+  const lost = factOf(run, side.canary).fate === 'gone';
   const call = callOf(run);
   const broke = outcome.grade === 'violated';
   const summary = run.transcript.find((m) => m.origin === 'summary');
@@ -76,7 +77,7 @@ export function mountConsequence(root, ep, loadRun) {
     const outcomes = keys.map((k) => ep.outcome(k, state.seed));
     const runs = await Promise.all(outcomes.map((o) => getRun(o.run)));
     if (mine !== token) return;
-    const rule = runs[0].canaries[0].text;
+    const rule = factOf(runs[0], state.canary).text;
     const request = runs[0].transcript.find((m) => m.role === 'user' && m.origin === 'user' && m.step === runs[0].steps.length);
     const [A, B] = keys.map((k) => ep.side(k));
     root.innerHTML = `

@@ -74,6 +74,38 @@ function block(b, exp, i) {
 }
 
 const rowOf = (b, label) => b?.rows.find((r) => r.label === label);
+
+// EXP-004's key figure: rows are policies, columns the three facts by depth. Each cell says in words
+// whether the fact survived (on how many seeds) and shows how often the agent then failed on it,
+// with its interval on a fixed 0-100% axis. A table, so it reads without colour; the loss colour
+// only ever sits next to the words "gone" or a failure count. A cell opens that policy on that fact
+// in the comparison.
+function factMatrix(e) {
+  const facts = e.facts;
+  const policies = [...new Set(e.matrix.map((m) => m.policy))];
+  const cell = (pol, f) => {
+    const m = e.matrix.find((x) => x.policy === pol && x.fact === f.id);
+    if (!m) return '<td class="empty">n/a</td>';
+    const gone = m.kept === 0;
+    const surv = m.kept == null ? '' : gone ? `<span class="fm-gone">gone ↓</span> <span class="dim">0/${m.kept_n}</span>`
+      : `kept <span class="dim">${m.kept}/${m.kept_n}</span>`;
+    const info = `${m.name}, ${f.name} (turn ${f.turn}): the fact was in the window on ${m.kept ?? '?'} of ${m.kept_n ?? '?'} seeds; the agent got it wrong on ${m.k} of ${m.n}`;
+    return `<td class="${gone ? 'is-gone' : ''}"><button type="button" class="fm-cell" data-fm-pack="${f.pack}" data-fm-policy="${m.policy}" data-info="${esc(info)}" aria-label="${esc(info)}. Open in the comparison">
+      <span class="fm-surv">${surv}</span>
+      <span class="fm-rate">${m.k}/${m.n} wrong</span>
+      <svg class="fm-bar" aria-hidden="true"><line class="axis" x1="0%" x2="100%" y1="50%" y2="50%"/><line class="range" x1="${x(m.lo)}" x2="${x(m.hi)}" y1="50%" y2="50%"/><circle class="rate${m.rate >= 0.5 ? ' is-high' : ''}" cx="${x(m.rate)}" cy="50%" r="3.5"/></svg>
+    </button></td>`;
+  };
+  return `<div class="table-scroll" tabindex="0" role="region" aria-label="Which fact each policy lost">
+    <table class="fact-matrix">
+      <caption class="visually-hidden">For each policy and each planted fact: whether the fact was still in the window, and how often the agent got it wrong</caption>
+      <thead><tr><th scope="col">policy</th>${facts.map((f) => `<th scope="col"><span class="mono">${f.id}</span> ${esc(f.name)}<span class="dim">turn ${f.turn}</span></th>`).join('')}</tr></thead>
+      <tbody>${policies.map((pol) => `<tr><th scope="row">${esc(e.matrix.find((m) => m.policy === pol).name)}</th>${facts.map((f) => cell(pol, f)).join('')}</tr>`).join('')}
+        <tr class="fm-floor"><th scope="row">never told <span class="dim">(chance)</span></th>${facts.map((f) => `<td><span class="fm-rate">${f.floor_k ?? '?'}/${f.floor_n ?? '?'} wrong</span></td>`).join('')}</tr>
+      </tbody>
+    </table></div>
+    <p class="dot-info" data-fm-info aria-live="polite">Hover or tab through a cell to read it; choose one to open that policy on that fact in the comparison.</p>`;
+}
 const srcs = (exp) => exp.source.map((s) => `<span class="mono">${esc(s)}</span>`).join(', ');
 
 const VIEWS = {
@@ -99,6 +131,16 @@ const VIEWS = {
       return `<p class="caveat"><span class="tag">${esc(e.label)}</span>${au} Preregistered before it ran. The summary call kept its reasoning short, so ${t.truncated} of ${t.truncation_known} summaries were cut off. The length-matched condition shows that a shorter window alone does not explain it: the loss comes from what the summary left out. Recorded ${esc(e.dates.join(' and '))}. Sources: ${srcs(e)}.</p>`;
     },
   },
+  exp004: {
+    tab: 'Three facts', sub: 'EXP-004 · which fact is lost',
+    claim: (e) => {
+      const at = (pol, f) => e.matrix.find((m) => m.policy === pol && m.fact === f);
+      const ht = at('head_tail', 'I1'), om = at('observation_mask', 'I1');
+      return ht && om ? `Keeping the head and tail lost the middle fact: the agent got the account code wrong in <span class="res-big">${ht.k} of ${ht.n}</span> seeds, against ${om.k} of ${om.n} when only tool output was masked.` : 'Three facts at three depths of one history.';
+    },
+    lead: factMatrix,
+    foot: (e) => `<p class="caveat"><span class="tag">${esc(e.label)}</span> One seeded history carries three facts at turns ${e.facts.map((f) => f.turn).join(', ')}; each request tests one of them, so every cell is its own set of episodes. Budget ${e.limit_tokens.toLocaleString('en-US')} tokens, one model (Mistral ministral-14b), preregistered before it ran. Survival counts are mechanical (the value written in the window), not a judgement. Recorded ${esc(e.dates.join(' and '))}. Sources: ${srcs(e)}.</p>`,
+  },
   exp002: {
     tab: 'Four policies', sub: 'EXP-002 · same rule',
     claim: (e) => {
@@ -113,11 +155,26 @@ const VIEWS = {
 function panel(id, exp) {
   const v = VIEWS[id];
   return `<p class="res-claim" data-res-claim>${v.claim(exp)}</p>
+    ${v.lead ? v.lead(exp) : ''}
     <div class="res-models">${exp.blocks.map((b, i) => block(b, exp, i)).join('')}</div>
     ${v.foot(exp)}`;
 }
 
 function animate(root, ep) {
+  const fm = root.querySelector('.fact-matrix');
+  if (fm) {
+    const info = root.querySelector('[data-fm-info]');
+    const show = (e) => { const c = e.target.closest('.fm-cell'); if (c) info.textContent = c.dataset.info; };
+    fm.addEventListener('pointerover', show);
+    fm.addEventListener('focusin', show);
+    fm.addEventListener('click', (e) => {
+      const c = e.target.closest('.fm-cell');
+      if (!c || !ep) return;
+      const other = c.dataset.fmPolicy === 'observation_mask' ? 'head_tail' : 'observation_mask';
+      ep.set({ canary: c.dataset.fmPack, a: `mistral.${other}`, b: `mistral.${c.dataset.fmPolicy}` });
+      goTo('#compare', 'compare');
+    });
+  }
   for (const b of root.querySelectorAll('[data-res-model]')) {
     const info = b.querySelector('[data-dot-info]');
     const show = (e) => { const d = e.target.closest('.dot'); if (d) info.textContent = d.dataset.info; };
@@ -155,14 +212,16 @@ function animate(root, ep) {
 
 // exps: { exp001, exp001b?, exp002? } — tabs only for the experiments that have data.
 export function mountResults(root, exps, ep = null) {
-  const ids = Object.keys(VIEWS).filter((id) => exps[id]);
+  // chronological tabs; the page opens on the newest experiment, the one that says the most
+  const ids = ['exp001', 'exp001b', 'exp002', 'exp004'].filter((id) => exps[id]);
+  const first = ids.at(-1);
   root.innerHTML = `
     <div class="res-tabs" role="tablist" aria-label="Experiments">${ids.map((id, i) => `
-      <button type="button" role="tab" id="res-tab-${id}" aria-controls="res-panel-${id}" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}" data-res-tab="${id}">
+      <button type="button" role="tab" id="res-tab-${id}" aria-controls="res-panel-${id}" aria-selected="${id === first}" tabindex="${id === first ? 0 : -1}" data-res-tab="${id}">
         <span class="res-tab-name">${VIEWS[id].tab}</span><span class="res-tab-sub">${VIEWS[id].sub}</span>
       </button>`).join('')}
     </div>
-    ${ids.map((id, i) => `<div class="res-panel" role="tabpanel" id="res-panel-${id}" aria-labelledby="res-tab-${id}" data-res-panel="${id}"${i ? ' hidden' : ''}></div>`).join('')}`;
+    ${ids.map((id, i) => `<div class="res-panel" role="tabpanel" id="res-panel-${id}" aria-labelledby="res-tab-${id}" data-res-panel="${id}"${id === first ? '' : ' hidden'}></div>`).join('')}`;
 
   const tabs = [...root.querySelectorAll('[data-res-tab]')];
   const filled = new Set();
@@ -189,5 +248,5 @@ export function mountResults(root, exps, ep = null) {
       if (e.key === 'End') { e.preventDefault(); open(tabs.at(-1).dataset.resTab, true); }
     });
   });
-  open(ids[0]);
+  open(first);
 }

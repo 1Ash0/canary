@@ -8,10 +8,16 @@ export const POLICY_NAME = {
   recency_truncate: 'drop oldest', head_tail: 'keep head and tail',
   observation_mask: 'mask tool output', llm_summary: 'model summary',
 };
+// `fact` is the planted fact the request grades; multi packs plant three and grade one (EXP-004).
 export const CANARY = {
-  constraint: { name: 'Channel rule', value: 'channel', bad: 'broke the rule', good: 'followed the rule' },
-  identifier: { name: 'Account code', value: 'code', bad: 'used a wrong code', good: 'used the exact code' },
+  constraint: { name: 'Channel rule', fact: 'C1', value: 'channel', bad: 'broke the rule', good: 'followed the rule' },
+  identifier: { name: 'Account code', fact: 'I1', value: 'code', bad: 'used a wrong code', good: 'used the exact code' },
+  multi_channel: { name: '3 facts: channel', fact: 'C1', value: 'channel', bad: 'broke the rule', good: 'followed the rule' },
+  multi_code: { name: '3 facts: code', fact: 'I1', value: 'code', bad: 'used a wrong code', good: 'used the exact code' },
+  multi_deploy: { name: '3 facts: deploy', fact: 'D1', value: 'target', bad: 'deployed to the wrong target', good: 'used the right target' },
 };
+// the graded fact in a recorded run (multi runs carry three)
+export const factOf = (run, canary) => run.canaries.find((k) => k.id === CANARY[canary]?.fact) ?? run.canaries[0];
 // Preset pairs; a preset is offered only for a canary where both of its sides were recorded.
 export const PRESETS = [
   { label: 'Two summarisers', a: 'mistral.llm_summary', b: 'nvidia.llm_summary' },
@@ -20,6 +26,7 @@ export const PRESETS = [
 ];
 const DEFAULT = { canary: 'constraint', seed: 19, a: 'mistral.llm_summary', b: 'nvidia.llm_summary' };
 
+// `exp` may be one experiment file or several merged ({ blocks: [...] }): EXP-002 and EXP-004.
 export function createEpisodes(exp) {
   const byCanary = {};
   for (const block of exp.blocks) {
