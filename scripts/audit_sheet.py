@@ -61,7 +61,8 @@ def main() -> int:
            "Blind: the grade and the machine verdict are not shown. For each seed, decide whether "
            "the summary still carries the planted value well enough for an agent to act on it:",
            "`verbatim` (named exactly), `reworded` (meaning kept, value usable), `dropped` (gone), "
-           "or `echo` (not a summary, copied transcript).",
+           "or `echo` (not a summary, copied transcript). Dash variants in the summary are shown "
+           "as a plain hyphen, so searching for the planted value finds it.",
            "",
            f"Save your calls as `docs/audit/{args.exp}-audit-calls-{tag}.json`, a list of "
            '`{"model", "seed", "call", "note"}`.', ""]
@@ -73,6 +74,9 @@ def main() -> int:
         summary = next((e for e in events if e["type"] == "message"
                         and e.get("origin") == "summary"), None)
         body = summary["content"].split("\n", 1)[1].strip() if summary else "(no summary)"
+        # dash variants (U+2010 to U+2015, U+2212) shown as "-", so searching for the value works
+        body = "".join("-" if 0x2010 <= ord(ch) <= 0x2015 or ch == "−" else ch
+                       for ch in body)
         out += [f"## Seed {r['seed']}", "", f"Planted value: `{planted['value']}`", "",
                 *[f"> {line}" if line else ">" for line in body.splitlines()], "",
                 "call: ______  note: ______", ""]
