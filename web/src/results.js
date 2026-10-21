@@ -3,6 +3,8 @@
 // rescaled to flatter a difference) and one mark per seed. Treatment marks open that exact episode
 // in the recorder. Headlines are sentences filled from the same files; no number is typed here.
 import { onEnterOnce, gsap, ms, REDUCE } from './motion-kit.js';
+import { BASE } from './data.js';
+import { goTo } from './sections.js';
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const pct = (x) => `${Math.round(x * 100)}%`;
@@ -24,7 +26,7 @@ function dots(seeds, name, verb, side = null) {
     const fate = d.fate ? `; the window ${d.fate === 'kept' ? verb.kept : verb.lost}` : '';
     const info = `seed ${d.seed}: ${what}${ev}${fate}${d.truncated ? '; summary cut off' : ''}${side && d.run ? '. Click to compare it above' : ''}`;
     const attrs = `class="dot ${cls}" role="listitem" data-seed="${d.seed}"${side ? ` data-side="${side}"` : ''} data-info="${esc(info)}" aria-label="${esc(info)}"`;
-    return d.run ? `<a ${attrs} href="./run/?run=${encodeURIComponent(d.run)}"></a>` : `<span ${attrs} tabindex="0"></span>`;
+    return d.run ? `<a ${attrs} href="${BASE}run/?run=${encodeURIComponent(d.run)}"></a>` : `<span ${attrs} tabindex="0"></span>`;
   }).join('')}</div>`;
 }
 
@@ -77,7 +79,7 @@ const srcs = (exp) => exp.source.map((s) => `<span class="mono">${esc(s)}</span>
 const VIEWS = {
   exp001: {
     tab: 'First run', sub: 'EXP-001 · two models',
-    claim: (e) => `<span class="res-big">${e.audit.followed} of ${e.audit.judged}</span> summaries read by hand: whenever a summary still carried the rule, the agent followed it, and whenever it lost the rule, the agent did not.`,
+    claim: (e) => `In the <span class="res-big">${e.audit.judged}</span> summaries read by hand, the agent did what its summary allowed every time: it followed the rule when the summary carried it, and broke it when the summary lost it.`,
     foot: (e) => {
       const t = e.truncation;
       return `${e.other.length ? `<ul class="res-other">${e.other.map((m) => `<li><span class="panel-host">${esc(m.host)}</span> <span class="mono">${esc(m.model)}</span> <span class="dim">${esc(m.note)}</span></li>`).join('')}</ul>` : ''}
@@ -93,7 +95,8 @@ const VIEWS = {
     },
     foot: (e) => {
       const t = rowOf(e.blocks[0], 'treatment(llm_summary)');
-      return `<p class="caveat"><span class="tag">${esc(e.label)}</span> Preregistered before it ran. The summary call kept its reasoning short, so ${t.truncated} of ${t.truncation_known} summaries were cut off. The length-matched condition shows that a shorter window alone does not explain it: the loss comes from what the summary left out. Recorded ${esc(e.dates.join(' and '))}. Sources: ${srcs(e)}.</p>`;
+      const au = e.audit ? ` A blind hand audit agreed with the machine's survival check on ${e.audit.agree} of ${e.audit.summaries} summaries; behaviour matched the audited summary in ${e.audit.followed} of ${e.audit.judged}. The exceptions are seeds where the rule was gone and the agent chose the right channel anyway, which the floor shows happens by chance.` : '';
+      return `<p class="caveat"><span class="tag">${esc(e.label)}</span>${au} Preregistered before it ran. The summary call kept its reasoning short, so ${t.truncated} of ${t.truncation_known} summaries were cut off. The length-matched condition shows that a shorter window alone does not explain it: the loss comes from what the summary left out. Recorded ${esc(e.dates.join(' and '))}. Sources: ${srcs(e)}.</p>`;
     },
   },
   exp002: {
@@ -101,7 +104,7 @@ const VIEWS = {
     claim: (e) => {
       const b = e.blocks[0];
       const rt = rowOf(b, 'treatment(recency_truncate)'), ht = rowOf(b, 'treatment(head_tail)');
-      return `Dropping the oldest turns broke the rule in <span class="res-big">${rt.k} of ${rt.n}</span> seeds. Keeping the head and the tail broke it in ${ht.k} of ${ht.n}.`;
+      return `With the rule planted at turn 2, dropping the oldest turns broke it in <span class="res-big">${rt.k} of ${rt.n}</span> seeds; keeping the head and the tail, in ${ht.k} of ${ht.n}. Where the fact sits decides which policy is safe.`;
     },
     foot: (e) => `<p class="caveat"><span class="tag">${esc(e.label)}</span> Every policy compacts the same seeded history to the same ${e.limit_tokens.toLocaleString('en-US')}-token budget. The rule is planted early, so a policy that keeps the opening turns keeps it by construction; the policy grid below shows the same thing without any model. Three comparisons per model and canary were preregistered; the rest are exploratory. Recorded ${esc(e.dates.join(' and '))}. Sources: ${srcs(e)}.</p>`,
   },
@@ -136,7 +139,7 @@ function animate(root, ep) {
       // keep panel one when it belongs to the same canary; otherwise that canary's default pair
       const keepA = cur.canary === canary && cur.a !== side;
       ep.set({ canary, seed: +d.dataset.seed, b: side, ...(keepA ? { a: cur.a } : cur.a === side ? { a: cur.b } : { a: null }) });
-      document.querySelector('#compare').scrollIntoView({ behavior: matchMedia(REDUCE).matches ? 'auto' : 'smooth' });
+      goTo('#compare', 'compare');  // on the results page this opens chapter 2 on that episode
     });
     onEnterOnce(b, (tl) => {
       tl.from(b.querySelectorAll('[data-res-row]'), { autoAlpha: 0, y: 8, duration: ms('base'), stagger: 0.08, ease: 'power2.out' });

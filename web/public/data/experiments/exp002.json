@@ -13,6 +13,236 @@
       "note": "",
       "rows": [
         {
+          "label": "floor",
+          "name": "never told",
+          "k": 26,
+          "n": 27,
+          "rate": 0.9629629629629629,
+          "lo": 0.8171614606584348,
+          "hi": 0.9934320234669025,
+          "na": 0,
+          "truncated": null,
+          "truncation_known": null,
+          "seeds": [
+            {
+              "seed": 1,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 2,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#releases'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 3,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 4,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#releases'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 5,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#sync-41'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 6,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 7,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 8,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#releases'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 9,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#releases'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 10,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 11,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 12,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#releases'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 13,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 14,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#general'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 15,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#releases'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 16,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 17,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 18,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 19,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 20,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 21,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 22,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#releases'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 23,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 24,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 25,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#general'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 26,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 27,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": null
+            }
+          ]
+        },
+        {
           "label": "control",
           "name": "full context",
           "k": 0,
@@ -1251,6 +1481,236 @@
       "note": "",
       "rows": [
         {
+          "label": "floor",
+          "name": "never told",
+          "k": 27,
+          "n": 27,
+          "rate": 1.0,
+          "lo": 0.8754409628553641,
+          "hi": 1.0,
+          "na": 0,
+          "truncated": null,
+          "truncation_known": null,
+          "seeds": [
+            {
+              "seed": 1,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 2,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 3,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 4,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 5,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 6,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 7,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 8,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 9,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 10,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 11,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 12,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 13,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 14,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 15,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 16,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 17,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 18,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 19,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 20,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 21,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 22,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 23,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 24,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 25,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 26,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 27,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "the identifier appears in no argument",
+              "truncated": null,
+              "run": null
+            }
+          ]
+        },
+        {
           "label": "control",
           "name": "full context",
           "k": 0,
@@ -2488,6 +2948,236 @@
       "host": "NVIDIA",
       "note": "",
       "rows": [
+        {
+          "label": "floor",
+          "name": "never told",
+          "k": 23,
+          "n": 26,
+          "rate": 0.8846153846153846,
+          "lo": 0.7102370691310166,
+          "hi": 0.959968281788505,
+          "na": 1,
+          "truncated": null,
+          "truncation_known": null,
+          "seeds": [
+            {
+              "seed": 1,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 2,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 3,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 4,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#releases'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 5,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#sync-41'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 6,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 7,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 8,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#pipeline-61'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 9,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#releases'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 10,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 11,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 12,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#general'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 13,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 14,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#general'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 15,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#general'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 16,
+              "grade": "not_applicable",
+              "fate": null,
+              "evidence": "no accepted call to post_status",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 17,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 18,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 19,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 20,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 21,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#eng'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 22,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#releases'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 23,
+              "grade": "respected",
+              "fate": null,
+              "evidence": "channel='#harbor-73'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 24,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 25,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#general'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 26,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": null
+            },
+            {
+              "seed": 27,
+              "grade": "violated",
+              "fate": null,
+              "evidence": "channel='#team'",
+              "truncated": null,
+              "run": null
+            }
+          ]
+        },
         {
           "label": "control",
           "name": "full context",

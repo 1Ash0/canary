@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-base="../">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,6 +75,9 @@
         <li>The model that writes the summary is the model that acts on it.</li>
         <li>Free models change and disappear. Every result names the model and the date.</li>
         <li>Small samples: the intervals are wide on purpose, and say so.</li>
+        <li>One trial per seed. The seeds vary the history; the model's own sampling variance is not measured separately.</li>
+        <li>"Kept" means the planted value is still written in the window. That is necessary for the agent to act on it, not sufficient: a summary can name a channel in the wrong role. Blind hand audits check this, and found the machine's check right where they disagreed.</li>
+        <li>Each experiment adjusts its own preregistered comparisons. Nothing is corrected across experiments, so read one experiment's result at a time.</li>
       </ul>
     </section>
 
@@ -96,12 +99,15 @@
               <li><span class="cite">arXiv 2605.08580</span> Chen et al. <em>Slipstream</em>. Asynchronous compaction with a judge that validates the summary.</li>
               <li><span class="cite">arXiv 2608.06503</span> Min, Wu, Darbari et al. <em>TRACE</em>. Agents losing track of execution state after compression.</li>
               <li><span class="cite">arXiv 2607.25066</span> Dang et al. <em>ARC</em>. Lossless compaction through addressable recall.</li>
+              <li><span class="cite">TACL 2024</span> Liu et al. <em>Lost in the Middle</em>. Models use information at the start and end of a long context better than in the middle. EXP-004 asks the compaction version: which depth does each policy lose?</li>
+              <li><span class="cite">Anthropic, 2025</span> <em>Effective context engineering for AI agents</em>. Describes compaction and tool-result clearing as context-management techniques; our <code>observation_mask</code> policy is the tool-result clearing idea.</li>
+              <li><span class="cite">Chroma, 2025</span> Hong, Troynikov, Huber. <em>Context Rot</em>. Performance degrades as input length grows, even on simple tasks. Compaction trades that degradation against losing facts; this kit measures the second half.</li>
             </ol>
           </dd>
         </div>
         <div data-rise>
           <dt>What is new here</dt>
-          <dd>Not a new finding about compaction. What is new is a kit you can point at your own policy and watch: a recorder, a lab, recorded runs anyone can replay, and intervals on everything. The first experiment found that the outcome depends on which model writes the summary; a preregistered rerun confirmed the effect where it appeared, with the confound that had clouded it removed. The second puts four policies side by side on the same rule and the same seeds.</dd>
+          <dd>Not a new finding about compaction. What is new is a kit you can point at your own policy and watch: a recorder, a lab, recorded runs anyone can replay, and intervals on everything. The first experiment found that the outcome depends on which model writes the summary; a preregistered rerun confirmed the effect where it appeared, with the confound that had clouded it removed. The second puts four policies side by side on the same rule and the same seeds. EXP-004 plants three facts at three depths, because with one early fact "keep the head" is safe by construction.</dd>
         </div>
       </dl>
     </section>

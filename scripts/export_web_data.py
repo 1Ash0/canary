@@ -124,7 +124,7 @@ def label_of_row(r: dict[str, Any]) -> str:
 
 EXP001B = ROOT / "results" / "EXP-001b"
 EXP002 = ROOT / "results" / "EXP-002"
-POLICY_ROWS = [("control", "full context"),
+POLICY_ROWS = [("floor", "never told"), ("control", "full context"),
                ("treatment(recency_truncate)", "drop oldest"),
                ("treatment(head_tail)", "keep head and tail"),
                ("treatment(observation_mask)", "mask tool output"),
@@ -137,9 +137,15 @@ def exp001b_results() -> dict[str, Any]:
              "rows": [("control", "control"), ("length_matched(llm_summary)", "length-matched"),
                       ("treatment(llm_summary)", "treatment")],
              "note": "Same 27 seeds as EXP-001, reasoning kept short on the summary call."}]
+    tally = json.loads((EXP001B / "audit_tally.json").read_text(encoding="utf-8"))["total"]
     return {"label": "recorded", "exp_id": "EXP-001b", "dates": summary["dates"],
             "blocks": experiment_blocks(EXP001B, "exp001b", spec),
-            "source": [rel(EXP001B / "summary.json"), "docs/experiments/EXP-001b.md"]}
+            "audit": {"followed": tally["behaviour_follows_owner_call"],
+                      "judged": tally["behaviour_judged"],
+                      "agree": tally["machine_agrees_rule_present"],
+                      "summaries": tally["summaries_judged"]},
+            "source": [rel(EXP001B / "summary.json"), rel(EXP001B / "audit_tally.json"),
+                       "docs/experiments/EXP-001b.md"]}
 
 
 def exp002_results() -> dict[str, Any]:
@@ -273,11 +279,11 @@ def exp001_pair(index: dict[str, list[dict[str, str]]]) -> dict[str, Any]:
 
 def lab_summaries(seeds: range) -> dict[str, Any]:
     """Recorded summaries for the lab's summary mode: per seed and summarizer, the text, whether it
-    still named the rule, what the agent then did. NVIDIA prefers EXP-001b (reasoning kept short,
-    so summaries are not cut off) and falls back to EXP-001."""
+    still named the rule, what the agent then did. From EXP-002's channel-rule summary episodes, the
+    same episodes the Lab's "what real models did" line links to (one experiment, one summary)."""
     reasons = finish_reasons()
-    sources = [("mistral", "ministral-14b-latest", ["EXP-001"]),
-               ("nvidia", "openai/gpt-oss-20b", ["EXP-001b", "EXP-001"])]
+    sources = [("mistral", "ministral-14b-latest", ["EXP-002"]),
+               ("nvidia", "openai/gpt-oss-20b", ["EXP-002"])]
     out: dict[str, Any] = {}
     for tag, model, exps in sources:
         for exp in exps:
@@ -292,13 +298,16 @@ def lab_summaries(seeds: range) -> dict[str, Any]:
                     continue
                 row = next((r for r in rows if r["model_requested"] == model
                             and r["seed"] == seed and r["condition"] == "treatment"
+                            and r.get("policy", "llm_summary") == "llm_summary"
+                            and r.get("pack", "constraint") == "constraint"
                             and r["summary_valid"] is not None), None)
                 if row is None:
                     continue
                 events = read_trace(ROOT / row["trace_path"])
                 summ = next(e for e in events if e.type == "message" and e.origin == "summary")
-                call = next((e for e in events if e.type == "tool_call" and e.name == "post_status"
-                             and e.seq > summ.seq), None)
+                # gpt-oss sometimes names the tool "post_status<|channel|>commentary"
+                call = next((e for e in events if e.type == "tool_call"
+                             and e.name.startswith("post_status") and e.seq > summ.seq), None)
                 text = summ.content.split("\n", 1)[1].strip()
                 out.setdefault(key, {})[tag] = {
                     "model": model, "exp": exp, "text": text, "tokens": summ.tokens_est,

@@ -10,7 +10,7 @@ import { DESIGN } from './lib/palettes.mjs';
 const base = process.argv[2] ?? 'http://localhost:3000';
 const out = join(DESIGN, 'web-qa');
 mkdirSync(out, { recursive: true });
-const pages = [['home', '/'], ['run', '/run/?run=synthetic-001&step=31'], ['recorded', '/run/?run=exp001-s19-nvidia&step=20'], ['survival', '/survival/'], ['about', '/about/']];
+const pages = [['home', '/'], ['run', '/run/?run=synthetic-001&step=31'], ['recorded', '/run/?run=exp001-s19-nvidia&step=20'], ['lab', '/lab/'], ['compare', '/compare/'], ['results', '/results/'], ['survival', '/survival/'], ['about', '/about/']];
 const widths = [[1440, 900], [1280, 720], [768, 1024], [390, 844]];
 
 const browser = await chromium.launch();

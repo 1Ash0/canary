@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" data-base="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0E0D0B">
+  <meta name="description" content="Compact a real seeded history yourself: pick a policy, drag the budget, move the facts, and see what the agent can still see.">
+  <title>Lab · Canary</title>
+  <link rel="stylesheet" href="../src/site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site" data-header></header>
+
+  <main id="main">
+    <section class="section first" id="lab" aria-labelledby="lab-title">
+      <div class="lab-head">
+        <h1 id="lab-title" data-split>You are the harness.</h1>
+        <p class="lede">The window is full and the agent needs one more call. Pick how to make room, drag the budget, move the rule, and watch what the agent can still see. Bright is still in the window. Dim is gone. At the experiment's settings, you also see what real models did with the same window.</p>
+      </div>
+      <div data-lab></div>
+    </section>
+
+    <section class="section" id="policies" aria-labelledby="policies-title">
+      <h2 id="policies-title">Without a model: what each policy keeps</h2>
+      <p class="exp-intro" data-rise>Before any model is asked anything, the policy decides what stays. This runs the real policy code on seeded histories with the rule planted at turn 2, as in the experiments, and counts how often it is still in the window.</p>
+      <div data-survival-mini></div>
+      <p class="note" data-rise><a href="../survival/">Every policy, position and budget</a></p>
+    </section>
+
+    <section class="section next" aria-label="Next chapter"><div data-next></div></section>
+  </main>
+
+  <footer class="site" data-footer></footer>
+  <script type="module" src="../src/main-lab.js"></script>
+</body>
+</html>

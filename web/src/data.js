@@ -2,6 +2,8 @@
 import tokens from '../../design/identity/base.tokens.json';
 
 export const motion = tokens.motion;
+// the page's depth, from <html data-base>: './' at the root, '../' one level down
+export const BASE = document.documentElement.dataset.base ?? './';
 
 export async function loadJson(path) {
   const res = await fetch(path);

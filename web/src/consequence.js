@@ -5,6 +5,7 @@
 // lands once on the seam spring. A later pick swaps the columns without replaying that entrance.
 import { onEnterOnce, springEase, ms, gsap, REDUCE } from './motion-kit.js';
 import { POLICY_NAME, CANARY } from './episode.js';
+import { BASE } from './data.js';
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -60,13 +61,13 @@ function column(side, run, outcome, rule) {
       <p class="cons-label">The tool call it emitted next</p>
       ${call ? callMarkup(call, side.canary, broke) : '<p class="cons-check">It made no tool call.</p>'}
       <p class="cons-verdict ${broke ? 'is-loss' : ''}" data-verdict>${verdict}</p>
-      <p class="note"><a href="./run/?run=${encodeURIComponent(outcome.run)}">Open this episode in the recorder</a></p>
+      <p class="note"><a href="${BASE}run/?run=${encodeURIComponent(outcome.run)}">Open this episode in the recorder</a></p>
     </article>`;
 }
 
 export function mountConsequence(root, ep, loadRun) {
   const cache = new Map();
-  const getRun = (id) => { if (!cache.has(id)) cache.set(id, loadRun('./', id)); return cache.get(id); };
+  const getRun = (id) => { if (!cache.has(id)) cache.set(id, loadRun(BASE, id)); return cache.get(id); };
   let token = 0, entered = false;
 
   async function draw(state) {

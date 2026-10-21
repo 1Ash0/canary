@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" data-base="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0E0D0B">
+  <meta name="description" content="The same recorded history compacted two ways, and the tool call each agent made next.">
+  <title>Compare · Canary</title>
+  <link rel="stylesheet" href="../src/site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site" data-header></header>
+
+  <main id="main">
+    <section class="section compare first" id="compare" aria-labelledby="compare-title" data-compare>
+      <div class="compare-head">
+        <h1 id="compare-title" data-split>Same history. Two ways to make room.</h1>
+        <p class="lede" data-compare-lede></p>
+      </div>
+      <div class="compare-stage">
+        <figure class="compare-panel" data-panel="0"></figure>
+        <figure class="compare-panel" data-panel="1"></figure>
+      </div>
+      <ol class="compare-notes" data-compare-notes aria-label="What happens, in order"></ol>
+    </section>
+
+    <section class="section consequence" id="consequence" aria-labelledby="cons-title">
+      <h2 id="cons-title">What the agent did next</h2>
+      <div data-consequence></div>
+    </section>
+
+    <section class="section next" aria-label="Next chapter"><div data-next></div></section>
+  </main>
+
+  <footer class="site" data-footer></footer>
+  <script type="module" src="../src/main-compare.js"></script>
+</body>
+</html>

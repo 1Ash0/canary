@@ -45,3 +45,9 @@ Dates of searches: October 2026. This landscape moves fast; re-check before any 
 - ConstraintRot supplies the *experimental skeleton* (floor / control / compaction conditions, deterministic tool-call grading, soft vs hard policies, budget sweep, compactor×agent crossing). We credit it prominently and replicate before extending.
 - Marmelab/Atlan supply the *epistemic stance* (measure, publish uncertainty, test both sides).
 - Everything else is reading material and a source of canary ideas, flagged by status above.
+
+
+## Added 2026-10-21 (site Method page)
+- **Liu et al., "Lost in the Middle: How Language Models Use Long Contexts", TACL 2024** (aclanthology 2024.tacl-1.9). Verified: the citation and the U-shaped position finding appear in the ACL Anthology record surfaced by a web search on 2026-10-21. Relevance: EXP-004 tests the compaction analogue (which depth a policy loses), not model attention.
+- **Anthropic, "Effective context engineering for AI agents"** (anthropic.com/engineering, 2025). Verified by search excerpt on 2026-10-21: names compaction, structured note-taking and multi-agent architectures, and tool-result clearing as a light-touch form of compaction. Relevance: `observation_mask` implements tool-result clearing.
+- **Hong, Troynikov, Huber, "Context Rot", Chroma technical report, July 2025** (trychroma.com/research/context-rot). Verified by search excerpt on 2026-10-21 (BibTeX on the page). Relevance: the cost compaction is meant to avoid.

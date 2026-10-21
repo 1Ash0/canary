@@ -6,7 +6,7 @@
 import { renderStrata, formatTokens, totalOf } from '../../design/scene/strata.js';
 import { buildSchedule, timeForStep, frameAt, bind, apply } from '../../design/scene/timeline.js';
 import { gsap, ScrollTrigger, MOTION } from './motion-kit.js';
-import { motion } from './data.js';
+import { motion, BASE } from './data.js';
 import { POLICY_NAME, CANARY } from './episode.js';
 
 const PIN = `(min-width: 1024px) and (min-height: 680px) and ${MOTION}`;
@@ -79,7 +79,7 @@ export function mountCompare(root, ep, loadRun) {
     </div>`);
   const list = root.querySelector('[data-compare-notes]');
   const cache = new Map();
-  const getRun = (id) => { if (!cache.has(id)) cache.set(id, loadRun('./', id)); return cache.get(id); };
+  const getRun = (id) => { if (!cache.has(id)) cache.set(id, loadRun(BASE, id)); return cache.get(id); };
 
   let panels = [], noteEls = [], lastNote = -1, progress = 1, token = 0, pinned = false;
 

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" data-base="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0E0D0B">
+  <meta name="description" content="Every preregistered experiment, with intervals, paired tests and one mark per seed that opens its recorded episode.">
+  <title>Results · Canary</title>
+  <link rel="stylesheet" href="../src/site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site" data-header></header>
+
+  <main id="main">
+    <section class="section first" id="result" aria-labelledby="result-title">
+      <h1 id="result-title" data-split>What the experiments found</h1>
+      <p class="exp-intro">Free models, seeded synthetic histories, the same seeds under every condition. Each rate is the share of episodes where the agent got it wrong, with its 95% interval. Control keeps the full context; treatment compacts it first. Each mark is one seed: hover to light it up in every row; click to open it.</p>
+      <div data-results></div>
+    </section>
+
+    <section class="section next" aria-label="Next chapter"><div data-next></div></section>
+  </main>
+
+  <footer class="site" data-footer></footer>
+  <script type="module" src="../src/main-results.js"></script>
+</body>
+</html>

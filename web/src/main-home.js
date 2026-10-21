@@ -1,7 +1,7 @@
-import { loadRun, loadExperiment, loadJson } from './data.js';
+import { loadRun } from './data.js';
 import { mountPlayer, playerMarkup } from './player.js';
-import { shell, fail } from './shell.js';
-import { splitHeading, riseOnEnter, gsap, ScrollTrigger, MOTION, REDUCE, springEase, ms } from './motion-kit.js';
+import { shell, fail, CHAPTERS, episodeQuery } from './shell.js';
+import { splitHeading, riseOnEnter, gsap, MOTION, REDUCE, springEase, ms } from './motion-kit.js';
 
 shell('./', 'home');
 const $ = (sel) => document.querySelector(sel);
@@ -40,71 +40,12 @@ try {
   splitHeading($('[data-split]'));
 }
 
-// Below the fold: each section's module and data load on demand (ADR-022 point 5), so the first
-// view ships only the hero.
-// One shared episode for the comparison, the consequence and the results (episode.js), built on
-// first use from EXP-002's file.
-let episodes = null;
-let labApi = null;
-const goTo = (sel) => document.querySelector(sel).scrollIntoView({ behavior: matchMedia(REDUCE).matches ? 'auto' : 'smooth' });
-const getEpisodes = () => (episodes ??= Promise.all([import('./episode.js'), loadExperiment('./', 'exp002')])
-  .then(([{ createEpisodes }, exp]) => createEpisodes(exp)));
-
-const sections = [
-  ['[data-lab]', async (el) => {
-    const [{ mountLab }, lab, summaries, exp, exp002] = await Promise.all([
-      import('./lab.js'), loadJson('./data/lab/constraint.json'), loadJson('./data/lab/summaries.json'),
-      loadExperiment('./', 'exp001'), loadExperiment('./', 'exp002').catch(() => null)]);
-    const floors = exp.models.filter((m) => m.usable).map((m) => m.floor);
-    // "Compare this history": the same seed and policy, as recorded for both models, below
-    const toCompare = exp002 ? async (seed, policy) => {
-      (await getEpisodes()).set({ canary: 'constraint', seed, a: `mistral.${policy}`, b: `nvidia.${policy}` });
-      goTo('#compare');
-    } : null;
-    labApi = mountLab(el, lab, summaries, { k: floors.reduce((a, f) => a + f.k, 0), n: floors.reduce((a, f) => a + f.n, 0) }, exp002, toCompare);
-  }],
-  ['[data-compare]', async (el) => {
-    const [{ mountCompare }, ep] = await Promise.all([import('./compare.js'), getEpisodes()]);
-    await mountCompare(el, ep, loadRun).ready;
-  }],
-  ['[data-consequence]', async (el) => {
-    const [{ mountConsequence }, ep] = await Promise.all([import('./consequence.js'), getEpisodes()]);
-    await mountConsequence(el, ep, loadRun);
-  }],
-  ['[data-results]', async (el) => {
-    // later experiments are optional: a missing file drops its tab, never the section
-    const soft = (id) => loadExperiment('./', id).catch(() => null);
-    const [{ mountResults }, exp001, exp001b, exp002] = await Promise.all([
-      import('./results.js'), loadExperiment('./', 'exp001'), soft('exp001b'), soft('exp002')]);
-    mountResults(el, { exp001, exp001b, exp002 }, exp002 ? await getEpisodes() : null);
-  }],
-  ['[data-survival-mini]', async (el) => {
-    const [{ mountSurvivalMini }, grid] = await Promise.all([import('./survival-mini.js'), loadJson('./data/survival/grid.json')]);
-    mountSurvivalMini(el, grid, 1, (policy, budget) => {
-      if (!labApi) return;
-      labApi.set({ policy, limit: budget, position: 1 });
-      goTo('#lab');
-    });
-  }],
-];
-// A section's code and data are fetched when it comes within half a screen of the viewport, not at
-// load, so the first view ships only the hero. <html data-mounted> counts mounted sections for QA.
-const root = document.documentElement;
-root.dataset.sections = String(sections.length);
-root.dataset.mounted = '0';
-const pending = new Map(sections.map(([sel, mount]) => [$(sel), mount]));
-const io = new IntersectionObserver((entries) => {
-  for (const entry of entries) {
-    if (!entry.isIntersecting || !pending.has(entry.target)) continue;
-    const mount = pending.get(entry.target);
-    pending.delete(entry.target);
-    io.unobserve(entry.target);
-    mount(entry.target).catch((e) => fail(entry.target, e)).finally(() => {
-      root.dataset.mounted = String(+root.dataset.mounted + 1);
-      ScrollTrigger.refresh();  // a mounted section changes the page height under every trigger
-    });
-  }
-}, { rootMargin: '50% 0px' });
-pending.forEach((_, el) => io.observe(el));
+// The chapters: each one a link carrying the current episode, with the line that says what it holds.
+document.querySelector('[data-chapters]').innerHTML = CHAPTERS.map((c, n) => `
+  <li data-rise><a class="chapter" href="./${c.href}${c.key === 'about' ? '' : episodeQuery()}">
+    <span class="chapter-n">${n + 1}</span>
+    <span class="chapter-title">${c.title}</span>
+    <span class="chapter-line">${c.line}</span>
+    <span class="chapter-go" aria-hidden="true">→</span></a></li>`).join('');
 riseOnEnter(document.querySelectorAll('[data-rise]'));
-root.dataset.ready = 'true';
+document.documentElement.dataset.ready = 'true';

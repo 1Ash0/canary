@@ -5,6 +5,7 @@
 import { assemble, compact, tokensOf } from '../../design/scene/policies.js';
 import { asciiTurns, asciiGauge, asciiSeam } from '../../design/scene/ascii.js';
 import { POLICY_NAME } from './episode.js';
+import { BASE } from './data.js';
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const nf = new Intl.NumberFormat('en-US');
@@ -30,7 +31,7 @@ function recordedLine(exp, policy, seed, position, limit) {
     const chan = (d.evidence ?? '').replace(/^channel=/, '').replace(/'/g, '');
     const what = d.grade === 'violated' ? `posted to <span class="mono is-loss">${esc(chan)}</span>, rule broken`
       : d.grade === 'respected' ? `posted to <span class="mono">${esc(chan)}</span>, rule followed` : 'made no post';
-    return `<li><span class="panel-host">${esc(b.host)}</span> ${what}. ${d.run ? `<a href="./run/?run=${encodeURIComponent(d.run)}">Open the episode</a>` : ''}</li>`;
+    return `<li><span class="panel-host">${esc(b.host)}</span> ${what}. ${d.run ? `<a href="${BASE}run/?run=${encodeURIComponent(d.run)}">Open the episode</a>` : ''}</li>`;
   }).filter(Boolean);
   if (!items.length) return '';
   return `<p class="lab-label"><span class="tag">recorded</span> This exact window, given to real models (${esc(exp.exp_id)})</p><ul class="lab-recorded">${items.join('')}</ul>`;
@@ -39,6 +40,9 @@ function recordedLine(exp, policy, seed, position, limit) {
 export function mountLab(root, lab, summaries, floor, exp002 = null, onCompare = null) {
   const state = { policy: 'recency_truncate', limit: 2400, position: 1, seed: 0, summarizer: 'nvidia' };
   const seeds = lab.seeds;
+  // a seed in the URL (from the comparison or a shared link) opens the Lab on that history
+  const asked = seeds.findIndex((h) => h.seed === Number(new URLSearchParams(location.search).get('seed')));
+  if (asked >= 0) state.seed = asked;
   root.innerHTML = `
     <div class="lab">
       <div class="lab-controls">
@@ -72,7 +76,7 @@ export function mountLab(root, lab, summaries, floor, exp002 = null, onCompare =
       </div>
     </div>`;
   const q = (s) => root.querySelector(s);
-  const lostStat = `without the rule in view, agents posted to the wrong channel in ${floor.k} of ${floor.n} recorded episodes`;
+  const lostStat = `when the rule was never given (the floor condition), agents posted to the wrong channel in ${floor.k} of ${floor.n} recorded episodes`;
 
   function render() {
     const h = seeds[state.seed];
@@ -167,7 +171,7 @@ export function mountLab(root, lab, summaries, floor, exp002 = null, onCompare =
     q('[data-real]').innerHTML = irreducible ? '' : recordedLine(exp002, state.policy, h.seed, state.position, state.limit);
     q('[data-tag]').textContent = summaryMode ? 'recorded' : 'simulated';
     q('[data-tag-note]').textContent = summaryMode
-      ? `EXP-001${summary?.exp === 'EXP-001b' ? 'b' : ''}, seed ${h.seed}. Real model output.`
+      ? `${summary?.exp ?? 'EXP-002'}, seed ${h.seed}. Real model output.`
       : 'Real policy code on a real seeded history, run in your browser. No model involved.';
   }
 

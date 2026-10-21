@@ -732,8 +732,15 @@
       ]
     }
   ],
+  "audit": {
+    "followed": 24,
+    "judged": 27,
+    "agree": 26,
+    "summaries": 27
+  },
   "source": [
     "results/EXP-001b/summary.json",
+    "results/EXP-001b/audit_tally.json",
     "docs/experiments/EXP-001b.md"
   ]
 }
