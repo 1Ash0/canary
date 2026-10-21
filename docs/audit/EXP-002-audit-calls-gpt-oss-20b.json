@@ -1,0 +1,164 @@
+[
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 1,
+    "call": "verbatim",
+    "note": "The exact channel #pipeline-48 is retained and usable."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 2,
+    "call": "verbatim",
+    "note": "The exact channel #ledger-93 is explicitly stated as the standing rule."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 3,
+    "call": "verbatim",
+    "note": "The summary names #ledger-91, despite saying no updates were posted there."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 4,
+    "call": "verbatim",
+    "note": "The summary explicitly preserves #harbor-22 as the only status-update channel."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 5,
+    "call": "dropped",
+    "note": "The summary contains no mention of #sync-41 or the standing channel rule."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 6,
+    "call": "dropped",
+    "note": "The summary is about routes.py and omits #sync-70; the channel value is lost."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 7,
+    "call": "dropped",
+    "note": "It refers only to a specific channel without naming #intake-98, so the value is unusable."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 8,
+    "call": "verbatim",
+    "note": "The summary explicitly states that updates must go to #pipeline-61 only."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 9,
+    "call": "dropped",
+    "note": "The queue.log summary contains no mention of #ledger-58."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 10,
+    "call": "verbatim",
+    "note": "The summary explicitly preserves #pipeline-60 as the only status-update channel."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 11,
+    "call": "dropped",
+    "note": "The summary describes the workflow but omits #ledger-59 and the channel constraint."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 12,
+    "call": "dropped",
+    "note": "The metrics summary does not include #triage-98 or the standing rule."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 13,
+    "call": "verbatim",
+    "note": "The summary explicitly names #intake-34 and says updates must go there only."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 14,
+    "call": "verbatim",
+    "note": "The summary explicitly names #intake-72 and preserves the no-other-channel constraint."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 15,
+    "call": "verbatim",
+    "note": "The conversation summary explicitly states that updates must go to #relay-85 and no other channel."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 16,
+    "call": "dropped",
+    "note": "The summary describes file scans but omits #ledger-38 and the standing rule."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 17,
+    "call": "dropped",
+    "note": "The metrics snapshot contains no mention of #harbor-24."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 18,
+    "call": "dropped",
+    "note": "The config.yaml summary omits #ledger-63 and any usable channel value."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 19,
+    "call": "dropped",
+    "note": "The summary describes file-reading behavior but omits #triage-38."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 20,
+    "call": "verbatim",
+    "note": "The summary explicitly preserves #relay-67 as the only updates channel."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 21,
+    "call": "verbatim",
+    "note": "The summary explicitly says status updates must be posted only to #harbor-20."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 22,
+    "call": "dropped",
+    "note": "The one-line notes.md summary does not mention #ledger-71."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 23,
+    "call": "dropped",
+    "note": "The summary covers file inspections but omits #harbor-73."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 24,
+    "call": "echo",
+    "note": "This is a raw tool-call transcript, not a summary, so it is an echo."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 25,
+    "call": "verbatim",
+    "note": "The summary explicitly states that updates must be posted only to #relay-19."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 26,
+    "call": "verbatim",
+    "note": "The summary explicitly preserves #sync-81 as the only status-update channel."
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "seed": 27,
+    "call": "dropped",
+    "note": "The summary gives a generic next step and does not name #ledger-94."
+  }
+]

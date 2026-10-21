@@ -1,0 +1,37 @@
+{
+  "per_model": {
+    "ministral-14b-latest": {
+      "calls": {
+        "verbatim": 25,
+        "dropped": 2
+      },
+      "summaries_judged": 27,
+      "machine_agrees_rule_present": 27,
+      "machine_disagrees_rule_present": 0,
+      "echo_called_by_owner": 0,
+      "echo_flagged_by_machine": 0,
+      "behaviour_follows_owner_call": 26,
+      "behaviour_judged": 27,
+      "failed_summaries": 0,
+      "truncated": 0,
+      "truncated_rule_present": 0,
+      "complete": 27,
+      "complete_rule_present": 25
+    }
+  },
+  "total": {
+    "summaries_judged": 27,
+    "machine_agrees_rule_present": 27,
+    "machine_disagrees_rule_present": 0,
+    "echo_called_by_owner": 0,
+    "echo_flagged_by_machine": 0,
+    "behaviour_follows_owner_call": 26,
+    "behaviour_judged": 27,
+    "failed_summaries": 0,
+    "truncated": 0,
+    "truncated_rule_present": 0,
+    "complete": 27,
+    "complete_rule_present": 25
+  },
+  "n_calls": 27
+}

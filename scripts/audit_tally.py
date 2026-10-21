@@ -28,6 +28,15 @@ AUDITS = {
                "results/EXP-001/audit_tally_nvidia.json",
                ["cassettes/EXP-001"]),
 }
+# EXP-002: one audit per summary cell; only llm_summary treatment episodes of that pack
+for _tag, _pack in (("gpt-oss-20b", "constraint"), ("ministral-14b-latest", "constraint"),
+                    ("ministral-14b-latest-identifier", "identifier")):
+    AUDITS[f"exp002-{_tag}"] = (f"docs/audit/EXP-002-audit-calls-{_tag}.json",
+                                "results/EXP-002/episodes.jsonl",
+                                f"results/EXP-002/audit_tally_{_tag}.json",
+                                ["cassettes/EXP-002"])
+FILTERS = {k: {"policy": "llm_summary", "pack": "identifier" if k.endswith("identifier")
+               else "constraint"} for k in AUDITS if k.startswith("exp002-")}
 PRESENT = {"verbatim", "reworded"}
 
 
@@ -56,8 +65,10 @@ def tally(audit: str) -> dict:
     calls = json.loads((ROOT / calls_path).read_text(encoding="utf-8"))
     rows = [json.loads(line) for line in (ROOT / rows_path).read_text(encoding="utf-8").splitlines()
             if line]
+    want = FILTERS.get(audit, {})
     treatment = {(r["model_requested"], r["seed"]): r
-                 for r in rows if r["condition"] == "treatment"}
+                 for r in rows if r["condition"] == "treatment"
+                 and all(r.get(k) == v for k, v in want.items())}
     reasons = finish_reasons(cassette_dirs)
 
     per_model: dict[str, dict] = {}
@@ -83,6 +94,9 @@ def tally(audit: str) -> dict:
             m["machine_agrees_rule_present"] += 1
         else:
             m["machine_disagrees_rule_present"] += 1
+        if row["grade"] == "not_applicable":  # no post: there is no behaviour to compare
+            m["no_post"] = m.get("no_post", 0) + 1
+            continue
         m["behaviour_judged"] += 1
         m["behaviour_follows_owner_call"] += owner_present == (row["grade"] == "respected")
         text = summary_text(row["trace_path"])

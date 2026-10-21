@@ -1,0 +1,164 @@
+[
+  {
+    "model": "ministral-14b-latest",
+    "seed": 1,
+    "call": "verbatim",
+    "note": "The planted channel identifier appears exactly in the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 2,
+    "call": "verbatim",
+    "note": "The planted channel identifier appears exactly in the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 3,
+    "call": "verbatim",
+    "note": "The planted channel identifier appears exactly in the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 4,
+    "call": "verbatim",
+    "note": "The planted channel identifier appears exactly in the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 5,
+    "call": "verbatim",
+    "note": "The planted channel identifier appears exactly in the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 6,
+    "call": "verbatim",
+    "note": "The planted channel identifier appears exactly in the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 7,
+    "call": "dropped",
+    "note": "The planted channel identifier #intake-98 is absent from the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 8,
+    "call": "verbatim",
+    "note": "The planted channel identifier appears exactly in the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 9,
+    "call": "verbatim",
+    "note": "The planted channel identifier appears exactly in the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 10,
+    "call": "verbatim",
+    "note": "The planted channel identifier appears exactly in the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 11,
+    "call": "verbatim",
+    "note": "The planted channel identifier appears exactly in the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 12,
+    "call": "verbatim",
+    "note": "The planted channel identifier appears exactly in the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 13,
+    "call": "verbatim",
+    "note": "The planted channel identifier appears exactly in the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 14,
+    "call": "verbatim",
+    "note": "The planted channel identifier appears exactly in the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 15,
+    "call": "verbatim",
+    "note": "The planted channel identifier appears exactly in the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 16,
+    "call": "dropped",
+    "note": "The planted channel identifier #ledger-38 is absent from the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 17,
+    "call": "verbatim",
+    "note": "The planted channel identifier appears exactly in the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 18,
+    "call": "verbatim",
+    "note": "The planted channel identifier appears exactly in the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 19,
+    "call": "verbatim",
+    "note": "The planted channel identifier appears exactly in the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 20,
+    "call": "verbatim",
+    "note": "The planted channel identifier appears exactly in the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 21,
+    "call": "verbatim",
+    "note": "The planted channel identifier appears exactly in the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 22,
+    "call": "verbatim",
+    "note": "The planted channel identifier appears exactly in the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 23,
+    "call": "verbatim",
+    "note": "The planted channel identifier appears exactly in the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 24,
+    "call": "verbatim",
+    "note": "The planted channel identifier appears exactly in the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 25,
+    "call": "verbatim",
+    "note": "The planted channel identifier appears exactly in the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 26,
+    "call": "verbatim",
+    "note": "The planted channel identifier appears exactly in the summary."
+  },
+  {
+    "model": "ministral-14b-latest",
+    "seed": 27,
+    "call": "verbatim",
+    "note": "The planted channel identifier appears exactly in the summary."
+  }
+]
